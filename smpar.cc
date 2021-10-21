@@ -80,8 +80,10 @@ double smpar::CTIm(){return C_TIm;}
 double smpar::CT5Re(){return C_T5Re;}
 double smpar::CT5Im(){return C_T5Im;}
 //
-double smpar::tpd(){return pow(m_Bd+m_Kst,2.0);}
-double smpar::tps(){return pow(m_Bs+m_Kst,2.0);}
-double smpar::tmd(){return pow(m_Bd-m_Kst,2.0);}
-double smpar::tms(){return pow(m_Bs-m_Kst,2.0);}
+/*double smpar::tpd(){return pow(m_Bd+m_Kst,2.0);}
+ double smpar::tps(){return pow(m_Bs+m_Kst,2.0);}
+ double smpar::tmd(){return pow(m_Bd-m_Kst,2.0);}
+ double smpar::tms(){return pow(m_Bs-m_Kst,2.0);}
+ double smpar::tzd(){return tpd()*(1.0-sqrt(1.0-tmd()/tpd()));}
+ double smpar::tzs(){return tps()*(1.0-sqrt(1.0-tms()/tps()));}*/
 

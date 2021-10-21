@@ -6,7 +6,13 @@
 using namespace std;
 
 //Bs->phill
-ffpar::ffpar(){m_PSbs=5.366,m_Vbs=5.415,m_Abs=5.829;
+ffpar::ffpar(){
+    tpd=pow(mBd()+mKst(),2.0);tps=pow(mBs()+mKst(),2.0);
+    tmd=pow(mBd()-mKst(),2.0);tms=pow(mBs()-mKst(),2.0);
+    tzd=tpd*(1.0-sqrt(1.0-tmd/tpd));
+    tzs=tps*(1.0-sqrt(1.0-tms/tps));
+    
+    m_PSbs=5.366,m_Vbs=5.415,m_Abs=5.829;
     
     V_a0=0.376313,V_a1=-1.16597,V_a2=2.42443,
     A0_a0=0.369196,A0_a1=-1.36584,A0_a2=0.128191,
@@ -17,10 +23,10 @@ ffpar::ffpar(){m_PSbs=5.366,m_Vbs=5.415,m_Abs=5.829;
     T23_a0=0.667412,T23_a1=1.31812,T23_a2=3.82334;}
 
 double ffpar::zd(double qsq){
-    return (sqrt(tpd-qsq)-sqrt(tpd-tzd))/(sqrt(tpd-qsq +sqrt(tpd-tzd));}
+    return (sqrt(tpd-qsq)-sqrt(tpd-tzd))/(sqrt(tpd-qsq) +sqrt(tpd-tzd));}
 double ffpar::zs(double qsq){
-    return (sqrt(tps-qsq)-sqrt(tps-tzs))/(sqrt(tps-qsq +sqrt(tps-tzs));}
-                                          
+    return (sqrt(tps-qsq)-sqrt(tps-tzs))/(sqrt(tps-qsq) +sqrt(tps-tzs));}
+
 double ffpar::mPSbs(){return m_PSbs;}
 double ffpar::mVbs(){return m_Vbs;}
 double ffpar::mAbs(){return m_Abs;}

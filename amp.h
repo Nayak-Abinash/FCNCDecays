@@ -42,5 +42,4 @@ public:
     double ASIm(double qsq, double ml);
 };
 
-
 #endif
