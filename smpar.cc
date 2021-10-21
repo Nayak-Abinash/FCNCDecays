@@ -5,6 +5,7 @@
 using namespace std;
 
 smpar::smpar(){pi=M_PI;
+    scale_mu=4.8;
     m_d=0.00467,m_c=1.27,m_s=0.093,m_b=4.18;
     m_e=0.511*pow(10.0,-3.0),m_mu=105.658*pow(10.0,-3.0),m_tau=1.77686;
     
@@ -14,11 +15,12 @@ smpar::smpar(){pi=M_PI;
     
     abs_VtbVtdStr=0.00853871,abs_VtbVtsStr=0.0408726,G_F=1.16637*pow(10.0,-5.0),alphae=1.0/127.944;
     
-    C_1=-0.257,C_2=1.009,C_3=-0.005,C_4=-0.078,C_5=0.000,C_6=0.001,C_7effRe=-0.304,C_8eff=-0.167,C_9Re=4.211,C_9Im=0.0,C_10Re=-4.103,C_10Im=0.0;
+    C_1=-0.257,C_2=1.009,C_3=-0.005,C_4=-0.078,C_5=0.000,C_6=0.001,C_7effRe=-0.304,C_7effIm=0.0,C_8eff=-0.167,C_9Re=4.211,C_9Im=0.0,C_10Re=-4.103,C_10Im=0.0;
     
     C_7RHRe=0.0,C_7RHIm=0.0,C_9RHRe=0.0,C_9RHIm=0.0,C_10RHRe=0.0,C_10RHIm=0.0,C_SRe=0.0,C_SIm=0.0,C_SRHRe=0.0,C_SRHIm=0.0,C_PRe=0.0,C_PIm=0.0,C_PRHRe=0.0,C_PRHIm=0.0,C_TRe=0.0,C_TIm=0.0,C_T5Re=0.0,C_T5Im=0.0;
 }
 //Quark_Mass
+double smpar::mu(){return scale_mu;}
 double smpar::md(){return m_d;}
 double smpar::mc(){return m_c;}
 double smpar::ms(){return m_s;}
@@ -52,6 +54,7 @@ double smpar::C4(){return C_4;}
 double smpar::C5(){return C_5;}
 double smpar::C6(){return C_6;}
 double smpar::C7effRe(){return C_7effRe;}
+double smpar::C7effIm(){return C_7effIm;}
 double smpar::C8eff(){return C_8eff;}
 double smpar::C9Re(){return C_9Re;}
 double smpar::C9Im(){return C_9Im;}
@@ -76,4 +79,9 @@ double smpar::CTRe(){return C_TRe;}
 double smpar::CTIm(){return C_TIm;}
 double smpar::CT5Re(){return C_T5Re;}
 double smpar::CT5Im(){return C_T5Im;}
+//
+double smpar::tpd(){return pow(m_Bd+m_Kst,2.0);}
+double smpar::tps(){return pow(m_Bs+m_Kst,2.0);}
+double smpar::tmd(){return pow(m_Bd-m_Kst,2.0);}
+double smpar::tms(){return pow(m_Bs-m_Kst,2.0);}
 
