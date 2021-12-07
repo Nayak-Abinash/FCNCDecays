@@ -60,13 +60,21 @@ int main(){
 ////Histogram/////////////////////
     double minv = *min_element(data,data+iter);
     double maxv = *max_element(data,data+iter);
-    double nbin = 50;
+    double nbin = 20;
     double init_val = minv;
     for (int i=0; i<nbin; ++i)
         {
             int npnt = mylength(data,iter,minv+(i)*(maxv-minv)/nbin,minv+(i+1)*(maxv-minv)/nbin);
-    cout << "-" << "bin-" << i << ": ";
-    cout << string(npnt/(iter/50),'*') << "\t \t" << npnt <<endl;
+            if(i<10)
+                {
+                    cout << "-" << "bin-0" << i << ": ";
+                    cout << string(npnt/(iter/100),'*') << "\t \t" << npnt <<endl;
+                }
+            else
+                {
+                    cout << "-" << "bin-" << i << ": ";
+                    cout << string(npnt/(iter/100),'*') << "\t \t" << npnt <<endl;
+                }
         }
 
     cout << "(" << maxv << "," << minv << ")" << endl;
