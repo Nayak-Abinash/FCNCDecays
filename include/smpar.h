@@ -3,7 +3,11 @@
 
 #include <iostream>
 #include <cmath>
+#include <random>
+#include <chrono>
+#include <algorithm>
 #include <string>
+#include <iostream>
 using namespace std;
 
 class smpar {
@@ -18,7 +22,7 @@ public:
     double absVtbVtdStr(),absVtbVtsStr(),GF(),alpha_e();
     double C1(),C2(),C3(),C4(),C5(),C6(),C7effRe(),C7effIm(),C8eff(),C9Re(),C9Im(),C10Re(),C10Im();
     double C7RHRe(),C7RHIm(),C9RHRe(),C9RHIm(),C10RHRe(),C10RHIm(),CSRe(),CSIm(),CSRHRe(),CSRHIm(),CPRe(),CPIm(),CPRHRe(),CPRHIm(),CTRe(),CTIm(),CT5Re(),CT5Im();
-    
+
 private:
     double scale_mu;
     double m_d,m_c,m_s,m_b;
