@@ -3,14 +3,7 @@
 
 #include "smpar.h"
 #include "myfun.h"
-#include <iostream>
-#include <cmath>
-#include <random>
-#include <chrono>
-#include <algorithm>
-#include <string>
-#include <iostream>
-using namespace std;
+
 
 //Bd->Kstr,ll
 class BdtoKstrll_fferrpar : public smpar, public myfun {
@@ -21,6 +14,12 @@ public:
     double mPSbs(),mVbs(),mAbs();
     double Va0(),Va1(),Va2(),A0a0(),A0a1(),A0a2(),A1a0(),A1a1(),A1a2(),A12a0(),A12a1(),A12a2(),T1a0(),T1a1(),T1a2(),T2a0(),T2a1(),
     T2a2(),T23a0(),T23a1(),T23a2();
+    static double cov_V[mxdm][mxdm]; static double cov_A0[mxdm][mxdm]; static double cov_A1[mxdm][mxdm]; static double cov_A12[mxdm][mxdm];
+    static double cov_T1[mxdm][mxdm]; static double cov_T2[mxdm][mxdm]; static double cov_T23[mxdm][mxdm];
+    static double cen_FF[MXdm]; static double unc_FF[MXdm]; static double chd_cov[MXdm][MXdm];
+
+
+
 private:
     double m_PSbs,m_Vbs,m_Abs;
     double  V_a0,V_a1,V_a2,A0_a0,A0_a1,A0_a2,A1_a0,A1_a1,A1_a2,A12_a0,A12_a1,A12_a2,T1_a0,T1_a1,T1_a2,T2_a0,T2_a1,
@@ -38,6 +37,8 @@ public:
     double mPSbs(),mVbs(),mAbs();
     double Va0(),Va1(),Va2(),A0a0(),A0a1(),A0a2(),A1a0(),A1a1(),A1a2(),A12a0(),A12a1(),A12a2(),T1a0(),T1a1(),T1a2(),T2a0(),T2a1(),
     T2a2(),T23a0(),T23a1(),T23a2();
+    //double covm[max_dim][max_dim];
+
 private:
     double m_PSbs,m_Vbs,m_Abs;
     double  V_a0,V_a1,V_a2,A0_a0,A0_a1,A0_a2,A1_a0,A1_a1,A1_a2,A12_a0,A12_a1,A12_a2,T1_a0,T1_a1,T1_a2,T2_a0,T2_a1,
@@ -58,6 +59,7 @@ public:
     //Lattice
     double lat_mVbs(),lat_mSbs();
     double b0p(),b1p(),b2p(),b0z(),b1z(),b2z(),b0t(),b1t(),b2t();
+    //double covm[max_dim][max_dim];
 private:
     //LCSR
     double lcsr_m_Vbs,lcsr_m_Sbs;

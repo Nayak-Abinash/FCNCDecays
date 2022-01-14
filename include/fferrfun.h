@@ -4,19 +4,12 @@
 #include "smpar.h"
 #include "myfun.h"
 #include "fferrpar.h"
-#include <iostream>
-#include <cmath>
-#include <random>
-#include <chrono>
-#include <algorithm>
-#include <string>
-#include <iostream>
-using namespace std;
 
 //Bd->Kstr,ll
 class BdtoKstrll_fferrfun : public BdtoKstrll_fferrpar {
 public:
     double V(double qsq),A0(double qsq),A1(double qsq),A12(double qsq),T1(double qsq),T2(double qsq),T23(double qsq);
+    double ErV(double qsq),ErA0(double qsq),ErA1(double qsq),ErA12(double qsq),ErT1(double qsq),ErT2(double qsq),ErT23(double qsq);
 };
 
 //Bs->phi,ll

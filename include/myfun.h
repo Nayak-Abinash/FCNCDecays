@@ -7,17 +7,17 @@
 #include <chrono>
 #include <algorithm>
 #include <string>
-#include <iostream>
+#include <bits/stdc++.h>
+#define mxdm 5
+#define MXdm 21
 using namespace std;
 
 class myfun {
 public:
-    myfun();
-    double mnd(double mu, double sigma);
     int mylength(double lst[], int iter, double a, double b);
-    const int max_dim; //maximum allowed matrix dimension
-    double Cholesky_Decomposition(double matrix[][max_dim], int n, int i);
-
+    double mtrx_tp(double lpar[], double covm[][mxdm]);
+    double mnd(double mu, double sigma);
+    double mnd_cov(double mu[], double cholesky[][MXdm], int i);
     };
 
 

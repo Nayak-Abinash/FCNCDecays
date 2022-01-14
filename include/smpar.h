@@ -7,7 +7,9 @@
 #include <chrono>
 #include <algorithm>
 #include <string>
-#include <iostream>
+#include <bits/stdc++.h>
+#define mxdm 5
+#define MXdm 21
 using namespace std;
 
 class smpar {
