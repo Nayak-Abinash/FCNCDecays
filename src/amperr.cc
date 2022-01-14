@@ -4,14 +4,7 @@
 #include "fferrfun.h"
 #include "amperr.h"
 
-#include <iostream>
-#include <cmath>
-#include <random>
-#include <chrono>
-#include <algorithm>
-#include <string>
-#include <iostream>
-using namespace std;
+
 
 //Bd->Kstr,ll:
 double BdtoKstrll_amperr::hRe(double qsq, double mq){

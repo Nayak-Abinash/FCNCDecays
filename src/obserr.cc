@@ -5,14 +5,6 @@
 #include "amperr.h"
 #include "obserr.h"
 
-#include <iostream>
-#include <cmath>
-#include <random>
-#include <chrono>
-#include <algorithm>
-#include <string>
-#include <iostream>
-using namespace std;
 
 //Bd->Kstr,ll:
 double BdtoKstrll_obserr::J1s(double qsq, double ml){
