@@ -21,11 +21,6 @@ int main(){
     BdtoKstrll_obs o1;
     BdtoKstrll_obserr eo1;
 
-    TCanvas *c1= new TCanvas("c1", "c1", 800,600);
-    
-    TH1D *hist = new TH1D("hist", "hist", 100,0., 19.);
-    hist->Fill(1.);
-    
     double qsq;
     cout << "Type a value for qsq:";
     cin >> qsq;
@@ -38,16 +33,22 @@ int main(){
     int iter=10000;
     int sdcl = int(iter*15.9/100);
     double data[iter];
+
+    TCanvas *c1= new TCanvas("c1", "c1", 800,600);
+
+    TH1D *hist = new TH1D("hist", "hist", 100,0.2, 0.8);
+
     for(int i=0; i<iter; i++)
         {
             data[i]= eo1.V(qsq);
+            hist->Fill(data[i]);
         }
     sort(data,data+iter);
     cout << "Observable at this qsq: " << cval << "(+" << data[iter-sdcl-1]- cval << ",-" << cval-data[sdcl] << ")" << endl;
 
     hist->Draw();
     c1->SaveAs("Example.pdf");
-    
+
     return 0;
 }
 
