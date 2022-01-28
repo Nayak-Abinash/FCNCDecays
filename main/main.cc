@@ -9,11 +9,23 @@
 #include "obs.h"
 #include "obserr.h"
 
+#include "TH1D.h"
+#include "TCanvas.h"
+#include "TGraph.h"
+#include "TMultiGraph.h"
+#include "TLegend.h"
+
+
 
 int main(){
     BdtoKstrll_obs o1;
     BdtoKstrll_obserr eo1;
 
+    TCanvas *c1= new TCanvas("c1", "c1", 800,600);
+    
+    TH1D *hist = new TH1D("hist", "hist", 100,0., 19.);
+    hist->Fill(1.);
+    
     double qsq;
     cout << "Type a value for qsq:";
     cin >> qsq;
@@ -33,6 +45,9 @@ int main(){
     sort(data,data+iter);
     cout << "Observable at this qsq: " << cval << "(+" << data[iter-sdcl-1]- cval << ",-" << cval-data[sdcl] << ")" << endl;
 
+    hist->Draw();
+    c1->SaveAs("Example.pdf");
+    
     return 0;
 }
 
