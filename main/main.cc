@@ -47,7 +47,7 @@ int main(){
     cout << "Observable at this qsq: " << cval << "(+" << data[iter-sdcl-1]- cval << ",-" << cval-data[sdcl] << ")" << endl;
 
     hist->Draw();
-    c1->SaveAs("Example.pdf");
+    c1->SaveAs("obsplot.pdf");
 
     return 0;
 }
