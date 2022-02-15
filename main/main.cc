@@ -9,15 +9,7 @@
 #include "amperr.h"
 #include "obs.h"
 #include "obserr.h"
-//ROOTFiles
-#include "TH1D.h"
-#include "TCanvas.h"
-#include "TGraph.h"
-#include "TMultiGraph.h"
-#include "TLegend.h"
-#include "TF1.h"
-#include "TLine.h"
-#include "TH1.h"
+#include "obserrDF.h"
 
 int main()
 {
@@ -26,38 +18,33 @@ int main()
     cout << "Type a value for qsq:";
     getline(cin,str);
     stringstream(str) >> qsq;
-    //double cval = o1.AFB(qsq,o1.mmu());
-    double cval = o1.V(qsq);
-    double sdval = o1.ErV(qsq);
-    cout << "(" << cval << "," << sdval << ")" << endl;
+    double cval = o1.AFB(qsq,o1.mmu());
+    cout << "(" << cval << "," << /*sdval <<*/ ")" << endl;
 ///////////Error///////////////
 ////68.2%ConfidenceLevel (point counting from boundary values)////////////////
     double lw_range(-2.0), up_range(2.0);
-    //TCanvas *c1= new TCanvas("c1", "c1", 800,600);//root
     TCanvas *c1 = new TCanvas();
-    TH1D *hist = new TH1D("hist", "", 100, lw_range, up_range);//root
+    TH1D *hist = new TH1D("hist", "", 100, lw_range, up_range);
 
     int iter=10000;
     int sdcl = int(iter*15.9/100);
     double data[iter];
-
     for(int i=0; i<iter; i++)
         {
-            //data[i]= eo1.AFB(qsq,o1.mmu());
-            data[i] = eo1.V(qsq);
-            hist->Fill(data[i]);//root
+            data[i]= eo1.AFB(qsq,o1.mmu());
+            hist->Fill(data[i]);
         }
     sort(data,data+iter);
     double llim(data[sdcl]);
     double ulim(data[iter-sdcl-1]);
     cout << "Observable at this qsq: " << cval << "(+" << ulim- cval << ",-" << cval-llim << ")" << endl;
 
-    hist->GetXaxis()->SetTitle("MCDistribution");//root
-    hist->GetYaxis()->SetTitle("Entries/bin");//root
-    TF1 *fit = new TF1("fit","gaus", lw_range, up_range);//root
+    hist->GetXaxis()->SetTitle("MCDistribution");
+    hist->GetYaxis()->SetTitle("Entries/bin");
+    TF1 *fit = new TF1("fit","gaus", lw_range, up_range);
     //hist->SetStats(0);
     hist->Draw();
-    hist->Fit("gaus","R");
+    hist->Fit("fit","R");
 
     TLine *ln1 = new TLine(llim,0,llim,300);
     TLine *ln2 = new TLine(ulim,0,ulim,300);
@@ -69,7 +56,6 @@ int main()
     leg->AddEntry(hist, "MC Simulate Data", "l");
     leg->AddEntry(fit, "Gaussian Fit", "l");
     leg->Draw();
-
     c1->SaveAs("obsplot.pdf");
 
     return 0;

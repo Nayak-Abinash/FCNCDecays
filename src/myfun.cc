@@ -20,20 +20,24 @@ double myfun::mtrx_tp(double lpar[], double covm[][mxdm]){
 double myfun::mnd(double mu, double sigma){
     unsigned seed = chrono::system_clock::now().time_since_epoch().count();
     default_random_engine generator (seed);
-    normal_distribution<double> distribution (mu,sigma);
+    normal_distribution<double> distribution(mu,sigma);
     return distribution(generator);}
+
+double myfun::mnd_default(){
+    //TRandom1* rndm = new TRandom1();
+    //TRandom2* rndm = new TRandom2();
+    TRandom3* rndm = new TRandom3();
+    unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+    rndm->SetSeed(seed);
+    return rndm->Gaus(0.0,1.0);}
 
 double myfun::mnd_cov(double muv[], double cholesky[][MXdm], int i){
     double sum = 0;
-    double unitnormv[] = {mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0),
-                            mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0),
-                            mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0)};
     for (int j=0; j<19; j++)
         {
-            sum = sum + cholesky[i][j]*unitnormv[j];
+            sum = sum + cholesky[i][j]*mnd_default();
         }
     return muv[i] + sum;}
-
 
 
 

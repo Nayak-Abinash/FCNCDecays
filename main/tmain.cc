@@ -10,37 +10,51 @@
 #include "obs.h"
 #include "obserr.h"
 #include "obserrDF.h"
-//ROOTFiles
-#include "TH1D.h"
-#include "TCanvas.h"
-#include "TGraph.h"
-#include "TMultiGraph.h"
-#include "TLegend.h"
-#include "TF1.h"
-#include "TLine.h"
-#include "TH1.h"
+
 
 int main()
 {
-    //Btoll_obs o1;
-    BdtoKll_obs o2; BdtoKll_obserrDF eo2;
-    double qsq;
-    string str;
-    cout << "Type a value for qsq:";
-    getline(cin,str);
-    stringstream(str) >> qsq;
+    double cval = 0.0;
+    double sdval = 1.0;
+    cout << "(" << cval << "," << sdval << ")" << endl;
+///////////Error///////////////
+////68.2%ConfidenceLevel (point counting from boundary values)////////////////
+    double lw_range(-3.0), up_range(3.0);
+    TCanvas *c1 = new TCanvas();
+    TH1D *hist = new TH1D("hist", "", 100, lw_range, up_range);
 
-    //cout << o1.BrTimeIntgratd(o1.mBs(),o1.ms(),o1.mmu(),o1.mmu()) << endl;
-    //cout << o1.efftau(o1.mBs(),o1.ms(),o1.mmu(),o1.mmu()) << endl;
-    //cout << o1.ADeltaGammaf(o1.mBs(),o1.ms(),o1.mmu(),o1.mmu()) << endl;
-    cout << o2.diffBrnch(qsq,o2.mmu()) << endl;
-    cout << o2.diffAFB(qsq,o2.mmu()) << endl;
-    cout << o2.diffFH(qsq,o2.mmu()) << endl;
-    cout << o2.fz(qsq) << ", " << o2.Erfz(qsq) << endl;
-    cout << o2.fT(qsq) << ", " << o2.ErfT(qsq) << endl;
-    cout << o2.fp(qsq) << ", " << o2.Erfp(qsq) << endl;
-    cout << o2.alNP(qsq,o2.mmu()) << ", " << o2.blNP(qsq,o2.mmu()) << ", " << o2.clNP(qsq,o2.mmu()) << endl;
-    cout << eo2.Er_diffWidth(qsq,o2.mmu()) << endl;
+    int iter=100000;
+    int sdcl = int(iter*15.9/100);
+    double data[iter];
+    myfun fun;
+    for(int i=0; i<iter; i++)
+        {
+            data[i] = fun.mnd_default();
+            hist->Fill(data[i]);
+        }
+    sort(data,data+iter);
+    double llim(data[sdcl]);
+    double ulim(data[iter-sdcl-1]);
+    cout << "Observable at this qsq: " << cval << "(+" << ulim- cval << ",-" << cval-llim << ")" << endl;
+
+    hist->GetXaxis()->SetTitle("MCDistribution");
+    hist->GetYaxis()->SetTitle("Entries/bin");
+    TF1 *fit = new TF1("fit","gaus", lw_range, up_range);
+    hist->Draw();
+    hist->Fit("fit","R");
+
+    TLine *ln1 = new TLine(llim,0,llim,300);
+    TLine *ln2 = new TLine(ulim,0,ulim,300);
+    ln1->SetLineColor(kBlue); ln1->Draw();
+    ln2->SetLineColor(kBlue); ln2->Draw();
+
+    TLegend *leg = new TLegend(0.1,0.7,0.3,0.95);
+    //leg->SetHeader("Plot Legends", "C");
+    leg->AddEntry(hist, "MC Simulate Data", "l");
+    leg->AddEntry(fit, "Gaussian Fit", "l");
+    leg->Draw();
+
+    c1->SaveAs("obsplot.pdf");
     return 0;
 }
 
