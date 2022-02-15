@@ -1,13 +1,10 @@
 #ifndef amp_h
 #define amp_h
 
+#include "myfun.h"
 #include "smpar.h"
 #include "ffpar.h"
 #include "fffun.h"
-#include <iostream>
-#include <cmath>
-#include <string>
-using namespace std;
 
 //Bd->Kstr,ll
 class BdtoKstrll_amp : public BdtoKstrll_fffun {
@@ -23,7 +20,7 @@ public:
     double betal(double qsq, double ml);
     double lambda(double qsq);
     double nf(double qsq, double ml);
-    
+
     double ApLRe(double qsq, double ml);
     double ApLIm(double qsq, double ml);
     double ApRRe(double qsq, double ml);
@@ -41,6 +38,8 @@ public:
     double ASRe(double qsq, double ml);
     double ASIm(double qsq, double ml);
 };
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Bs->phi,ll
 class Bstophill_amp : public Bstophill_fffun {
@@ -56,7 +55,7 @@ public:
     double betal(double qsq, double ml);
     double lambda(double qsq);
     double nf(double qsq, double ml);
-    
+
     double ApLRe(double qsq, double ml);
     double ApLIm(double qsq, double ml);
     double ApRRe(double qsq, double ml);
@@ -74,6 +73,8 @@ public:
     double ASRe(double qsq, double ml);
     double ASIm(double qsq, double ml);
 };
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Bd->K,ll
 class BdtoKll_amp : public BdtoKll_fffun {
@@ -86,11 +87,11 @@ public:
     double YIm(double qsq);
     double C9effRe(double qsq);
     double C9effIm(double qsq);
-    
+
     double betal(double qsq, double ml);
     double lambda(double qsq);
     double nf(double qsq, double ml);
-    
+
     double xiP(double qsq);
     double TauPRe(double qsq);
     double TauPIm(double qsq);
@@ -107,6 +108,8 @@ public:
     double FT5Re(double qsq, double ml);
     double FT5Im(double qsq, double ml);
 };
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //B->ll
 class Btoll_amp : public smpar {

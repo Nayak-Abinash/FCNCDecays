@@ -1,8 +1,8 @@
 #ifndef fferrpar_h
 #define fferrpar_h
 
-#include "smpar.h"
 #include "myfun.h"
+#include "smpar.h"
 
 
 //Bd->Kstr,ll
@@ -14,12 +14,7 @@ public:
     double mPSbs(),mVbs(),mAbs();
     double Va0(),Va1(),Va2(),A0a0(),A0a1(),A0a2(),A1a0(),A1a1(),A1a2(),A12a0(),A12a1(),A12a2(),T1a0(),T1a1(),T1a2(),T2a0(),T2a1(),
     T2a2(),T23a0(),T23a1(),T23a2();
-    static double cov_V[mxdm][mxdm]; static double cov_A0[mxdm][mxdm]; static double cov_A1[mxdm][mxdm]; static double cov_A12[mxdm][mxdm];
-    static double cov_T1[mxdm][mxdm]; static double cov_T2[mxdm][mxdm]; static double cov_T23[mxdm][mxdm];
     static double cen_FF[MXdm]; static double unc_FF[MXdm]; static double chd_cov[MXdm][MXdm];
-
-
-
 private:
     double m_PSbs,m_Vbs,m_Abs;
     double  V_a0,V_a1,V_a2,A0_a0,A0_a1,A0_a2,A1_a0,A1_a1,A1_a2,A12_a0,A12_a1,A12_a2,T1_a0,T1_a1,T1_a2,T2_a0,T2_a1,
@@ -37,8 +32,7 @@ public:
     double mPSbs(),mVbs(),mAbs();
     double Va0(),Va1(),Va2(),A0a0(),A0a1(),A0a2(),A1a0(),A1a1(),A1a2(),A12a0(),A12a1(),A12a2(),T1a0(),T1a1(),T1a2(),T2a0(),T2a1(),
     T2a2(),T23a0(),T23a1(),T23a2();
-    //double covm[max_dim][max_dim];
-
+    static double cen_FF[MXdm]; static double unc_FF[MXdm]; static double chd_cov[MXdm][MXdm];
 private:
     double m_PSbs,m_Vbs,m_Abs;
     double  V_a0,V_a1,V_a2,A0_a0,A0_a1,A0_a2,A1_a0,A1_a1,A1_a2,A12_a0,A12_a1,A12_a2,T1_a0,T1_a1,T1_a2,T2_a0,T2_a1,
@@ -53,22 +47,15 @@ public:
     BdtoKll_fferrpar();
     double tp,tm,tz;
     double z(double qsq);
-    //LCSR
-    double lcsr_mVbs(),lcsr_mSbs();
-    double cfp0(),cfp1(),cfp2(),cfz0(),cfz1(),cfz2(),cft0(),cft1(),cft2();
-    //Lattice
-    double lat_mVbs(),lat_mSbs();
-    double b0p(),b1p(),b2p(),b0z(),b1z(),b2z(),b0t(),b1t(),b2t();
-    //double covm[max_dim][max_dim];
+    //LCSR+Lattice
+    double mVbs(),mSbs();
+    double fza1(),fza2(),fTa0(),fTa1(),fTa2(),fpa0(),fpa1(),fpa2();
+    static double cen_FF[MXdm]; static double unc_FF[MXdm]; static double chd_cov[MXdm][MXdm];
 private:
-    //LCSR
-    double lcsr_m_Vbs,lcsr_m_Sbs;
-    double c_fp0,c_fp1,c_fp2,c_fz0,c_fz1,c_fz2,c_ft0,c_ft1,c_ft2;
-    double ec_fp0,ec_fp1,ec_fp2,ec_fz0,ec_fz1,ec_fz2,ec_ft0,ec_ft1,ec_ft2;
-    //Lattice
-    double lat_m_Vbs,lat_m_Sbs;
-    double b0_p,b1_p,b2_p,b0_z,b1_z,b2_z,b0_t,b1_t,b2_t;
-    double eb0_p,eb1_p,eb2_p,eb0_z,eb1_z,eb2_z,eb0_t,eb1_t,eb2_t;
+    //LCSR+Lattice
+    double m_Vbs,m_Sbs;
+    double fz_a1,fz_a2,fT_a0,fT_a1,fT_a2,fp_a0,fp_a1,fp_a2;
+    double efz_a1,efz_a2,efT_a0,efT_a1,efT_a2,efp_a0,efp_a1,efp_a2;
 };
 
 #endif

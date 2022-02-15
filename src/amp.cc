@@ -1,10 +1,8 @@
+#include "myfun.h"
 #include "smpar.h"
 #include "ffpar.h"
 #include "fffun.h"
 #include "amp.h"
-#include <iostream>
-#include <cmath>
-using namespace std;
 
 //Bd->Kstr,ll:
 double BdtoKstrll_amp::hRe(double qsq, double mq){
@@ -81,6 +79,8 @@ double BdtoKstrll_amp::ASRe(double qsq, double ml){
     return -2.0*nf(qsq,ml)*sqrt(lambda(qsq))*(CSRe()-CSRHRe())*A0(qsq);}
 double BdtoKstrll_amp::ASIm(double qsq, double ml){
     return -2.0*nf(qsq,ml)*sqrt(lambda(qsq))*(CSIm()-CSRHIm())*A0(qsq);}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Bs->phi,ll:
 double Bstophill_amp::hRe(double qsq, double mq){
@@ -157,8 +157,10 @@ double Bstophill_amp::ASRe(double qsq, double ml){
     return -2.0*nf(qsq,ml)*sqrt(lambda(qsq))*(CSRe()-CSRHRe())*A0(qsq);}
 double Bstophill_amp::ASIm(double qsq, double ml){
     return -2.0*nf(qsq,ml)*sqrt(lambda(qsq))*(CSIm()-CSRHIm())*A0(qsq);}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//Bd->K,ll
+//Bd->K,ll//
 double BdtoKll_amp::hRe(double qsq, double mq){
     if (qsq < 4.0*pow(mq,2.0)){
         return -4.0/9.0*( 2.0*log(mq/mu()) -2.0/3.0 -4.0*pow(mq,2.0)/qsq) -4.0/9.0*( 2.0+ 4.0*pow(mq,2.0)/qsq)* sqrt(4.0*pow(mq,2.0)/qsq-1.0)* atan(1.0/sqrt(4.0*pow(mq,2.0)/qsq-1.0)); }
@@ -206,9 +208,9 @@ double BdtoKll_amp::TauPIm(double qsq){
     return xiP(qsq)*(C7effIm() + mBd()/(2.0*mb())*YIm(qsq));}
 
 double BdtoKll_amp::FVRe(double qsq, double ml){
-    return (C9Re() + C9RHRe())+ 2.0*mb()/mBd()*TauPRe(qsq)/xiP(qsq) + 8.0*ml/(mBd()+mK())*ft(qsq)/fp(qsq)*CTRe();}
+    return (C9Re() + C9RHRe())+ 2.0*mb()/mBd()*TauPRe(qsq)/xiP(qsq) + 8.0*ml/(mBd()+mK())*fT(qsq)/fp(qsq)*CTRe();}
 double BdtoKll_amp::FVIm(double qsq, double ml){
-    return (C9Im() + C9RHIm())+ 2.0*mb()/mBd()*TauPIm(qsq)/xiP(qsq) + 8.0*ml/(mBd()+mK())*ft(qsq)/fp(qsq)*CTIm();}
+    return (C9Im() + C9RHIm())+ 2.0*mb()/mBd()*TauPIm(qsq)/xiP(qsq) + 8.0*ml/(mBd()+mK())*fT(qsq)/fp(qsq)*CTIm();}
 
 double BdtoKll_amp::FARe(double qsq, double ml){
     return (C10Re() + C10RHRe());}
@@ -229,14 +231,16 @@ double BdtoKll_amp::FPIm(double qsq, double ml){
 
 
 double BdtoKll_amp::FTRe(double qsq, double ml){
-    return 2.0*sqrt(lambda(qsq))*betal(qsq,ml)/(mBd()+mK())*ft(qsq)/fp(qsq)*CTRe();}
+    return 2.0*sqrt(lambda(qsq))*betal(qsq,ml)/(mBd()+mK())*fT(qsq)/fp(qsq)*CTRe();}
 double BdtoKll_amp::FTIm(double qsq, double ml){
-    return 2.0*sqrt(lambda(qsq))*betal(qsq,ml)/(mBd()+mK())*ft(qsq)/fp(qsq)*CTIm();}
+    return 2.0*sqrt(lambda(qsq))*betal(qsq,ml)/(mBd()+mK())*fT(qsq)/fp(qsq)*CTIm();}
 
 double BdtoKll_amp::FT5Re(double qsq, double ml){
-    return 2.0*sqrt(lambda(qsq))*betal(qsq,ml)/(mBd()+mK())*ft(qsq)/fp(qsq)*CT5Re();}
+    return 2.0*sqrt(lambda(qsq))*betal(qsq,ml)/(mBd()+mK())*fT(qsq)/fp(qsq)*CT5Re();}
 double BdtoKll_amp::FT5Im(double qsq, double ml){
-    return 2.0*sqrt(lambda(qsq))*betal(qsq,ml)/(mBd()+mK())*ft(qsq)/fp(qsq)*CT5Im();}
+    return 2.0*sqrt(lambda(qsq))*betal(qsq,ml)/(mBd()+mK())*fT(qsq)/fp(qsq)*CT5Im();}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //B->ll
 double Btoll_amp :: ampSRe(double mBq, double mq, double ml1, double ml2){

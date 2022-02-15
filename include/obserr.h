@@ -1,8 +1,8 @@
 #ifndef obserr_h
 #define obserr_h
 
-#include "smpar.h"
 #include "myfun.h"
+#include "smpar.h"
 #include "fferrpar.h"
 #include "fferrfun.h"
 #include "amperr.h"

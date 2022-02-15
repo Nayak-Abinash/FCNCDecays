@@ -1,5 +1,3 @@
-
-
 #include "myfun.h"
 
 
@@ -25,15 +23,16 @@ double myfun::mnd(double mu, double sigma){
     normal_distribution<double> distribution (mu,sigma);
     return distribution(generator);}
 
-double myfun::mnd_cov(double mu[], double cholesky[][MXdm], int i){
+double myfun::mnd_cov(double muv[], double cholesky[][MXdm], int i){
     double sum = 0;
+    double unitnormv[] = {mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0),
+                            mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0),
+                            mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0), mnd(0.0,1.0)};
     for (int j=0; j<19; j++)
         {
-            sum = sum + cholesky[i][j]*mnd(0.,1.);
+            sum = sum + cholesky[i][j]*unitnormv[j];
         }
-    return mu[i] + sum;}
-
-
+    return muv[i] + sum;}
 
 
 

@@ -1,10 +1,8 @@
-#include "smpar.h"
 #include "myfun.h"
+#include "smpar.h"
 #include "fferrpar.h"
 #include "fferrfun.h"
 #include "amperr.h"
-
-
 
 //Bd->Kstr,ll:
 double BdtoKstrll_amperr::hRe(double qsq, double mq){
@@ -81,6 +79,8 @@ double BdtoKstrll_amperr::ASRe(double qsq, double ml){
     return -2.0*nf(qsq,ml)*sqrt(lambda(qsq))*(CSRe()-CSRHRe())*A0(qsq);}
 double BdtoKstrll_amperr::ASIm(double qsq, double ml){
     return -2.0*nf(qsq,ml)*sqrt(lambda(qsq))*(CSIm()-CSRHIm())*A0(qsq);}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Bs->phi,ll:
 double Bstophill_amperr::hRe(double qsq, double mq){
@@ -157,6 +157,8 @@ double Bstophill_amperr::ASRe(double qsq, double ml){
     return -2.0*nf(qsq,ml)*sqrt(lambda(qsq))*(CSRe()-CSRHRe())*A0(qsq);}
 double Bstophill_amperr::ASIm(double qsq, double ml){
     return -2.0*nf(qsq,ml)*sqrt(lambda(qsq))*(CSIm()-CSRHIm())*A0(qsq);}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Bd->K,ll
 double BdtoKll_amperr::hRe(double qsq, double mq){
@@ -206,9 +208,9 @@ double BdtoKll_amperr::TauPIm(double qsq){
     return xiP(qsq)*(C7effIm() + mBd()/(2.0*mb())*YIm(qsq));}
 
 double BdtoKll_amperr::FVRe(double qsq, double ml){
-    return (C9Re() + C9RHRe())+ 2.0*mb()/mBd()*TauPRe(qsq)/xiP(qsq) + 8.0*ml/(mBd()+mK())*ft(qsq)/fp(qsq)*CTRe();}
+    return (C9Re() + C9RHRe())+ 2.0*mb()/mBd()*TauPRe(qsq)/xiP(qsq) + 8.0*ml/(mBd()+mK())*fT(qsq)/fp(qsq)*CTRe();}
 double BdtoKll_amperr::FVIm(double qsq, double ml){
-    return (C9Im() + C9RHIm())+ 2.0*mb()/mBd()*TauPIm(qsq)/xiP(qsq) + 8.0*ml/(mBd()+mK())*ft(qsq)/fp(qsq)*CTIm();}
+    return (C9Im() + C9RHIm())+ 2.0*mb()/mBd()*TauPIm(qsq)/xiP(qsq) + 8.0*ml/(mBd()+mK())*fT(qsq)/fp(qsq)*CTIm();}
 
 double BdtoKll_amperr::FARe(double qsq, double ml){
     return (C10Re() + C10RHRe());}
@@ -229,14 +231,16 @@ double BdtoKll_amperr::FPIm(double qsq, double ml){
 
 
 double BdtoKll_amperr::FTRe(double qsq, double ml){
-    return 2.0*sqrt(lambda(qsq))*betal(qsq,ml)/(mBd()+mK())*ft(qsq)/fp(qsq)*CTRe();}
+    return 2.0*sqrt(lambda(qsq))*betal(qsq,ml)/(mBd()+mK())*fT(qsq)/fp(qsq)*CTRe();}
 double BdtoKll_amperr::FTIm(double qsq, double ml){
-    return 2.0*sqrt(lambda(qsq))*betal(qsq,ml)/(mBd()+mK())*ft(qsq)/fp(qsq)*CTIm();}
+    return 2.0*sqrt(lambda(qsq))*betal(qsq,ml)/(mBd()+mK())*fT(qsq)/fp(qsq)*CTIm();}
 
 double BdtoKll_amperr::FT5Re(double qsq, double ml){
-    return 2.0*sqrt(lambda(qsq))*betal(qsq,ml)/(mBd()+mK())*ft(qsq)/fp(qsq)*CT5Re();}
+    return 2.0*sqrt(lambda(qsq))*betal(qsq,ml)/(mBd()+mK())*fT(qsq)/fp(qsq)*CT5Re();}
 double BdtoKll_amperr::FT5Im(double qsq, double ml){
-    return 2.0*sqrt(lambda(qsq))*betal(qsq,ml)/(mBd()+mK())*ft(qsq)/fp(qsq)*CT5Im();}
+    return 2.0*sqrt(lambda(qsq))*betal(qsq,ml)/(mBd()+mK())*fT(qsq)/fp(qsq)*CT5Im();}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
 //B->ll

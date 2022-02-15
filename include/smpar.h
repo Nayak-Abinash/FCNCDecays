@@ -1,16 +1,7 @@
 #ifndef smpar_h
 #define smpar_h
 
-#include <iostream>
-#include <cmath>
-#include <random>
-#include <chrono>
-#include <algorithm>
-#include <string>
-#include <bits/stdc++.h>
-#define mxdm 5
-#define MXdm 21
-using namespace std;
+#include "myfun.h"
 
 class smpar {
 public:

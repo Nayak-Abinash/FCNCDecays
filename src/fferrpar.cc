@@ -1,7 +1,5 @@
-
-
-#include "smpar.h"
 #include "myfun.h"
+#include "smpar.h"
 #include "fferrpar.h"
 
 //Bs->Kstr,ll
@@ -10,7 +8,7 @@ BdtoKstrll_fferrpar::BdtoKstrll_fferrpar(){
     tmd=pow(mBd()-mKst(),2.0);
     tzd=tpd*(1.0-sqrt(1.0-tmd/tpd));
 
-    m_PSbs = 5.366, m_Vbs = 5.415, m_Abs = 5.829;
+    m_PSbs = 5.336, m_Vbs = 5.412, m_Abs = 5.829;
 
     A0_a0 = 0.369196, A0_a1 = -1.36584, A0_a2 = 0.128191,
     A1_a0 = 0.29725, A1_a1 = 0.392378, A1_a2 = 1.18916,
@@ -27,22 +25,14 @@ BdtoKstrll_fferrpar::BdtoKstrll_fferrpar(){
     eT1_a0 = 0.027496, eT1_a1 = 0.189575, eT1_a2 = 1.63965,
     eT2_a0 = 0.027496, eT2_a1 = 0.166219, eT2_a2 = 0.803783,
     eT23_a0 = 0.0633333, eT23_a1 = 0.222129, eT23_a2 = 2.20338;}
-
-double BdtoKstrll_fferrpar::cov_A0[][mxdm] = {{0.000837635, 0.00471065, 0.00272131}, {0.00471065, 0.0659712, 0.204148}, {0.00272131, 0.204148, 2.67119}};
-double BdtoKstrll_fferrpar::cov_A1[][mxdm] = {{0.000694641, 0.00347885, 0.00415084}, {0.00347885, 0.0353042, 0.144041}, {0.00415084, 0.144041, 1.05126}};
-double BdtoKstrll_fferrpar::cov_A12[][mxdm] = {{0.000432775, 0.00165482, 0.000605487}, {0.00165482, 0.0165823, 0.059165}, {0.000605487, 0.059165, 0.430695}};
-double BdtoKstrll_fferrpar::cov_V[][mxdm] = {{0.00110852, 0.00658825, -0.0202371}, {0.00658825, 0.0682608, 0.0138459}, {-0.0202371, 0.0138459, 2.34402}};
-double BdtoKstrll_fferrpar::cov_T1[][mxdm] = {{0.000756032, 0.00372113, -0.0213639}, {0.00372113, 0.0359388, 0.00028928}, {-0.0213639, 0.00028928, 2.68844}};
-double BdtoKstrll_fferrpar::cov_T2[][mxdm] = {{0.000756032, 0.00316639, -0.00503577}, {0.00316639, 0.0276287, 0.0511444}, {-0.00503577, 0.0511444, 0.646067}};
-double BdtoKstrll_fferrpar::cov_T23[][mxdm] = {{0.0040111, 0.00460369, -0.0993374}, {0.00460369, 0.0493411, 0.140689}, {-0.0993374, 0.140689, 4.85487}};
-
-////######refer to "MCError.nb"
+////######refer to "CholeskyDecomp.nb"
+//central vector:\mu
 double BdtoKstrll_fferrpar::cen_FF[] = {0.369196, -1.36584, 0.128191, 0.29725, 0.392378, 1.18916, /*0.265375,*/ 0.533638, 0.483166, 0.376313, -1.16597, 2.42443,
                                         0.312055, -1.00893, 1.5272, /*0.312055,*/ 0.496846, 1.61431, 0.667412, 1.31812, 3.82334};
-
+//uncertainty vector:\sigma
 double BdtoKstrll_fferrpar::unc_FF[] = {0.0289419, 0.256849, 1.63438, 0.026356, 0.187894, 1.02531, /*0.0208033,*/ 0.128772, 0.656273, 0.0332944, 0.261268, 1.53102,
                                         0.027496, 0.189575, 1.63965, /*0.027496,*/ 0.166219, 0.803783, 0.0633333, 0.222129, 2.20338};
-
+//Cholesky Decomposition of the covariance matrix
 double BdtoKstrll_fferrpar::chd_cov[][MXdm] =
     {{0.0289419, 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.},
     {0.162762, 0.198695, 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.},
@@ -101,7 +91,8 @@ double BdtoKstrll_fferrpar::T2a2(){return mnd_cov(cen_FF,chd_cov,15);}
 double BdtoKstrll_fferrpar::T23a0(){return mnd_cov(cen_FF,chd_cov,16);}
 double BdtoKstrll_fferrpar::T23a1(){return mnd_cov(cen_FF,chd_cov,17);}
 double BdtoKstrll_fferrpar::T23a2(){return mnd_cov(cen_FF,chd_cov,18);}
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Bs->phi,ll
 Bstophill_fferrpar::Bstophill_fferrpar(){
@@ -111,21 +102,58 @@ Bstophill_fferrpar::Bstophill_fferrpar(){
 
     m_PSbs=5.366,m_Vbs=5.415,m_Abs=5.829;
 
-    V_a0=0.376313,V_a1=-1.16597,V_a2=2.42443,
-    A0_a0=0.369196,A0_a1=-1.36584,A0_a2=0.128191,
-    A1_a0=0.29725,A1_a1=0.392378,A1_a2=1.18916,
-    A12_a0=0.265375,A12_a1=0.533638,A12_a2=0.483166,
-    T1_a0=0.312055,T1_a1=-1.00893,T1_a2=1.5272,
-    T2_a0=0.312055,T2_a1=0.496846,T2_a2=1.61431,
-    T23_a0=0.667412,T23_a1=1.31812,T23_a2=3.82334;
+    A0_a0 = 0.421328, A0_a1 = -0.976454, A0_a2 = 3.2714,
+    A1_a0 = 0.288007, A1_a1 = 0.350826, A1_a2 = 1.69688,
+    A12_a0 = 0.267053, A12_a1 = 0.954402, A12_a2 = 2.15263,
+    V_a0 = 0.364478, V_a1 = -1.22389, V_a2 = 3.74061,
+    T1_a0 = 0.299475, T1_a1 = -1.1013, T1_a2 = 0.58459,
+    T2_a0 = 0.299475, T2_a1 = 0.403564, T2_a2 = 1.03987,
+    T23_a0 = 0.65233, T23_a1 = 2.09622, T23_a2 = 6.73572;
 
-    eV_a0=0.0376313,eV_a1=0.116597,eV_a2=0.242443,
-    eA0_a0=0.0369196,eA0_a1=0.136584,eA0_a2=0.0128191,
-    eA1_a0=0.029725,eA1_a1=0.0392378,eA1_a2=0.118916,
-    eA12_a0=0.0265375,eA12_a1=0.0533638,eA12_a2=0.0483166,
-    eT1_a0=0.0312055,eT1_a1=0.100893,eT1_a2=0.15272,
-    eT2_a0=0.0312055,eT2_a1=0.0496846,eT2_a2=0.161431,
-    eT23_a0=0.0667412,eT23_a1=0.131812,eT23_a2=0.382334;}
+    eA0_a0 = 0.0240514, eA0_a1 = 0.23757, eA0_a2 = 1.35909,
+    eA1_a0 = 0.0105759, eA1_a1 = 0.103813 , eA1_a2 = 0.790297,
+    eA12_a0 = 0.0152447, eA12_a1 = 0.125879, eA12_a2 = 0.47881,
+    eV_a0 = 0.0141353, eV_a1 = 0.164176, eV_a2 = 1.72682,
+    eT1_a0 = 0.0120688, eT1_a1 = 0.0835241, eT1_a2 = 1.00324,
+    eT2_a0 = 0.0120688, eT2_a1 = 0.0803563, eT2_a2 = 0.608872,
+    eT23_a0 = 0.0357469, eT23_a1 = 0.330082, eT23_a2 = 1.79526;}
+
+////######refer to "CholeskyDecomp.nb"
+//central vector:\mu
+double Bstophill_fferrpar::cen_FF[] = {0.421328, -0.976454, 3.2714, 0.288007, 0.350826, 1.69688, /*0.267053,*/ 0.954402, 2.15263, 0.364478, -1.22389, 3.74061,
+                                        0.299475, -1.1013, 0.58459, /*0.299475,*/ 0.403564, 1.03987, 0.65233, 2.09622, 6.73572};
+//uncertainty vector:\sigma
+double Bstophill_fferrpar::unc_FF[] = {0.0240514, 0.23757, 1.35909, 0.0105759, 0.103813, 0.790297, /*0.0152447,*/ 0.125879, 0.47881, 0.0141353, 0.164176, 1.72682,
+                                        0.0120688, 0.0835241, 1.00324, /*0.0120688,*/ 0.0803563, 0.608872, 0.0357469, 0.330082, 1.79526};
+//Cholesky Decomposition of the covariance matrix
+double Bstophill_fferrpar::chd_cov[][MXdm] =
+    {{0.0240514, 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.},
+    {0.163293, 0.172554, 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.},
+    {-0.475215, 0.676253, 1.07888, 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,0.},
+    {0.00218642, -0.00197483, 0.00342496, 0.00956237, 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.},
+    {-0.0576101, -0.0326219, 0.000174754, 0.0351823, 0.0718067, 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.},
+    {-0.472299, -0.28095, 0.23947, -0.127972, 0.451391, 0.212353, 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.},
+    {0.0972527, 0.0451694, -0.0316008, -0.0205043, -0.0118269, -0.0110278, 0.0516394, 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.},
+    {0.203317, 0.233571, 0.0438621, -0.0914031, -0.093997, 0.0486694, 0.329933, 0.0550212, 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.},
+    {0.00265482, -0.00217211, 0.00622126, 0.00306886, -0.000528257, 0.00110301, -0.000239527, 0.00151878, 0.0116644, 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.},
+    {-0.0693557, -0.0524, -0.00273018, 0.0388572, 0.0539049, -0.0223373, -0.00321119, 0.0329628, 0.0467491, 0.105799, 0., 0., 0., 0., 0., 0., 0., 0., 0.},
+    {-0.788385, -0.828968, 0.00831865, 0.215627, 0.263561, -0.0923733, 0.00957827, 0.109689, -0.287164, 0.91525, 0.785072, 0., 0., 0., 0., 0., 0., 0., 0.},
+    {0.00104471, -0.0000830111, 0.00328639, 0.0021387, 0.00222748, 0.00208524, -0.00243335, 0.000919938, 0.00486207, 0.000834824, -0.00208809, 0.00918745,
+    0., 0., 0., 0., 0., 0., 0.},
+    {-0.0248073, -0.00493503, -0.00851714, 0.0171202, 0.0384485, -0.00269388, -0.0218469, 0.0127849, 0.000661001, 0.0237323, -0.0174053, 0.0288518, 0.0463202,
+    0., 0., 0., 0., 0., 0.},
+    {0.0673318, -0.0815351, -0.19776, -0.143991, -0.232604, 0.0413882, -0.110348, -0.119071, -0.39298, -0.306509, 0.177287, -0.338206, 0.353364, 0.578129,
+    0., 0., 0., 0., 0.},
+    {-0.0367423, -0.0234062, -0.0107079, 0.0243058, 0.0402967, -0.00759992, -0.0167143, 0.00452568, 0.00111411, 0.00961089, -0.00369442, 0.00686867,
+    0.00901169, 0.00420305, 0.0402382, 0., 0., 0., 0.},
+    {-0.119938, -0.163033, -0.150601, 0.00982777, -0.00233557, -0.0186944, -0.0751897, -0.0586033, -0.18926, -0.138564, 0.0923495, -0.224566, 0.107444, 0.240453,
+    0.258727, 0.217396, 0., 0., 0.},
+    {0.0251552, 0.00769765, -0.00525245, 0.0014018, -0.00808339, 0.00323918, -0.00310673, -0.00219015, 0.00462386, -0.0112424, -0.00198258, 0.00251315, 0.00149322,
+    0.00422493, 0.00154043, 0.00445653, 0.0162984, 0., 0.},
+    {0.240301, 0.125205, -0.0548407, -0.0358827, -0.0542308, 0.0033148, 0.0587943, 0.00334095, 0.0236515, -0.0661997, 0.0141647, -0.0504951, -0.00243042,
+    0.0336393, -0.00886644, -0.00027137, 0.0521349, 0.114857, 0.},
+    {1.08095, 0.572936, -0.0735966, -0.411486, -0.439335, 0.124, 0.389559, 0.0129582, 0.0233923, -0.364223, 0.232819, -0.237481, -0.0124845, 0.475836, -0.098462,
+    0.2244, -0.203678, 0.776448, 0.12808}};
 
 double Bstophill_fferrpar::zs(double qsq){
     return (sqrt(tps-qsq)-sqrt(tps-tzs))/(sqrt(tps-qsq) +sqrt(tps-tzs));}
@@ -134,28 +162,29 @@ double Bstophill_fferrpar::mPSbs(){return m_PSbs;}
 double Bstophill_fferrpar::mVbs(){return m_Vbs;}
 double Bstophill_fferrpar::mAbs(){return m_Abs;}
 
-double Bstophill_fferrpar::Va0(){return mnd(V_a0,eV_a0);}
-double Bstophill_fferrpar::Va1(){return mnd(V_a1,eV_a1);}
-double Bstophill_fferrpar::Va2(){return mnd(V_a2,eV_a2);}
-double Bstophill_fferrpar::A0a0(){return mnd(A0_a0,eA0_a0);}
-double Bstophill_fferrpar::A0a1(){return mnd(A0_a1,eA0_a1);}
-double Bstophill_fferrpar::A0a2(){return mnd(A0_a2,eA0_a2);}
-double Bstophill_fferrpar::A1a0(){return mnd(A1_a0,eA1_a0);}
-double Bstophill_fferrpar::A1a1(){return mnd(A1_a1,eA1_a1);}
-double Bstophill_fferrpar::A1a2(){return mnd(A1_a2,eA1_a2);}
-double Bstophill_fferrpar::A12a0(){return mnd(A12_a0,eA12_a0);}
-double Bstophill_fferrpar::A12a1(){return mnd(A12_a1,eA12_a1);}
-double Bstophill_fferrpar::A12a2(){return mnd(A12_a2,eA12_a2);}
-double Bstophill_fferrpar::T1a0(){return mnd(T1_a0,eT1_a0);}
-double Bstophill_fferrpar::T1a1(){return mnd(T1_a1,eT1_a1);}
-double Bstophill_fferrpar::T1a2(){return mnd(T1_a2,eT1_a2);}
-double Bstophill_fferrpar::T2a0(){return mnd(T2_a0,eT2_a0);}
-double Bstophill_fferrpar::T2a1(){return mnd(T2_a1,eT2_a1);}
-double Bstophill_fferrpar::T2a2(){return mnd(T2_a2,eT2_a2);}
-double Bstophill_fferrpar::T23a0(){return mnd(T23_a0,eT23_a0);}
-double Bstophill_fferrpar::T23a1(){return mnd(T23_a1,eT23_a1);}
-double Bstophill_fferrpar::T23a2(){return mnd(T23_a2,eT23_a2);}
-
+double Bstophill_fferrpar::A0a0(){return mnd_cov(cen_FF,chd_cov,0);}
+double Bstophill_fferrpar::A0a1(){return mnd_cov(cen_FF,chd_cov,1);}
+double Bstophill_fferrpar::A0a2(){return mnd_cov(cen_FF,chd_cov,2);}
+double Bstophill_fferrpar::A1a0(){return mnd_cov(cen_FF,chd_cov,3);}
+double Bstophill_fferrpar::A1a1(){return mnd_cov(cen_FF,chd_cov,4);}
+double Bstophill_fferrpar::A1a2(){return mnd_cov(cen_FF,chd_cov,5);}
+double Bstophill_fferrpar::A12a0(){return A12_a0 + ((A0a0()-A0_a0)/eA0_a0)*eA12_a0;}
+double Bstophill_fferrpar::A12a1(){return mnd_cov(cen_FF,chd_cov,6);}
+double Bstophill_fferrpar::A12a2(){return mnd_cov(cen_FF,chd_cov,7);}
+double Bstophill_fferrpar::Va0(){return mnd_cov(cen_FF,chd_cov,8);}
+double Bstophill_fferrpar::Va1(){return mnd_cov(cen_FF,chd_cov,9);}
+double Bstophill_fferrpar::Va2(){return mnd_cov(cen_FF,chd_cov,10);}
+double Bstophill_fferrpar::T1a0(){return mnd_cov(cen_FF,chd_cov,11);}
+double Bstophill_fferrpar::T1a1(){return mnd_cov(cen_FF,chd_cov,12);}
+double Bstophill_fferrpar::T1a2(){return mnd_cov(cen_FF,chd_cov,13);}
+double Bstophill_fferrpar::T2a0(){return T1a0();}
+double Bstophill_fferrpar::T2a1(){return mnd_cov(cen_FF,chd_cov,14);}
+double Bstophill_fferrpar::T2a2(){return mnd_cov(cen_FF,chd_cov,15);}
+double Bstophill_fferrpar::T23a0(){return mnd_cov(cen_FF,chd_cov,16);}
+double Bstophill_fferrpar::T23a1(){return mnd_cov(cen_FF,chd_cov,17);}
+double Bstophill_fferrpar::T23a2(){return mnd_cov(cen_FF,chd_cov,18);}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Bd->K,ll
 BdtoKll_fferrpar::BdtoKll_fferrpar(){
@@ -163,48 +192,47 @@ BdtoKll_fferrpar::BdtoKll_fferrpar(){
     tm=pow(mBd()-mK(),2.0);
     tz=tp*(1.0-sqrt(1.0-tm/tp));
 
-    lcsr_m_Vbs=5.412,lcsr_m_Sbs=5.630;
+    m_Vbs=5.412,m_Sbs=5.630;
 
-    c_fp0=0.32909,c_fp1=-0.866947,c_fp2=0.00609567,c_fz0=0.0,c_fz1=0.195117,
-    c_fz2=-0.446126,c_ft0=0.299383,c_ft1=-0.773546,c_ft2=0.00955438;
+    /*fz_a0=0.0,*/fz_a1=0.195117,fz_a2=-0.446126,
+    fT_a0=0.299383,fT_a1=-0.773546,fT_a2=0.00955438,
+    fp_a0=0.32909,fp_a1=-0.866947,fp_a2=0.00609567;
 
-    ec_fp0=0.032909,ec_fp1=0.0866947,ec_fp2=0.000609567,ec_fz0=0.00,ec_fz1=0.0195117,
-    ec_fz2=0.0446126,ec_ft0=0.0299383,ec_ft1=0.0773546,ec_ft2=0.000955438;
+    /*efz_a0=0.0,*/efz_a1=0.168097,efz_a2=0.408946,
+    efT_a0=0.025872,efT_a1=0.150128,efT_a2=0.871576,
+    efp_a0=0.0277282,efp_a1=0.138144,efp_a2=0.750826;}
 
-    lat_m_Vbs=5.4154,lat_m_Sbs=5.711;
-
-    b0_p=0.466,b1_p=-0.885,b2_p=-0.213,b0_z=0.292,b1_z=0.281,b2_z=0.150,
-    b0_t=0.460,b1_t=-1.089,b2_t=-1.114;
-
-    eb0_p=0.0466,eb1_p=0.0885,eb2_p=0.0213,eb0_z=0.0292,eb1_z=0.0281,eb2_z=0.0150,
-    eb0_t=0.0460,eb1_t=0.1089,eb2_t=0.1114;}
+////######refer to "CholeskyDecomp.nb"
+//central vector:\mu
+double BdtoKll_fferrpar::cen_FF[] = {0.195117, -0.446126, 0.299383, -0.773546, 0.00955438, 0.32909, -0.866947, 0.00609567};
+//uncertainty vector:\sigma
+double BdtoKll_fferrpar::unc_FF[] = {0.168097, 0.408946, 0.025872, 0.150128, 0.871576, 0.0277282, 0.138144, 0.750826};
+//Cholesky Decomposition of the covariance matrix
+double BdtoKll_fferrpar::chd_cov[][MXdm] =
+    {{0.168097, 0., 0., 0., 0., 0., 0., 0.},
+    {0.344397, 0.220517, 0., 0., 0., 0., 0., 0.},
+    {0.0148271, -0.0122488, 0.0173056, 0., 0., 0., 0., 0.},
+    {-0.00791751, 0.00696742, -0.0572808, 0.13837, 0., 0., 0., 0.},
+    {-0.215666, 0.19584, -0.438077, 0.361481, 0.593464, 0., 0., 0.},
+    {0.016741, -0.0171203, 0.0082008, 0.00286598, 0.00132161, 0.0108753, 0., 0.},
+    {0.0102572, 0.0286941, -0.00663218, 0.0147008, 0.00223952, -0.0279217, 0.130807, 0.},
+    {-0.170731, 0.411061, -0.0572078, 0.0390342, 0.0421714, -0.156681, 0.490221, 0.306888}};
 
 double BdtoKll_fferrpar::z(double qsq){return (sqrt(tp-qsq)-sqrt(tp-tz))/(sqrt(tp-qsq)+sqrt(tp-tz));}
-double BdtoKll_fferrpar::lcsr_mVbs(){return lcsr_m_Vbs;}
-double BdtoKll_fferrpar::lcsr_mSbs(){return lcsr_m_Sbs;}
+double BdtoKll_fferrpar::mVbs(){return m_Vbs;}
+double BdtoKll_fferrpar::mSbs(){return m_Sbs;}
 
-double BdtoKll_fferrpar::cfp0(){return mnd(c_fp0,ec_fp0);}
-double BdtoKll_fferrpar::cfp1(){return mnd(c_fp1,ec_fp1);}
-double BdtoKll_fferrpar::cfp2(){return mnd(c_fp2,ec_fp2);}
-double BdtoKll_fferrpar::cfz0(){return mnd(c_fz0,ec_fz0);}
-double BdtoKll_fferrpar::cfz1(){return mnd(c_fz1,ec_fz1);}
-double BdtoKll_fferrpar::cfz2(){return mnd(c_fz2,ec_fz2);}
-double BdtoKll_fferrpar::cft0(){return mnd(c_ft0,ec_ft0);}
-double BdtoKll_fferrpar::cft1(){return mnd(c_ft1,ec_ft1);}
-double BdtoKll_fferrpar::cft2(){return mnd(c_ft2,ec_ft2);}
+double BdtoKll_fferrpar::fza1(){return mnd_cov(cen_FF,chd_cov,0);}
+double BdtoKll_fferrpar::fza2(){return mnd_cov(cen_FF,chd_cov,1);}
+double BdtoKll_fferrpar::fTa0(){return mnd_cov(cen_FF,chd_cov,2);}
+double BdtoKll_fferrpar::fTa1(){return mnd_cov(cen_FF,chd_cov,3);}
+double BdtoKll_fferrpar::fTa2(){return mnd_cov(cen_FF,chd_cov,4);}
+double BdtoKll_fferrpar::fpa0(){return mnd_cov(cen_FF,chd_cov,5);}
+double BdtoKll_fferrpar::fpa1(){return mnd_cov(cen_FF,chd_cov,6);}
+double BdtoKll_fferrpar::fpa2(){return mnd_cov(cen_FF,chd_cov,7);}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-double BdtoKll_fferrpar::lat_mVbs(){return lat_m_Vbs;}
-double BdtoKll_fferrpar::lat_mSbs(){return lat_m_Sbs;}
-
-double BdtoKll_fferrpar::b0p(){return mnd(b0_p,eb0_p);}
-double BdtoKll_fferrpar::b1p(){return mnd(b1_p,eb1_p);}
-double BdtoKll_fferrpar::b2p(){return mnd(b2_p,eb2_p);}
-double BdtoKll_fferrpar::b0z(){return mnd(b0_z,eb0_z);}
-double BdtoKll_fferrpar::b1z(){return mnd(b1_z,eb1_z);}
-double BdtoKll_fferrpar::b2z(){return mnd(b2_z,eb2_z);}
-double BdtoKll_fferrpar::b0t(){return mnd(b0_t,eb0_t);}
-double BdtoKll_fferrpar::b1t(){return mnd(b1_t,eb1_t);}
-double BdtoKll_fferrpar::b2t(){return mnd(b2_t,eb2_t);}
 
 
 
