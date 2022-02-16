@@ -26,9 +26,11 @@
 #define MXdm 21
 using namespace std;
 
-class myfun
+class myfun : public TRandom3
 {
 public:
+    myfun();
+    TRandom2* rndm;
     int mylength(double lst[], int iter, double a, double b);
     double mtrx_tp(double lpar[], double covm[][mxdm]);
     double mnd(double mu, double sigma);

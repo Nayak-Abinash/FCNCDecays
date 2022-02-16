@@ -18,11 +18,18 @@ int main()
     cout << "Type a value for qsq:";
     getline(cin,str);
     stringstream(str) >> qsq;
-    double cval = o1.AFB(qsq,o1.mmu());
+    double cval = o1.FL(qsq,o1.mmu());
     cout << "(" << cval << "," << /*sdval <<*/ ")" << endl;
 ///////////Error///////////////
 ////68.2%ConfidenceLevel (point counting from boundary values)////////////////
-    double lw_range(-2.0), up_range(2.0);
+    double lw_range;
+    if(cval > 0) lw_range = cval-1.0*cval;
+    else if(cval < 0) lw_range = cval+1.0*cval;
+    else lw_range = -1.0;
+    double up_range;
+    if(cval > 0) up_range = cval+1.0*cval;
+    else if(cval < 0) up_range = cval-1.0*cval;
+    else up_range = 1.0;
     TCanvas *c1 = new TCanvas();
     TH1D *hist = new TH1D("hist", "", 100, lw_range, up_range);
 
@@ -31,7 +38,7 @@ int main()
     double data[iter];
     for(int i=0; i<iter; i++)
         {
-            data[i]= eo1.AFB(qsq,o1.mmu());
+            data[i]= eo1.FL(qsq,o1.mmu());
             hist->Fill(data[i]);
         }
     sort(data,data+iter);

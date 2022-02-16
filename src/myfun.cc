@@ -1,5 +1,8 @@
 #include "myfun.h"
 
+myfun::myfun(){
+    rndm = new TRandom2;
+    rndm->SetSeed(0);}
 
 int myfun::mylength(double lst[], int iter, double a, double b){
     double num=0;
@@ -18,17 +21,13 @@ double myfun::mtrx_tp(double lpar[], double covm[][mxdm]){
 
 
 double myfun::mnd(double mu, double sigma){
-    unsigned seed = chrono::system_clock::now().time_since_epoch().count();
-    default_random_engine generator (seed);
-    normal_distribution<double> distribution(mu,sigma);
-    return distribution(generator);}
+    //unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+    //default_random_engine generator (seed);
+    //normal_distribution<double> distribution(mu,sigma);
+    //return distribution(generator);
+    return rndm->Gaus(mu, sigma);}
 
 double myfun::mnd_default(){
-    //TRandom1* rndm = new TRandom1();
-    //TRandom2* rndm = new TRandom2();
-    TRandom3* rndm = new TRandom3();
-    unsigned seed = chrono::system_clock::now().time_since_epoch().count();
-    rndm->SetSeed(seed);
     return rndm->Gaus(0.0,1.0);}
 
 double myfun::mnd_cov(double muv[], double cholesky[][MXdm], int i){

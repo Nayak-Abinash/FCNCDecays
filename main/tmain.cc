@@ -11,7 +11,6 @@
 #include "obserr.h"
 #include "obserrDF.h"
 
-
 int main()
 {
     double cval = 0.0;
@@ -23,7 +22,7 @@ int main()
     TCanvas *c1 = new TCanvas();
     TH1D *hist = new TH1D("hist", "", 100, lw_range, up_range);
 
-    int iter=100000;
+    int iter=1000000;
     int sdcl = int(iter*15.9/100);
     double data[iter];
     myfun fun;
