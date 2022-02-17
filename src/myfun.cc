@@ -1,7 +1,7 @@
 #include "myfun.h"
 
 myfun::myfun(){
-    rndm = new TRandom2;
+    rndm = new TRandom3;
     rndm->SetSeed(0);}
 
 int myfun::mylength(double lst[], int iter, double a, double b){

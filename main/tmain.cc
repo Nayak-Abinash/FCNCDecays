@@ -1,15 +1,7 @@
 //ProjectFiles
-#include "myfun.h"
-#include "smpar.h"
-#include "ffpar.h"
-#include "fferrpar.h"
-#include "fffun.h"
-#include "fferrfun.h"
-#include "amp.h"
-#include "amperr.h"
 #include "obs.h"
 #include "obserr.h"
-#include "obserrDF.h"
+//#include "obserrDF.h"
 
 int main()
 {

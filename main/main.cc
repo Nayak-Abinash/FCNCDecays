@@ -1,15 +1,7 @@
 //ProjectFiles
-#include "myfun.h"
-#include "smpar.h"
-#include "ffpar.h"
-#include "fferrpar.h"
-#include "fffun.h"
-#include "fferrfun.h"
-#include "amp.h"
-#include "amperr.h"
 #include "obs.h"
 #include "obserr.h"
-#include "obserrDF.h"
+//#include "obserrDF.h"
 
 int main()
 {
@@ -18,7 +10,7 @@ int main()
     cout << "Type a value for qsq:";
     getline(cin,str);
     stringstream(str) >> qsq;
-    double cval = o1.FL(qsq,o1.mmu());
+    double cval = o1.AFB(qsq,o1.mmu());
     cout << "(" << cval << "," << /*sdval <<*/ ")" << endl;
 ///////////Error///////////////
 ////68.2%ConfidenceLevel (point counting from boundary values)////////////////
@@ -38,7 +30,7 @@ int main()
     double data[iter];
     for(int i=0; i<iter; i++)
         {
-            data[i]= eo1.FL(qsq,o1.mmu());
+            data[i]= eo1.AFB(qsq,o1.mmu());
             hist->Fill(data[i]);
         }
     sort(data,data+iter);
