@@ -1,6 +1,3 @@
-#include "myfun.h"
-#include "smpar.h"
-#include "fferrpar.h"
 #include "fferrfun.h"
 
 

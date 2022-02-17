@@ -1,5 +1,3 @@
-#include "myfun.h"
-#include "smpar.h"
 #include "ffpar.h"
 
 //Bs->Kstr,ll

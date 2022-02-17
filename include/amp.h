@@ -1,9 +1,6 @@
 #ifndef amp_h
 #define amp_h
 
-#include "myfun.h"
-#include "smpar.h"
-#include "ffpar.h"
 #include "fffun.h"
 
 //Bd->Kstr,ll

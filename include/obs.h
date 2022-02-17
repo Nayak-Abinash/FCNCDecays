@@ -1,12 +1,7 @@
 #ifndef obs_h
 #define obs_h
 
-#include "myfun.h"
-#include "smpar.h"
-#include "ffpar.h"
-#include "fffun.h"
 #include "amp.h"
-
 
 //Bd->Kstr,ll:
 class BdtoKstrll_obs : public BdtoKstrll_amp {

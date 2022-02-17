@@ -1,5 +1,3 @@
-#include "myfun.h"
-#include "smpar.h"
 #include "fferrpar.h"
 
 //Bs->Kstr,ll
@@ -61,7 +59,7 @@ double BdtoKstrll_fferrpar::A0a2(){return mnd_cov(cen_FF,chd_cov,2);}
 double BdtoKstrll_fferrpar::A1a0(){return mnd_cov(cen_FF,chd_cov,3);}
 double BdtoKstrll_fferrpar::A1a1(){return mnd_cov(cen_FF,chd_cov,4);}
 double BdtoKstrll_fferrpar::A1a2(){return mnd_cov(cen_FF,chd_cov,5);}
-double BdtoKstrll_fferrpar::A12a0(){return A0a0()*(pow(mBd(),2.0)-pow(mKst(),2.0))/(8.0*mBd()*mKst());}
+double BdtoKstrll_fferrpar::A12a0(){return A0a0()*(pow(mBd(),2.0)-pow(mKst(),2.0))/(8.0*mBd()*mKst());}//Eq. 17 of arXiv:1503.05534
 double BdtoKstrll_fferrpar::A12a1(){return mnd_cov(cen_FF,chd_cov,6);}
 double BdtoKstrll_fferrpar::A12a2(){return mnd_cov(cen_FF,chd_cov,7);}
 double BdtoKstrll_fferrpar::Va0(){return mnd_cov(cen_FF,chd_cov,8);}
@@ -70,7 +68,7 @@ double BdtoKstrll_fferrpar::Va2(){return mnd_cov(cen_FF,chd_cov,10);}
 double BdtoKstrll_fferrpar::T1a0(){return mnd_cov(cen_FF,chd_cov,11);}
 double BdtoKstrll_fferrpar::T1a1(){return mnd_cov(cen_FF,chd_cov,12);}
 double BdtoKstrll_fferrpar::T1a2(){return mnd_cov(cen_FF,chd_cov,13);}
-double BdtoKstrll_fferrpar::T2a0(){return T1a0();}
+double BdtoKstrll_fferrpar::T2a0(){return T1a0();}//Eq. 17 of arXiv:1503.05534
 double BdtoKstrll_fferrpar::T2a1(){return mnd_cov(cen_FF,chd_cov,14);}
 double BdtoKstrll_fferrpar::T2a2(){return mnd_cov(cen_FF,chd_cov,15);}
 double BdtoKstrll_fferrpar::T23a0(){return mnd_cov(cen_FF,chd_cov,16);}
@@ -137,7 +135,7 @@ double Bstophill_fferrpar::A0a2(){return mnd_cov(cen_FF,chd_cov,2);}
 double Bstophill_fferrpar::A1a0(){return mnd_cov(cen_FF,chd_cov,3);}
 double Bstophill_fferrpar::A1a1(){return mnd_cov(cen_FF,chd_cov,4);}
 double Bstophill_fferrpar::A1a2(){return mnd_cov(cen_FF,chd_cov,5);}
-double Bstophill_fferrpar::A12a0(){return A0a0()*(pow(mBs(),2.0)-pow(mphi(),2.0))/(8.0*mBs()*mphi());}
+double Bstophill_fferrpar::A12a0(){return A0a0()*(pow(mBs(),2.0)-pow(mphi(),2.0))/(8.0*mBs()*mphi());}//Eq. 17 of arXiv:1503.05534
 double Bstophill_fferrpar::A12a1(){return mnd_cov(cen_FF,chd_cov,6);}
 double Bstophill_fferrpar::A12a2(){return mnd_cov(cen_FF,chd_cov,7);}
 double Bstophill_fferrpar::Va0(){return mnd_cov(cen_FF,chd_cov,8);}
@@ -146,7 +144,7 @@ double Bstophill_fferrpar::Va2(){return mnd_cov(cen_FF,chd_cov,10);}
 double Bstophill_fferrpar::T1a0(){return mnd_cov(cen_FF,chd_cov,11);}
 double Bstophill_fferrpar::T1a1(){return mnd_cov(cen_FF,chd_cov,12);}
 double Bstophill_fferrpar::T1a2(){return mnd_cov(cen_FF,chd_cov,13);}
-double Bstophill_fferrpar::T2a0(){return T1a0();}
+double Bstophill_fferrpar::T2a0(){return T1a0();}//Eq. 17 of arXiv:1503.05534
 double Bstophill_fferrpar::T2a1(){return mnd_cov(cen_FF,chd_cov,14);}
 double Bstophill_fferrpar::T2a2(){return mnd_cov(cen_FF,chd_cov,15);}
 double Bstophill_fferrpar::T23a0(){return mnd_cov(cen_FF,chd_cov,16);}

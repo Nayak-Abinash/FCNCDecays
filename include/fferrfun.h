@@ -1,8 +1,6 @@
 #ifndef fferrfun_h
 #define fferrfun_h
 
-#include "myfun.h"
-#include "smpar.h"
 #include "fferrpar.h"
 
 //Bd->Kstr,ll

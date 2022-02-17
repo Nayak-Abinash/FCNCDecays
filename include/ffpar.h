@@ -1,7 +1,6 @@
 #ifndef ffpar_h
 #define ffpar_h
 
-#include "myfun.h"
 #include "smpar.h"
 
 //Bd->Kstr,ll

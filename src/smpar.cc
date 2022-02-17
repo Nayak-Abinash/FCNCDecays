@@ -1,5 +1,3 @@
-//defining parameter values
-#include "myfun.h"
 #include "smpar.h"
 
 smpar::smpar()

@@ -1,7 +1,6 @@
 #ifndef fferrpar_h
 #define fferrpar_h
 
-#include "myfun.h"
 #include "smpar.h"
 
 

@@ -1,8 +1,3 @@
-#include "myfun.h"
-#include "smpar.h"
-#include "ffpar.h"
-#include "fffun.h"
-#include "amp.h"
 #include "obs.h"
 
 //Bd->Kstr,ll:
