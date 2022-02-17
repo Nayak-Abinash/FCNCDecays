@@ -10,7 +10,7 @@ public:
     double mu();
     double md(),mc(),ms(),mb();
     double me(),mmu(),mtau();
-    double mBd(),mBs(),mK(),mKst();
+    double mBd(),mBs(),mK(),mKst(),mphi();
     double tauBd(),tauBs(),DGamma_dbar(),DGamma_sbar(),fBd(),fBs();
     double absVtbVtdStr(),absVtbVtsStr(),GF(),alpha_e();
     double C1(),C2(),C3(),C4(),C5(),C6(),C7effRe(),C7effIm(),C8eff(),C9Re(),C9Im(),C10Re(),C10Im();
@@ -20,7 +20,7 @@ private:
     double scale_mu;
     double m_d,m_c,m_s,m_b;
     double m_e,m_mu,m_tau;
-    double m_Bd,m_Bs,m_K,m_Kst;
+    double m_Bd,m_Bs,m_K,m_Kst,m_phi;
     double tau_Bd,tau_Bs,D_Gamma_dbar,D_Gamma_sbar,f_Bd,f_Bs;
     double abs_VtbVtdStr,abs_VtbVtsStr,G_F,alphae;
     double C_1,C_2,C_3,C_4,C_5,C_6,C_7effRe,C_7effIm,C_8eff,C_9Re,C_9Im,C_10Re,C_10Im;

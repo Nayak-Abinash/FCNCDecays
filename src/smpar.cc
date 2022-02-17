@@ -9,7 +9,7 @@ smpar::smpar()
     m_d = 0.00467, m_c = 1.27, m_s = 0.093, m_b = 4.18;
     m_e = 0.5109989461*pow(10.0,-3.0), m_mu = 105.6583745*pow(10.0,-3.0), m_tau = 1.77686;
 
-    m_Bd = 5.27965, m_Bs = 5.36688, m_K = 0.497614, m_Kst = 0.896;
+    m_Bd = 5.27965, m_Bs = 5.36688, m_K = 0.497614, m_Kst = 0.896, m_phi = 1.019461;
 
     tau_Bd = 1.519*1.52*pow(10.0,12.0), tau_Bs = 1.527*1.52*pow(10.0,12.0), D_Gamma_dbar = 0.001, D_Gamma_sbar = 0.124, f_Bd = 0.1905, f_Bs = 0.2303;
 
@@ -36,6 +36,7 @@ double smpar::mBd(){return m_Bd;}
 double smpar::mBs(){return m_Bs;}
 double smpar::mK(){return m_K;}
 double smpar::mKst(){return m_Kst;}
+double smpar::mphi(){return m_phi;}
 //Width_Lifetime
 double smpar::tauBd(){return tau_Bd;}
 double smpar::tauBs(){return tau_Bs;}

@@ -8,23 +8,8 @@ BdtoKstrll_fferrpar::BdtoKstrll_fferrpar(){
     tmd=pow(mBd()-mKst(),2.0);
     tzd=tpd*(1.0-sqrt(1.0-tmd/tpd));
 
-    m_PSbs = 5.336, m_Vbs = 5.412, m_Abs = 5.829;
+    m_PSbs = 5.336, m_Vbs = 5.412, m_Abs = 5.829;}
 
-    A0_a0 = 0.369196, A0_a1 = -1.36584, A0_a2 = 0.128191,
-    A1_a0 = 0.29725, A1_a1 = 0.392378, A1_a2 = 1.18916,
-    A12_a0 = 0.265375, A12_a1 = 0.533638, A12_a2 = 0.483166,
-    V_a0 = 0.376313, V_a1 = -1.16597, V_a2 = 2.42443,
-    T1_a0 = 0.312055, T1_a1 = -1.00893, T1_a2 = 1.5272,
-    T2_a0 = 0.312055, T2_a1 = 0.496846, T2_a2 = 1.61431,
-    T23_a0 = 0.667412, T23_a1 = 1.31812, T23_a2 = 3.82334;
-
-    eA0_a0 = 0.0289419, eA0_a1 = 0.256849, eA0_a2 = 1.63438,
-    eA1_a0 = 0.026356, eA1_a1 = 0.187894 , eA1_a2 = 1.02531,
-    eA12_a0 = 0.0208033, eA12_a1 = 0.128772, eA12_a2 = 0.656273,
-    eV_a0 = 0.0332944, eV_a1 = 0.261268, eV_a2 = 1.53102,
-    eT1_a0 = 0.027496, eT1_a1 = 0.189575, eT1_a2 = 1.63965,
-    eT2_a0 = 0.027496, eT2_a1 = 0.166219, eT2_a2 = 0.803783,
-    eT23_a0 = 0.0633333, eT23_a1 = 0.222129, eT23_a2 = 2.20338;}
 ////######refer to "CholeskyDecomp.nb"
 //central vector:\mu
 double BdtoKstrll_fferrpar::cen_FF[] = {0.369196, -1.36584, 0.128191, 0.29725, 0.392378, 1.18916, /*0.265375,*/ 0.533638, 0.483166, 0.376313, -1.16597, 2.42443,
@@ -76,7 +61,7 @@ double BdtoKstrll_fferrpar::A0a2(){return mnd_cov(cen_FF,chd_cov,2);}
 double BdtoKstrll_fferrpar::A1a0(){return mnd_cov(cen_FF,chd_cov,3);}
 double BdtoKstrll_fferrpar::A1a1(){return mnd_cov(cen_FF,chd_cov,4);}
 double BdtoKstrll_fferrpar::A1a2(){return mnd_cov(cen_FF,chd_cov,5);}
-double BdtoKstrll_fferrpar::A12a0(){return A12_a0 + ((A0a0()-A0_a0)/eA0_a0)*eA12_a0;}
+double BdtoKstrll_fferrpar::A12a0(){return A0a0()*(pow(mBd(),2.0)-pow(mKst(),2.0))/(8.0*mBd()*mKst());}
 double BdtoKstrll_fferrpar::A12a1(){return mnd_cov(cen_FF,chd_cov,6);}
 double BdtoKstrll_fferrpar::A12a2(){return mnd_cov(cen_FF,chd_cov,7);}
 double BdtoKstrll_fferrpar::Va0(){return mnd_cov(cen_FF,chd_cov,8);}
@@ -96,27 +81,11 @@ double BdtoKstrll_fferrpar::T23a2(){return mnd_cov(cen_FF,chd_cov,18);}
 
 //Bs->phi,ll
 Bstophill_fferrpar::Bstophill_fferrpar(){
-    tps=pow(mBs()+mKst(),2.0);
-    tms=pow(mBs()-mKst(),2.0);
+    tps=pow(mBs()+mphi(),2.0);
+    tms=pow(mBs()-mphi(),2.0);
     tzs=tps*(1.0-sqrt(1.0-tms/tps));
 
-    m_PSbs=5.366,m_Vbs=5.415,m_Abs=5.829;
-
-    A0_a0 = 0.421328, A0_a1 = -0.976454, A0_a2 = 3.2714,
-    A1_a0 = 0.288007, A1_a1 = 0.350826, A1_a2 = 1.69688,
-    A12_a0 = 0.267053, A12_a1 = 0.954402, A12_a2 = 2.15263,
-    V_a0 = 0.364478, V_a1 = -1.22389, V_a2 = 3.74061,
-    T1_a0 = 0.299475, T1_a1 = -1.1013, T1_a2 = 0.58459,
-    T2_a0 = 0.299475, T2_a1 = 0.403564, T2_a2 = 1.03987,
-    T23_a0 = 0.65233, T23_a1 = 2.09622, T23_a2 = 6.73572;
-
-    eA0_a0 = 0.0240514, eA0_a1 = 0.23757, eA0_a2 = 1.35909,
-    eA1_a0 = 0.0105759, eA1_a1 = 0.103813 , eA1_a2 = 0.790297,
-    eA12_a0 = 0.0152447, eA12_a1 = 0.125879, eA12_a2 = 0.47881,
-    eV_a0 = 0.0141353, eV_a1 = 0.164176, eV_a2 = 1.72682,
-    eT1_a0 = 0.0120688, eT1_a1 = 0.0835241, eT1_a2 = 1.00324,
-    eT2_a0 = 0.0120688, eT2_a1 = 0.0803563, eT2_a2 = 0.608872,
-    eT23_a0 = 0.0357469, eT23_a1 = 0.330082, eT23_a2 = 1.79526;}
+    m_PSbs=5.366,m_Vbs=5.415,m_Abs=5.829;}
 
 ////######refer to "CholeskyDecomp.nb"
 //central vector:\mu
@@ -168,7 +137,7 @@ double Bstophill_fferrpar::A0a2(){return mnd_cov(cen_FF,chd_cov,2);}
 double Bstophill_fferrpar::A1a0(){return mnd_cov(cen_FF,chd_cov,3);}
 double Bstophill_fferrpar::A1a1(){return mnd_cov(cen_FF,chd_cov,4);}
 double Bstophill_fferrpar::A1a2(){return mnd_cov(cen_FF,chd_cov,5);}
-double Bstophill_fferrpar::A12a0(){return A12_a0 + ((A0a0()-A0_a0)/eA0_a0)*eA12_a0;}
+double Bstophill_fferrpar::A12a0(){return A0a0()*(pow(mBs(),2.0)-pow(mphi(),2.0))/(8.0*mBs()*mphi());}
 double Bstophill_fferrpar::A12a1(){return mnd_cov(cen_FF,chd_cov,6);}
 double Bstophill_fferrpar::A12a2(){return mnd_cov(cen_FF,chd_cov,7);}
 double Bstophill_fferrpar::Va0(){return mnd_cov(cen_FF,chd_cov,8);}
@@ -192,15 +161,7 @@ BdtoKll_fferrpar::BdtoKll_fferrpar(){
     tm=pow(mBd()-mK(),2.0);
     tz=tp*(1.0-sqrt(1.0-tm/tp));
 
-    m_Vbs=5.412,m_Sbs=5.630;
-
-    /*fz_a0=0.0,*/fz_a1=0.195117,fz_a2=-0.446126,
-    fT_a0=0.299383,fT_a1=-0.773546,fT_a2=0.00955438,
-    fp_a0=0.32909,fp_a1=-0.866947,fp_a2=0.00609567;
-
-    /*efz_a0=0.0,*/efz_a1=0.168097,efz_a2=0.408946,
-    efT_a0=0.025872,efT_a1=0.150128,efT_a2=0.871576,
-    efp_a0=0.0277282,efp_a1=0.138144,efp_a2=0.750826;}
+    m_Vbs=5.412,m_Sbs=5.630;}
 
 ////######refer to "CholeskyDecomp.nb"
 //central vector:\mu

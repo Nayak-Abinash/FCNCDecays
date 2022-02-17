@@ -58,8 +58,8 @@ double BdtoKstrll_ffpar::T23a2(){return T23_a2;}
 
 //Bs->phi,ll
 Bstophill_ffpar::Bstophill_ffpar(){
-    tps=pow(mBs()+mKst(),2.0);
-    tms=pow(mBs()-mKst(),2.0);
+    tps=pow(mBs()+mphi(),2.0);
+    tms=pow(mBs()-mphi(),2.0);
     tzs=tps*(1.0-sqrt(1.0-tms/tps));
 
     m_PSbs=5.366,m_Vbs=5.415,m_Abs=5.829;

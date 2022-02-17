@@ -19,7 +19,7 @@ add_definitions(${ROOT_CXX_FLAGS})
 
 include_directories(include)
 
-file(GLOB source_files CONFIGURE_DEPENDS "main/tmain.cc" "src/*.cc")
+file(GLOB source_files CONFIGURE_DEPENDS "main/main.cc" "src/*.cc")
 
 # add executable
 add_executable(output ${source_files})
