@@ -4,6 +4,7 @@ myfun::myfun(){
     rndm = new TRandom3;
     rndm->SetSeed(0);}
 
+
 int myfun::mylength(double lst[], int iter, double a, double b){
     double num=0;
     for(int i=0; i<iter ; ++i)
@@ -30,11 +31,11 @@ double myfun::mnd(double mu, double sigma){
 double myfun::mnd_default(){
     return rndm->Gaus(0.0,1.0);}
 
-double myfun::mnd_cov(double muv[], double cholesky[][MXdm], int i){
+double myfun::mnd_cov(double muv[], double cholesky[][MXdm], double untnormlv[], int i){
     double sum = 0;
     for (int j=0; j<19; j++)
         {
-            sum = sum + cholesky[i][j]*mnd_default();
+            sum = sum + cholesky[i][j]*untnormlv[j];
         }
     return muv[i] + sum;}
 

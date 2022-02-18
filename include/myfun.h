@@ -35,7 +35,7 @@ public:
     double mtrx_tp(double lpar[], double covm[][mxdm]);
     double mnd(double mu, double sigma);
     double mnd_default();
-    double mnd_cov(double mu[], double cholesky[][MXdm], int i);
+    double mnd_cov(double mu[], double cholesky[][MXdm], double untnormlv[], int i);
 };
 
 

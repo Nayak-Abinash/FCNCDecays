@@ -19,22 +19,22 @@ public:
     double lambda(double qsq);
     double nf(double qsq, double ml);
 
-    double ApLRe(double qsq, double ml);
-    double ApLIm(double qsq, double ml);
-    double ApRRe(double qsq, double ml);
-    double ApRIm(double qsq, double ml);
-    double AaLRe(double qsq, double ml);
-    double AaLIm(double qsq, double ml);
-    double AaRRe(double qsq, double ml);
-    double AaRIm(double qsq, double ml);
-    double AzLRe(double qsq, double ml);
-    double AzLIm(double qsq, double ml);
-    double AzRRe(double qsq, double ml);
-    double AzRIm(double qsq, double ml);
-    double AtRe(double qsq, double ml);
-    double AtIm(double qsq, double ml);
-    double ASRe(double qsq, double ml);
-    double ASIm(double qsq, double ml);
+    double ApLRe(double qsq, double ml, double unv[]);
+    double ApLIm(double qsq, double ml, double unv[]);
+    double ApRRe(double qsq, double ml, double unv[]);
+    double ApRIm(double qsq, double ml, double unv[]);
+    double AaLRe(double qsq, double ml, double unv[]);
+    double AaLIm(double qsq, double ml, double unv[]);
+    double AaRRe(double qsq, double ml, double unv[]);
+    double AaRIm(double qsq, double ml, double unv[]);
+    double AzLRe(double qsq, double ml, double unv[]);
+    double AzLIm(double qsq, double ml, double unv[]);
+    double AzRRe(double qsq, double ml, double unv[]);
+    double AzRIm(double qsq, double ml, double unv[]);
+    double AtRe(double qsq, double ml, double unv[]);
+    double AtIm(double qsq, double ml, double unv[]);
+    double ASRe(double qsq, double ml, double unv[]);
+    double ASIm(double qsq, double ml, double unv[]);
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -54,22 +54,22 @@ public:
     double lambda(double qsq);
     double nf(double qsq, double ml);
 
-    double ApLRe(double qsq, double ml);
-    double ApLIm(double qsq, double ml);
-    double ApRRe(double qsq, double ml);
-    double ApRIm(double qsq, double ml);
-    double AaLRe(double qsq, double ml);
-    double AaLIm(double qsq, double ml);
-    double AaRRe(double qsq, double ml);
-    double AaRIm(double qsq, double ml);
-    double AzLRe(double qsq, double ml);
-    double AzLIm(double qsq, double ml);
-    double AzRRe(double qsq, double ml);
-    double AzRIm(double qsq, double ml);
-    double AtRe(double qsq, double ml);
-    double AtIm(double qsq, double ml);
-    double ASRe(double qsq, double ml);
-    double ASIm(double qsq, double ml);
+    double ApLRe(double qsq, double ml, double unv[]);
+    double ApLIm(double qsq, double ml, double unv[]);
+    double ApRRe(double qsq, double ml, double unv[]);
+    double ApRIm(double qsq, double ml, double unv[]);
+    double AaLRe(double qsq, double ml, double unv[]);
+    double AaLIm(double qsq, double ml, double unv[]);
+    double AaRRe(double qsq, double ml, double unv[]);
+    double AaRIm(double qsq, double ml, double unv[]);
+    double AzLRe(double qsq, double ml, double unv[]);
+    double AzLIm(double qsq, double ml, double unv[]);
+    double AzRRe(double qsq, double ml, double unv[]);
+    double AzRIm(double qsq, double ml, double unv[]);
+    double AtRe(double qsq, double ml, double unv[]);
+    double AtIm(double qsq, double ml, double unv[]);
+    double ASRe(double qsq, double ml, double unv[]);
+    double ASIm(double qsq, double ml, double unv[]);
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -90,21 +90,21 @@ public:
     double lambda(double qsq);
     double nf(double qsq, double ml);
 
-    double xiP(double qsq);
-    double TauPRe(double qsq);
-    double TauPIm(double qsq);
-    double FVRe(double qsq, double ml);
-    double FVIm(double qsq, double ml);
-    double FARe(double qsq, double ml);
-    double FAIm(double qsq, double ml);
-    double FSRe(double qsq, double ml);
-    double FSIm(double qsq, double ml);
-    double FPRe(double qsq, double ml);
-    double FPIm(double qsq, double ml);
-    double FTRe(double qsq, double ml);
-    double FTIm(double qsq, double ml);
-    double FT5Re(double qsq, double ml);
-    double FT5Im(double qsq, double ml);
+    double xiP(double qsq, double unv[]);
+    double TauPRe(double qsq, double unv[]);
+    double TauPIm(double qsq, double unv[]);
+    double FVRe(double qsq, double ml, double unv[]);
+    double FVIm(double qsq, double ml, double unv[]);
+    double FARe(double qsq, double ml, double unv[]);
+    double FAIm(double qsq, double ml, double unv[]);
+    double FSRe(double qsq, double ml, double unv[]);
+    double FSIm(double qsq, double ml, double unv[]);
+    double FPRe(double qsq, double ml, double unv[]);
+    double FPIm(double qsq, double ml, double unv[]);
+    double FTRe(double qsq, double ml, double unv[]);
+    double FTIm(double qsq, double ml, double unv[]);
+    double FT5Re(double qsq, double ml, double unv[]);
+    double FT5Im(double qsq, double ml, double unv[]);
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

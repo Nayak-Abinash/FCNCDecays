@@ -45,7 +45,6 @@ double BdtoKstrll_fferrpar::chd_cov[][MXdm] =
     {-0.765568, 0.0744983, -0.862889, -0.51616, -0.366398, -0.22148, 0.421026, -0.142154, -0.033986, -0.0336954, 0.192015, 0.0914068,
      0.439198, 0.520461, 0.213893, 0.657043, -0.995098, 0.916255, 0.230145}};
 
-
 double BdtoKstrll_fferrpar::zd(double qsq){
     return (sqrt(tpd-qsq)-sqrt(tpd-tzd))/(sqrt(tpd-qsq) +sqrt(tpd-tzd));}
 
@@ -53,27 +52,27 @@ double BdtoKstrll_fferrpar::mPSbs(){return m_PSbs;}
 double BdtoKstrll_fferrpar::mVbs(){return m_Vbs;}
 double BdtoKstrll_fferrpar::mAbs(){return m_Abs;}
 
-double BdtoKstrll_fferrpar::A0a0(){return mnd_cov(cen_FF,chd_cov,0);}
-double BdtoKstrll_fferrpar::A0a1(){return mnd_cov(cen_FF,chd_cov,1);}
-double BdtoKstrll_fferrpar::A0a2(){return mnd_cov(cen_FF,chd_cov,2);}
-double BdtoKstrll_fferrpar::A1a0(){return mnd_cov(cen_FF,chd_cov,3);}
-double BdtoKstrll_fferrpar::A1a1(){return mnd_cov(cen_FF,chd_cov,4);}
-double BdtoKstrll_fferrpar::A1a2(){return mnd_cov(cen_FF,chd_cov,5);}
-double BdtoKstrll_fferrpar::A12a0(){return A0a0()*(pow(mBd(),2.0)-pow(mKst(),2.0))/(8.0*mBd()*mKst());}//Eq. 17 of arXiv:1503.05534
-double BdtoKstrll_fferrpar::A12a1(){return mnd_cov(cen_FF,chd_cov,6);}
-double BdtoKstrll_fferrpar::A12a2(){return mnd_cov(cen_FF,chd_cov,7);}
-double BdtoKstrll_fferrpar::Va0(){return mnd_cov(cen_FF,chd_cov,8);}
-double BdtoKstrll_fferrpar::Va1(){return mnd_cov(cen_FF,chd_cov,9);}
-double BdtoKstrll_fferrpar::Va2(){return mnd_cov(cen_FF,chd_cov,10);}
-double BdtoKstrll_fferrpar::T1a0(){return mnd_cov(cen_FF,chd_cov,11);}
-double BdtoKstrll_fferrpar::T1a1(){return mnd_cov(cen_FF,chd_cov,12);}
-double BdtoKstrll_fferrpar::T1a2(){return mnd_cov(cen_FF,chd_cov,13);}
-double BdtoKstrll_fferrpar::T2a0(){return T1a0();}//Eq. 17 of arXiv:1503.05534
-double BdtoKstrll_fferrpar::T2a1(){return mnd_cov(cen_FF,chd_cov,14);}
-double BdtoKstrll_fferrpar::T2a2(){return mnd_cov(cen_FF,chd_cov,15);}
-double BdtoKstrll_fferrpar::T23a0(){return mnd_cov(cen_FF,chd_cov,16);}
-double BdtoKstrll_fferrpar::T23a1(){return mnd_cov(cen_FF,chd_cov,17);}
-double BdtoKstrll_fferrpar::T23a2(){return mnd_cov(cen_FF,chd_cov,18);}
+double BdtoKstrll_fferrpar::A0a0(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,0);}
+double BdtoKstrll_fferrpar::A0a1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,1);}
+double BdtoKstrll_fferrpar::A0a2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,2);}
+double BdtoKstrll_fferrpar::A1a0(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,3);}
+double BdtoKstrll_fferrpar::A1a1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,4);}
+double BdtoKstrll_fferrpar::A1a2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,5);}
+double BdtoKstrll_fferrpar::A12a0(double unv[]){return A0a0(unv)*(pow(mBd(),2.0)-pow(mKst(),2.0))/(8.0*mBd()*mKst());}//Eq. 17 of arXiv:1503.05534
+double BdtoKstrll_fferrpar::A12a1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,6);}
+double BdtoKstrll_fferrpar::A12a2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,7);}
+double BdtoKstrll_fferrpar::Va0(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,8);}
+double BdtoKstrll_fferrpar::Va1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,9);}
+double BdtoKstrll_fferrpar::Va2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,10);}
+double BdtoKstrll_fferrpar::T1a0(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,11);}
+double BdtoKstrll_fferrpar::T1a1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,12);}
+double BdtoKstrll_fferrpar::T1a2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,13);}
+double BdtoKstrll_fferrpar::T2a0(double unv[]){return T1a0(unv);}//Eq. 17 of arXiv:1503.05534
+double BdtoKstrll_fferrpar::T2a1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,14);}
+double BdtoKstrll_fferrpar::T2a2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,15);}
+double BdtoKstrll_fferrpar::T23a0(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,16);}
+double BdtoKstrll_fferrpar::T23a1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,17);}
+double BdtoKstrll_fferrpar::T23a2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,18);}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -129,27 +128,27 @@ double Bstophill_fferrpar::mPSbs(){return m_PSbs;}
 double Bstophill_fferrpar::mVbs(){return m_Vbs;}
 double Bstophill_fferrpar::mAbs(){return m_Abs;}
 
-double Bstophill_fferrpar::A0a0(){return mnd_cov(cen_FF,chd_cov,0);}
-double Bstophill_fferrpar::A0a1(){return mnd_cov(cen_FF,chd_cov,1);}
-double Bstophill_fferrpar::A0a2(){return mnd_cov(cen_FF,chd_cov,2);}
-double Bstophill_fferrpar::A1a0(){return mnd_cov(cen_FF,chd_cov,3);}
-double Bstophill_fferrpar::A1a1(){return mnd_cov(cen_FF,chd_cov,4);}
-double Bstophill_fferrpar::A1a2(){return mnd_cov(cen_FF,chd_cov,5);}
-double Bstophill_fferrpar::A12a0(){return A0a0()*(pow(mBs(),2.0)-pow(mphi(),2.0))/(8.0*mBs()*mphi());}//Eq. 17 of arXiv:1503.05534
-double Bstophill_fferrpar::A12a1(){return mnd_cov(cen_FF,chd_cov,6);}
-double Bstophill_fferrpar::A12a2(){return mnd_cov(cen_FF,chd_cov,7);}
-double Bstophill_fferrpar::Va0(){return mnd_cov(cen_FF,chd_cov,8);}
-double Bstophill_fferrpar::Va1(){return mnd_cov(cen_FF,chd_cov,9);}
-double Bstophill_fferrpar::Va2(){return mnd_cov(cen_FF,chd_cov,10);}
-double Bstophill_fferrpar::T1a0(){return mnd_cov(cen_FF,chd_cov,11);}
-double Bstophill_fferrpar::T1a1(){return mnd_cov(cen_FF,chd_cov,12);}
-double Bstophill_fferrpar::T1a2(){return mnd_cov(cen_FF,chd_cov,13);}
-double Bstophill_fferrpar::T2a0(){return T1a0();}//Eq. 17 of arXiv:1503.05534
-double Bstophill_fferrpar::T2a1(){return mnd_cov(cen_FF,chd_cov,14);}
-double Bstophill_fferrpar::T2a2(){return mnd_cov(cen_FF,chd_cov,15);}
-double Bstophill_fferrpar::T23a0(){return mnd_cov(cen_FF,chd_cov,16);}
-double Bstophill_fferrpar::T23a1(){return mnd_cov(cen_FF,chd_cov,17);}
-double Bstophill_fferrpar::T23a2(){return mnd_cov(cen_FF,chd_cov,18);}
+double Bstophill_fferrpar::A0a0(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,0);}
+double Bstophill_fferrpar::A0a1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,1);}
+double Bstophill_fferrpar::A0a2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,2);}
+double Bstophill_fferrpar::A1a0(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,3);}
+double Bstophill_fferrpar::A1a1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,4);}
+double Bstophill_fferrpar::A1a2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,5);}
+double Bstophill_fferrpar::A12a0(double unv[]){return A0a0(unv)*(pow(mBd(),2.0)-pow(mKst(),2.0))/(8.0*mBd()*mKst());}//Eq. 17 of arXiv:1503.05534
+double Bstophill_fferrpar::A12a1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,6);}
+double Bstophill_fferrpar::A12a2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,7);}
+double Bstophill_fferrpar::Va0(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,8);}
+double Bstophill_fferrpar::Va1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,9);}
+double Bstophill_fferrpar::Va2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,10);}
+double Bstophill_fferrpar::T1a0(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,11);}
+double Bstophill_fferrpar::T1a1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,12);}
+double Bstophill_fferrpar::T1a2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,13);}
+double Bstophill_fferrpar::T2a0(double unv[]){return T1a0(unv);}//Eq. 17 of arXiv:1503.05534
+double Bstophill_fferrpar::T2a1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,14);}
+double Bstophill_fferrpar::T2a2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,15);}
+double Bstophill_fferrpar::T23a0(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,16);}
+double Bstophill_fferrpar::T23a1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,17);}
+double Bstophill_fferrpar::T23a2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,18);}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -181,14 +180,14 @@ double BdtoKll_fferrpar::z(double qsq){return (sqrt(tp-qsq)-sqrt(tp-tz))/(sqrt(t
 double BdtoKll_fferrpar::mVbs(){return m_Vbs;}
 double BdtoKll_fferrpar::mSbs(){return m_Sbs;}
 
-double BdtoKll_fferrpar::fza1(){return mnd_cov(cen_FF,chd_cov,0);}
-double BdtoKll_fferrpar::fza2(){return mnd_cov(cen_FF,chd_cov,1);}
-double BdtoKll_fferrpar::fTa0(){return mnd_cov(cen_FF,chd_cov,2);}
-double BdtoKll_fferrpar::fTa1(){return mnd_cov(cen_FF,chd_cov,3);}
-double BdtoKll_fferrpar::fTa2(){return mnd_cov(cen_FF,chd_cov,4);}
-double BdtoKll_fferrpar::fpa0(){return mnd_cov(cen_FF,chd_cov,5);}
-double BdtoKll_fferrpar::fpa1(){return mnd_cov(cen_FF,chd_cov,6);}
-double BdtoKll_fferrpar::fpa2(){return mnd_cov(cen_FF,chd_cov,7);}
+double BdtoKll_fferrpar::fza1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,0);}
+double BdtoKll_fferrpar::fza2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,1);}
+double BdtoKll_fferrpar::fTa0(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,2);}
+double BdtoKll_fferrpar::fTa1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,3);}
+double BdtoKll_fferrpar::fTa2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,4);}
+double BdtoKll_fferrpar::fpa0(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,5);}
+double BdtoKll_fferrpar::fpa1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,6);}
+double BdtoKll_fferrpar::fpa2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,7);}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
