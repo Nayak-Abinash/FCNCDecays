@@ -5,7 +5,7 @@
 
 
 //Bd->Kstr,ll
-class BdtoKstrll_fferrpar : public smpar, public myfun {
+class BdtoKstrll_fferrpar : public smpar, public ref_fun {
 public:
     BdtoKstrll_fferrpar();
     double tpd,tmd,tzd;
@@ -15,14 +15,14 @@ public:
         A1a0(double unv[]), A1a1(double unv[]), A1a2(double unv[]), A12a0(double unv[]), A12a1(double unv[]), A12a2(double unv[]),
         T1a0(double unv[]), T1a1(double unv[]), T1a2(double unv[]), T2a0(double unv[]), T2a1(double unv[]), T2a2(double unv[]),
         T23a0(double unv[]), T23a1(double unv[]), T23a2(double unv[]);
-    static double cen_FF[MXdm]; static double unc_FF[MXdm]; static double chd_cov[MXdm][MXdm];
+    double static cen_FF[MXdm]; double static unc_FF[MXdm]; double static chd_cov[MXdm][MXdm];
 
 private:
     double m_PSbs,m_Vbs,m_Abs;
 };
 
 //Bs->phi,ll
-class Bstophill_fferrpar : public smpar, public myfun {
+class Bstophill_fferrpar : public smpar, public ref_fun {
 public:
     Bstophill_fferrpar();
     double tps,tms,tzs;
@@ -32,14 +32,14 @@ public:
         A1a0(double unv[]), A1a1(double unv[]), A1a2(double unv[]), A12a0(double unv[]), A12a1(double unv[]), A12a2(double unv[]),
         T1a0(double unv[]), T1a1(double unv[]), T1a2(double unv[]), T2a0(double unv[]), T2a1(double unv[]), T2a2(double unv[]),
         T23a0(double unv[]), T23a1(double unv[]), T23a2(double unv[]);
-    static double cen_FF[MXdm]; static double unc_FF[MXdm]; static double chd_cov[MXdm][MXdm];
+    double static cen_FF[MXdm]; double static unc_FF[MXdm]; double static chd_cov[MXdm][MXdm];
 
 private:
     double m_PSbs,m_Vbs,m_Abs;
 };
 
 //Bd->K,ll
-class BdtoKll_fferrpar : public smpar, public myfun {
+class BdtoKll_fferrpar : public smpar, public ref_fun {
 public:
     BdtoKll_fferrpar();
     double tp,tm,tz;
@@ -48,7 +48,7 @@ public:
     double mVbs(),mSbs();
     double fza1(double unv[]), fza2(double unv[]), fTa0(double unv[]), fTa1(double unv[]), fTa2(double unv[]),
         fpa0(double unv[]), fpa1(double unv[]), fpa2(double unv[]);
-    static double cen_FF[MXdm]; static double unc_FF[MXdm]; static double chd_cov[MXdm][MXdm];
+    double static cen_FF[MXdm]; double static unc_FF[MXdm]; double static chd_cov[MXdm][MXdm];
 
 private:
     //LCSR+Lattice

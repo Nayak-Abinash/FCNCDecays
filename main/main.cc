@@ -8,7 +8,7 @@ int main()
     double qsq; string str;
     cout << "Type a value for qsq:";
     getline(cin,str); stringstream(str) >> qsq;
-    double cval = o1.AFB(qsq,o1.mmu());
+    double cval = o1.FL(qsq,o1.mmu());
     cout << "(" << cval << "," << /*sdval <<*/ ")" << endl;
 ///////////Error///////////////
 ////68.2%ConfidenceLevel (point counting from boundary values)////////////////
@@ -18,14 +18,14 @@ int main()
     TCanvas *c1 = new TCanvas();
     TH1D *hist = new TH1D("hist", "", 100, lw_range, up_range);
 //Boundary counting
-    int iter(100000), sdcl(int(iter*15.9/100)); double data[iter];
+    int iter(10000), sdcl(int(iter*15.9/100)); double data[iter];
     for(int i=0; i<iter; i++)
         {
             double unv[] = {eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(),
                                     eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(),
                                     eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(),
                                     eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default()};
-            data[i]= eo1.AFB(qsq,o1.mmu(),unv);
+            data[i]= eo1.FL(qsq,o1.mmu(),unv);
             hist->Fill(data[i]);
         }
     sort(data,data+iter);

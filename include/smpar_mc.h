@@ -1,12 +1,11 @@
-#ifndef smpar_h
-#define smpar_h
+#ifndef smpar_mc_h
+#define smpar_mc_h
 
 #include "ref_fun.h"
-#include "ckm_elements.h"
 
-class smpar : public ckm_elements {
+class smpar_mc {
 public:
-    smpar ();
+    smpar_mc ();
     double pi;
     double mu();
     double md(),mc(),ms(),mb();
@@ -29,3 +28,4 @@ private:
 };
 
 #endif
+

@@ -4,7 +4,7 @@
 #include "smpar.h"
 
 //Bd->Kstr,ll
-class BdtoKstrll_ffpar : public smpar, public myfun {
+class BdtoKstrll_ffpar : public smpar, public ref_fun {
 public:
     BdtoKstrll_ffpar();
     double tpd,tmd,tzd;
@@ -20,7 +20,7 @@ private:
 };
 
 //Bs->phi,ll
-class Bstophill_ffpar : public smpar, public myfun {
+class Bstophill_ffpar : public smpar, public ref_fun {
 public:
     Bstophill_ffpar();
     double tps,tms,tzs;
@@ -36,7 +36,7 @@ private:
 };
 
 //Bd->K,ll
-class BdtoKll_ffpar : public smpar, public myfun {
+class BdtoKll_ffpar : public smpar, public ref_fun {
 public:
     BdtoKll_ffpar();
     double tp,tm,tz;
