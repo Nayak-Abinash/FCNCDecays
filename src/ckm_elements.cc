@@ -1,6 +1,6 @@
 //Here, we define the CKM matrix in Wolfenstein parameterization (https://pdg.lbl.gov/2020/reviews/rpp2020-rev-ckm-matrix.pdf)
 //Though the matrix has a scale dependence above weak scale, below \mu = m_W the CKM elements can be treated as constants.
-//Here, they are assumed to be constants.
+//Since, we are mostly working with effective theories much below the weak scale, they are assumed to be constants.
 #include "ckm_elements.h"
 
 ckm_elements::ckm_elements(){
