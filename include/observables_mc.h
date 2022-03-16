@@ -1,7 +1,7 @@
-#ifndef obserr_h
-#define obserr_h
+#ifndef observables_mc_h
+#define observables_mc_h
 
-#include "amperr.h"
+#include "amplitudes_mc.h"
 
 
 //Bd->Kstr,ll:

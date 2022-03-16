@@ -1,4 +1,4 @@
-#include "fferrpar.h"
+#include "FF_parameters_mc.h"
 
 //Bs->Kstr,ll
 BdtoKstrll_fferrpar::BdtoKstrll_fferrpar(){

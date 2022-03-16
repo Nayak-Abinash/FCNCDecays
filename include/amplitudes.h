@@ -1,7 +1,7 @@
-#ifndef amp_h
-#define amp_h
+#ifndef amplitudes_h
+#define amplitudes_h
 
-#include "fffun.h"
+#include "FF_functions.h"
 
 //Bd->Kstr,ll
 class BdtoKstrll_amp : public BdtoKstrll_fffun {

@@ -1,7 +1,7 @@
-#ifndef amperr_h
-#define amperr_h
+#ifndef amplitudes_mc_h
+#define amplitudes_mc_h
 
-#include "fferrfun.h"
+#include "FF_functions_mc.h"
 
 
 //Bd->Kstr,ll

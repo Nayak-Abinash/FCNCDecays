@@ -1,7 +1,7 @@
-#ifndef obs_h
-#define obs_h
+#ifndef observables_h
+#define observables_h
 
-#include "amp.h"
+#include "amplitudes.h"
 
 //Bd->Kstr,ll:
 class BdtoKstrll_obs : public BdtoKstrll_amp {

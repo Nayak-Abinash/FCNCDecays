@@ -1,9 +1,10 @@
 #ifndef ckm_elements_h
 #define ckm_elements_h
 
-#include "ref_fun.h"
+#include "model_functions.h"
 
-class ckm_elements {
+class ckm_elements : public model_functions
+{
 public:
     ckm_elements();
     double ckmA(), ckmlambda(), ckmrhobar(), ckmetabar();
@@ -11,6 +12,7 @@ public:
     double c12(), c23(), c13();
     double ReVud(), ReVus(), ReVub(), ReVcd(), ReVcs(), ReVcb(), ReVtd(), ReVts(), ReVtb();
     double ImVud(), ImVus(), ImVub(), ImVcd(), ImVcs(), ImVcb(), ImVtd(), ImVts(), ImVtb();
+    double absVtbVtdStr(), absVtbVtsStr();
 private:
     double ckm_A, ckm_lambda, ckm_rhobar, ckm_etabar;
 };

@@ -1,4 +1,4 @@
-#include "fffun.h"
+#include "FF_functions.h"
 
 //Bd->Kstr,ll
 double BdtoKstrll_fffun::V(double qsq){

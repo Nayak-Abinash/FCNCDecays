@@ -1,4 +1,4 @@
-#include "amperr.h"
+#include "amplitudes_mc.h"
 
 //Bd->Kstr,ll:
 double BdtoKstrll_amperr::hRe(double qsq, double mq){

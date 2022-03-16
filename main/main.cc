@@ -1,6 +1,6 @@
 //ProjectFiles
-#include "obs.h"
-#include "obserr.h"
+#include "observables.h"
+#include "observables_mc.h"
 
 int main()
 {

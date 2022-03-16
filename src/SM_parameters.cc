@@ -1,4 +1,4 @@
-#include "smpar.h"
+#include "SM_parameters.h"
 
 smpar::smpar()
 {
@@ -11,7 +11,7 @@ smpar::smpar()
 
     tau_Bd = 1.519*1.52*pow(10.0,12.0), tau_Bs = 1.527*1.52*pow(10.0,12.0), D_Gamma_dbar = 0.001, D_Gamma_sbar = 0.124, f_Bd = 0.1905, f_Bs = 0.2303;
 
-    abs_VtbVtdStr = 0.00853871, abs_VtbVtsStr = 0.0408726, G_F = 1.1663787*pow(10.0,-5.0), alphae = 1.0/127.944;
+    G_F = 1.1663787*pow(10.0,-5.0), alphae = 1.0/127.944;
 
     C_1 = -0.257, C_2 = 1.009, C_3 = -0.005, C_4 = -0.078, C_5 = 0.000, C_6 = 0.001, C_7effRe = -0.304, C_7effIm = 0.0, C_8eff = -0.167,
     C_9Re = 4.211, C_9Im = 0.0, C_10Re = -4.103, C_10Im = 0.0;
@@ -43,8 +43,6 @@ double smpar::DGamma_sbar(){return D_Gamma_sbar;}
 double smpar::fBd(){return f_Bd;}
 double smpar::fBs(){return f_Bs;}
 //Coupling_Constants
-double smpar::absVtbVtdStr(){return abs_VtbVtdStr;}
-double smpar::absVtbVtsStr(){return abs_VtbVtsStr;}
 double smpar::GF(){return G_F;}
 double smpar::alpha_e(){return alphae;}
 //SM_Wilson_Coefficients

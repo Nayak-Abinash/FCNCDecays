@@ -1,4 +1,4 @@
-#include "obs.h"
+#include "observables.h"
 
 //Bd->Kstr,ll:
 double BdtoKstrll_obs::J1s(double qsq, double ml){

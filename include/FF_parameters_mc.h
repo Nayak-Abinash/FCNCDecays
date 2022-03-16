@@ -1,11 +1,10 @@
-#ifndef fferrpar_h
-#define fferrpar_h
+#ifndef FF_parameters_mc_h
+#define FF_parameters_mc_h
 
-#include "smpar.h"
-
+#include "SM_parameters_mc.h"
 
 //Bd->Kstr,ll
-class BdtoKstrll_fferrpar : public smpar, public ref_fun {
+class BdtoKstrll_fferrpar : public smpar_mc {
 public:
     BdtoKstrll_fferrpar();
     double tpd,tmd,tzd;
@@ -22,7 +21,7 @@ private:
 };
 
 //Bs->phi,ll
-class Bstophill_fferrpar : public smpar, public ref_fun {
+class Bstophill_fferrpar : public smpar_mc {
 public:
     Bstophill_fferrpar();
     double tps,tms,tzs;
@@ -39,7 +38,7 @@ private:
 };
 
 //Bd->K,ll
-class BdtoKll_fferrpar : public smpar, public ref_fun {
+class BdtoKll_fferrpar : public smpar_mc {
 public:
     BdtoKll_fferrpar();
     double tp,tm,tz;

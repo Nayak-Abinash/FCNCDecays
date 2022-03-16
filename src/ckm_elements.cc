@@ -62,6 +62,10 @@ double ckm_elements::ImVts(){return -c23()*s12()*s13pidIm();}
 double ckm_elements::ReVtb(){return c13()*c23();}
 double ckm_elements::ImVtb(){return 0.0;}
 
+double ckm_elements::absVtbVtdStr(){return sqrt(pow(ReVtb()*ReVtd() + ImVtb()*ImVtd(), 2) + pow(ImVtb()*ReVtd() - ReVtb()*ImVtd(), 2));}
+
+double ckm_elements::absVtbVtsStr(){return sqrt(pow(ReVtb()*ReVts() + ImVtb()*ImVts(), 2) + pow(ImVtb()*ReVts() - ReVtb()*ImVts(), 2));}
+
 
 
 

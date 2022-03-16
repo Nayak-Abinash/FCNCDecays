@@ -1,7 +1,7 @@
-#ifndef fffun_h
-#define fffun_h
+#ifndef FF_functions_h
+#define FF_functions_h
 
-#include "ffpar.h"
+#include "FF_parameters.h"
 
 //Bd->Kstr,ll
 class BdtoKstrll_fffun : public BdtoKstrll_ffpar {
