@@ -4,11 +4,11 @@
 
 int main()
 {
-    BdtoKstrll_obs o1; BdtoKstrll_obserr eo1;
+    Btoll_obs o1; Btoll_obserr eo1;
     double qsq; string str;
     cout << "Type a value for qsq:";
     getline(cin,str); stringstream(str) >> qsq;
-    double cval = o1.FL(qsq,o1.mmu());
+    double cval = o1.BrTimeIntgratd(o1.mBs(),o1.ms(),o1.mmu(),o1.mmu());
     cout << "(" << cval << "," << /*sdval <<*/ ")" << endl;
 ///////////Error///////////////
 ////68.2%ConfidenceLevel (point counting from boundary values)////////////////
@@ -33,7 +33,7 @@ int main()
                             eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(),
                             eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(),
                             eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default()};
-            data[i]= eo1.FL(qsq,o1.mmu(),unv);
+            data[i]= eo1.BrTimeIntgratd(eo1.mBs(unv),eo1.ms(unv),eo1.mmu(unv),eo1.mmu(unv),unv);
             hist->Fill(data[i]);
         }
     sort(data,data+iter);
