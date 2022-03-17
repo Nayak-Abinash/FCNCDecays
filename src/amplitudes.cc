@@ -25,8 +25,8 @@ double BdtoKstrll_amp::YRe(double qsq){
 double BdtoKstrll_amp::YIm(double qsq){
     return hIm(qsq,mc())*(4.0/3.0*C1() + C2() + 6.0*C3() + 60.0*C5()) - 1.0/2.0*hIm(qsq,mb())*(7.0*C3() + 4.0/3.0*C4() + 76.0*C5() + 64.0/3.0*C6()) - 1.0/2.0*hImZ(qsq)*(C3() + 4.0/3.0*C4() + 16.0*C5() + 64.0/3.0*C6()); }
 
-double BdtoKstrll_amp::C9effRe(double qsq){return 4.211 + YRe(qsq);}
-double BdtoKstrll_amp::C9effIm(double qsq){return YIm(qsq);}
+double BdtoKstrll_amp::C9effRe(double qsq){return C9Re() + YRe(qsq);}
+double BdtoKstrll_amp::C9effIm(double qsq){return C9Im() + YIm(qsq);}
 
 double BdtoKstrll_amp::betal(double qsq, double ml){return sqrt(1.0-4.0*pow(ml,2.0)/qsq);}
 
@@ -103,8 +103,8 @@ double Bstophill_amp::YRe(double qsq){
 double Bstophill_amp::YIm(double qsq){
     return hIm(qsq,mc())*(4.0/3.0*C1() + C2() + 6.0*C3() + 60.0*C5()) - 1.0/2.0*hIm(qsq,mb())*(7.0*C3() + 4.0/3.0*C4() + 76.0*C5() + 64.0/3.0*C6()) - 1.0/2.0*hImZ(qsq)*(C3() + 4.0/3.0*C4() + 16.0*C5() + 64.0/3.0*C6()); }
 
-double Bstophill_amp::C9effRe(double qsq){return 4.211 + YRe(qsq);}
-double Bstophill_amp::C9effIm(double qsq){return YIm(qsq);}
+double Bstophill_amp::C9effRe(double qsq){return C9Re() + YRe(qsq);}
+double Bstophill_amp::C9effIm(double qsq){return C9Im() + YIm(qsq);}
 
 double Bstophill_amp::betal(double qsq, double ml){return sqrt(1.0-4.0*pow(ml,2.0)/qsq);}
 
@@ -182,9 +182,9 @@ double BdtoKll_amp::YIm(double qsq){
     return hIm(qsq,mc())*(4.0/3.0*C1() + C2() + 6.0*C3() + 60.0*C5()) - 1.0/2.0*hIm(qsq,mb())*(7.0*C3() + 4.0/3.0*C4() + 76.0*C5() + 64.0/3.0*C6()) - 1.0/2.0*hImZ(qsq)*(C3() + 4.0/3.0*C4() + 16.0*C5() + 64.0/3.0*C6());}
 
 double BdtoKll_amp::C9effRe(double qsq){
-    return 4.211 + YRe(qsq);}
+    return C9Re() + YRe(qsq);}
 double BdtoKll_amp::C9effIm(double qsq){
-    return YIm(qsq);}
+    return C9Im() + YIm(qsq);}
 
 double BdtoKll_amp::betal(double qsq, double ml){
     return sqrt(1.0-4.0*pow(ml,2.0)/qsq);}

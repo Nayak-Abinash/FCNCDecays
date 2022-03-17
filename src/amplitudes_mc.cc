@@ -33,7 +33,7 @@ double BdtoKstrll_amperr::YIm(double qsq, double unv[]){
             - 1.0/2.0*hImZ(qsq)*(C3(unv) + 4.0/3.0*C4(unv) + 16.0*C5(unv) + 64.0/3.0*C6(unv)); }
 
 double BdtoKstrll_amperr::C9effRe(double qsq, double unv[]){return C9Re(unv) + YRe(qsq, unv);}
-double BdtoKstrll_amperr::C9effIm(double qsq, double unv[]){return YIm(qsq, unv);}
+double BdtoKstrll_amperr::C9effIm(double qsq, double unv[]){return C9Im(unv) + YIm(qsq, unv);}
 
 double BdtoKstrll_amperr::betal(double qsq, double ml){return sqrt(1.0-4.0*pow(ml,2.0)/qsq);}
 
@@ -133,7 +133,7 @@ double Bstophill_amperr::YIm(double qsq, double unv[]){
             - 1.0/2.0*hImZ(qsq)*(C3(unv) + 4.0/3.0*C4(unv) + 16.0*C5(unv) + 64.0/3.0*C6(unv)); }
 
 double Bstophill_amperr::C9effRe(double qsq, double unv[]){return C9Re(unv) + YRe(qsq,unv);}
-double Bstophill_amperr::C9effIm(double qsq, double unv[]){return YIm(qsq,unv);}
+double Bstophill_amperr::C9effIm(double qsq, double unv[]){return C9Im(unv) + YIm(qsq,unv);}
 
 double Bstophill_amperr::betal(double qsq, double ml){return sqrt(1.0-4.0*pow(ml,2.0)/qsq);}
 
@@ -235,7 +235,7 @@ double BdtoKll_amperr::YIm(double qsq, double unv[]){
 double BdtoKll_amperr::C9effRe(double qsq, double unv[]){
     return C9Re(unv) + YRe(qsq,unv);}
 double BdtoKll_amperr::C9effIm(double qsq, double unv[]){
-    return YIm(qsq,unv);}
+    return C9Im(unv) + YIm(qsq,unv);}
 
 double BdtoKll_amperr::betal(double qsq, double ml){
     return sqrt(1.0-4.0*pow(ml,2.0)/qsq);}
