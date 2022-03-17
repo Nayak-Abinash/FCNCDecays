@@ -22,9 +22,17 @@ int main()
     for(int i=0; i<iter; i++)
         {
             double unv[] = {eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(),
-                                    eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(),
-                                    eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(),
-                                    eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default()};
+                            eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(),
+                            eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(),
+                            eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(),
+                            eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(),
+                            eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(),
+                            eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(),
+                            eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(),
+                            eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(),
+                            eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(),
+                            eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(),
+                            eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default(), eo1.mnd_default()};
             data[i]= eo1.FL(qsq,o1.mmu(),unv);
             hist->Fill(data[i]);
         }

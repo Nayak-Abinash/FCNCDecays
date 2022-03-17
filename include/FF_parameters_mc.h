@@ -7,8 +7,8 @@
 class BdtoKstrll_fferrpar : public smpar_mc {
 public:
     BdtoKstrll_fferrpar();
-    double tpd,tmd,tzd;
-    double zd(double qsq);
+    double tpd(double unv[]),tmd(double unv[]),tzd(double unv[]);
+    double zd(double qsq, double unv[]);
     double mPSbs(),mVbs(),mAbs();
     double Va0(double unv[]), Va1(double unv[]), Va2(double unv[]), A0a0(double unv[]), A0a1(double unv[]), A0a2(double unv[]),
         A1a0(double unv[]), A1a1(double unv[]), A1a2(double unv[]), A12a0(double unv[]), A12a1(double unv[]), A12a2(double unv[]),
@@ -24,8 +24,8 @@ private:
 class Bstophill_fferrpar : public smpar_mc {
 public:
     Bstophill_fferrpar();
-    double tps,tms,tzs;
-    double zs(double qsq);
+    double tps(double unv[]),tms(double unv[]),tzs(double unv[]);
+    double zs(double qsq, double unv[]);
     double mPSbs(),mVbs(),mAbs();
     double Va0(double unv[]), Va1(double unv[]), Va2(double unv[]), A0a0(double unv[]), A0a1(double unv[]), A0a2(double unv[]),
         A1a0(double unv[]), A1a1(double unv[]), A1a2(double unv[]), A12a0(double unv[]), A12a1(double unv[]), A12a2(double unv[]),
@@ -41,8 +41,8 @@ private:
 class BdtoKll_fferrpar : public smpar_mc {
 public:
     BdtoKll_fferrpar();
-    double tp,tm,tz;
-    double z(double qsq);
+    double tp(double unv[]),tm(double unv[]),tz(double unv[]);
+    double z(double qsq, double unv[]);
     //LCSR+Lattice
     double mVbs(),mSbs();
     double fza1(double unv[]), fza2(double unv[]), fTa0(double unv[]), fTa1(double unv[]), fTa2(double unv[]),

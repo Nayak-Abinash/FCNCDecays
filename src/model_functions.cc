@@ -22,10 +22,6 @@ double model_functions::mtrx_tp(double lpar[], double covm[][mxdm]){
 
 
 double model_functions::mnd(double mu, double sigma){
-    //unsigned seed = chrono::system_clock::now().time_since_epoch().count();
-    //default_random_engine generator (seed);
-    //normal_distribution<double> distribution(mu,sigma);
-    //return distribution(generator);
     return rndm->Gaus(mu, sigma);}
 
 double model_functions::mnd_default(){
@@ -33,7 +29,8 @@ double model_functions::mnd_default(){
 
 double model_functions::mnd_cov(double muv[], double cholesky[][MXdm], double untnormlv[], int i){
     double sum = 0;
-    for (int j=0; j<19; j++)
+    //int sz_muv = sizeof(muv)/sizeof(muv[0]);
+    for (int j=0; j < 19; j++)
         {
             sum = sum + cholesky[i][j]*untnormlv[j];
         }
@@ -41,11 +38,46 @@ double model_functions::mnd_cov(double muv[], double cholesky[][MXdm], double un
 
 double model_functions::mnd_cov_ckm(double muv[], double cholesky[][mxdm], double untnormlv[], int i){
     double sum = 0;
-    for (int j=0; j<4; j++)
+    //int sz_muv = sizeof(muv)/sizeof(muv[0]);
+    for (int j=0; j < 4; j++)
         {
-            sum = sum + cholesky[i][j]*untnormlv[19+j];
+            sum = sum + cholesky[i][j]*untnormlv[j+19];
         }
     return muv[i] + sum;}
+
+double model_functions::mnd_cov_wcSM(double muv[], double cholesky[][MXdm], double untnormlv[], int i){
+    double sum = 0;
+    //int sz_muv = sizeof(muv)/sizeof(muv[0]);
+    for (int j=0; j < 13; j++)
+        {
+            sum = sum + cholesky[i][j]*untnormlv[j+23];
+        }
+    return muv[i] + sum;}
+
+double model_functions::mnd_cov_wcNP(double muv[], double cholesky[][MXdm], double untnormlv[], int i){
+    double sum = 0;
+    //int sz_muv = sizeof(muv)/sizeof(muv[0]);
+    for (int j=0; j < 18; j++)
+        {
+            sum = sum + cholesky[i][j]*untnormlv[j+36];
+        }
+    return muv[i] + sum;}
+
+double model_functions::mnd_cov_smpar(double muv[], double cholesky[][MXdm], double untnormlv[], int i){
+    double sum = 0;
+    //int sz_muv = sizeof(muv)/sizeof(muv[0]);
+    for (int j=0; j < 18; j++)
+        {
+            sum = sum + cholesky[i][j]*untnormlv[j+54];
+        }
+    return muv[i] + sum;}
+
+
+
+
+
+
+
 
 
 

@@ -2,12 +2,12 @@
 
 //Bs->Kstr,ll
 BdtoKstrll_fferrpar::BdtoKstrll_fferrpar(){
-    tpd=pow(mBd()+mKst(),2.0);
-    tmd=pow(mBd()-mKst(),2.0);
-    tzd=tpd*(1.0-sqrt(1.0-tmd/tpd));
-
     m_PSbs = 5.336, m_Vbs = 5.412, m_Abs = 5.829;
 }
+
+double BdtoKstrll_fferrpar::tpd(double unv[]){return pow(mBd(unv)+mKst(unv),2.0);}
+double BdtoKstrll_fferrpar::tmd(double unv[]){return pow(mBd(unv)-mKst(unv),2.0);}
+double BdtoKstrll_fferrpar::tzd(double unv[]){return tpd(unv)*(1.0-sqrt(1.0-tmd(unv)/tpd(unv)));}
 
 ////######refer to "CholeskyDecomp.nb"
 //central vector:\mu
@@ -46,8 +46,8 @@ double BdtoKstrll_fferrpar::chd_cov[][MXdm] =
     {-0.765568, 0.0744983, -0.862889, -0.51616, -0.366398, -0.22148, 0.421026, -0.142154, -0.033986, -0.0336954, 0.192015, 0.0914068,
         0.439198, 0.520461, 0.213893, 0.657043, -0.995098, 0.916255, 0.230145}};
 
-double BdtoKstrll_fferrpar::zd(double qsq){
-    return (sqrt(tpd-qsq)-sqrt(tpd-tzd))/(sqrt(tpd-qsq) +sqrt(tpd-tzd));}
+double BdtoKstrll_fferrpar::zd(double qsq, double unv[]){
+    return (sqrt(tpd(unv)-qsq)-sqrt(tpd(unv)-tzd(unv)))/(sqrt(tpd(unv)-qsq) +sqrt(tpd(unv)-tzd(unv)));}
 
 double BdtoKstrll_fferrpar::mPSbs(){return m_PSbs;}
 double BdtoKstrll_fferrpar::mVbs(){return m_Vbs;}
@@ -59,7 +59,7 @@ double BdtoKstrll_fferrpar::A0a2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv
 double BdtoKstrll_fferrpar::A1a0(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,3);}
 double BdtoKstrll_fferrpar::A1a1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,4);}
 double BdtoKstrll_fferrpar::A1a2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,5);}
-double BdtoKstrll_fferrpar::A12a0(double unv[]){return A0a0(unv)*(pow(mBd(),2.0)-pow(mKst(),2.0))/(8.0*mBd()*mKst());}//Eq. 17 of arXiv:1503.05534
+double BdtoKstrll_fferrpar::A12a0(double unv[]){return A0a0(unv)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))/(8.0*mBd(unv)*mKst(unv));}//Eq. 17 of arXiv:1503.05534
 double BdtoKstrll_fferrpar::A12a1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,6);}
 double BdtoKstrll_fferrpar::A12a2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,7);}
 double BdtoKstrll_fferrpar::Va0(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,8);}
@@ -79,12 +79,12 @@ double BdtoKstrll_fferrpar::T23a2(double unv[]){return mnd_cov(cen_FF,chd_cov,un
 
 //Bs->phi,ll
 Bstophill_fferrpar::Bstophill_fferrpar(){
-    tps=pow(mBs()+mphi(),2.0);
-    tms=pow(mBs()-mphi(),2.0);
-    tzs=tps*(1.0-sqrt(1.0-tms/tps));
-
     m_PSbs=5.366,m_Vbs=5.415,m_Abs=5.829;
 }
+
+double Bstophill_fferrpar::tps(double unv[]){return pow(mBs(unv)+mphi(unv),2.0);}
+double Bstophill_fferrpar::tms(double unv[]){return pow(mBs(unv)-mphi(unv),2.0);}
+double Bstophill_fferrpar::tzs(double unv[]){return tps(unv)*(1.0-sqrt(1.0-tms(unv)/tps(unv)));}
 
 ////######refer to "CholeskyDecomp.nb"
 //central vector:\mu
@@ -123,8 +123,8 @@ double Bstophill_fferrpar::chd_cov[][MXdm] =
     {1.08095, 0.572936, -0.0735966, -0.411486, -0.439335, 0.124, 0.389559, 0.0129582, 0.0233923, -0.364223, 0.232819, -0.237481, -0.0124845, 0.475836, -0.098462,
         0.2244, -0.203678, 0.776448, 0.12808}};
 
-double Bstophill_fferrpar::zs(double qsq){
-    return (sqrt(tps-qsq)-sqrt(tps-tzs))/(sqrt(tps-qsq) +sqrt(tps-tzs));}
+double Bstophill_fferrpar::zs(double qsq, double unv[]){
+    return (sqrt(tps(unv)-qsq)-sqrt(tps(unv)-tzs(unv)))/(sqrt(tps(unv)-qsq) +sqrt(tps(unv)-tzs(unv)));}
 
 double Bstophill_fferrpar::mPSbs(){return m_PSbs;}
 double Bstophill_fferrpar::mVbs(){return m_Vbs;}
@@ -136,7 +136,7 @@ double Bstophill_fferrpar::A0a2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,
 double Bstophill_fferrpar::A1a0(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,3);}
 double Bstophill_fferrpar::A1a1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,4);}
 double Bstophill_fferrpar::A1a2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,5);}
-double Bstophill_fferrpar::A12a0(double unv[]){return A0a0(unv)*(pow(mBd(),2.0)-pow(mKst(),2.0))/(8.0*mBd()*mKst());}//Eq. 17 of arXiv:1503.05534
+double Bstophill_fferrpar::A12a0(double unv[]){return A0a0(unv)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))/(8.0*mBd(unv)*mKst(unv));}//Eq. 17 of arXiv:1503.05534
 double Bstophill_fferrpar::A12a1(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,6);}
 double Bstophill_fferrpar::A12a2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,7);}
 double Bstophill_fferrpar::Va0(double unv[]){return mnd_cov(cen_FF,chd_cov,unv,8);}
@@ -156,12 +156,12 @@ double Bstophill_fferrpar::T23a2(double unv[]){return mnd_cov(cen_FF,chd_cov,unv
 
 //Bd->K,ll
 BdtoKll_fferrpar::BdtoKll_fferrpar(){
-    tp=pow(mBd()+mK(),2.0);
-    tm=pow(mBd()-mK(),2.0);
-    tz=tp*(1.0-sqrt(1.0-tm/tp));
-
-    m_Vbs=5.412,m_Sbs=5.630;
+       m_Vbs=5.412,m_Sbs=5.630;
 }
+
+double BdtoKll_fferrpar::tp(double unv[]){return pow(mBd(unv)+mK(unv),2.0);}
+double BdtoKll_fferrpar::tm(double unv[]){return pow(mBd(unv)-mK(unv),2.0);}
+double BdtoKll_fferrpar::tz(double unv[]){return tp(unv)*(1.0-sqrt(1.0-tm(unv)/tp(unv)));}
 
 ////######refer to "CholeskyDecomp.nb"
 //central vector:\mu
@@ -179,7 +179,7 @@ double BdtoKll_fferrpar::chd_cov[][MXdm] =
     {0.0102572, 0.0286941, -0.00663218, 0.0147008, 0.00223952, -0.0279217, 0.130807, 0.},
     {-0.170731, 0.411061, -0.0572078, 0.0390342, 0.0421714, -0.156681, 0.490221, 0.306888}};
 
-double BdtoKll_fferrpar::z(double qsq){return (sqrt(tp-qsq)-sqrt(tp-tz))/(sqrt(tp-qsq)+sqrt(tp-tz));}
+double BdtoKll_fferrpar::z(double qsq, double unv[]){return (sqrt(tp(unv)-qsq)-sqrt(tp(unv)-tz(unv)))/(sqrt(tp(unv)-qsq)+sqrt(tp(unv)-tz(unv)));}
 double BdtoKll_fferrpar::mVbs(){return m_Vbs;}
 double BdtoKll_fferrpar::mSbs(){return m_Sbs;}
 

@@ -146,32 +146,32 @@ double Bstophill_obserr::AFB(double qsq, double ml, double unv[]){
 
 //Bd->K,ll
 double BdtoKll_obserr::alNP(double qsq, double ml, double unv[]){
-    return (4.0*pow(mBd(),2.0)*pow(ml,2.0)*(pow(FAIm(qsq,ml,unv),2.0) + pow(FARe(qsq,ml,unv),2.0)) +
-            2.0*ml*(pow(mBd(),2.0) - pow(mK(),2.0) + qsq)*(FAIm(qsq,ml,unv)*FPIm(qsq,ml,unv) + FARe(qsq,ml,unv)*FPRe(qsq,ml,unv)) +
+    return (4.0*pow(mBd(unv),2.0)*pow(ml,2.0)*(pow(FAIm(qsq,ml,unv),2.0) + pow(FARe(qsq,ml,unv),2.0)) +
+            2.0*ml*(pow(mBd(unv),2.0) - pow(mK(unv),2.0) + qsq)*(FAIm(qsq,ml,unv)*FPIm(qsq,ml,unv) + FARe(qsq,ml,unv)*FPRe(qsq,ml,unv)) +
             qsq*(pow(FPIm(qsq,ml,unv),2.0) + pow(FPRe(qsq,ml,unv),2.0) +
                  pow(betal(qsq,ml),2.0)*(pow(FSIm(qsq,ml,unv),2.0) + pow(FSRe(qsq,ml,unv),2.0))) +
             ((pow(FAIm(qsq,ml,unv),2.0) + pow(FARe(qsq,ml,unv),2.0) + pow(FVIm(qsq,ml,unv),2.0) + pow(FVRe(qsq,ml,unv),2.0))*
-             lambda(qsq))/4.0)*nf(qsq,ml)*pow(xiP(qsq,unv),2.0);}
+             lambda(qsq,unv))/4.0)*nf(qsq,ml,unv)*pow(xiP(qsq,unv),2.0);}
 
 double BdtoKll_obserr::blNP(double qsq, double ml, double unv[]){
     return 2.0*(qsq*(FPIm(qsq,ml,unv)*FT5Im(qsq,ml,unv) + FPRe(qsq,ml,unv)*FT5Re(qsq,ml,unv) +
                      pow(betal(qsq,ml),2.0)*(FSIm(qsq,ml,unv)*FTIm(qsq,ml,unv) + FSRe(qsq,ml,unv)*FTRe(qsq,ml,unv))) +
-                ml*((pow(mBd(),2.0) - pow(mK(),2.0) + qsq)*(FAIm(qsq,ml,unv)*FT5Im(qsq,ml,unv) + FARe(qsq,ml,unv)*FT5Re(qsq,ml,unv)) +
-                    betal(qsq,ml)*(FSIm(qsq,ml,unv)*FVIm(qsq,ml,unv) + FSRe(qsq,ml,unv)*FVRe(qsq,ml,unv))*sqrt(lambda(qsq))))*
-    nf(qsq,ml)*pow(xiP(qsq,unv),2.0);}
+                ml*((pow(mBd(unv),2.0) - pow(mK(unv),2.0) + qsq)*(FAIm(qsq,ml,unv)*FT5Im(qsq,ml,unv) + FARe(qsq,ml,unv)*FT5Re(qsq,ml,unv)) +
+                    betal(qsq,ml)*(FSIm(qsq,ml,unv)*FVIm(qsq,ml,unv) + FSRe(qsq,ml,unv)*FVRe(qsq,ml,unv))*sqrt(lambda(qsq,unv))))*
+    nf(qsq,ml,unv)*pow(xiP(qsq,unv),2.0);}
 
 double BdtoKll_obserr::clNP(double qsq, double ml, double unv[]){
     return (qsq*(pow(FT5Im(qsq,ml,unv),2.0) + pow(FT5Re(qsq,ml,unv),2.0) +
                  pow(betal(qsq,ml),2.0)*(pow(FTIm(qsq,ml,unv),2.0) + pow(FTRe(qsq,ml,unv),2.0))) +
-            2.0*ml*betal(qsq,ml)*(FTIm(qsq,ml,unv)*FVIm(qsq,ml,unv) + FTRe(qsq,ml,unv)*FVRe(qsq,ml,unv))*sqrt(lambda(qsq)) -
+            2.0*ml*betal(qsq,ml)*(FTIm(qsq,ml,unv)*FVIm(qsq,ml,unv) + FTRe(qsq,ml,unv)*FVRe(qsq,ml,unv))*sqrt(lambda(qsq,unv)) -
             (pow(betal(qsq,ml),2.0)*(pow(FAIm(qsq,ml,unv),2.0) + pow(FARe(qsq,ml,unv),2.0) + pow(FVIm(qsq,ml,unv),2.0) +
-                                     pow(FVRe(qsq,ml,unv),2.0))*lambda(qsq))/4.0)*nf(qsq,ml)*pow(xiP(qsq,unv),2.0);}
+                                     pow(FVRe(qsq,ml,unv),2.0))*lambda(qsq,unv))/4.0)*nf(qsq,ml,unv)*pow(xiP(qsq,unv),2.0);}
 
 double BdtoKll_obserr::diffWidth(double qsq, double ml, double unv[]){
     return 2.0*(alNP(qsq,ml,unv) + 1.0/3.0*clNP(qsq,ml,unv)); }
 
 double BdtoKll_obserr::diffBrnch(double qsq, double ml, double unv[]){
-    return tauBd()/2.0*diffWidth(qsq,ml,unv); }
+    return tauBd(unv)/2.0*diffWidth(qsq,ml,unv); }
 
 double BdtoKll_obserr::diffAFB(double qsq, double ml, double unv[]){
     return blNP(qsq,ml,unv)/diffWidth(qsq,ml,unv); }
@@ -181,35 +181,36 @@ double BdtoKll_obserr::diffFH(double qsq, double ml, double unv[]){
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/*
+
 //B->ll
-double Btoll_obserr :: Btoll_nf(double mBq){
-    if (mBq==mBd()){
-        return pow(GF()*alpha_e()*fBd()*absVtbVtdStr(),2.0)*tauBd()/(64.0*pow(mBd()*pi,3.0)); }
-    if (mBq==mBs()){
-        return pow(GF()*alpha_e()*fBs()*absVtbVtsStr(),2.0)*tauBs()/(64.0*pow(mBs()*pi,3.0)); }
+double Btoll_obserr :: Btoll_nf(double mBq, double unv[]){
+    if (mBq==mBd(unv)){
+        return pow(GF()*alpha_e()*fBd(unv)*absVtbVtdStr(unv),2.0)*tauBd(unv)/(64.0*pow(mBd(unv)*pi,3.0)); }
+    if (mBq==mBs(unv)){
+        return pow(GF()*alpha_e()*fBs(unv)*absVtbVtsStr(unv),2.0)*tauBs(unv)/(64.0*pow(mBs(unv)*pi,3.0)); }
     return 0.0;}
 
-double Btoll_obserr :: ADeltaGammaf(double mBq, double mq, double ml1, double ml2){
-    return (-pow(ampPIm(mBq,mq,ml1,ml2),2.0) + pow(ampPRe(mBq,mq,ml1,ml2),2.0) + pow(ampSIm(mBq,mq,ml1,ml2),2.0) -
-            pow(ampSRe(mBq,mq,ml1,ml2),2.0))/
-    (pow(ampPIm(mBq,mq,ml1,ml2),2.0) + pow(ampPRe(mBq,mq,ml1,ml2),2.0) + pow(ampSIm(mBq,mq,ml1,ml2),2.0) +
-     pow(ampSRe(mBq,mq,ml1,ml2),2.0));}
+double Btoll_obserr :: ADeltaGammaf(double mBq, double mq, double ml1, double ml2, double unv[]){
+    return (-pow(ampPIm(mBq,mq,ml1,ml2,unv),2.0) + pow(ampPRe(mBq,mq,ml1,ml2,unv),2.0) + pow(ampSIm(mBq,mq,ml1,ml2,unv),2.0) -
+            pow(ampSRe(mBq,mq,ml1,ml2,unv),2.0))/
+    (pow(ampPIm(mBq,mq,ml1,ml2,unv),2.0) + pow(ampPRe(mBq,mq,ml1,ml2,unv),2.0) + pow(ampSIm(mBq,mq,ml1,ml2,unv),2.0) +
+     pow(ampSRe(mBq,mq,ml1,ml2,unv),2.0));}
 
-double Btoll_obserr :: CorrctnFctr(double mBq, double mq, double ml1, double ml2){
-    return (1.0 - pow(y(mBq),2.0))/(1.0 + ADeltaGammaf(mBq,mq,ml1,ml2)*y(mBq));}
+double Btoll_obserr :: CorrctnFctr(double mBq, double mq, double ml1, double ml2, double unv[]){
+    return (1.0 - pow(y(mBq,unv),2.0))/(1.0 + ADeltaGammaf(mBq,mq,ml1,ml2,unv)*y(mBq,unv));}
 
-double Btoll_obserr :: BrInst(double mBq, double mq, double ml1, double ml2){
-    return ((pow(mBq,2.0) - pow(ml1 - ml2,2.0))*(pow(ampPIm(mBq,mq,ml1,ml2),2.0) + pow(ampPRe(mBq,mq,ml1,ml2),2.0)) + (pow(mBq,2.0) - pow(ml1 + ml2,2.0))*(pow(ampSIm(mBq,mq,ml1,ml2),2.0) +
-        pow(ampSRe(mBq,mq,ml1,ml2),2.0)))*sqrt(Btoll_lambda(mBq,ml1,ml2))*Btoll_nf(mBq);}
+double Btoll_obserr :: BrInst(double mBq, double mq, double ml1, double ml2, double unv[]){
+    return ((pow(mBq,2.0) - pow(ml1 - ml2,2.0))*(pow(ampPIm(mBq,mq,ml1,ml2,unv),2.0) + pow(ampPRe(mBq,mq,ml1,ml2,unv),2.0)) + (pow(mBq,2.0)
+            - pow(ml1 + ml2,2.0))*(pow(ampSIm(mBq,mq,ml1,ml2,unv),2.0)
+            + pow(ampSRe(mBq,mq,ml1,ml2,unv),2.0)))*sqrt(Btoll_lambda(mBq,ml1,ml2,unv))*Btoll_nf(mBq,unv);}
 
-double Btoll_obserr :: BrTimeIntgratd(double mBq, double mq, double ml1, double ml2){
-    return BrInst(mBq,mq,ml1,ml2)/CorrctnFctr(mBq,mq,ml1,ml2);}
+double Btoll_obserr :: BrTimeIntgratd(double mBq, double mq, double ml1, double ml2, double unv[]){
+    return BrInst(mBq,mq,ml1,ml2,unv)/CorrctnFctr(mBq,mq,ml1,ml2,unv);}
 
-double Btoll_obserr :: efftau(double mBq, double mq, double ml1, double ml2){
-    return (tauB(mBq)*(1.0 + 2.0*ADeltaGammaf(mBq,mq,ml1,ml2)*y(mBq) + pow(y(mBq),2.0)))/
-    ((1.0 + ADeltaGammaf(mBq,mq,ml1,ml2)*y(mBq))*(1.0 - pow(y(mBq),2.0)));}
-*/
+double Btoll_obserr :: efftau(double mBq, double mq, double ml1, double ml2, double unv[]){
+    return (tauB(mBq,unv)*(1.0 + 2.0*ADeltaGammaf(mBq,mq,ml1,ml2,unv)*y(mBq,unv) + pow(y(mBq,unv),2.0)))/
+    ((1.0 + ADeltaGammaf(mBq,mq,ml1,ml2,unv)*y(mBq,unv))*(1.0 - pow(y(mBq,unv),2.0)));}
+
 
 
 

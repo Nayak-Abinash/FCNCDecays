@@ -8,25 +8,23 @@ class smpar_mc : public ckm_elements_mc
 public:
     smpar_mc ();
     double pi;
-    double mu();
-    double md(),mc(),ms(),mb();
-    double static cen_smpar[MXdm], unc_smpar[MXdm], chd_smpar[MXdm];
-    double me(),mmu(),mtau();
-    double mBd(),mBs(),mK(),mKst(),mphi();
-    double tauBd(),tauBs(),DGamma_dbar(),DGamma_sbar(),fBd(),fBs();
-    double GF(),alpha_e();
-    double C1(),C2(),C3(),C4(),C5(),C6(),C7effRe(),C7effIm(),C8eff(),C9Re(),C9Im(),C10Re(),C10Im();
-    double C7RHRe(),C7RHIm(),C9RHRe(),C9RHIm(),C10RHRe(),C10RHIm(),CSRe(),CSIm(),CSRHRe(),CSRHIm(),CPRe(),CPIm(),CPRHRe(),CPRHIm(),CTRe(),CTIm(),CT5Re(),CT5Im();
+    double mu(), GF(),alpha_e();
+    double md(double unv[]),mc(double unv[]),ms(double unv[]),mb(double unv[]);
+    double static cen_smpar[MXdm]; double static unc_smpar[MXdm]; double static chd_smpar[MXdm][MXdm];
+    double static cen_wilsonSM[MXdm]; double static unc_wilsonSM[MXdm]; double static chd_wilsonSM[MXdm][MXdm];
+    double static cen_wilsonNP[MXdm]; double static unc_wilsonNP[MXdm]; double static chd_wilsonNP[MXdm][MXdm];
+    double me(double unv[]),mmu(double unv[]),mtau(double unv[]);
+    double mBd(double unv[]),mBs(double unv[]),mK(double unv[]),mKst(double unv[]),mphi(double unv[]);
+    double tauBd(double unv[]),tauBs(double unv[]),DGamma_dbar(double unv[]),DGamma_sbar(double unv[]),fBd(double unv[]),fBs(double unv[]);
+    double C1(double unv[]),C2(double unv[]),C3(double unv[]),C4(double unv[]),C5(double unv[]),C6(double unv[]),C7effRe(double unv[]),
+        C7effIm(double unv[]),C8eff(double unv[]),C9Re(double unv[]),C9Im(double unv[]),C10Re(double unv[]),C10Im(double unv[]);
+    double C7RHRe(double unv[]),C7RHIm(double unv[]),C9RHRe(double unv[]),C9RHIm(double unv[]),C10RHRe(double unv[]),C10RHIm(double unv[]),
+        CSRe(double unv[]),CSIm(double unv[]),CSRHRe(double unv[]),CSRHIm(double unv[]),CPRe(double unv[]),CPIm(double unv[]),CPRHRe(double unv[]),
+        CPRHIm(double unv[]),CTRe(double unv[]),CTIm(double unv[]),CT5Re(double unv[]),CT5Im(double unv[]);
 
 private:
     double scale_mu;
-    double m_d,m_c,m_s,m_b;
-    double m_e,m_mu,m_tau;
-    double m_Bd,m_Bs,m_K,m_Kst,m_phi;
-    double tau_Bd,tau_Bs,D_Gamma_dbar,D_Gamma_sbar,f_Bd,f_Bs;
     double G_F,alphae;
-    double C_1,C_2,C_3,C_4,C_5,C_6,C_7effRe,C_7effIm,C_8eff,C_9Re,C_9Im,C_10Re,C_10Im;
-    double C_7RHRe,C_7RHIm,C_9RHRe,C_9RHIm,C_10RHRe,C_10RHIm,C_SRe,C_SIm,C_SRHRe,C_SRHIm,C_PRe,C_PIm,C_PRHRe,C_PRHIm,C_TRe,C_TIm,C_T5Re,C_T5Im;
 };
 
 #endif

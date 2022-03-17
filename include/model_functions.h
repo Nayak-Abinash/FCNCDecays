@@ -37,7 +37,29 @@ public:
     double mnd_default();
     double mnd_cov(double mu[], double cholesky[][MXdm], double untnormlv[], int i);
     double mnd_cov_ckm(double mu[], double cholesky[][mxdm], double untnormlv[], int i);
+    double mnd_cov_wcSM(double mu[], double cholesky[][MXdm], double untnormlv[], int i);
+    double mnd_cov_wcNP(double mu[], double cholesky[][MXdm], double untnormlv[], int i);
+    double mnd_cov_smpar(double mu[], double cholesky[][MXdm], double untnormlv[], int i);
 };
 
 
 #endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

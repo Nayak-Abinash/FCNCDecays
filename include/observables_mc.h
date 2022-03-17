@@ -56,18 +56,18 @@ public:
     double diffFH(double qsq, double ml, double unv[]);
 };
 
-/*
+
 //B->ll
 class Btoll_obserr : public Btoll_amperr {
 public:
-    double Btoll_nf(double mBq);
-    double ADeltaGammaf(double mBq, double mq, double ml1, double ml2);
-    double CorrctnFctr(double mBq, double mq, double ml1, double ml2);
-    double BrInst(double mBq, double mq, double ml1, double ml2);
-    double BrTimeIntgratd(double mBq, double mq, double ml1, double ml2);
-    double efftau(double mBq, double mq, double ml1, double ml2);
+    double Btoll_nf(double mBq, double unv[]);
+    double ADeltaGammaf(double mBq, double mq, double ml1, double ml2, double unv[]);
+    double CorrctnFctr(double mBq, double mq, double ml1, double ml2, double unv[]);
+    double BrInst(double mBq, double mq, double ml1, double ml2, double unv[]);
+    double BrTimeIntgratd(double mBq, double mq, double ml1, double ml2, double unv[]);
+    double efftau(double mBq, double mq, double ml1, double ml2, double unv[]);
 };
-*/
+
 
 #endif
 

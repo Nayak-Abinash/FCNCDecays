@@ -3,84 +3,157 @@
 smpar_mc::smpar_mc()
 {
     pi = M_PI;
-    scale_mu = 4.8;
-    m_d = 0.00467, m_c = 1.27, m_s = 0.093, m_b = 4.18;
-
-    m_Bd = 5.27965, m_Bs = 5.36688, m_K = 0.497614, m_Kst = 0.896, m_phi = 1.019461;
-
-    tau_Bd = 1.519*1.52*pow(10.0,12.0), tau_Bs = 1.527*1.52*pow(10.0,12.0), D_Gamma_dbar = 0.001, D_Gamma_sbar = 0.124, f_Bd = 0.1905, f_Bs = 0.2303;
-
-    G_F = 1.1663787*pow(10.0,-5.0), alphae = 1.0/127.944;
-
-    C_1 = -0.257, C_2 = 1.009, C_3 = -0.005, C_4 = -0.078, C_5 = 0.000, C_6 = 0.001, C_7effRe = -0.304, C_7effIm = 0.0, C_8eff = -0.167,
-    C_9Re = 4.211, C_9Im = 0.0, C_10Re = -4.103, C_10Im = 0.0;
-
-    C_7RHRe = -0.006, C_7RHIm = 0.0, C_9RHRe = 0.0, C_9RHIm = 0.0, C_10RHRe = 0.0, C_10RHIm = 0.0, C_SRe = 0.0, C_SIm = 0.0, C_SRHRe = 0.0, C_SRHIm = 0.0,
-    C_PRe = 0.0, C_PIm = 0.0, C_PRHRe = 0.0, C_PRHIm = 0.0, C_TRe = 0.0, C_TIm = 0.0, C_T5Re = 0.0, C_T5Im = 0.0;
+    scale_mu = 4.8;//the renormalization scale
+    G_F = 1.1663787*pow(10.0,-5.0), alphae = 1.0/128.541;//errors on the Fermi constant and fine-structure constant are too tiny to consider
 }
-double smpar_mc::cen_smpar[] = {/*m_e*/0.5109989461*pow(10.0,-3.0), /*m_mu*/105.6583745*pow(10.0,-3.0), /*m_tau*/1.77686,
-                                /*m_Bd*/5.27965, /*m_Bs*/5.36688, /*m_K*/0.497614, /*m_Kst*/0.896, /*m_phi*/1.019461};
 
-double smpar_mc::cen_smpar[] = {/*m_e*/0.0000000031*pow(10.0,-3.0), /*m_mu*/000.0000024*pow(10.0,-3.0), /*m_tau*/0.00012,
-                                /*m_Bd*/0.00012, /*m_Bs*/5.36688, /*m_K*/0.497614, /*m_Kst*/0.896, /*m_phi*/1.019461};
-//Quark_Mass
+double smpar_mc::cen_smpar[] = {/*m_d*/0.00467, /*m_c*/1.27, /*m_s*/0.093, /*m_b*/4.18,
+                                /*m_e*/0.5109989461*pow(10.0,-3.0), /*m_mu*/105.6583745*pow(10.0,-3.0), /*m_tau*/1.77686,
+                                /*m_Bd*/5.27965, /*m_Bs*/5.36688, /*m_K*/0.497611, /*m_Kst*/0.89555, /*m_phi*/1.019461,
+                                /*tau_Bd*/1.519*1.52*pow(10.0,12.0), /*tau_Bs*/1.527*1.52*pow(10.0,12.0),
+                                /*D_Gamma_dbar*/0.001, /*D_Gamma_sbar*/0.124, /*f_Bd*/0.1900, /*f_Bs*/0.2303};
+
+double smpar_mc::unc_smpar[] = {/*m_d*/0.00048, /*m_c*/0.02, /*m_s*/0.011, /*m_b*/0.03,
+                                /*m_e*/0.0000000031*pow(10.0,-3.0), /*m_mu*/000.0000024*pow(10.0,-3.0), /*m_tau*/0.00012,
+                                /*m_Bd*/0.00012, /*m_Bs*/0.00014, /*m_K*/0.000013, /*m_Kst*/0.00020, /*m_phi*/0.000016,
+                                /*tau_Bd*/0.004*1.52*pow(10.0,12.0), /*tau_Bs*/0.011*1.52*pow(10.0,12.0),
+                                /*D_Gamma_dbar*/0.010, /*D_Gamma_sbar*/0.008, /*f_Bd*/0.0013, /*f_Bs*/0.0013};
+
+double smpar_mc::chd_smpar[][MXdm] =  /*m_d*/     {{0.00048, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                /*m_c*/     {0, 0.02, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                /*m_s*/     {0, 0, 0.011, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                /*m_b*/     {0, 0, 0, 0.03, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                /*m_e*/     {0, 0, 0, 0, 0.0000000031*pow(10.0,-3.0), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                /*m_mu*/    {0, 0, 0, 0, 0, 0.0000024*pow(10.0,-3.0), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                /*m_tau*/   {0, 0, 0, 0, 0, 0, 0.00012, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                /*m_Bd*/    {0, 0, 0, 0, 0, 0, 0, 0.00012, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                /*m_Bs*/    {0, 0, 0, 0, 0, 0, 0, 0, 0.00014, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                /*m_K*/     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0.000013, 0, 0, 0, 0, 0, 0, 0, 0},
+                                /*m_Kst*/   {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.00020, 0, 0, 0, 0, 0, 0, 0},
+                                /*m_phi*/   {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.000016, 0, 0, 0, 0, 0, 0},
+                                /*tau_Bd*/  {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.004*1.52*pow(10.0,12.0), 0, 0, 0, 0, 0},
+                                /*tau_Bs*/  {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.011*1.52*pow(10.0,12.0), 0, 0, 0, 0},
+                        /*D_Gamma_dbar*/    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.010, 0, 0, 0},
+                        /*D_Gamma_sbar*/    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.008, 0, 0},
+                                /*f_Bd*/    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0013, 0},
+                                /*f_Bs*/    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0013}};
+
+double smpar_mc::cen_wilsonSM[] = {/*C_1*/-0.257, /*C_2*/1.009, /*C_3*/-0.005, /*C_4*/-0.078, /*C_5*/0.000, /*C_6*/0.001, /*C_7effRe*/-0.304, /*C_7effIm*/0.0,
+                                    /*C_8eff*/-0.167, /*C_9Re*/4.211, /*C_9Im*/0.0, /*C_10Re*/-4.103, /*C_10Im*/0.0};
+
+double smpar_mc::unc_wilsonSM[] = {/*C_1*/0.0, /*C_2*/0.0, /*C_3*/0.0, /*C_4*/0.0, /*C_5*/0.0, /*C_6*/0.0, /*C_7effRe*/0.0, /*C_7effIm*/0.0,
+                                    /*C_8eff*/0.0, /*C_9Re*/0.0, /*C_9Im*/0.0, /*C_10Re*/0.0, /*C_10Im*/0.0};
+
+double smpar_mc::chd_wilsonSM[][MXdm] = /*C_1*/   {{0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                  /*C_2*/   {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                  /*C_3*/   {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                  /*C_4*/   {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                  /*C_5*/   {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                  /*C_6*/   {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                            /*C_7effRe*/    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                            /*C_7effIm*/    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                /*C_8eff*/  {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                /*C_9Re*/   {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                /*C_9Im*/   {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                /*C_10Re*/  {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                /*C_10Im*/  {0,0,0,0,0,0,0,0,0,0,0,0,0}};
+
+double smpar_mc::cen_wilsonNP[] = {/*C_7RHRe*/-0.006, /*C_7RHIm*/0.0, /*C_9RHRe*/0.0, /*C_9RHIm*/0.0, /*C_10RHRe*/0.0, /*C_10RHIm*/0.0, /*C_SRe*/0.0,
+                                    /*C_SIm*/0.0, /*C_SRHRe*/0.0, /*C_SRHIm*/0.0, /*C_PRe*/0.0, /*C_PIm*/0.0, /*C_PRHRe*/0.0, /*C_PRHIm*/0.0,
+                                    /*C_TRe*/0.0, /*C_TIm*/0.0, /*C_T5Re*/0.0, /*C_T5Im*/0.0};
+
+double smpar_mc::unc_wilsonNP[] = {/*C_7RHRe*/0.0, /*C_7RHIm*/0.0, /*C_9RHRe*/0.0, /*C_9RHIm*/0.0, /*C_10RHRe*/0.0, /*C_10RHIm*/0.0, /*C_SRe*/0.0,
+                                    /*C_SIm*/0.0, /*C_SRHRe*/0.0, /*C_SRHIm*/0.0, /*C_PRe*/0.0, /*C_PIm*/0.0, /*C_PRHRe*/0.0, /*C_PRHIm*/0.0,
+                                    /*C_TRe*/0.0, /*C_TIm*/0.0, /*C_T5Re*/0.0, /*C_T5Im*/0.0};
+
+double smpar_mc::chd_wilsonNP[][MXdm] =   /*C_7RHRe*/     {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                    /*C_7RHIm*/     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                    /*C_9RHRe*/     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                    /*C_9RHIm*/     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                    /*C_10RHRe*/    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                    /*C_10RHIm*/    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                    /*C_SRe*/       {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                    /*C_SIm*/       {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                    /*C_SRHRe*/     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                    /*C_SRHIm*/     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                    /*C_PRe*/       {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                    /*C_PIm*/       {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                    /*C_PRHRe*/     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                    /*C_PRHIm*/     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                    /*C_TRe*/       {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                    /*C_TIm*/       {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                    /*C_T5Re*/      {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                    /*C_T5Im*/      {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
+
+
+//Renormalization Scale
 double smpar_mc::mu(){return scale_mu;}
-double smpar_mc::md(){return m_d;}
-double smpar_mc::mc(){return m_c;}
-double smpar_mc::ms(){return m_s;}
-double smpar_mc::mb(){return m_b;}
-//Lepton_Mass
-double smpar_mc::me(){return m_e;}
-double smpar_mc::mmu(){return m_mu;}
-double smpar_mc::mtau(){return m_tau;}
-//Meson_Mass
-double smpar_mc::mBd(){return m_Bd;}
-double smpar_mc::mBs(){return m_Bs;}
-double smpar_mc::mK(){return m_K;}
-double smpar_mc::mKst(){return m_Kst;}
-double smpar_mc::mphi(){return m_phi;}
-//Width_Lifetime
-double smpar_mc::tauBd(){return tau_Bd;}
-double smpar_mc::tauBs(){return tau_Bs;}
-double smpar_mc::DGamma_dbar(){return D_Gamma_dbar;}
-double smpar_mc::DGamma_sbar(){return D_Gamma_sbar;}
-double smpar_mc::fBd(){return f_Bd;}
-double smpar_mc::fBs(){return f_Bs;}
 //Coupling_Constants
 double smpar_mc::GF(){return G_F;}
 double smpar_mc::alpha_e(){return alphae;}
+//Quark_Mass
+double smpar_mc::md(double unv[]){return mnd_cov_smpar(cen_smpar, chd_smpar, unv, 0);}
+double smpar_mc::mc(double unv[]){return mnd_cov_smpar(cen_smpar, chd_smpar, unv, 1);}
+double smpar_mc::ms(double unv[]){return mnd_cov_smpar(cen_smpar, chd_smpar, unv, 2);}
+double smpar_mc::mb(double unv[]){return mnd_cov_smpar(cen_smpar, chd_smpar, unv, 3);}
+//Lepton_Mass
+double smpar_mc::me(double unv[]){return mnd_cov_smpar(cen_smpar, chd_smpar, unv, 4);}
+double smpar_mc::mmu(double unv[]){return mnd_cov_smpar(cen_smpar, chd_smpar, unv, 5);}
+double smpar_mc::mtau(double unv[]){return mnd_cov_smpar(cen_smpar, chd_smpar, unv, 6);}
+//Meson_Mass
+double smpar_mc::mBd(double unv[]){return mnd_cov_smpar(cen_smpar, chd_smpar, unv, 7);}
+double smpar_mc::mBs(double unv[]){return mnd_cov_smpar(cen_smpar, chd_smpar, unv, 8);}
+double smpar_mc::mK(double unv[]){return mnd_cov_smpar(cen_smpar, chd_smpar, unv, 9);}
+double smpar_mc::mKst(double unv[]){return mnd_cov_smpar(cen_smpar, chd_smpar, unv, 10);}
+double smpar_mc::mphi(double unv[]){return mnd_cov_smpar(cen_smpar, chd_smpar, unv, 11);}
+//Width_Lifetime
+double smpar_mc::tauBd(double unv[]){return mnd_cov_smpar(cen_smpar, chd_smpar, unv, 12);}
+double smpar_mc::tauBs(double unv[]){return mnd_cov_smpar(cen_smpar, chd_smpar, unv, 13);}
+double smpar_mc::DGamma_dbar(double unv[]){return mnd_cov_smpar(cen_smpar, chd_smpar, unv, 14);}
+double smpar_mc::DGamma_sbar(double unv[]){return mnd_cov_smpar(cen_smpar, chd_smpar, unv, 15);}
+double smpar_mc::fBd(double unv[]){return mnd_cov_smpar(cen_smpar, chd_smpar, unv, 16);}
+double smpar_mc::fBs(double unv[]){return mnd_cov_smpar(cen_smpar, chd_smpar, unv, 17);}
 //SM_Wilson_Coefficients
-double smpar_mc::C1(){return C_1;}
-double smpar_mc::C2(){return C_2;}
-double smpar_mc::C3(){return C_3;}
-double smpar_mc::C4(){return C_4;}
-double smpar_mc::C5(){return C_5;}
-double smpar_mc::C6(){return C_6;}
-double smpar_mc::C7effRe(){return C_7effRe;}
-double smpar_mc::C7effIm(){return C_7effIm;}
-double smpar_mc::C8eff(){return C_8eff;}
-double smpar_mc::C9Re(){return C_9Re;}
-double smpar_mc::C9Im(){return C_9Im;}
-double smpar_mc::C10Re(){return C_10Re;}
-double smpar_mc::C10Im(){return C_10Im;}
+double smpar_mc::C1(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 0);}
+double smpar_mc::C2(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 1);}
+double smpar_mc::C3(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 2);}
+double smpar_mc::C4(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 3);}
+double smpar_mc::C5(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 4);}
+double smpar_mc::C6(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 5);}
+double smpar_mc::C7effRe(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 6);}
+double smpar_mc::C7effIm(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 7);}
+double smpar_mc::C8eff(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 8);}
+double smpar_mc::C9Re(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 9);}
+double smpar_mc::C9Im(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 10);}
+double smpar_mc::C10Re(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 11);}
+double smpar_mc::C10Im(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 12);}
 //NP_Wilson_Coefficients
-double smpar_mc::C7RHRe(){return C_7RHRe;}
-double smpar_mc::C7RHIm(){return C_7RHIm;}
-double smpar_mc::C9RHRe(){return C_9RHRe;}
-double smpar_mc::C9RHIm(){return C_9RHIm;}
-double smpar_mc::C10RHRe(){return C_10RHRe;}
-double smpar_mc::C10RHIm(){return C_10RHIm;}
-double smpar_mc::CSRe(){return C_SRe;}
-double smpar_mc::CSIm(){return C_SIm;}
-double smpar_mc::CSRHRe(){return C_SRHRe;}
-double smpar_mc::CSRHIm(){return C_SRHIm;}
-double smpar_mc::CPRe(){return C_PRe;}
-double smpar_mc::CPIm(){return C_PIm;}
-double smpar_mc::CPRHRe(){return C_PRHRe;}
-double smpar_mc::CPRHIm(){return C_PRHIm;}
-double smpar_mc::CTRe(){return C_TRe;}
-double smpar_mc::CTIm(){return C_TIm;}
-double smpar_mc::CT5Re(){return C_T5Re;}
-double smpar_mc::CT5Im(){return C_T5Im;}
+double smpar_mc::C7RHRe(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 0);}
+double smpar_mc::C7RHIm(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 1);}
+double smpar_mc::C9RHRe(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 2);}
+double smpar_mc::C9RHIm(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 3);}
+double smpar_mc::C10RHRe(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 4);}
+double smpar_mc::C10RHIm(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 5);}
+double smpar_mc::CSRe(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 6);}
+double smpar_mc::CSIm(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 7);}
+double smpar_mc::CSRHRe(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 8);}
+double smpar_mc::CSRHIm(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 9);}
+double smpar_mc::CPRe(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 10);}
+double smpar_mc::CPIm(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 11);}
+double smpar_mc::CPRHRe(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 12);}
+double smpar_mc::CPRHIm(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 13);}
+double smpar_mc::CTRe(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 14);}
+double smpar_mc::CTIm(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 15);}
+double smpar_mc::CT5Re(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 16);}
+double smpar_mc::CT5Im(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 17);}
+
+
+/*References/////////////////////////////////////////////////
+masses and lifetimes are taken from pdgLive interactive listings: https://pdglive.lbl.gov/Viewer.action
+decay constants(i.e. fBd, fBs): Eq-84.20 of https://pdg.lbl.gov/2019/reviews/rpp2019-rev-pseudoscalar-meson-decay-cons.pdf
+Fermi constant and fine-structure constant: https://pdg.lbl.gov/2019/reviews/rpp2019-rev-phys-constants.pdf
+*/
+
+
 
 

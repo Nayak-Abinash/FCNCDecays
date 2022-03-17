@@ -11,13 +11,13 @@ public:
     double hIm(double qsq, double mq);
     double hReZ(double qsq);
     double hImZ(double qsq);
-    double YRe(double qsq);
-    double YIm(double qsq);
-    double C9effRe(double qsq);
-    double C9effIm(double qsq);
+    double YRe(double qsq, double unv[]);
+    double YIm(double qsq, double unv[]);
+    double C9effRe(double qsq, double unv[]);
+    double C9effIm(double qsq, double unv[]);
     double betal(double qsq, double ml);
-    double lambda(double qsq);
-    double nf(double qsq, double ml);
+    double lambda(double qsq, double unv[]);
+    double nf(double qsq, double ml, double unv[]);
 
     double ApLRe(double qsq, double ml, double unv[]);
     double ApLIm(double qsq, double ml, double unv[]);
@@ -46,13 +46,13 @@ public:
     double hIm(double qsq, double mq);
     double hReZ(double qsq);
     double hImZ(double qsq);
-    double YRe(double qsq);
-    double YIm(double qsq);
-    double C9effRe(double qsq);
-    double C9effIm(double qsq);
+    double YRe(double qsq, double unv[]);
+    double YIm(double qsq, double unv[]);
+    double C9effRe(double qsq, double unv[]);
+    double C9effIm(double qsq, double unv[]);
     double betal(double qsq, double ml);
-    double lambda(double qsq);
-    double nf(double qsq, double ml);
+    double lambda(double qsq, double unv[]);
+    double nf(double qsq, double ml, double unv[]);
 
     double ApLRe(double qsq, double ml, double unv[]);
     double ApLIm(double qsq, double ml, double unv[]);
@@ -81,14 +81,14 @@ public:
     double hIm(double qsq, double mq);
     double hReZ(double qsq);
     double hImZ(double qsq);
-    double YRe(double qsq);
-    double YIm(double qsq);
-    double C9effRe(double qsq);
-    double C9effIm(double qsq);
+    double YRe(double qsq, double unv[]);
+    double YIm(double qsq, double unv[]);
+    double C9effRe(double qsq, double unv[]);
+    double C9effIm(double qsq, double unv[]);
 
     double betal(double qsq, double ml);
-    double lambda(double qsq);
-    double nf(double qsq, double ml);
+    double lambda(double qsq, double unv[]);
+    double nf(double qsq, double ml, double unv[]);
 
     double xiP(double qsq, double unv[]);
     double TauPRe(double qsq, double unv[]);
@@ -109,19 +109,19 @@ public:
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/*
+
 //B->ll
-class Btoll_amperr : public smpar {
+class Btoll_amperr : public smpar_mc {
 public:
-    double ampSRe(double mBq, double mq, double ml1, double ml2);
-    double ampSIm(double mBq, double mq, double ml1, double ml2);
-    double ampPRe(double mBq, double mq, double ml1, double ml2);
-    double ampPIm(double mBq, double mq, double ml1, double ml2);
-    double Btoll_lambda(double mBq, double ml1, double ml2);
-    double y(double mBq);
-    double tauB(double mBq);
+    double ampSRe(double mBq, double mq, double ml1, double ml2, double unv[]);
+    double ampSIm(double mBq, double mq, double ml1, double ml2, double unv[]);
+    double ampPRe(double mBq, double mq, double ml1, double ml2, double unv[]);
+    double ampPIm(double mBq, double mq, double ml1, double ml2, double unv[]);
+    double Btoll_lambda(double mBq, double ml1, double ml2, double unv[]);
+    double y(double mBq, double unv[]);
+    double tauB(double mBq, double unv[]);
 };
-*/
+
 
 
 #endif
