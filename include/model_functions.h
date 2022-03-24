@@ -13,6 +13,7 @@
 #include "TH1D.h"
 #include "TCanvas.h"
 #include "TGraph.h"
+#include "TFrame.h"
 #include "TMultiGraph.h"
 #include "TLegend.h"
 #include "TF1.h"

@@ -5,19 +5,21 @@
 int main()
 {
     BdtoKstrll_obs o1; BdtoKstrll_obserr eo1;
-    double qmin = 4*pow(o1.mmu(),2);
-    double qmax = pow(o1.mBd()-o1.mKst(),2.0);
+    double qsq; string str;
+    cout << "Type a value for qsq:";
+    getline(cin,str); stringstream(str) >> qsq;
+    double cval = o1.AFB(qsq,o1.mmu());
+    cout << "(" << cval << "," << /*sdval <<*/ ")" << endl;
 ///////////Error///////////////
 ////68.2%ConfidenceLevel (point counting from boundary values)////////////////
+    double lw_range, up_range, pe(1.3);
+    if(cval > 0) lw_range = cval-pe*cval; else if(cval < 0) lw_range = cval+pe*cval; else lw_range = -1.0;
+    if(cval > 0) up_range = cval+pe*cval; else if(cval < 0) up_range = cval-pe*cval; else up_range = 1.0;
     TCanvas *c1 = new TCanvas();
+    TH1D *hist = new TH1D("hist", "", 100, lw_range, up_range);
 //Boundary counting
-    int n(100); double q2[n], c_obs[n], pe_obs[n], me_obs[n];
     int iter(1000), sdcl(int(iter*15.9/100)); double data[iter];
-    for(int i=0; i<n; i++)
-    {
-        q2[i] = qmin + (i+1)*(qmax-qmin)/(n+1);
-        c_obs[i] = o1.AFB(q2[i],o1.mmu());
-        for(int j=0; j<iter; j++)
+    for(int i=0; i<iter; i++)
         {
             double unv[] = {/*A0_a0*/eo1.mnd_default(), /*A0_a1*/eo1.mnd_default(), /*A0_a2*/eo1.mnd_default(), /*A1_a0*/eo1.mnd_default(),
                             /*A1_a1*/eo1.mnd_default(), /*A1_a2*/eo1.mnd_default(), /*A12_a1*/eo1.mnd_default(), /*A12_a2*/eo1.mnd_default(),
@@ -37,41 +39,29 @@ int main()
                             /*mtau*/eo1.mnd_default(), /*mBd*/eo1.mnd_default(), /*mBs*/eo1.mnd_default(), /*mK*/eo1.mnd_default(),
                             /*mKst*/eo1.mnd_default(), /*mphi*/eo1.mnd_default(), /*tauBd*/eo1.mnd_default(), /*tauBs*/eo1.mnd_default(),
                             /*DGamma_dbar*/eo1.mnd_default(), /*DGamma_sbar*/eo1.mnd_default(), /*fBd*/eo1.mnd_default(), /*fBs*/eo1.mnd_default()};
-            data[j]= eo1.AFB(q2[i],eo1.mmu(unv),unv);
+            data[i]= eo1.AFB(qsq,eo1.mmu(unv),unv);
+            hist->Fill(data[i]);
         }
-        sort(data,data+iter);
-        me_obs[i] = data[sdcl]; pe_obs[i] = data[iter-sdcl-1];
-        /*if(c_obs[i] >= 0)
-        {
-            me_obs[i] = data[sdcl]; pe_obs[i] = data[iter-sdcl-1];
-        }
-        else
-        {
-            me_obs[i] = data[iter-sdcl-1]; pe_obs[i] = data[sdcl];
-        }*/
-        //cout << me_obs[i] << ", " << c_obs[i] << ", " << pe_obs[i] << endl;
-    }
-    c1->SetGrid();
-    auto gr = new TMultiGraph();
-    TGraph *cgr = new TGraph(n,q2,c_obs);
-    TGraph *pgr = new TGraph(n,q2,pe_obs);
-    TGraph *mgr = new TGraph(n,q2,me_obs);
-    cgr->SetLineColor(2); pgr->SetLineColor(4); mgr->SetLineColor(4);
-    cgr->SetLineWidth(2); pgr->SetLineWidth(2); mgr->SetLineWidth(2);
-    cgr->SetMarkerColor(2); pgr->SetMarkerColor(4); mgr->SetMarkerColor(4);
-    cgr->SetMarkerStyle(21); pgr->SetMarkerStyle(21); mgr->SetMarkerStyle(21);
-    gr->Add(cgr); gr->Add(pgr); gr->Add(mgr);
-    gr->GetXaxis()->SetTitle("q^2");
-    gr->GetYaxis()->SetTitle("AFB(q^2)");
-    gr->Draw("AC");
-    //TCanvas::Update() draws the frame, after which one can change it
-    c1->Update();
-    c1->GetFrame()->SetBorderSize(12);
-    c1->Modified();
-    auto leg = new TLegend(0.6,0.7,0.9,0.9);
-    leg->SetHeader("Plot Legends", "C");
-    leg->AddEntry(cgr, "Central Data", "l");
-    leg->AddEntry(pgr, "68.2% Confidence Level", "l");
+    sort(data,data+iter);
+//15.9% & 84.1% points
+    double llim(data[sdcl]), ulim(data[iter-sdcl-1]);
+    cout << "Observable at this qsq: " << cval << "(+" << ulim- cval << ",-" << cval-llim << ")" << endl;
+//plotting
+    hist->GetXaxis()->SetTitle("MCDistribution");
+    hist->GetYaxis()->SetTitle("Entries/bin");
+    TF1 *fit = new TF1("fit","gaus", lw_range, up_range);
+    //hist->SetStats(0);
+    hist->Draw();
+    hist->Fit("fit","R");
+
+    TLine *ln1 = new TLine(llim,0,llim,300);
+    TLine *ln2 = new TLine(ulim,0,ulim,300);
+    ln1->SetLineColor(kBlue); ln1->Draw();
+    ln2->SetLineColor(kBlue); ln2->Draw();
+    TLegend *leg = new TLegend(0.1,0.7,0.3,0.95);
+    //leg->SetHeader("Plot Legends", "C");
+    leg->AddEntry(hist, "MC Simulate Data", "l");
+    leg->AddEntry(fit, "Gaussian Fit", "l");
     leg->Draw();
     c1->SaveAs("obsplot.pdf");
 
