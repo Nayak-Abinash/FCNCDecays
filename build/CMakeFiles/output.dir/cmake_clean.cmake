@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/output.dir/main/main.cc.o"
+  "CMakeFiles/output.dir/main/sample_observable.cc.o"
   "CMakeFiles/output.dir/src/FF_functions.cc.o"
   "CMakeFiles/output.dir/src/FF_functions_mc.cc.o"
   "CMakeFiles/output.dir/src/FF_parameters.cc.o"

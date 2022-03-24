@@ -86,7 +86,7 @@ amplitudes.h
 amplitudes_mc.h
 ../include/amplitudes_mc.h
 
-/home/akn/Documents/GitHub/FCNCDecays/main/main.cc
+/home/akn/Documents/GitHub/FCNCDecays/main/sample_observable.cc
 observables.h
 /home/akn/Documents/GitHub/FCNCDecays/main/observables.h
 observables_mc.h
