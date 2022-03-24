@@ -5,11 +5,7 @@
 #include <string>
 #include <sstream>
 #include <cmath>
-//#include <random>
-//#include <chrono>
 #include <algorithm>
-//#include <bits/stdc++.h>
-//ROOTFiles
 #include "TH1D.h"
 #include "TCanvas.h"
 #include "TGraph.h"
@@ -19,8 +15,6 @@
 #include "TF1.h"
 #include "TLine.h"
 #include "TH1.h"
-//#include "TRandom1.h"
-//#include "TRandom2.h"
 #include "TRandom3.h"
 
 #define mxdm 5
