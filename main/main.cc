@@ -58,8 +58,8 @@ int main()
     TGraph *mgr = new TGraph(n,q2,me_obs);
     cgr->SetLineColor(2); pgr->SetLineColor(4); mgr->SetLineColor(4);
     cgr->SetLineWidth(2); pgr->SetLineWidth(2); mgr->SetLineWidth(2);
-    cgr->SetMarkerColor(2); pgr->SetMarkerColor(4); mgr->SetMarkerColor(4);
-    cgr->SetMarkerStyle(21); pgr->SetMarkerStyle(21); mgr->SetMarkerStyle(21);
+    //cgr->SetMarkerColor(2); pgr->SetMarkerColor(4); mgr->SetMarkerColor(4);
+    //cgr->SetMarkerStyle(21); pgr->SetMarkerStyle(21); mgr->SetMarkerStyle(21);
     gr->Add(cgr); gr->Add(pgr); gr->Add(mgr);
     gr->GetXaxis()->SetTitle("q^2");
     gr->GetYaxis()->SetTitle("AFB(q^2)");
@@ -70,7 +70,7 @@ int main()
     c1->Modified();
     auto leg = new TLegend(0.6,0.7,0.9,0.9);
     leg->SetHeader("Plot Legends", "C");
-    leg->AddEntry(cgr, "Central Data", "l");
+    leg->AddEntry(cgr, "Central Prediction", "l");
     leg->AddEntry(pgr, "68.2% Confidence Level", "l");
     leg->Draw();
     c1->SaveAs("obsplot.pdf");

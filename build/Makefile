@@ -124,32 +124,32 @@ output/fast:
 	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/build
 .PHONY : output/fast
 
-main/sample_observable.o: main/sample_observable.cc.o
+main/main.o: main/main.cc.o
 
-.PHONY : main/sample_observable.o
+.PHONY : main/main.o
 
 # target to build an object file
-main/sample_observable.cc.o:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/main/sample_observable.cc.o
-.PHONY : main/sample_observable.cc.o
+main/main.cc.o:
+	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/main/main.cc.o
+.PHONY : main/main.cc.o
 
-main/sample_observable.i: main/sample_observable.cc.i
+main/main.i: main/main.cc.i
 
-.PHONY : main/sample_observable.i
+.PHONY : main/main.i
 
 # target to preprocess a source file
-main/sample_observable.cc.i:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/main/sample_observable.cc.i
-.PHONY : main/sample_observable.cc.i
+main/main.cc.i:
+	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/main/main.cc.i
+.PHONY : main/main.cc.i
 
-main/sample_observable.s: main/sample_observable.cc.s
+main/main.s: main/main.cc.s
 
-.PHONY : main/sample_observable.s
+.PHONY : main/main.s
 
 # target to generate assembly for a file
-main/sample_observable.cc.s:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/main/sample_observable.cc.s
-.PHONY : main/sample_observable.cc.s
+main/main.cc.s:
+	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/main/main.cc.s
+.PHONY : main/main.cc.s
 
 src/FF_functions.o: src/FF_functions.cc.o
 
@@ -511,9 +511,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... output"
-	@echo "... main/sample_observable.o"
-	@echo "... main/sample_observable.i"
-	@echo "... main/sample_observable.s"
+	@echo "... main/main.o"
+	@echo "... main/main.i"
+	@echo "... main/main.s"
 	@echo "... src/FF_functions.o"
 	@echo "... src/FF_functions.i"
 	@echo "... src/FF_functions.s"

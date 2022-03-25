@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/akn/Documents/GitHub/FCNCDecays/main/sample_observable.cc" "/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles/output.dir/main/sample_observable.cc.o"
+  "/home/akn/Documents/GitHub/FCNCDecays/main/main.cc" "/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles/output.dir/main/main.cc.o"
   "/home/akn/Documents/GitHub/FCNCDecays/src/FF_functions.cc" "/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles/output.dir/src/FF_functions.cc.o"
   "/home/akn/Documents/GitHub/FCNCDecays/src/FF_functions_mc.cc" "/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles/output.dir/src/FF_functions_mc.cc.o"
   "/home/akn/Documents/GitHub/FCNCDecays/src/FF_parameters.cc" "/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles/output.dir/src/FF_parameters.cc.o"
