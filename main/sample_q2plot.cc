@@ -24,7 +24,7 @@ int main()
     double qmax = pow(o1.mBd()-o1.mKst(),2.0);
 ///////////Error///////////////
 ////68.2%ConfidenceLevel (point counting from boundary values)////////////////
-    TCanvas *c1 = new TCanvas();
+    auto c1 = new TCanvas();
 //Boundary counting
     int n(100); double q2[n], c_obs[n], pe_obs[n], me_obs[n];
     int iter(1000), sdcl(int(iter*15.9/100)); double data[iter];
@@ -68,9 +68,9 @@ int main()
     }
     c1->SetGrid();
     auto gr = new TMultiGraph();
-    TGraph *cgr = new TGraph(n,q2,c_obs);
-    TGraph *pgr = new TGraph(n,q2,pe_obs);
-    TGraph *mgr = new TGraph(n,q2,me_obs);
+    auto cgr = new TGraph(n,q2,c_obs);
+    auto pgr = new TGraph(n,q2,pe_obs);
+    auto mgr = new TGraph(n,q2,me_obs);
     cgr->SetLineColor(2); pgr->SetLineColor(4); mgr->SetLineColor(4);
     cgr->SetLineWidth(2); pgr->SetLineWidth(2); mgr->SetLineWidth(2);
     //cgr->SetMarkerColor(2); pgr->SetMarkerColor(4); mgr->SetMarkerColor(4);

@@ -124,32 +124,32 @@ output/fast:
 	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/build
 .PHONY : output/fast
 
-main/main.o: main/main.cc.o
+main/sample_q2plot.o: main/sample_q2plot.cc.o
 
-.PHONY : main/main.o
+.PHONY : main/sample_q2plot.o
 
 # target to build an object file
-main/main.cc.o:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/main/main.cc.o
-.PHONY : main/main.cc.o
+main/sample_q2plot.cc.o:
+	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/main/sample_q2plot.cc.o
+.PHONY : main/sample_q2plot.cc.o
 
-main/main.i: main/main.cc.i
+main/sample_q2plot.i: main/sample_q2plot.cc.i
 
-.PHONY : main/main.i
+.PHONY : main/sample_q2plot.i
 
 # target to preprocess a source file
-main/main.cc.i:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/main/main.cc.i
-.PHONY : main/main.cc.i
+main/sample_q2plot.cc.i:
+	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/main/sample_q2plot.cc.i
+.PHONY : main/sample_q2plot.cc.i
 
-main/main.s: main/main.cc.s
+main/sample_q2plot.s: main/sample_q2plot.cc.s
 
-.PHONY : main/main.s
+.PHONY : main/sample_q2plot.s
 
 # target to generate assembly for a file
-main/main.cc.s:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/main/main.cc.s
-.PHONY : main/main.cc.s
+main/sample_q2plot.cc.s:
+	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/main/sample_q2plot.cc.s
+.PHONY : main/sample_q2plot.cc.s
 
 src/FF_functions.o: src/FF_functions.cc.o
 
@@ -511,9 +511,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... output"
-	@echo "... main/main.o"
-	@echo "... main/main.i"
-	@echo "... main/main.s"
+	@echo "... main/sample_q2plot.o"
+	@echo "... main/sample_q2plot.i"
+	@echo "... main/sample_q2plot.s"
 	@echo "... src/FF_functions.o"
 	@echo "... src/FF_functions.i"
 	@echo "... src/FF_functions.s"

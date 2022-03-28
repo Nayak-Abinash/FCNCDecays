@@ -57,18 +57,18 @@ include CMakeFiles/output.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/output.dir/flags.make
 
-CMakeFiles/output.dir/main/main.cc.o: CMakeFiles/output.dir/flags.make
-CMakeFiles/output.dir/main/main.cc.o: ../main/main.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/output.dir/main/main.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/output.dir/main/main.cc.o -c /home/akn/Documents/GitHub/FCNCDecays/main/main.cc
+CMakeFiles/output.dir/main/sample_q2plot.cc.o: CMakeFiles/output.dir/flags.make
+CMakeFiles/output.dir/main/sample_q2plot.cc.o: ../main/sample_q2plot.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/output.dir/main/sample_q2plot.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/output.dir/main/sample_q2plot.cc.o -c /home/akn/Documents/GitHub/FCNCDecays/main/sample_q2plot.cc
 
-CMakeFiles/output.dir/main/main.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/output.dir/main/main.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/akn/Documents/GitHub/FCNCDecays/main/main.cc > CMakeFiles/output.dir/main/main.cc.i
+CMakeFiles/output.dir/main/sample_q2plot.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/output.dir/main/sample_q2plot.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/akn/Documents/GitHub/FCNCDecays/main/sample_q2plot.cc > CMakeFiles/output.dir/main/sample_q2plot.cc.i
 
-CMakeFiles/output.dir/main/main.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/output.dir/main/main.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/akn/Documents/GitHub/FCNCDecays/main/main.cc -o CMakeFiles/output.dir/main/main.cc.s
+CMakeFiles/output.dir/main/sample_q2plot.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/output.dir/main/sample_q2plot.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/akn/Documents/GitHub/FCNCDecays/main/sample_q2plot.cc -o CMakeFiles/output.dir/main/sample_q2plot.cc.s
 
 CMakeFiles/output.dir/src/FF_functions.cc.o: CMakeFiles/output.dir/flags.make
 CMakeFiles/output.dir/src/FF_functions.cc.o: ../src/FF_functions.cc
@@ -241,7 +241,7 @@ CMakeFiles/output.dir/src/observables_mc.cc.s: cmake_force
 
 # Object files for target output
 output_OBJECTS = \
-"CMakeFiles/output.dir/main/main.cc.o" \
+"CMakeFiles/output.dir/main/sample_q2plot.cc.o" \
 "CMakeFiles/output.dir/src/FF_functions.cc.o" \
 "CMakeFiles/output.dir/src/FF_functions_mc.cc.o" \
 "CMakeFiles/output.dir/src/FF_parameters.cc.o" \
@@ -259,7 +259,7 @@ output_OBJECTS = \
 # External object files for target output
 output_EXTERNAL_OBJECTS =
 
-output: CMakeFiles/output.dir/main/main.cc.o
+output: CMakeFiles/output.dir/main/sample_q2plot.cc.o
 output: CMakeFiles/output.dir/src/FF_functions.cc.o
 output: CMakeFiles/output.dir/src/FF_functions_mc.cc.o
 output: CMakeFiles/output.dir/src/FF_parameters.cc.o
