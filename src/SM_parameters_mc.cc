@@ -4,7 +4,7 @@ smpar_mc::smpar_mc()
 {
     pi = M_PI;
     scale_mu = 4.8;//the renormalization scale
-    G_F = 1.1663787*pow(10.0,-5.0), alphae = 1.0/128.541;//errors on the Fermi constant and fine-structure constant are too tiny to consider
+    G_F = 1.1663787*pow(10.0,-5.0), alphae = 1.0/128.541;//errors on the Fermi constant and fine-structure constant are too small to consider
 }
 
 double smpar_mc::cen_smpar[] = {/*m_d*/0.00467, /*m_c*/1.27, /*m_s*/0.093, /*m_b*/4.18,
@@ -38,11 +38,11 @@ double smpar_mc::chd_smpar[][MXdm] =  /*m_d*/     {{0.00048, 0, 0, 0, 0, 0, 0, 0
                                 /*f_Bd*/    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0013, 0},
                                 /*f_Bs*/    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0013}};
 
-double smpar_mc::cen_wilsonSM[] = {/*C_1*/-0.257, /*C_2*/1.009, /*C_3*/-0.005, /*C_4*/-0.078, /*C_5*/0.000, /*C_6*/0.001, /*C_7effRe*/-0.304, /*C_7effIm*/0.0,
-                                    /*C_8eff*/-0.167, /*C_9Re*/4.211, /*C_9Im*/0.0, /*C_10Re*/-4.103, /*C_10Im*/0.0};
+//double smpar_mc::cen_wilsonSM[] = {/*C_1*/-0.257, /*C_2*/1.009, /*C_3*/-0.005, /*C_4*/-0.078, /*C_5*/0.000, /*C_6*/0.001, /*C_7effRe*/-0.304, /*C_7effIm*/0.0,
+//                                    /*C_8eff*/-0.167, /*C_9Re*/4.211, /*C_9Im*/0.0, /*C_10Re*/-4.103, /*C_10Im*/0.0};
 
-double smpar_mc::unc_wilsonSM[] = {/*C_1*/0.0, /*C_2*/0.0, /*C_3*/0.0, /*C_4*/0.0, /*C_5*/0.0, /*C_6*/0.0, /*C_7effRe*/0.0, /*C_7effIm*/0.0,
-                                    /*C_8eff*/0.0, /*C_9Re*/0.0, /*C_9Im*/0.0, /*C_10Re*/0.0, /*C_10Im*/0.0};
+//double smpar_mc::unc_wilsonSM[] = {/*C_1*/0.0, /*C_2*/0.0, /*C_3*/0.0, /*C_4*/0.0, /*C_5*/0.0, /*C_6*/0.0, /*C_7effRe*/0.0, /*C_7effIm*/0.0,
+//                                    /*C_8eff*/0.0, /*C_9Re*/0.0, /*C_9Im*/0.0, /*C_10Re*/0.0, /*C_10Im*/0.0};
 
 double smpar_mc::chd_wilsonSM[][MXdm] = /*C_1*/   {{0,0,0,0,0,0,0,0,0,0,0,0,0},
                                   /*C_2*/   {0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -58,13 +58,13 @@ double smpar_mc::chd_wilsonSM[][MXdm] = /*C_1*/   {{0,0,0,0,0,0,0,0,0,0,0,0,0},
                                 /*C_10Re*/  {0,0,0,0,0,0,0,0,0,0,0,0,0},
                                 /*C_10Im*/  {0,0,0,0,0,0,0,0,0,0,0,0,0}};
 
-double smpar_mc::cen_wilsonNP[] = {/*C_7RHRe*/-0.006, /*C_7RHIm*/0.0, /*C_9RHRe*/0.0, /*C_9RHIm*/0.0, /*C_10RHRe*/0.0, /*C_10RHIm*/0.0, /*C_SRe*/0.0,
-                                    /*C_SIm*/0.0, /*C_SRHRe*/0.0, /*C_SRHIm*/0.0, /*C_PRe*/0.0, /*C_PIm*/0.0, /*C_PRHRe*/0.0, /*C_PRHIm*/0.0,
-                                    /*C_TRe*/0.0, /*C_TIm*/0.0, /*C_T5Re*/0.0, /*C_T5Im*/0.0};
+//double smpar_mc::cen_wilsonNP[] = {/*C_7RHRe*/-0.006, /*C_7RHIm*/0.0, /*C_9RHRe*/0.0, /*C_9RHIm*/0.0, /*C_10RHRe*/0.0, /*C_10RHIm*/0.0, /*C_SRe*/0.0,
+//                                    /*C_SIm*/0.0, /*C_SRHRe*/0.0, /*C_SRHIm*/0.0, /*C_PRe*/0.0, /*C_PIm*/0.0, /*C_PRHRe*/0.0, /*C_PRHIm*/0.0,
+//                                    /*C_TRe*/0.0, /*C_TIm*/0.0, /*C_T5Re*/0.0, /*C_T5Im*/0.0};
 
-double smpar_mc::unc_wilsonNP[] = {/*C_7RHRe*/0.0, /*C_7RHIm*/0.0, /*C_9RHRe*/0.0, /*C_9RHIm*/0.0, /*C_10RHRe*/0.0, /*C_10RHIm*/0.0, /*C_SRe*/0.0,
-                                    /*C_SIm*/0.0, /*C_SRHRe*/0.0, /*C_SRHIm*/0.0, /*C_PRe*/0.0, /*C_PIm*/0.0, /*C_PRHRe*/0.0, /*C_PRHIm*/0.0,
-                                    /*C_TRe*/0.0, /*C_TIm*/0.0, /*C_T5Re*/0.0, /*C_T5Im*/0.0};
+//double smpar_mc::unc_wilsonNP[] = {/*C_7RHRe*/0.0, /*C_7RHIm*/0.0, /*C_9RHRe*/0.0, /*C_9RHIm*/0.0, /*C_10RHRe*/0.0, /*C_10RHIm*/0.0, /*C_SRe*/0.0,
+//                                    /*C_SIm*/0.0, /*C_SRHRe*/0.0, /*C_SRHIm*/0.0, /*C_PRe*/0.0, /*C_PIm*/0.0, /*C_PRHRe*/0.0, /*C_PRHIm*/0.0,
+//                                    /*C_TRe*/0.0, /*C_TIm*/0.0, /*C_T5Re*/0.0, /*C_T5Im*/0.0};
 
 double smpar_mc::chd_wilsonNP[][MXdm] =   /*C_7RHRe*/     {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                                     /*C_7RHIm*/     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -114,38 +114,38 @@ double smpar_mc::DGamma_sbar(double unv[]){return mnd_cov_smpar(cen_smpar, chd_s
 double smpar_mc::fBd(double unv[]){return mnd_cov_smpar(cen_smpar, chd_smpar, unv, 16);}
 double smpar_mc::fBs(double unv[]){return mnd_cov_smpar(cen_smpar, chd_smpar, unv, 17);}
 //SM_Wilson_Coefficients
-double smpar_mc::C1(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 0);}
-double smpar_mc::C2(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 1);}
-double smpar_mc::C3(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 2);}
-double smpar_mc::C4(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 3);}
-double smpar_mc::C5(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 4);}
-double smpar_mc::C6(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 5);}
-double smpar_mc::C7effRe(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 6);}
-double smpar_mc::C7effIm(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 7);}
-double smpar_mc::C8eff(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 8);}
-double smpar_mc::C9Re(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 9);}
-double smpar_mc::C9Im(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 10);}
-double smpar_mc::C10Re(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 11);}
-double smpar_mc::C10Im(double unv[]){return mnd_cov_wcSM(cen_wilsonSM, chd_wilsonSM, unv, 12);}
+double smpar_mc::C1(double smwc[], double unv[]){return mnd_cov_wcSM(smwc, chd_wilsonSM, unv, 0);}
+double smpar_mc::C2(double smwc[], double unv[]){return mnd_cov_wcSM(smwc, chd_wilsonSM, unv, 1);}
+double smpar_mc::C3(double smwc[], double unv[]){return mnd_cov_wcSM(smwc, chd_wilsonSM, unv, 2);}
+double smpar_mc::C4(double smwc[], double unv[]){return mnd_cov_wcSM(smwc, chd_wilsonSM, unv, 3);}
+double smpar_mc::C5(double smwc[], double unv[]){return mnd_cov_wcSM(smwc, chd_wilsonSM, unv, 4);}
+double smpar_mc::C6(double smwc[], double unv[]){return mnd_cov_wcSM(smwc, chd_wilsonSM, unv, 5);}
+double smpar_mc::C7effRe(double smwc[], double unv[]){return mnd_cov_wcSM(smwc, chd_wilsonSM, unv, 6);}
+double smpar_mc::C7effIm(double smwc[], double unv[]){return mnd_cov_wcSM(smwc, chd_wilsonSM, unv, 7);}
+double smpar_mc::C8eff(double smwc[], double unv[]){return mnd_cov_wcSM(smwc, chd_wilsonSM, unv, 8);}
+double smpar_mc::C9Re(double smwc[], double unv[]){return mnd_cov_wcSM(smwc, chd_wilsonSM, unv, 9);}
+double smpar_mc::C9Im(double smwc[], double unv[]){return mnd_cov_wcSM(smwc, chd_wilsonSM, unv, 10);}
+double smpar_mc::C10Re(double smwc[], double unv[]){return mnd_cov_wcSM(smwc, chd_wilsonSM, unv, 11);}
+double smpar_mc::C10Im(double smwc[], double unv[]){return mnd_cov_wcSM(smwc, chd_wilsonSM, unv, 12);}
 //NP_Wilson_Coefficients
-double smpar_mc::C7RHRe(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 0);}
-double smpar_mc::C7RHIm(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 1);}
-double smpar_mc::C9RHRe(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 2);}
-double smpar_mc::C9RHIm(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 3);}
-double smpar_mc::C10RHRe(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 4);}
-double smpar_mc::C10RHIm(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 5);}
-double smpar_mc::CSRe(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 6);}
-double smpar_mc::CSIm(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 7);}
-double smpar_mc::CSRHRe(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 8);}
-double smpar_mc::CSRHIm(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 9);}
-double smpar_mc::CPRe(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 10);}
-double smpar_mc::CPIm(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 11);}
-double smpar_mc::CPRHRe(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 12);}
-double smpar_mc::CPRHIm(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 13);}
-double smpar_mc::CTRe(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 14);}
-double smpar_mc::CTIm(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 15);}
-double smpar_mc::CT5Re(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 16);}
-double smpar_mc::CT5Im(double unv[]){return mnd_cov_wcNP(cen_wilsonNP, chd_wilsonNP, unv, 17);}
+double smpar_mc::C7RHRe(double npwc[], double unv[]){return mnd_cov_wcNP(npwc, chd_wilsonNP, unv, 0);}
+double smpar_mc::C7RHIm(double npwc[], double unv[]){return mnd_cov_wcNP(npwc, chd_wilsonNP, unv, 1);}
+double smpar_mc::C9RHRe(double npwc[], double unv[]){return mnd_cov_wcNP(npwc, chd_wilsonNP, unv, 2);}
+double smpar_mc::C9RHIm(double npwc[], double unv[]){return mnd_cov_wcNP(npwc, chd_wilsonNP, unv, 3);}
+double smpar_mc::C10RHRe(double npwc[], double unv[]){return mnd_cov_wcNP(npwc, chd_wilsonNP, unv, 4);}
+double smpar_mc::C10RHIm(double npwc[], double unv[]){return mnd_cov_wcNP(npwc, chd_wilsonNP, unv, 5);}
+double smpar_mc::CSRe(double npwc[], double unv[]){return mnd_cov_wcNP(npwc, chd_wilsonNP, unv, 6);}
+double smpar_mc::CSIm(double npwc[], double unv[]){return mnd_cov_wcNP(npwc, chd_wilsonNP, unv, 7);}
+double smpar_mc::CSRHRe(double npwc[], double unv[]){return mnd_cov_wcNP(npwc, chd_wilsonNP, unv, 8);}
+double smpar_mc::CSRHIm(double npwc[], double unv[]){return mnd_cov_wcNP(npwc, chd_wilsonNP, unv, 9);}
+double smpar_mc::CPRe(double npwc[], double unv[]){return mnd_cov_wcNP(npwc, chd_wilsonNP, unv, 10);}
+double smpar_mc::CPIm(double npwc[], double unv[]){return mnd_cov_wcNP(npwc, chd_wilsonNP, unv, 11);}
+double smpar_mc::CPRHRe(double npwc[], double unv[]){return mnd_cov_wcNP(npwc, chd_wilsonNP, unv, 12);}
+double smpar_mc::CPRHIm(double npwc[], double unv[]){return mnd_cov_wcNP(npwc, chd_wilsonNP, unv, 13);}
+double smpar_mc::CTRe(double npwc[], double unv[]){return mnd_cov_wcNP(npwc, chd_wilsonNP, unv, 14);}
+double smpar_mc::CTIm(double npwc[], double unv[]){return mnd_cov_wcNP(npwc, chd_wilsonNP, unv, 15);}
+double smpar_mc::CT5Re(double npwc[], double unv[]){return mnd_cov_wcNP(npwc, chd_wilsonNP, unv, 16);}
+double smpar_mc::CT5Im(double npwc[], double unv[]){return mnd_cov_wcNP(npwc, chd_wilsonNP, unv, 17);}
 
 
 /*References/////////////////////////////////////////////////
