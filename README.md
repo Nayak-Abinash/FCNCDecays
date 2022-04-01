@@ -2,7 +2,7 @@
 
 A C++ package to calculate the observables for some of the FCNC B-meson decays used in indirect NP searches.
 
-How ro Run from Terminal?
+Run from Terminal?
 
 Open Terminal & type the following commands:
 
