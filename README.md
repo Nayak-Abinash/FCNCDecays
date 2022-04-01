@@ -16,6 +16,8 @@ mkdir build/
 
 cd build/
 
-cmake –build .
+cmake ../
 
-./output
+cmake --build .
+
+./"executable"
