@@ -69,12 +69,10 @@ int main()
     c1->SetGrid();
     auto gr = new TMultiGraph();
     auto cgr = new TGraph(n,q2,c_obs);
-    auto pgr = new TGraph(n,q2,pe_obs);
     auto mgr = new TGraph(n,q2,me_obs);
+    auto pgr = new TGraph(n,q2,pe_obs);
     cgr->SetLineColor(2); pgr->SetLineColor(4); mgr->SetLineColor(4);
     cgr->SetLineWidth(2); pgr->SetLineWidth(2); mgr->SetLineWidth(2);
-    //cgr->SetMarkerColor(2); pgr->SetMarkerColor(4); mgr->SetMarkerColor(4);
-    //cgr->SetMarkerStyle(21); pgr->SetMarkerStyle(21); mgr->SetMarkerStyle(21);
     gr->Add(cgr); gr->Add(pgr); gr->Add(mgr);
     gr->GetXaxis()->SetTitle("q^2");
     gr->GetYaxis()->SetTitle("AFB(q^2)");

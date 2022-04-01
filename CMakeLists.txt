@@ -19,9 +19,15 @@ add_definitions(${ROOT_CXX_FLAGS})
 
 include_directories(include)
 
-file(GLOB source_files CONFIGURE_DEPENDS "main/sample_q2plot.cc" "src/*.cc")
+file(GLOB source_files CONFIGURE_DEPENDS "src/*.cc")
 
-# add executable
-add_executable(output ${source_files})
+add_library(FCNC_shared ${source_files})
 
-target_link_libraries(output ${ROOT_LIBRARIES} )
+# add executables
+add_executable(sample_q2plot main/sample_q2plot.cc)
+add_executable(sample_mcerror main/sample_mcerror.cc)
+add_executable(sample_observable main/sample_observable.cc)
+
+target_link_libraries(sample_q2plot FCNC_shared ${ROOT_LIBRARIES} )
+target_link_libraries(sample_mcerror FCNC_shared ${ROOT_LIBRARIES} )
+target_link_libraries(sample_observable FCNC_shared ${ROOT_LIBRARIES} )

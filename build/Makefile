@@ -112,17 +112,110 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named output
+# Target rules for targets named sample_observable
 
 # Build rule for target.
-output: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 output
-.PHONY : output
+sample_observable: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sample_observable
+.PHONY : sample_observable
 
 # fast build rule for target.
-output/fast:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/build
-.PHONY : output/fast
+sample_observable/fast:
+	$(MAKE) -f CMakeFiles/sample_observable.dir/build.make CMakeFiles/sample_observable.dir/build
+.PHONY : sample_observable/fast
+
+#=============================================================================
+# Target rules for targets named sample_mcerror
+
+# Build rule for target.
+sample_mcerror: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sample_mcerror
+.PHONY : sample_mcerror
+
+# fast build rule for target.
+sample_mcerror/fast:
+	$(MAKE) -f CMakeFiles/sample_mcerror.dir/build.make CMakeFiles/sample_mcerror.dir/build
+.PHONY : sample_mcerror/fast
+
+#=============================================================================
+# Target rules for targets named sample_q2plot
+
+# Build rule for target.
+sample_q2plot: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sample_q2plot
+.PHONY : sample_q2plot
+
+# fast build rule for target.
+sample_q2plot/fast:
+	$(MAKE) -f CMakeFiles/sample_q2plot.dir/build.make CMakeFiles/sample_q2plot.dir/build
+.PHONY : sample_q2plot/fast
+
+#=============================================================================
+# Target rules for targets named FCNC_shared
+
+# Build rule for target.
+FCNC_shared: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 FCNC_shared
+.PHONY : FCNC_shared
+
+# fast build rule for target.
+FCNC_shared/fast:
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/build
+.PHONY : FCNC_shared/fast
+
+main/sample_mcerror.o: main/sample_mcerror.cc.o
+
+.PHONY : main/sample_mcerror.o
+
+# target to build an object file
+main/sample_mcerror.cc.o:
+	$(MAKE) -f CMakeFiles/sample_mcerror.dir/build.make CMakeFiles/sample_mcerror.dir/main/sample_mcerror.cc.o
+.PHONY : main/sample_mcerror.cc.o
+
+main/sample_mcerror.i: main/sample_mcerror.cc.i
+
+.PHONY : main/sample_mcerror.i
+
+# target to preprocess a source file
+main/sample_mcerror.cc.i:
+	$(MAKE) -f CMakeFiles/sample_mcerror.dir/build.make CMakeFiles/sample_mcerror.dir/main/sample_mcerror.cc.i
+.PHONY : main/sample_mcerror.cc.i
+
+main/sample_mcerror.s: main/sample_mcerror.cc.s
+
+.PHONY : main/sample_mcerror.s
+
+# target to generate assembly for a file
+main/sample_mcerror.cc.s:
+	$(MAKE) -f CMakeFiles/sample_mcerror.dir/build.make CMakeFiles/sample_mcerror.dir/main/sample_mcerror.cc.s
+.PHONY : main/sample_mcerror.cc.s
+
+main/sample_observable.o: main/sample_observable.cc.o
+
+.PHONY : main/sample_observable.o
+
+# target to build an object file
+main/sample_observable.cc.o:
+	$(MAKE) -f CMakeFiles/sample_observable.dir/build.make CMakeFiles/sample_observable.dir/main/sample_observable.cc.o
+.PHONY : main/sample_observable.cc.o
+
+main/sample_observable.i: main/sample_observable.cc.i
+
+.PHONY : main/sample_observable.i
+
+# target to preprocess a source file
+main/sample_observable.cc.i:
+	$(MAKE) -f CMakeFiles/sample_observable.dir/build.make CMakeFiles/sample_observable.dir/main/sample_observable.cc.i
+.PHONY : main/sample_observable.cc.i
+
+main/sample_observable.s: main/sample_observable.cc.s
+
+.PHONY : main/sample_observable.s
+
+# target to generate assembly for a file
+main/sample_observable.cc.s:
+	$(MAKE) -f CMakeFiles/sample_observable.dir/build.make CMakeFiles/sample_observable.dir/main/sample_observable.cc.s
+.PHONY : main/sample_observable.cc.s
 
 main/sample_q2plot.o: main/sample_q2plot.cc.o
 
@@ -130,7 +223,7 @@ main/sample_q2plot.o: main/sample_q2plot.cc.o
 
 # target to build an object file
 main/sample_q2plot.cc.o:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/main/sample_q2plot.cc.o
+	$(MAKE) -f CMakeFiles/sample_q2plot.dir/build.make CMakeFiles/sample_q2plot.dir/main/sample_q2plot.cc.o
 .PHONY : main/sample_q2plot.cc.o
 
 main/sample_q2plot.i: main/sample_q2plot.cc.i
@@ -139,7 +232,7 @@ main/sample_q2plot.i: main/sample_q2plot.cc.i
 
 # target to preprocess a source file
 main/sample_q2plot.cc.i:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/main/sample_q2plot.cc.i
+	$(MAKE) -f CMakeFiles/sample_q2plot.dir/build.make CMakeFiles/sample_q2plot.dir/main/sample_q2plot.cc.i
 .PHONY : main/sample_q2plot.cc.i
 
 main/sample_q2plot.s: main/sample_q2plot.cc.s
@@ -148,7 +241,7 @@ main/sample_q2plot.s: main/sample_q2plot.cc.s
 
 # target to generate assembly for a file
 main/sample_q2plot.cc.s:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/main/sample_q2plot.cc.s
+	$(MAKE) -f CMakeFiles/sample_q2plot.dir/build.make CMakeFiles/sample_q2plot.dir/main/sample_q2plot.cc.s
 .PHONY : main/sample_q2plot.cc.s
 
 src/FF_functions.o: src/FF_functions.cc.o
@@ -157,7 +250,7 @@ src/FF_functions.o: src/FF_functions.cc.o
 
 # target to build an object file
 src/FF_functions.cc.o:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/FF_functions.cc.o
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/FF_functions.cc.o
 .PHONY : src/FF_functions.cc.o
 
 src/FF_functions.i: src/FF_functions.cc.i
@@ -166,7 +259,7 @@ src/FF_functions.i: src/FF_functions.cc.i
 
 # target to preprocess a source file
 src/FF_functions.cc.i:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/FF_functions.cc.i
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/FF_functions.cc.i
 .PHONY : src/FF_functions.cc.i
 
 src/FF_functions.s: src/FF_functions.cc.s
@@ -175,7 +268,7 @@ src/FF_functions.s: src/FF_functions.cc.s
 
 # target to generate assembly for a file
 src/FF_functions.cc.s:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/FF_functions.cc.s
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/FF_functions.cc.s
 .PHONY : src/FF_functions.cc.s
 
 src/FF_functions_mc.o: src/FF_functions_mc.cc.o
@@ -184,7 +277,7 @@ src/FF_functions_mc.o: src/FF_functions_mc.cc.o
 
 # target to build an object file
 src/FF_functions_mc.cc.o:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/FF_functions_mc.cc.o
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/FF_functions_mc.cc.o
 .PHONY : src/FF_functions_mc.cc.o
 
 src/FF_functions_mc.i: src/FF_functions_mc.cc.i
@@ -193,7 +286,7 @@ src/FF_functions_mc.i: src/FF_functions_mc.cc.i
 
 # target to preprocess a source file
 src/FF_functions_mc.cc.i:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/FF_functions_mc.cc.i
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/FF_functions_mc.cc.i
 .PHONY : src/FF_functions_mc.cc.i
 
 src/FF_functions_mc.s: src/FF_functions_mc.cc.s
@@ -202,7 +295,7 @@ src/FF_functions_mc.s: src/FF_functions_mc.cc.s
 
 # target to generate assembly for a file
 src/FF_functions_mc.cc.s:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/FF_functions_mc.cc.s
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/FF_functions_mc.cc.s
 .PHONY : src/FF_functions_mc.cc.s
 
 src/FF_parameters.o: src/FF_parameters.cc.o
@@ -211,7 +304,7 @@ src/FF_parameters.o: src/FF_parameters.cc.o
 
 # target to build an object file
 src/FF_parameters.cc.o:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/FF_parameters.cc.o
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/FF_parameters.cc.o
 .PHONY : src/FF_parameters.cc.o
 
 src/FF_parameters.i: src/FF_parameters.cc.i
@@ -220,7 +313,7 @@ src/FF_parameters.i: src/FF_parameters.cc.i
 
 # target to preprocess a source file
 src/FF_parameters.cc.i:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/FF_parameters.cc.i
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/FF_parameters.cc.i
 .PHONY : src/FF_parameters.cc.i
 
 src/FF_parameters.s: src/FF_parameters.cc.s
@@ -229,7 +322,7 @@ src/FF_parameters.s: src/FF_parameters.cc.s
 
 # target to generate assembly for a file
 src/FF_parameters.cc.s:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/FF_parameters.cc.s
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/FF_parameters.cc.s
 .PHONY : src/FF_parameters.cc.s
 
 src/FF_parameters_mc.o: src/FF_parameters_mc.cc.o
@@ -238,7 +331,7 @@ src/FF_parameters_mc.o: src/FF_parameters_mc.cc.o
 
 # target to build an object file
 src/FF_parameters_mc.cc.o:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/FF_parameters_mc.cc.o
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/FF_parameters_mc.cc.o
 .PHONY : src/FF_parameters_mc.cc.o
 
 src/FF_parameters_mc.i: src/FF_parameters_mc.cc.i
@@ -247,7 +340,7 @@ src/FF_parameters_mc.i: src/FF_parameters_mc.cc.i
 
 # target to preprocess a source file
 src/FF_parameters_mc.cc.i:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/FF_parameters_mc.cc.i
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/FF_parameters_mc.cc.i
 .PHONY : src/FF_parameters_mc.cc.i
 
 src/FF_parameters_mc.s: src/FF_parameters_mc.cc.s
@@ -256,7 +349,7 @@ src/FF_parameters_mc.s: src/FF_parameters_mc.cc.s
 
 # target to generate assembly for a file
 src/FF_parameters_mc.cc.s:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/FF_parameters_mc.cc.s
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/FF_parameters_mc.cc.s
 .PHONY : src/FF_parameters_mc.cc.s
 
 src/SM_parameters.o: src/SM_parameters.cc.o
@@ -265,7 +358,7 @@ src/SM_parameters.o: src/SM_parameters.cc.o
 
 # target to build an object file
 src/SM_parameters.cc.o:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/SM_parameters.cc.o
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/SM_parameters.cc.o
 .PHONY : src/SM_parameters.cc.o
 
 src/SM_parameters.i: src/SM_parameters.cc.i
@@ -274,7 +367,7 @@ src/SM_parameters.i: src/SM_parameters.cc.i
 
 # target to preprocess a source file
 src/SM_parameters.cc.i:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/SM_parameters.cc.i
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/SM_parameters.cc.i
 .PHONY : src/SM_parameters.cc.i
 
 src/SM_parameters.s: src/SM_parameters.cc.s
@@ -283,7 +376,7 @@ src/SM_parameters.s: src/SM_parameters.cc.s
 
 # target to generate assembly for a file
 src/SM_parameters.cc.s:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/SM_parameters.cc.s
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/SM_parameters.cc.s
 .PHONY : src/SM_parameters.cc.s
 
 src/SM_parameters_mc.o: src/SM_parameters_mc.cc.o
@@ -292,7 +385,7 @@ src/SM_parameters_mc.o: src/SM_parameters_mc.cc.o
 
 # target to build an object file
 src/SM_parameters_mc.cc.o:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/SM_parameters_mc.cc.o
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/SM_parameters_mc.cc.o
 .PHONY : src/SM_parameters_mc.cc.o
 
 src/SM_parameters_mc.i: src/SM_parameters_mc.cc.i
@@ -301,7 +394,7 @@ src/SM_parameters_mc.i: src/SM_parameters_mc.cc.i
 
 # target to preprocess a source file
 src/SM_parameters_mc.cc.i:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/SM_parameters_mc.cc.i
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/SM_parameters_mc.cc.i
 .PHONY : src/SM_parameters_mc.cc.i
 
 src/SM_parameters_mc.s: src/SM_parameters_mc.cc.s
@@ -310,7 +403,7 @@ src/SM_parameters_mc.s: src/SM_parameters_mc.cc.s
 
 # target to generate assembly for a file
 src/SM_parameters_mc.cc.s:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/SM_parameters_mc.cc.s
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/SM_parameters_mc.cc.s
 .PHONY : src/SM_parameters_mc.cc.s
 
 src/amplitudes.o: src/amplitudes.cc.o
@@ -319,7 +412,7 @@ src/amplitudes.o: src/amplitudes.cc.o
 
 # target to build an object file
 src/amplitudes.cc.o:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/amplitudes.cc.o
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/amplitudes.cc.o
 .PHONY : src/amplitudes.cc.o
 
 src/amplitudes.i: src/amplitudes.cc.i
@@ -328,7 +421,7 @@ src/amplitudes.i: src/amplitudes.cc.i
 
 # target to preprocess a source file
 src/amplitudes.cc.i:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/amplitudes.cc.i
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/amplitudes.cc.i
 .PHONY : src/amplitudes.cc.i
 
 src/amplitudes.s: src/amplitudes.cc.s
@@ -337,7 +430,7 @@ src/amplitudes.s: src/amplitudes.cc.s
 
 # target to generate assembly for a file
 src/amplitudes.cc.s:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/amplitudes.cc.s
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/amplitudes.cc.s
 .PHONY : src/amplitudes.cc.s
 
 src/amplitudes_mc.o: src/amplitudes_mc.cc.o
@@ -346,7 +439,7 @@ src/amplitudes_mc.o: src/amplitudes_mc.cc.o
 
 # target to build an object file
 src/amplitudes_mc.cc.o:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/amplitudes_mc.cc.o
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/amplitudes_mc.cc.o
 .PHONY : src/amplitudes_mc.cc.o
 
 src/amplitudes_mc.i: src/amplitudes_mc.cc.i
@@ -355,7 +448,7 @@ src/amplitudes_mc.i: src/amplitudes_mc.cc.i
 
 # target to preprocess a source file
 src/amplitudes_mc.cc.i:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/amplitudes_mc.cc.i
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/amplitudes_mc.cc.i
 .PHONY : src/amplitudes_mc.cc.i
 
 src/amplitudes_mc.s: src/amplitudes_mc.cc.s
@@ -364,7 +457,7 @@ src/amplitudes_mc.s: src/amplitudes_mc.cc.s
 
 # target to generate assembly for a file
 src/amplitudes_mc.cc.s:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/amplitudes_mc.cc.s
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/amplitudes_mc.cc.s
 .PHONY : src/amplitudes_mc.cc.s
 
 src/ckm_elements.o: src/ckm_elements.cc.o
@@ -373,7 +466,7 @@ src/ckm_elements.o: src/ckm_elements.cc.o
 
 # target to build an object file
 src/ckm_elements.cc.o:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/ckm_elements.cc.o
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/ckm_elements.cc.o
 .PHONY : src/ckm_elements.cc.o
 
 src/ckm_elements.i: src/ckm_elements.cc.i
@@ -382,7 +475,7 @@ src/ckm_elements.i: src/ckm_elements.cc.i
 
 # target to preprocess a source file
 src/ckm_elements.cc.i:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/ckm_elements.cc.i
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/ckm_elements.cc.i
 .PHONY : src/ckm_elements.cc.i
 
 src/ckm_elements.s: src/ckm_elements.cc.s
@@ -391,7 +484,7 @@ src/ckm_elements.s: src/ckm_elements.cc.s
 
 # target to generate assembly for a file
 src/ckm_elements.cc.s:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/ckm_elements.cc.s
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/ckm_elements.cc.s
 .PHONY : src/ckm_elements.cc.s
 
 src/ckm_elements_mc.o: src/ckm_elements_mc.cc.o
@@ -400,7 +493,7 @@ src/ckm_elements_mc.o: src/ckm_elements_mc.cc.o
 
 # target to build an object file
 src/ckm_elements_mc.cc.o:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/ckm_elements_mc.cc.o
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/ckm_elements_mc.cc.o
 .PHONY : src/ckm_elements_mc.cc.o
 
 src/ckm_elements_mc.i: src/ckm_elements_mc.cc.i
@@ -409,7 +502,7 @@ src/ckm_elements_mc.i: src/ckm_elements_mc.cc.i
 
 # target to preprocess a source file
 src/ckm_elements_mc.cc.i:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/ckm_elements_mc.cc.i
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/ckm_elements_mc.cc.i
 .PHONY : src/ckm_elements_mc.cc.i
 
 src/ckm_elements_mc.s: src/ckm_elements_mc.cc.s
@@ -418,7 +511,7 @@ src/ckm_elements_mc.s: src/ckm_elements_mc.cc.s
 
 # target to generate assembly for a file
 src/ckm_elements_mc.cc.s:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/ckm_elements_mc.cc.s
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/ckm_elements_mc.cc.s
 .PHONY : src/ckm_elements_mc.cc.s
 
 src/model_functions.o: src/model_functions.cc.o
@@ -427,7 +520,7 @@ src/model_functions.o: src/model_functions.cc.o
 
 # target to build an object file
 src/model_functions.cc.o:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/model_functions.cc.o
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/model_functions.cc.o
 .PHONY : src/model_functions.cc.o
 
 src/model_functions.i: src/model_functions.cc.i
@@ -436,7 +529,7 @@ src/model_functions.i: src/model_functions.cc.i
 
 # target to preprocess a source file
 src/model_functions.cc.i:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/model_functions.cc.i
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/model_functions.cc.i
 .PHONY : src/model_functions.cc.i
 
 src/model_functions.s: src/model_functions.cc.s
@@ -445,7 +538,7 @@ src/model_functions.s: src/model_functions.cc.s
 
 # target to generate assembly for a file
 src/model_functions.cc.s:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/model_functions.cc.s
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/model_functions.cc.s
 .PHONY : src/model_functions.cc.s
 
 src/observables.o: src/observables.cc.o
@@ -454,7 +547,7 @@ src/observables.o: src/observables.cc.o
 
 # target to build an object file
 src/observables.cc.o:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/observables.cc.o
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/observables.cc.o
 .PHONY : src/observables.cc.o
 
 src/observables.i: src/observables.cc.i
@@ -463,7 +556,7 @@ src/observables.i: src/observables.cc.i
 
 # target to preprocess a source file
 src/observables.cc.i:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/observables.cc.i
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/observables.cc.i
 .PHONY : src/observables.cc.i
 
 src/observables.s: src/observables.cc.s
@@ -472,7 +565,7 @@ src/observables.s: src/observables.cc.s
 
 # target to generate assembly for a file
 src/observables.cc.s:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/observables.cc.s
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/observables.cc.s
 .PHONY : src/observables.cc.s
 
 src/observables_mc.o: src/observables_mc.cc.o
@@ -481,7 +574,7 @@ src/observables_mc.o: src/observables_mc.cc.o
 
 # target to build an object file
 src/observables_mc.cc.o:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/observables_mc.cc.o
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/observables_mc.cc.o
 .PHONY : src/observables_mc.cc.o
 
 src/observables_mc.i: src/observables_mc.cc.i
@@ -490,7 +583,7 @@ src/observables_mc.i: src/observables_mc.cc.i
 
 # target to preprocess a source file
 src/observables_mc.cc.i:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/observables_mc.cc.i
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/observables_mc.cc.i
 .PHONY : src/observables_mc.cc.i
 
 src/observables_mc.s: src/observables_mc.cc.s
@@ -499,7 +592,7 @@ src/observables_mc.s: src/observables_mc.cc.s
 
 # target to generate assembly for a file
 src/observables_mc.cc.s:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/src/observables_mc.cc.s
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/observables_mc.cc.s
 .PHONY : src/observables_mc.cc.s
 
 # Help Target
@@ -510,7 +603,16 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... output"
+	@echo "... sample_observable"
+	@echo "... sample_mcerror"
+	@echo "... sample_q2plot"
+	@echo "... FCNC_shared"
+	@echo "... main/sample_mcerror.o"
+	@echo "... main/sample_mcerror.i"
+	@echo "... main/sample_mcerror.s"
+	@echo "... main/sample_observable.o"
+	@echo "... main/sample_observable.i"
+	@echo "... main/sample_observable.s"
 	@echo "... main/sample_q2plot.o"
 	@echo "... main/sample_q2plot.i"
 	@echo "... main/sample_q2plot.s"

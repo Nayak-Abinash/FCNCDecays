@@ -53,7 +53,10 @@ CMAKE_BINARY_DIR = /home/akn/Documents/GitHub/FCNCDecays/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/output.dir/all
+all: CMakeFiles/sample_observable.dir/all
+all: CMakeFiles/sample_mcerror.dir/all
+all: CMakeFiles/sample_q2plot.dir/all
+all: CMakeFiles/FCNC_shared.dir/all
 
 .PHONY : all
 
@@ -63,36 +66,120 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/output.dir/clean
+clean: CMakeFiles/sample_observable.dir/clean
+clean: CMakeFiles/sample_mcerror.dir/clean
+clean: CMakeFiles/sample_q2plot.dir/clean
+clean: CMakeFiles/FCNC_shared.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/output.dir
+# Target rules for target CMakeFiles/sample_observable.dir
 
 # All Build rule for target.
-CMakeFiles/output.dir/all:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/depend
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 "Built target output"
-.PHONY : CMakeFiles/output.dir/all
+CMakeFiles/sample_observable.dir/all: CMakeFiles/FCNC_shared.dir/all
+	$(MAKE) -f CMakeFiles/sample_observable.dir/build.make CMakeFiles/sample_observable.dir/depend
+	$(MAKE) -f CMakeFiles/sample_observable.dir/build.make CMakeFiles/sample_observable.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=17,18 "Built target sample_observable"
+.PHONY : CMakeFiles/sample_observable.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/output.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles 15
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/output.dir/all
+CMakeFiles/sample_observable.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles 16
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/sample_observable.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles 0
-.PHONY : CMakeFiles/output.dir/rule
+.PHONY : CMakeFiles/sample_observable.dir/rule
 
 # Convenience name for target.
-output: CMakeFiles/output.dir/rule
+sample_observable: CMakeFiles/sample_observable.dir/rule
 
-.PHONY : output
+.PHONY : sample_observable
 
 # clean rule for target.
-CMakeFiles/output.dir/clean:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/clean
-.PHONY : CMakeFiles/output.dir/clean
+CMakeFiles/sample_observable.dir/clean:
+	$(MAKE) -f CMakeFiles/sample_observable.dir/build.make CMakeFiles/sample_observable.dir/clean
+.PHONY : CMakeFiles/sample_observable.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/sample_mcerror.dir
+
+# All Build rule for target.
+CMakeFiles/sample_mcerror.dir/all: CMakeFiles/FCNC_shared.dir/all
+	$(MAKE) -f CMakeFiles/sample_mcerror.dir/build.make CMakeFiles/sample_mcerror.dir/depend
+	$(MAKE) -f CMakeFiles/sample_mcerror.dir/build.make CMakeFiles/sample_mcerror.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=15,16 "Built target sample_mcerror"
+.PHONY : CMakeFiles/sample_mcerror.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/sample_mcerror.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles 16
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/sample_mcerror.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles 0
+.PHONY : CMakeFiles/sample_mcerror.dir/rule
+
+# Convenience name for target.
+sample_mcerror: CMakeFiles/sample_mcerror.dir/rule
+
+.PHONY : sample_mcerror
+
+# clean rule for target.
+CMakeFiles/sample_mcerror.dir/clean:
+	$(MAKE) -f CMakeFiles/sample_mcerror.dir/build.make CMakeFiles/sample_mcerror.dir/clean
+.PHONY : CMakeFiles/sample_mcerror.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/sample_q2plot.dir
+
+# All Build rule for target.
+CMakeFiles/sample_q2plot.dir/all: CMakeFiles/FCNC_shared.dir/all
+	$(MAKE) -f CMakeFiles/sample_q2plot.dir/build.make CMakeFiles/sample_q2plot.dir/depend
+	$(MAKE) -f CMakeFiles/sample_q2plot.dir/build.make CMakeFiles/sample_q2plot.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=19,20 "Built target sample_q2plot"
+.PHONY : CMakeFiles/sample_q2plot.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/sample_q2plot.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles 16
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/sample_q2plot.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles 0
+.PHONY : CMakeFiles/sample_q2plot.dir/rule
+
+# Convenience name for target.
+sample_q2plot: CMakeFiles/sample_q2plot.dir/rule
+
+.PHONY : sample_q2plot
+
+# clean rule for target.
+CMakeFiles/sample_q2plot.dir/clean:
+	$(MAKE) -f CMakeFiles/sample_q2plot.dir/build.make CMakeFiles/sample_q2plot.dir/clean
+.PHONY : CMakeFiles/sample_q2plot.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/FCNC_shared.dir
+
+# All Build rule for target.
+CMakeFiles/FCNC_shared.dir/all:
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/depend
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14 "Built target FCNC_shared"
+.PHONY : CMakeFiles/FCNC_shared.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/FCNC_shared.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles 14
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/FCNC_shared.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles 0
+.PHONY : CMakeFiles/FCNC_shared.dir/rule
+
+# Convenience name for target.
+FCNC_shared: CMakeFiles/FCNC_shared.dir/rule
+
+.PHONY : FCNC_shared
+
+# clean rule for target.
+CMakeFiles/FCNC_shared.dir/clean:
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/clean
+.PHONY : CMakeFiles/FCNC_shared.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

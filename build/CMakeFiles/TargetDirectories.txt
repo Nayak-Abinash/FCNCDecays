@@ -1,3 +1,6 @@
 /home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles/rebuild_cache.dir
 /home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles/edit_cache.dir
-/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles/output.dir
+/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles/sample_observable.dir
+/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles/sample_mcerror.dir
+/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles/sample_q2plot.dir
+/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles/FCNC_shared.dir
