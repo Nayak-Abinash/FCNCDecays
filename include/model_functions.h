@@ -26,6 +26,9 @@ class model_functions : public TRandom3
 public:
     model_functions();
     TRandom3* rndm;
+    double mean_model(double lst[], size_t n);
+    double sd_model(double lst[], size_t n);
+    double cov_model(double lst1[], double lst2[], size_t n);
     int mylength(double lst[], int iter, double a, double b);
     double mtrx_tp(double lpar[], double covm[][mxdm]);
     double mnd(double mu, double sigma);

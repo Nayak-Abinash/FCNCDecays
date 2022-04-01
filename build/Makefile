@@ -112,6 +112,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named sample_covariance
+
+# Build rule for target.
+sample_covariance: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sample_covariance
+.PHONY : sample_covariance
+
+# fast build rule for target.
+sample_covariance/fast:
+	$(MAKE) -f CMakeFiles/sample_covariance.dir/build.make CMakeFiles/sample_covariance.dir/build
+.PHONY : sample_covariance/fast
+
+#=============================================================================
 # Target rules for targets named sample_observable
 
 # Build rule for target.
@@ -162,6 +175,33 @@ FCNC_shared: cmake_check_build_system
 FCNC_shared/fast:
 	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/build
 .PHONY : FCNC_shared/fast
+
+main/sample_covariance.o: main/sample_covariance.cc.o
+
+.PHONY : main/sample_covariance.o
+
+# target to build an object file
+main/sample_covariance.cc.o:
+	$(MAKE) -f CMakeFiles/sample_covariance.dir/build.make CMakeFiles/sample_covariance.dir/main/sample_covariance.cc.o
+.PHONY : main/sample_covariance.cc.o
+
+main/sample_covariance.i: main/sample_covariance.cc.i
+
+.PHONY : main/sample_covariance.i
+
+# target to preprocess a source file
+main/sample_covariance.cc.i:
+	$(MAKE) -f CMakeFiles/sample_covariance.dir/build.make CMakeFiles/sample_covariance.dir/main/sample_covariance.cc.i
+.PHONY : main/sample_covariance.cc.i
+
+main/sample_covariance.s: main/sample_covariance.cc.s
+
+.PHONY : main/sample_covariance.s
+
+# target to generate assembly for a file
+main/sample_covariance.cc.s:
+	$(MAKE) -f CMakeFiles/sample_covariance.dir/build.make CMakeFiles/sample_covariance.dir/main/sample_covariance.cc.s
+.PHONY : main/sample_covariance.cc.s
 
 main/sample_mcerror.o: main/sample_mcerror.cc.o
 
@@ -603,10 +643,14 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... sample_covariance"
 	@echo "... sample_observable"
 	@echo "... sample_mcerror"
 	@echo "... sample_q2plot"
 	@echo "... FCNC_shared"
+	@echo "... main/sample_covariance.o"
+	@echo "... main/sample_covariance.i"
+	@echo "... main/sample_covariance.s"
 	@echo "... main/sample_mcerror.o"
 	@echo "... main/sample_mcerror.i"
 	@echo "... main/sample_mcerror.s"

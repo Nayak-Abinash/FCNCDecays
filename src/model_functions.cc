@@ -4,6 +4,33 @@ model_functions::model_functions(){
     rndm = new TRandom3;
     rndm->SetSeed(0);}
 
+double model_functions::mean_model(double lst[], size_t n){
+    double sum=0.0;
+    for (int i=0;i<n;i++)
+        {
+            sum = sum+lst[i];
+        }
+    return sum/n;}
+
+double model_functions::sd_model(double lst[], size_t n){
+    double sum=0.0;
+    double mn=mean_model(lst,n);
+    for (int i=0;i<n;i++)
+        {
+            sum = sum+pow(lst[i]-mn,2);
+        }
+    return sqrt(sum/n);}
+
+double model_functions::cov_model(double lst1[], double lst2[], size_t n){
+    double sum=0.0;
+    double mn1=mean_model(lst1,n);
+    double mn2=mean_model(lst2,n);
+    for (int i=0;i<n;i++)
+        {
+            sum = sum + (lst1[i]-mn1)*(lst2[i]-mn2);
+        }
+    return sum/n;}
+
 
 int model_functions::mylength(double lst[], int iter, double a, double b){
     double num=0;
