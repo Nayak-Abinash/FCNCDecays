@@ -49,10 +49,11 @@ int main()
         sim_diffAFB[i]= eo1.diffAFB(qsq,eo1.mmu(unv),smwc,npwc,unv);
         sim_diffFH[i]= eo1.diffFH(qsq,eo1.mmu(unv),smwc,npwc,unv);
     }
-    double cov_BdtoKll[3][3] = {{eo1.cov_model(sim_diffBrnch,sim_diffBrnch,iter), eo1.cov_model(sim_diffBrnch,sim_diffAFB,iter), eo1.cov_model(sim_diffBrnch,sim_diffFH,iter)},
-                            {eo1.cov_model(sim_diffAFB,sim_diffBrnch,iter), eo1.cov_model(sim_diffAFB,sim_diffAFB,iter), eo1.cov_model(sim_diffAFB,sim_diffFH,iter)},
-                            {eo1.cov_model(sim_diffFH,sim_diffBrnch,iter), eo1.cov_model(sim_diffFH,sim_diffAFB,iter), eo1.cov_model(sim_diffFH,sim_diffFH,iter)}};
-    cout << "Brnch: " << eo1.mean_model(sim_diffAFB,iter) << "\t" << eo1.sd_model(sim_diffAFB,iter) << endl;
+    double cov_BdtoKll[3][3] =
+        {{eo1.cov_model(sim_diffBrnch,sim_diffBrnch,iter), eo1.cov_model(sim_diffBrnch,sim_diffAFB,iter), eo1.cov_model(sim_diffBrnch,sim_diffFH,iter)},
+         {eo1.cov_model(sim_diffAFB,sim_diffBrnch,iter), eo1.cov_model(sim_diffAFB,sim_diffAFB,iter), eo1.cov_model(sim_diffAFB,sim_diffFH,iter)},
+         {eo1.cov_model(sim_diffFH,sim_diffBrnch,iter), eo1.cov_model(sim_diffFH,sim_diffAFB,iter), eo1.cov_model(sim_diffFH,sim_diffFH,iter)}};
+    cout << "Brnch: " << eo1.mean_model(sim_diffBrnch,iter) << "\t" << eo1.sd_model(sim_diffBrnch,iter) << endl;
     //Covariance Matrix:
     cout << cov_BdtoKll[0][0] << "\t" << cov_BdtoKll[0][1] << "\t" << cov_BdtoKll[0][2] << endl;
     cout << cov_BdtoKll[1][0] << "\t" << cov_BdtoKll[1][1] << "\t" << cov_BdtoKll[1][2] << endl;

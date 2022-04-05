@@ -9,6 +9,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/FCNC_shared.dir/src/amplitudes_mc.cc.o"
   "CMakeFiles/FCNC_shared.dir/src/ckm_elements.cc.o"
   "CMakeFiles/FCNC_shared.dir/src/ckm_elements_mc.cc.o"
+  "CMakeFiles/FCNC_shared.dir/src/get_observable.cc.o"
   "CMakeFiles/FCNC_shared.dir/src/model_functions.cc.o"
   "CMakeFiles/FCNC_shared.dir/src/observables.cc.o"
   "CMakeFiles/FCNC_shared.dir/src/observables_mc.cc.o"
