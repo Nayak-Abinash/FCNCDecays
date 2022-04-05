@@ -66,9 +66,9 @@ TRandom3.h
 amplitudes_mc.h
 ../include/amplitudes_mc.h
 
-/home/akn/Documents/GitHub/FCNCDecays/src/get_mc_observable.cc
+/home/akn/Documents/GitHub/FCNCDecays/main/sample_flavioerr.cc
 get_mc_observable.h
-/home/akn/Documents/GitHub/FCNCDecays/src/get_mc_observable.h
+/home/akn/Documents/GitHub/FCNCDecays/main/get_mc_observable.h
 
 /home/akn/root/include/Buttons.h
 

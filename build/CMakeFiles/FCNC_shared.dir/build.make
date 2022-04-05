@@ -187,9 +187,22 @@ CMakeFiles/FCNC_shared.dir/src/ckm_elements_mc.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FCNC_shared.dir/src/ckm_elements_mc.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/akn/Documents/GitHub/FCNCDecays/src/ckm_elements_mc.cc -o CMakeFiles/FCNC_shared.dir/src/ckm_elements_mc.cc.s
 
+CMakeFiles/FCNC_shared.dir/src/get_mc_observable.cc.o: CMakeFiles/FCNC_shared.dir/flags.make
+CMakeFiles/FCNC_shared.dir/src/get_mc_observable.cc.o: ../src/get_mc_observable.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/FCNC_shared.dir/src/get_mc_observable.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FCNC_shared.dir/src/get_mc_observable.cc.o -c /home/akn/Documents/GitHub/FCNCDecays/src/get_mc_observable.cc
+
+CMakeFiles/FCNC_shared.dir/src/get_mc_observable.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FCNC_shared.dir/src/get_mc_observable.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/akn/Documents/GitHub/FCNCDecays/src/get_mc_observable.cc > CMakeFiles/FCNC_shared.dir/src/get_mc_observable.cc.i
+
+CMakeFiles/FCNC_shared.dir/src/get_mc_observable.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FCNC_shared.dir/src/get_mc_observable.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/akn/Documents/GitHub/FCNCDecays/src/get_mc_observable.cc -o CMakeFiles/FCNC_shared.dir/src/get_mc_observable.cc.s
+
 CMakeFiles/FCNC_shared.dir/src/get_observable.cc.o: CMakeFiles/FCNC_shared.dir/flags.make
 CMakeFiles/FCNC_shared.dir/src/get_observable.cc.o: ../src/get_observable.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/FCNC_shared.dir/src/get_observable.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/FCNC_shared.dir/src/get_observable.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FCNC_shared.dir/src/get_observable.cc.o -c /home/akn/Documents/GitHub/FCNCDecays/src/get_observable.cc
 
 CMakeFiles/FCNC_shared.dir/src/get_observable.cc.i: cmake_force
@@ -202,7 +215,7 @@ CMakeFiles/FCNC_shared.dir/src/get_observable.cc.s: cmake_force
 
 CMakeFiles/FCNC_shared.dir/src/model_functions.cc.o: CMakeFiles/FCNC_shared.dir/flags.make
 CMakeFiles/FCNC_shared.dir/src/model_functions.cc.o: ../src/model_functions.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/FCNC_shared.dir/src/model_functions.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/FCNC_shared.dir/src/model_functions.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FCNC_shared.dir/src/model_functions.cc.o -c /home/akn/Documents/GitHub/FCNCDecays/src/model_functions.cc
 
 CMakeFiles/FCNC_shared.dir/src/model_functions.cc.i: cmake_force
@@ -215,7 +228,7 @@ CMakeFiles/FCNC_shared.dir/src/model_functions.cc.s: cmake_force
 
 CMakeFiles/FCNC_shared.dir/src/observables.cc.o: CMakeFiles/FCNC_shared.dir/flags.make
 CMakeFiles/FCNC_shared.dir/src/observables.cc.o: ../src/observables.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/FCNC_shared.dir/src/observables.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/FCNC_shared.dir/src/observables.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FCNC_shared.dir/src/observables.cc.o -c /home/akn/Documents/GitHub/FCNCDecays/src/observables.cc
 
 CMakeFiles/FCNC_shared.dir/src/observables.cc.i: cmake_force
@@ -228,7 +241,7 @@ CMakeFiles/FCNC_shared.dir/src/observables.cc.s: cmake_force
 
 CMakeFiles/FCNC_shared.dir/src/observables_mc.cc.o: CMakeFiles/FCNC_shared.dir/flags.make
 CMakeFiles/FCNC_shared.dir/src/observables_mc.cc.o: ../src/observables_mc.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/FCNC_shared.dir/src/observables_mc.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/FCNC_shared.dir/src/observables_mc.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FCNC_shared.dir/src/observables_mc.cc.o -c /home/akn/Documents/GitHub/FCNCDecays/src/observables_mc.cc
 
 CMakeFiles/FCNC_shared.dir/src/observables_mc.cc.i: cmake_force
@@ -251,6 +264,7 @@ FCNC_shared_OBJECTS = \
 "CMakeFiles/FCNC_shared.dir/src/amplitudes_mc.cc.o" \
 "CMakeFiles/FCNC_shared.dir/src/ckm_elements.cc.o" \
 "CMakeFiles/FCNC_shared.dir/src/ckm_elements_mc.cc.o" \
+"CMakeFiles/FCNC_shared.dir/src/get_mc_observable.cc.o" \
 "CMakeFiles/FCNC_shared.dir/src/get_observable.cc.o" \
 "CMakeFiles/FCNC_shared.dir/src/model_functions.cc.o" \
 "CMakeFiles/FCNC_shared.dir/src/observables.cc.o" \
@@ -269,13 +283,14 @@ libFCNC_shared.a: CMakeFiles/FCNC_shared.dir/src/amplitudes.cc.o
 libFCNC_shared.a: CMakeFiles/FCNC_shared.dir/src/amplitudes_mc.cc.o
 libFCNC_shared.a: CMakeFiles/FCNC_shared.dir/src/ckm_elements.cc.o
 libFCNC_shared.a: CMakeFiles/FCNC_shared.dir/src/ckm_elements_mc.cc.o
+libFCNC_shared.a: CMakeFiles/FCNC_shared.dir/src/get_mc_observable.cc.o
 libFCNC_shared.a: CMakeFiles/FCNC_shared.dir/src/get_observable.cc.o
 libFCNC_shared.a: CMakeFiles/FCNC_shared.dir/src/model_functions.cc.o
 libFCNC_shared.a: CMakeFiles/FCNC_shared.dir/src/observables.cc.o
 libFCNC_shared.a: CMakeFiles/FCNC_shared.dir/src/observables_mc.cc.o
 libFCNC_shared.a: CMakeFiles/FCNC_shared.dir/build.make
 libFCNC_shared.a: CMakeFiles/FCNC_shared.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX static library libFCNC_shared.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX static library libFCNC_shared.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/FCNC_shared.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/FCNC_shared.dir/link.txt --verbose=$(VERBOSE)
 

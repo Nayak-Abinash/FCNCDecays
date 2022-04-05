@@ -112,6 +112,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named sample_flavioerr
+
+# Build rule for target.
+sample_flavioerr: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sample_flavioerr
+.PHONY : sample_flavioerr
+
+# fast build rule for target.
+sample_flavioerr/fast:
+	$(MAKE) -f CMakeFiles/sample_flavioerr.dir/build.make CMakeFiles/sample_flavioerr.dir/build
+.PHONY : sample_flavioerr/fast
+
+#=============================================================================
 # Target rules for targets named sample_flavioobs
 
 # Build rule for target.
@@ -215,6 +228,33 @@ main/sample_covariance.s: main/sample_covariance.cc.s
 main/sample_covariance.cc.s:
 	$(MAKE) -f CMakeFiles/sample_covariance.dir/build.make CMakeFiles/sample_covariance.dir/main/sample_covariance.cc.s
 .PHONY : main/sample_covariance.cc.s
+
+main/sample_flavioerr.o: main/sample_flavioerr.cc.o
+
+.PHONY : main/sample_flavioerr.o
+
+# target to build an object file
+main/sample_flavioerr.cc.o:
+	$(MAKE) -f CMakeFiles/sample_flavioerr.dir/build.make CMakeFiles/sample_flavioerr.dir/main/sample_flavioerr.cc.o
+.PHONY : main/sample_flavioerr.cc.o
+
+main/sample_flavioerr.i: main/sample_flavioerr.cc.i
+
+.PHONY : main/sample_flavioerr.i
+
+# target to preprocess a source file
+main/sample_flavioerr.cc.i:
+	$(MAKE) -f CMakeFiles/sample_flavioerr.dir/build.make CMakeFiles/sample_flavioerr.dir/main/sample_flavioerr.cc.i
+.PHONY : main/sample_flavioerr.cc.i
+
+main/sample_flavioerr.s: main/sample_flavioerr.cc.s
+
+.PHONY : main/sample_flavioerr.s
+
+# target to generate assembly for a file
+main/sample_flavioerr.cc.s:
+	$(MAKE) -f CMakeFiles/sample_flavioerr.dir/build.make CMakeFiles/sample_flavioerr.dir/main/sample_flavioerr.cc.s
+.PHONY : main/sample_flavioerr.cc.s
 
 main/sample_flavioobs.o: main/sample_flavioobs.cc.o
 
@@ -594,6 +634,33 @@ src/ckm_elements_mc.cc.s:
 	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/ckm_elements_mc.cc.s
 .PHONY : src/ckm_elements_mc.cc.s
 
+src/get_mc_observable.o: src/get_mc_observable.cc.o
+
+.PHONY : src/get_mc_observable.o
+
+# target to build an object file
+src/get_mc_observable.cc.o:
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/get_mc_observable.cc.o
+.PHONY : src/get_mc_observable.cc.o
+
+src/get_mc_observable.i: src/get_mc_observable.cc.i
+
+.PHONY : src/get_mc_observable.i
+
+# target to preprocess a source file
+src/get_mc_observable.cc.i:
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/get_mc_observable.cc.i
+.PHONY : src/get_mc_observable.cc.i
+
+src/get_mc_observable.s: src/get_mc_observable.cc.s
+
+.PHONY : src/get_mc_observable.s
+
+# target to generate assembly for a file
+src/get_mc_observable.cc.s:
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/get_mc_observable.cc.s
+.PHONY : src/get_mc_observable.cc.s
+
 src/get_observable.o: src/get_observable.cc.o
 
 .PHONY : src/get_observable.o
@@ -710,6 +777,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... sample_flavioerr"
 	@echo "... sample_flavioobs"
 	@echo "... sample_covariance"
 	@echo "... sample_observable"
@@ -719,6 +787,9 @@ help:
 	@echo "... main/sample_covariance.o"
 	@echo "... main/sample_covariance.i"
 	@echo "... main/sample_covariance.s"
+	@echo "... main/sample_flavioerr.o"
+	@echo "... main/sample_flavioerr.i"
+	@echo "... main/sample_flavioerr.s"
 	@echo "... main/sample_flavioobs.o"
 	@echo "... main/sample_flavioobs.i"
 	@echo "... main/sample_flavioobs.s"
@@ -761,6 +832,9 @@ help:
 	@echo "... src/ckm_elements_mc.o"
 	@echo "... src/ckm_elements_mc.i"
 	@echo "... src/ckm_elements_mc.s"
+	@echo "... src/get_mc_observable.o"
+	@echo "... src/get_mc_observable.i"
+	@echo "... src/get_mc_observable.s"
 	@echo "... src/get_observable.o"
 	@echo "... src/get_observable.i"
 	@echo "... src/get_observable.s"
