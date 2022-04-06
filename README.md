@@ -18,6 +18,6 @@ cd build/
 
 cmake ..
 
-cmake --build .
+make
 
 ./"executable"
