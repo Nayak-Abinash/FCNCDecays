@@ -10,10 +10,9 @@ set(CMAKE_MACOSX_RPATH TRUE) # use @rpath keyword for the macOS rpath
 # add ROOT:
 find_package(ROOT REQUIRED COMPONENTS MathCore RIO Hist Tree Net)
 include(${ROOT_USE_FILE})
-include_directories(${CMAKE_SOURCE_DIR}/include ${ROOT_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
 add_definitions(${ROOT_CXX_FLAGS})
 
-include_directories(include)
+include_directories(${CMAKE_SOURCE_DIR}/include ${ROOT_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
 
 # make file system
 file(GLOB source_files CONFIGURE_DEPENDS "src/*.cc")
