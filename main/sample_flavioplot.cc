@@ -1,4 +1,4 @@
-#include "get_mc_observable.h"
+#include "get_mcplot.h"
 
 double smwc[] = {/*C_1*/-0.257, /*C_2*/1.009, /*C_3*/-0.005, /*C_4*/-0.078, /*C_5*/0.000, /*C_6*/0.001, /*C_7effRe*/-0.304, /*C_7effIm*/0.0,
                                     /*C_8eff*/-0.167, /*C_9Re*/4.211, /*C_9Im*/0.0, /*C_10Re*/-4.103, /*C_10Im*/0.0};
@@ -9,9 +9,10 @@ double npwc[] = {/*C_7RHRe*/-0.006, /*C_7RHIm*/0.0, /*C_9RHRe*/0.0, /*C_9RHIm*/0
 
 int main()
 {
-    get_obserr obj;
-    string s; double qsq;
-    obj.obsval(s,qsq,smwc,npwc);
+    get_obsplot obj;
+    string s;
+    obj.obsplot(s,smwc,npwc);
     return 0;
 }
+
 

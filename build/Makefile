@@ -112,6 +112,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named sample_flavioplot
+
+# Build rule for target.
+sample_flavioplot: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sample_flavioplot
+.PHONY : sample_flavioplot
+
+# fast build rule for target.
+sample_flavioplot/fast:
+	$(MAKE) -f CMakeFiles/sample_flavioplot.dir/build.make CMakeFiles/sample_flavioplot.dir/build
+.PHONY : sample_flavioplot/fast
+
+#=============================================================================
 # Target rules for targets named sample_flavioerr
 
 # Build rule for target.
@@ -282,6 +295,33 @@ main/sample_flavioobs.s: main/sample_flavioobs.cc.s
 main/sample_flavioobs.cc.s:
 	$(MAKE) -f CMakeFiles/sample_flavioobs.dir/build.make CMakeFiles/sample_flavioobs.dir/main/sample_flavioobs.cc.s
 .PHONY : main/sample_flavioobs.cc.s
+
+main/sample_flavioplot.o: main/sample_flavioplot.cc.o
+
+.PHONY : main/sample_flavioplot.o
+
+# target to build an object file
+main/sample_flavioplot.cc.o:
+	$(MAKE) -f CMakeFiles/sample_flavioplot.dir/build.make CMakeFiles/sample_flavioplot.dir/main/sample_flavioplot.cc.o
+.PHONY : main/sample_flavioplot.cc.o
+
+main/sample_flavioplot.i: main/sample_flavioplot.cc.i
+
+.PHONY : main/sample_flavioplot.i
+
+# target to preprocess a source file
+main/sample_flavioplot.cc.i:
+	$(MAKE) -f CMakeFiles/sample_flavioplot.dir/build.make CMakeFiles/sample_flavioplot.dir/main/sample_flavioplot.cc.i
+.PHONY : main/sample_flavioplot.cc.i
+
+main/sample_flavioplot.s: main/sample_flavioplot.cc.s
+
+.PHONY : main/sample_flavioplot.s
+
+# target to generate assembly for a file
+main/sample_flavioplot.cc.s:
+	$(MAKE) -f CMakeFiles/sample_flavioplot.dir/build.make CMakeFiles/sample_flavioplot.dir/main/sample_flavioplot.cc.s
+.PHONY : main/sample_flavioplot.cc.s
 
 main/sample_mcerror.o: main/sample_mcerror.cc.o
 
@@ -661,6 +701,33 @@ src/get_mc_observable.cc.s:
 	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/get_mc_observable.cc.s
 .PHONY : src/get_mc_observable.cc.s
 
+src/get_mcplot.o: src/get_mcplot.cc.o
+
+.PHONY : src/get_mcplot.o
+
+# target to build an object file
+src/get_mcplot.cc.o:
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/get_mcplot.cc.o
+.PHONY : src/get_mcplot.cc.o
+
+src/get_mcplot.i: src/get_mcplot.cc.i
+
+.PHONY : src/get_mcplot.i
+
+# target to preprocess a source file
+src/get_mcplot.cc.i:
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/get_mcplot.cc.i
+.PHONY : src/get_mcplot.cc.i
+
+src/get_mcplot.s: src/get_mcplot.cc.s
+
+.PHONY : src/get_mcplot.s
+
+# target to generate assembly for a file
+src/get_mcplot.cc.s:
+	$(MAKE) -f CMakeFiles/FCNC_shared.dir/build.make CMakeFiles/FCNC_shared.dir/src/get_mcplot.cc.s
+.PHONY : src/get_mcplot.cc.s
+
 src/get_observable.o: src/get_observable.cc.o
 
 .PHONY : src/get_observable.o
@@ -777,6 +844,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... sample_flavioplot"
 	@echo "... sample_flavioerr"
 	@echo "... sample_flavioobs"
 	@echo "... sample_covariance"
@@ -793,6 +861,9 @@ help:
 	@echo "... main/sample_flavioobs.o"
 	@echo "... main/sample_flavioobs.i"
 	@echo "... main/sample_flavioobs.s"
+	@echo "... main/sample_flavioplot.o"
+	@echo "... main/sample_flavioplot.i"
+	@echo "... main/sample_flavioplot.s"
 	@echo "... main/sample_mcerror.o"
 	@echo "... main/sample_mcerror.i"
 	@echo "... main/sample_mcerror.s"
@@ -835,6 +906,9 @@ help:
 	@echo "... src/get_mc_observable.o"
 	@echo "... src/get_mc_observable.i"
 	@echo "... src/get_mc_observable.s"
+	@echo "... src/get_mcplot.o"
+	@echo "... src/get_mcplot.i"
+	@echo "... src/get_mcplot.s"
 	@echo "... src/get_observable.o"
 	@echo "... src/get_observable.i"
 	@echo "... src/get_observable.s"

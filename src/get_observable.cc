@@ -75,5 +75,5 @@ void get_obs::obsval(string s, double qsq){
 
 //Warning!!!
     else
-        cout << "Invalid Entry! Try again." << endl;
+        cout << "Invalid Entry! Please try again." << endl;
 }

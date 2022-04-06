@@ -15,6 +15,7 @@ set(OLD_GLOB
   "/home/akn/Documents/GitHub/FCNCDecays/src/ckm_elements.cc"
   "/home/akn/Documents/GitHub/FCNCDecays/src/ckm_elements_mc.cc"
   "/home/akn/Documents/GitHub/FCNCDecays/src/get_mc_observable.cc"
+  "/home/akn/Documents/GitHub/FCNCDecays/src/get_mcplot.cc"
   "/home/akn/Documents/GitHub/FCNCDecays/src/get_observable.cc"
   "/home/akn/Documents/GitHub/FCNCDecays/src/model_functions.cc"
   "/home/akn/Documents/GitHub/FCNCDecays/src/observables.cc"

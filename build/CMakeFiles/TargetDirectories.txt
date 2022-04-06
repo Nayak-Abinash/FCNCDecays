@@ -1,5 +1,6 @@
 /home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles/rebuild_cache.dir
 /home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles/edit_cache.dir
+/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles/sample_flavioplot.dir
 /home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles/sample_flavioerr.dir
 /home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles/sample_flavioobs.dir
 /home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles/sample_covariance.dir
