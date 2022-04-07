@@ -112,6 +112,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named sample_jarvis
+
+# Build rule for target.
+sample_jarvis: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sample_jarvis
+.PHONY : sample_jarvis
+
+# fast build rule for target.
+sample_jarvis/fast:
+	$(MAKE) -f CMakeFiles/sample_jarvis.dir/build.make CMakeFiles/sample_jarvis.dir/build
+.PHONY : sample_jarvis/fast
+
+#=============================================================================
 # Target rules for targets named sample_flavioplot
 
 # Build rule for target.
@@ -322,6 +335,33 @@ main/sample_flavioplot.s: main/sample_flavioplot.cc.s
 main/sample_flavioplot.cc.s:
 	$(MAKE) -f CMakeFiles/sample_flavioplot.dir/build.make CMakeFiles/sample_flavioplot.dir/main/sample_flavioplot.cc.s
 .PHONY : main/sample_flavioplot.cc.s
+
+main/sample_jarvis.o: main/sample_jarvis.cc.o
+
+.PHONY : main/sample_jarvis.o
+
+# target to build an object file
+main/sample_jarvis.cc.o:
+	$(MAKE) -f CMakeFiles/sample_jarvis.dir/build.make CMakeFiles/sample_jarvis.dir/main/sample_jarvis.cc.o
+.PHONY : main/sample_jarvis.cc.o
+
+main/sample_jarvis.i: main/sample_jarvis.cc.i
+
+.PHONY : main/sample_jarvis.i
+
+# target to preprocess a source file
+main/sample_jarvis.cc.i:
+	$(MAKE) -f CMakeFiles/sample_jarvis.dir/build.make CMakeFiles/sample_jarvis.dir/main/sample_jarvis.cc.i
+.PHONY : main/sample_jarvis.cc.i
+
+main/sample_jarvis.s: main/sample_jarvis.cc.s
+
+.PHONY : main/sample_jarvis.s
+
+# target to generate assembly for a file
+main/sample_jarvis.cc.s:
+	$(MAKE) -f CMakeFiles/sample_jarvis.dir/build.make CMakeFiles/sample_jarvis.dir/main/sample_jarvis.cc.s
+.PHONY : main/sample_jarvis.cc.s
 
 main/sample_mcerror.o: main/sample_mcerror.cc.o
 
@@ -844,6 +884,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... sample_jarvis"
 	@echo "... sample_flavioplot"
 	@echo "... sample_flavioerr"
 	@echo "... sample_flavioobs"
@@ -864,6 +905,9 @@ help:
 	@echo "... main/sample_flavioplot.o"
 	@echo "... main/sample_flavioplot.i"
 	@echo "... main/sample_flavioplot.s"
+	@echo "... main/sample_jarvis.o"
+	@echo "... main/sample_jarvis.i"
+	@echo "... main/sample_jarvis.s"
 	@echo "... main/sample_mcerror.o"
 	@echo "... main/sample_mcerror.i"
 	@echo "... main/sample_mcerror.s"

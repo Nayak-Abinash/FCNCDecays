@@ -53,6 +53,7 @@ CMAKE_BINARY_DIR = /home/akn/Documents/GitHub/FCNCDecays/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/sample_jarvis.dir/all
 all: CMakeFiles/sample_flavioplot.dir/all
 all: CMakeFiles/sample_flavioerr.dir/all
 all: CMakeFiles/sample_flavioobs.dir/all
@@ -70,6 +71,7 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/sample_jarvis.dir/clean
 clean: CMakeFiles/sample_flavioplot.dir/clean
 clean: CMakeFiles/sample_flavioerr.dir/clean
 clean: CMakeFiles/sample_flavioobs.dir/clean
@@ -80,6 +82,33 @@ clean: CMakeFiles/sample_q2plot.dir/clean
 clean: CMakeFiles/FCNC_shared.dir/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/sample_jarvis.dir
+
+# All Build rule for target.
+CMakeFiles/sample_jarvis.dir/all: CMakeFiles/FCNC_shared.dir/all
+	$(MAKE) -f CMakeFiles/sample_jarvis.dir/build.make CMakeFiles/sample_jarvis.dir/depend
+	$(MAKE) -f CMakeFiles/sample_jarvis.dir/build.make CMakeFiles/sample_jarvis.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=26,27 "Built target sample_jarvis"
+.PHONY : CMakeFiles/sample_jarvis.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/sample_jarvis.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles 19
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/sample_jarvis.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles 0
+.PHONY : CMakeFiles/sample_jarvis.dir/rule
+
+# Convenience name for target.
+sample_jarvis: CMakeFiles/sample_jarvis.dir/rule
+
+.PHONY : sample_jarvis
+
+# clean rule for target.
+CMakeFiles/sample_jarvis.dir/clean:
+	$(MAKE) -f CMakeFiles/sample_jarvis.dir/build.make CMakeFiles/sample_jarvis.dir/clean
+.PHONY : CMakeFiles/sample_jarvis.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/sample_flavioplot.dir
@@ -196,7 +225,7 @@ CMakeFiles/sample_covariance.dir/clean:
 CMakeFiles/sample_observable.dir/all: CMakeFiles/FCNC_shared.dir/all
 	$(MAKE) -f CMakeFiles/sample_observable.dir/build.make CMakeFiles/sample_observable.dir/depend
 	$(MAKE) -f CMakeFiles/sample_observable.dir/build.make CMakeFiles/sample_observable.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=28,29 "Built target sample_observable"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=30,31 "Built target sample_observable"
 .PHONY : CMakeFiles/sample_observable.dir/all
 
 # Build rule for subdir invocation for target.
@@ -223,7 +252,7 @@ CMakeFiles/sample_observable.dir/clean:
 CMakeFiles/sample_mcerror.dir/all: CMakeFiles/FCNC_shared.dir/all
 	$(MAKE) -f CMakeFiles/sample_mcerror.dir/build.make CMakeFiles/sample_mcerror.dir/depend
 	$(MAKE) -f CMakeFiles/sample_mcerror.dir/build.make CMakeFiles/sample_mcerror.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=26,27 "Built target sample_mcerror"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=28,29 "Built target sample_mcerror"
 .PHONY : CMakeFiles/sample_mcerror.dir/all
 
 # Build rule for subdir invocation for target.
@@ -250,7 +279,7 @@ CMakeFiles/sample_mcerror.dir/clean:
 CMakeFiles/sample_q2plot.dir/all: CMakeFiles/FCNC_shared.dir/all
 	$(MAKE) -f CMakeFiles/sample_q2plot.dir/build.make CMakeFiles/sample_q2plot.dir/depend
 	$(MAKE) -f CMakeFiles/sample_q2plot.dir/build.make CMakeFiles/sample_q2plot.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=30,31 "Built target sample_q2plot"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/akn/Documents/GitHub/FCNCDecays/build/CMakeFiles --progress-num=32,33 "Built target sample_q2plot"
 .PHONY : CMakeFiles/sample_q2plot.dir/all
 
 # Build rule for subdir invocation for target.
