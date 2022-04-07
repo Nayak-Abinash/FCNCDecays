@@ -8,7 +8,7 @@ void get_obsplot::obsplot(string s, double smwc[], double npwc[]){
     //B->ll
     Btoll_obserr eo4;
 
-    double unv0[72]; for(int l=0;l<72;l++) {unv0[l] = 0.0;}
+    double unv0[72]; for(int i=0;i<72;i++){unv0[i] = 0.0;}
     int iter=100, sdcl(int(iter*15.9/100)); int n(50);
     auto c1 = new TCanvas(); c1->SetGrid();
     auto gr = new TMultiGraph();
