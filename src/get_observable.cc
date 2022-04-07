@@ -10,6 +10,7 @@ void get_obs::obsval(string s, double qsq){
     //B->ll
     Btoll_obs o4;
     //string input
+    label1:
     cout << "Enter the observable:"; cin >> s;
 
 //####### B0->Kll(SM) #######//
@@ -75,5 +76,9 @@ void get_obs::obsval(string s, double qsq){
 
 //Warning!!!
     else
-        cout << "Invalid Entry! Please try again." << endl;
+        {cout << "Error!!" << endl;
+        cout << "Press 'c' to continue or q to exit." << endl;
+        cin >> s;
+        if(s=="c") goto label1;
+        else if(s=="q") cout << "The program has been terminated." << endl;}
 }

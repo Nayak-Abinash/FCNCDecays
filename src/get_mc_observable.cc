@@ -9,6 +9,7 @@ void get_obserr::obsval(string s, double qsq, double smwc[], double npwc[]){
     Btoll_obserr eo4;
 
     int iter=100;
+    label1:
     cout << "Enter the observable:"; cin >> s;
 
 //####### B0->Kll #######//
@@ -225,5 +226,9 @@ void get_obserr::obsval(string s, double qsq, double smwc[], double npwc[]){
 
 //Warning!!!
     else
-        cout << "Invalid Entry! Please try again." << endl;
+        {cout << "Error!!" << endl;
+        cout << "Press 'c' to continue or q to exit." << endl;
+        cin >> s;
+        if(s=="c") goto label1;
+        else if(s=="q") cout << "The program has been terminated." << endl;}
 }

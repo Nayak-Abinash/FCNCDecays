@@ -14,44 +14,50 @@ int main()
     get_obs obj1; get_obserr obj2; get_obsplot obj3;
     string s; double qsq;
     cout << "Welcome to FlavBit!" << endl;
+label1:
     cout << "Choose one of the following decay modes: B->Vll, B->Pll, B->ll" << endl;
     cin >> s;
     if(s=="B->Pll")
     {
+    label2:
         cout << "Specify an action: obsval, obserr or obsplot" << endl;
         cin >> s;
         if(s=="obsval")
-        {
-            obj1.obsval(s,qsq);
-        }
+            {obj1.obsval(s,qsq);}
         else if(s=="obserr")
-        {
-            obj2.obsval(s,qsq,smwc,npwc);
-        }
+            {obj2.obsval(s,qsq,smwc,npwc);}
         else if(s=="obsplot")
-        {
-            obj3.obsplot(s,smwc,npwc);
-        }
+            {obj3.obsplot(s,smwc,npwc);}
         else
-            cout << "Error!! Try again." << endl;
+            {cout << "Error!!" << endl;
+            cout << "Press 'c' to continue or q to exit." << endl;
+            cin >> s;
+            if(s=="c") goto label2;
+            else if(s=="q") {cout << "The program has been terminated." << endl; goto endlabel;}}
     }
     else if(s=="B->ll")
     {
+    label3:
         cout << "Specify an action: obsval or obserr" << endl;
         cin >> s;
         if(s=="obsval")
-        {
-            obj1.obsval(s,qsq);
-        }
+            {obj1.obsval(s,qsq);}
         else if(s=="obserr")
-        {
-            obj2.obsval(s,qsq,smwc,npwc);
-        }
+            {obj2.obsval(s,qsq,smwc,npwc);}
         else
-            cout << "Error!! Try again." << endl;
+            {cout << "Error!!" << endl;
+            cout << "Press 'c' to continue or q to exit." << endl;
+            cin >> s;
+            if(s=="c") goto label3;
+            else if(s=="q") {cout << "The program has been terminated." << endl; goto endlabel;}}
     }
     else
-        cout << "Error!! Try again." << endl;
+        {cout << "Error!!" << endl;
+        cout << "Press 'c' to continue or q to exit." << endl;
+        cin >> s;
+        if(s=="c") goto label1;
+        else if(s=="q") {cout << "The program has been terminated." << endl; goto endlabel;}}
+    endlabel:
     return 0;
 }
 

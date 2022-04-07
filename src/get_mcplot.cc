@@ -13,6 +13,7 @@ void get_obsplot::obsplot(string s, double smwc[], double npwc[]){
     auto c1 = new TCanvas(); c1->SetGrid();
     auto gr = new TMultiGraph();
     auto leg = new TLegend(0.6,0.7,0.9,0.9); leg->SetHeader("Plot Legends", "C");
+    label1:
     cout << "Enter the observable:"; cin >> s;
 
 //####### B0->Kll #######//
@@ -297,6 +298,10 @@ void get_obsplot::obsplot(string s, double smwc[], double npwc[]){
 
 //Warning!!!
     else
-        cout << "Invalid Entry! Please try again." << endl;
+        {cout << "Error!!" << endl;
+        cout << "Press 'c' to continue or q to exit." << endl;
+        cin >> s;
+        if(s=="c") goto label1;
+        else if(s=="q") cout << "The program has been terminated." << endl;}
 }
 
