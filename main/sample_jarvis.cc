@@ -23,11 +23,11 @@ label1:
         cout << "Specify an action: obsval, obserr or obsplot" << endl;
         cin >> s;
         if(s=="obsval")
-            {obj1.obsval(s,qsq);}
+            {obj1.BtoPll_obsval(s,qsq);}
         else if(s=="obserr")
-            {obj2.obsval(s,qsq,smwc,npwc);}
+            {obj2.BtoPll_obsval(s,qsq,smwc,npwc);}
         else if(s=="obsplot")
-            {obj3.obsplot(s,smwc,npwc);}
+            {obj3.BtoPll_obsplot(s,smwc,npwc);}
         else
             {cout << "Error!!" << endl;
             cout << "Press 'c' to continue or q to exit." << endl;
@@ -41,11 +41,11 @@ label1:
         cout << "Specify an action: obsval, obserr or obsplot" << endl;
         cin >> s;
         if(s=="obsval")
-            {obj1.obsval(s,qsq);}
+            {obj1.BtoPll_obsval(s,qsq);}
         else if(s=="obserr")
-            {obj2.obsval(s,qsq,smwc,npwc);}
+            {obj2.BtoPll_obsval(s,qsq,smwc,npwc);}
         else if(s=="obsplot")
-            {obj3.obsplot(s,smwc,npwc);}
+            {obj3.BtoPll_obsplot(s,smwc,npwc);}
         else
             {cout << "Error!!" << endl;
             cout << "Press 'c' to continue or q to exit." << endl;
@@ -59,9 +59,9 @@ label1:
         cout << "Specify an action: obsval or obserr" << endl;
         cin >> s;
         if(s=="obsval")
-            {obj1.obsval(s,qsq);}
+            {obj1.Btoll_obsval(s);}
         else if(s=="obserr")
-            {obj2.obsval(s,qsq,smwc,npwc);}
+            {obj2.Btoll_obsval(s,smwc,npwc);}
         else
             {cout << "Error!!" << endl;
             cout << "Press 'c' to continue or q to exit." << endl;

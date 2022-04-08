@@ -11,7 +11,12 @@ int main()
 {
     get_obsplot obj;
     string s;
-    obj.obsplot(s,smwc,npwc);
+    cout << "Choose one of the following: B->Vll, B->Pll, B->ll" << endl;
+    cin >> s;
+    if(s=="B->Vll")
+        obj.BtoPll_obsplot(s,smwc,npwc);
+    else if(s=="B->Pll")
+        obj.BtoPll_obsplot(s,smwc,npwc);
     return 0;
 }
 

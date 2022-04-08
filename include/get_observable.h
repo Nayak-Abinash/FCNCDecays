@@ -6,8 +6,9 @@
 class get_obs : public BdtoKstrll_obs, public Bstophill_obs, public BdtoKll_obs, public Btoll_obs
 {
 public:
-    //get_obs();
-    void obsval(string s, double qsq);
+    //void BtoVll_obsval(string s, double qsq);
+    void BtoPll_obsval(string s, double qsq);
+    void Btoll_obsval(string s);
 };
 
 #endif // get_observable_h

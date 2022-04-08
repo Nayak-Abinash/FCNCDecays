@@ -1,12 +1,29 @@
 #include "get_mcplot.h"
 
-void get_obsplot::obsplot(string s, double smwc[], double npwc[]){
+
+/*void get_obsplot::BtoVll_obsplot(string s, double smwc[], double npwc[]){
     //B->Vll
     BdtoKstrll_obserr eo1; Bstophill_obserr eo2;
+
+    double unv0[72]; for(int i=0;i<72;i++){unv0[i] = 0.0;}
+    int iter=100, sdcl(int(iter*15.9/100)); int n(50);
+    auto c1 = new TCanvas(); c1->SetGrid();
+    auto gr = new TMultiGraph();
+    auto leg = new TLegend(0.6,0.7,0.9,0.9); leg->SetHeader("Plot Legends", "C");
+    label1:
+    cout << "Enter the observable:"; cin >> s;
+    //Warning!!!
+    else
+        {cout << "Error!!" << endl;
+        cout << "Press 'c' to continue or q to exit." << endl;
+        cin >> s;
+        if(s=="c") goto label1;
+        else if(s=="q") cout << "The program has been terminated." << endl;}
+}*/
+
+void get_obsplot::BtoPll_obsplot(string s, double smwc[], double npwc[]){
     //B->Pll
     BdtoKll_obserr eo3;
-    //B->ll
-    Btoll_obserr eo4;
 
     double unv0[72]; for(int i=0;i<72;i++){unv0[i] = 0.0;}
     int iter=100, sdcl(int(iter*15.9/100)); int n(50);

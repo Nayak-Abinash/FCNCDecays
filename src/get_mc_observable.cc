@@ -1,12 +1,8 @@
 #include "get_mc_observable.h"
 
-void get_obserr::obsval(string s, double qsq, double smwc[], double npwc[]){
-    //B->Vll
-    BdtoKstrll_obserr eo1; Bstophill_obserr eo2;
+void get_obserr::BtoPll_obsval(string s, double qsq, double smwc[], double npwc[]){
     //B->Pll
     BdtoKll_obserr eo3;
-    //B->ll
-    Btoll_obserr eo4;
 
     int iter=100;
     label1:
@@ -115,10 +111,30 @@ void get_obserr::obsval(string s, double qsq, double smwc[], double npwc[]){
         cout << "SD: " << eo3.sd_model(data,iter) << endl;}
 
 
+//Warning!!!
+    else
+        {cout << "Error!!" << endl;
+        cout << "Press 'c' to continue or q to exit." << endl;
+        cin >> s;
+        if(s=="c") goto label1;
+        else if(s=="q") cout << "The program has been terminated." << endl;}
+}
+
+
+
+
+
+void get_obserr::Btoll_obsval(string s, double smwc[], double npwc[]){
+    //B->ll
+    Btoll_obserr eo4;
+
+    int iter=100;
+    label1:
+    cout << "Enter the observable:"; cin >> s;
 
 //####### B0->ll #######//
     //B0->mumu
-    else if(s=="BR(B0->mumu)")
+    if(s=="BR(B0->mumu)")
         {double data[iter]; double unv[72];
         for(int i=0;i<iter;i++){
                 for(int j=0;j<72;j++){unv[j] = eo4.mnd_default();}
@@ -143,8 +159,6 @@ void get_obserr::obsval(string s, double qsq, double smwc[], double npwc[]){
                 data[i]=eo4.BrTimeIntgratd(eo4.mBd(unv),eo4.md(unv),eo4.me(unv),eo4.me(unv),smwc,npwc,unv);}
         cout << "Mean: " << eo4.mean_model(data,iter) << endl;
         cout << "SD: " << eo4.sd_model(data,iter) << endl;}
-
-
 
 //####### Bs->ll #######//
     //Bs->mumu
@@ -221,8 +235,6 @@ void get_obserr::obsval(string s, double qsq, double smwc[], double npwc[]){
                 data[i]=eo4.efftau(eo4.mBs(unv),eo4.ms(unv),eo4.me(unv),eo4.me(unv),smwc,npwc,unv);}
         cout << "Mean: " << eo4.mean_model(data,iter) << endl;
         cout << "SD: " << eo4.sd_model(data,iter) << endl;}
-
-
 
 //Warning!!!
     else

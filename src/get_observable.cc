@@ -1,14 +1,25 @@
 #include "get_observable.h"
 
-//get_obs::get_obs(){}
-
-void get_obs::obsval(string s, double qsq){
+/*void get_obs::BtoVll_obsval(string s, double qsq){
     //B->Vll
     BdtoKstrll_obs o1; Bstophill_obs o2;
+    //string input
+    label1:
+    cout << "Enter the observable:"; cin >> s;
+
+
+//Warning!!!
+    else
+        {cout << "Error!!" << endl;
+        cout << "Press 'c' to continue or q to exit." << endl;
+        cin >> s;
+        if(s=="c") goto label1;
+        else if(s=="q") cout << "The program has been terminated." << endl;}
+}*/
+
+void get_obs::BtoPll_obsval(string s, double qsq){
     //B->Pll
     BdtoKll_obs o3;
-    //B->ll
-    Btoll_obs o4;
     //string input
     label1:
     cout << "Enter the observable:"; cin >> s;
@@ -40,10 +51,25 @@ void get_obs::obsval(string s, double qsq){
     else if(s=="dBR/dq2(B0->Kee)")
         {cout << "Enter a value of qsq:"; cin >> qsq; cout << o3.diffBrnch(qsq,o3.me()) << endl;}
 
+//Warning!!!
+    else
+        {cout << "Error!!" << endl;
+        cout << "Press 'c' to continue or q to exit." << endl;
+        cin >> s;
+        if(s=="c") goto label1;
+        else if(s=="q") cout << "The program has been terminated." << endl;}
+}
+
+void get_obs::Btoll_obsval(string s){
+    //B->ll
+    Btoll_obs o4;
+    //string input
+    label1:
+    cout << "Enter the observable:"; cin >> s;
 
 //####### B0->ll(SM) #######//
     //B0->mumu
-    else if(s=="BR(B0->mumu)")
+    if(s=="BR(B0->mumu)")
         cout << o4.BrTimeIntgratd(o4.mBd(),o4.md(),o4.mmu(),o4.mmu()) << endl;
     //B0->tautau
     else if(s=="BR(B0->tautau)")

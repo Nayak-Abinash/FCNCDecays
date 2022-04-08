@@ -50,10 +50,6 @@ model_functions.h
 observables_mc.h
 ../include/observables_mc.h
 
-../include/get_mcplot.h
-observables_mc.h
-../include/observables_mc.h
-
 ../include/get_observable.h
 observables.h
 ../include/observables.h
@@ -101,10 +97,6 @@ amplitudes_mc.h
 /home/akn/Documents/GitHub/FCNCDecays/src/get_mc_observable.cc
 get_mc_observable.h
 /home/akn/Documents/GitHub/FCNCDecays/src/get_mc_observable.h
-
-/home/akn/Documents/GitHub/FCNCDecays/src/get_mcplot.cc
-get_mcplot.h
-/home/akn/Documents/GitHub/FCNCDecays/src/get_mcplot.h
 
 /home/akn/Documents/GitHub/FCNCDecays/src/get_observable.cc
 get_observable.h
