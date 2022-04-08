@@ -17,7 +17,7 @@ int main()
 label1:
     cout << "Choose one of the following decay modes: B->Vll, B->Pll, B->ll" << endl;
     cin >> s;
-    if(s=="B->Pll")
+    if(s=="B->Vll")
     {
     label2:
         cout << "Specify an action: obsval, obserr or obsplot" << endl;
@@ -35,9 +35,27 @@ label1:
             if(s=="c") goto label2;
             else if(s=="q") {cout << "The program has been terminated." << endl; goto endlabel;}}
     }
-    else if(s=="B->ll")
+    else if(s=="B->Pll")
     {
     label3:
+        cout << "Specify an action: obsval, obserr or obsplot" << endl;
+        cin >> s;
+        if(s=="obsval")
+            {obj1.obsval(s,qsq);}
+        else if(s=="obserr")
+            {obj2.obsval(s,qsq,smwc,npwc);}
+        else if(s=="obsplot")
+            {obj3.obsplot(s,smwc,npwc);}
+        else
+            {cout << "Error!!" << endl;
+            cout << "Press 'c' to continue or q to exit." << endl;
+            cin >> s;
+            if(s=="c") goto label3;
+            else if(s=="q") {cout << "The program has been terminated." << endl; goto endlabel;}}
+    }
+    else if(s=="B->ll")
+    {
+    label4:
         cout << "Specify an action: obsval or obserr" << endl;
         cin >> s;
         if(s=="obsval")
@@ -48,7 +66,7 @@ label1:
             {cout << "Error!!" << endl;
             cout << "Press 'c' to continue or q to exit." << endl;
             cin >> s;
-            if(s=="c") goto label3;
+            if(s=="c") goto label4;
             else if(s=="q") {cout << "The program has been terminated." << endl; goto endlabel;}}
     }
     else
