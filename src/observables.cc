@@ -13,6 +13,9 @@ double BdtoKstrll_obs::J1c(double qsq, double ml){
                       2.0*(AzLIm(qsq,ml)*AzRIm(qsq,ml) + AzLRe(qsq,ml)*AzRRe(qsq,ml))))/qsq +
     (pow(ASIm(qsq,ml),2.0) + pow(ASRe(qsq,ml),2.0))*pow(betal(qsq,ml),2.0) ;}
 
+double BdtoKstrll_obs::J1(double qsq, double ml){
+    return 2.0*J1s(qsq,ml) + J1c(qsq,ml);}
+
 double BdtoKstrll_obs::J2s(double qsq, double ml){
     return ((pow(AaLIm(qsq,ml),2.0) + pow(AaLRe(qsq,ml),2.0) + pow(AaRIm(qsq,ml),2.0) + pow(AaRRe(qsq,ml),2.0) +
              pow(ApLIm(qsq,ml),2.0) + pow(ApLRe(qsq,ml),2.0) + pow(ApRIm(qsq,ml),2.0) + pow(ApRRe(qsq,ml),2.0))*
@@ -21,6 +24,9 @@ double BdtoKstrll_obs::J2s(double qsq, double ml){
 double BdtoKstrll_obs::J2c(double qsq, double ml){
     return -((pow(AzLIm(qsq,ml),2.0) + pow(AzLRe(qsq,ml),2.0) + pow(AzRIm(qsq,ml),2.0) + pow(AzRRe(qsq,ml),2.0))*
              pow(betal(qsq,ml),2.0)) ;}
+
+double BdtoKstrll_obs::J2(double qsq, double ml){
+    return 2.0*J2s(qsq,ml) + J2c(qsq,ml);}
 
 double BdtoKstrll_obs::J3(double qsq, double ml){
     return ((-pow(AaLIm(qsq,ml),2.0) - pow(AaLRe(qsq,ml),2.0) - pow(AaRIm(qsq,ml),2.0) - pow(AaRRe(qsq,ml),2.0) +
@@ -43,6 +49,9 @@ double BdtoKstrll_obs::J6s(double qsq, double ml){
 double BdtoKstrll_obs::J6c(double qsq, double ml){
     return (4.0*ml*(ASIm(qsq,ml)*AzLIm(qsq,ml) + ASRe(qsq,ml)*AzLRe(qsq,ml) + ASIm(qsq,ml)*AzRIm(qsq,ml) +
                     ASRe(qsq,ml)*AzRRe(qsq,ml))*betal(qsq,ml))/sqrt(qsq) ; }
+
+double BdtoKstrll_obs::J6(double qsq, double ml){
+    return 2.0*J6s(qsq,ml) + J6c(qsq,ml);}
 
 double BdtoKstrll_obs::J7(double qsq, double ml){
     return sqrt(2.0)*((ml*(-(ApLRe(qsq,ml)*ASIm(qsq,ml)) - ApRRe(qsq,ml)*ASIm(qsq,ml) + ApLIm(qsq,ml)*ASRe(qsq,ml) + ApRIm(qsq,ml)*ASRe(qsq,ml)))/sqrt(qsq) + AaLRe(qsq,ml)*AzLIm(qsq,ml) -
