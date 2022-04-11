@@ -13,6 +13,7 @@ public:
     double ReVud(), ReVus(), ReVub(), ReVcd(), ReVcs(), ReVcb(), ReVtd(), ReVts(), ReVtb();
     double ImVud(), ImVus(), ImVub(), ImVcd(), ImVcs(), ImVcb(), ImVtd(), ImVts(), ImVtb();
     double absVtbVtdStr(), absVtbVtsStr();
+    double ReVtbVtdStr(), ImVtbVtdStr(), ReVtbVtsStr(), ImVtbVtsStr();
 private:
     double ckm_A, ckm_lambda, ckm_rhobar, ckm_etabar;
 };

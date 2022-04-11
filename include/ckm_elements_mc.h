@@ -16,6 +16,7 @@ public:
     double ImVud(double unv[]), ImVus(double unv[]), ImVub(double unv[]), ImVcd(double unv[]), ImVcs(double unv[]),
         ImVcb(double unv[]), ImVtd(double unv[]), ImVts(double unv[]), ImVtb(double unv[]);
     double absVtbVtdStr(double unv[]), absVtbVtsStr(double unv[]);
+    double ReVtbVtdStr(double unv[]), ImVtbVtdStr(double unv[]), ReVtbVtsStr(double unv[]), ImVtbVtsStr(double unv[]);
 };
 
 #endif

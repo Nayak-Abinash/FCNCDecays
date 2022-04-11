@@ -8,13 +8,16 @@ class BdtoKstrll_obs : public BdtoKstrll_amp {
 public:
     double J1s(double qsq, double ml);
     double J1c(double qsq, double ml);
+    double J1(double qsq, double ml);
     double J2s(double qsq, double ml);
     double J2c(double qsq, double ml);
+    double J2(double qsq, double ml);
     double J3(double qsq, double ml);
     double J4(double qsq, double ml);
     double J5(double qsq, double ml);
     double J6s(double qsq, double ml);
     double J6c(double qsq, double ml);
+    double J6(double qsq, double ml);
     double J7(double qsq, double ml);
     double J8(double qsq, double ml);
     double J9(double qsq, double ml);
@@ -28,13 +31,16 @@ class Bstophill_obs : public Bstophill_amp {
 public:
     double J1s(double qsq, double ml);
     double J1c(double qsq, double ml);
+    double J1(double qsq, double ml);
     double J2s(double qsq, double ml);
     double J2c(double qsq, double ml);
+    double J2(double qsq, double ml);
     double J3(double qsq, double ml);
     double J4(double qsq, double ml);
     double J5(double qsq, double ml);
     double J6s(double qsq, double ml);
     double J6c(double qsq, double ml);
+    double J6(double qsq, double ml);
     double J7(double qsq, double ml);
     double J8(double qsq, double ml);
     double J9(double qsq, double ml);

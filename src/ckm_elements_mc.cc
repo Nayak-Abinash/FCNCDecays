@@ -66,6 +66,15 @@ double ckm_elements_mc::absVtbVtdStr(double unv[]){return sqrt(pow(ReVtb(unv)*Re
 double ckm_elements_mc::absVtbVtsStr(double unv[]){return sqrt(pow(ReVtb(unv)*ReVts(unv) + ImVtb(unv)*ImVts(unv), 2)
                                                                + pow(ImVtb(unv)*ReVts(unv) - ReVtb(unv)*ImVts(unv), 2));}
 
+double ckm_elements_mc::ReVtbVtdStr(double unv[]){return ReVtb(unv)*ReVtd(unv) + ImVtb(unv)*ImVtd(unv);}
+
+double ckm_elements_mc::ImVtbVtdStr(double unv[]){return ImVtb(unv)*ReVtd(unv) - ReVtb(unv)*ImVtd(unv);}
+
+double ckm_elements_mc::ReVtbVtsStr(double unv[]){return ReVtb(unv)*ReVts(unv) + ImVtb(unv)*ImVts(unv);}
+
+double ckm_elements_mc::ImVtbVtsStr(double unv[]){return ImVtb(unv)*ReVts(unv) - ReVtb(unv)*ImVts(unv);}
+
+
 
 
 

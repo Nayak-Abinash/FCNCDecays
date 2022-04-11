@@ -10,25 +10,41 @@
 FF_parameters.h
 ../include/FF_parameters.h
 
+../include/FF_functions_mc.h
+FF_parameters_mc.h
+../include/FF_parameters_mc.h
+
 ../include/FF_parameters.h
 SM_parameters.h
 ../include/SM_parameters.h
+
+../include/FF_parameters_mc.h
+SM_parameters_mc.h
+../include/SM_parameters_mc.h
 
 ../include/SM_parameters.h
 ckm_elements.h
 ../include/ckm_elements.h
 
+../include/SM_parameters_mc.h
+ckm_elements_mc.h
+../include/ckm_elements_mc.h
+
 ../include/amplitudes.h
 FF_functions.h
 ../include/FF_functions.h
+
+../include/amplitudes_mc.h
+FF_functions_mc.h
+../include/FF_functions_mc.h
 
 ../include/ckm_elements.h
 model_functions.h
 ../include/model_functions.h
 
-../include/get_observable.h
-observables.h
-../include/observables.h
+../include/ckm_elements_mc.h
+model_functions.h
+../include/model_functions.h
 
 ../include/model_functions.h
 iostream
@@ -66,13 +82,15 @@ TRandom3.h
 amplitudes.h
 ../include/amplitudes.h
 
-/home/akn/Documents/GitHub/FCNCDecays/src/get_observable.cc
-get_observable.h
-/home/akn/Documents/GitHub/FCNCDecays/src/get_observable.h
+../include/observables_mc.h
+amplitudes_mc.h
+../include/amplitudes_mc.h
 
-/home/akn/Documents/GitHub/FCNCDecays/src/observables.cc
+/home/akn/Documents/GitHub/FCNCDecays/main/sample_mcerror.cc
 observables.h
-/home/akn/Documents/GitHub/FCNCDecays/src/observables.h
+/home/akn/Documents/GitHub/FCNCDecays/main/observables.h
+observables_mc.h
+/home/akn/Documents/GitHub/FCNCDecays/main/observables_mc.h
 
 /home/akn/root/include/Buttons.h
 

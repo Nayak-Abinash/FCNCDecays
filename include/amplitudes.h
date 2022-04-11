@@ -34,6 +34,23 @@ public:
     double AtIm(double qsq, double ml);
     double ASRe(double qsq, double ml);
     double ASIm(double qsq, double ml);
+
+    double ApbLRe(double qsq, double ml);
+    double ApbLIm(double qsq, double ml);
+    double ApbRRe(double qsq, double ml);
+    double ApbRIm(double qsq, double ml);
+    double AabLRe(double qsq, double ml);
+    double AabLIm(double qsq, double ml);
+    double AabRRe(double qsq, double ml);
+    double AabRIm(double qsq, double ml);
+    double AzbLRe(double qsq, double ml);
+    double AzbLIm(double qsq, double ml);
+    double AzbRRe(double qsq, double ml);
+    double AzbRIm(double qsq, double ml);
+    double AtbRe(double qsq, double ml);
+    double AtbIm(double qsq, double ml);
+    double ASbRe(double qsq, double ml);
+    double ASbIm(double qsq, double ml);
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -69,6 +86,23 @@ public:
     double AtIm(double qsq, double ml);
     double ASRe(double qsq, double ml);
     double ASIm(double qsq, double ml);
+
+    double ApbLRe(double qsq, double ml);
+    double ApbLIm(double qsq, double ml);
+    double ApbRRe(double qsq, double ml);
+    double ApbRIm(double qsq, double ml);
+    double AabLRe(double qsq, double ml);
+    double AabLIm(double qsq, double ml);
+    double AabRRe(double qsq, double ml);
+    double AabRIm(double qsq, double ml);
+    double AzbLRe(double qsq, double ml);
+    double AzbLIm(double qsq, double ml);
+    double AzbRRe(double qsq, double ml);
+    double AzbRIm(double qsq, double ml);
+    double AtbRe(double qsq, double ml);
+    double AtbIm(double qsq, double ml);
+    double ASbRe(double qsq, double ml);
+    double ASbIm(double qsq, double ml);
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

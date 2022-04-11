@@ -66,6 +66,16 @@ double ckm_elements::absVtbVtdStr(){return sqrt(pow(ReVtb()*ReVtd() + ImVtb()*Im
 
 double ckm_elements::absVtbVtsStr(){return sqrt(pow(ReVtb()*ReVts() + ImVtb()*ImVts(), 2) + pow(ImVtb()*ReVts() - ReVtb()*ImVts(), 2));}
 
+double ckm_elements::ReVtbVtdStr(){return ReVtb()*ReVtd() + ImVtb()*ImVtd();}
+
+double ckm_elements::ImVtbVtdStr(){return ImVtb()*ReVtd() - ReVtb()*ImVtd();}
+
+double ckm_elements::ReVtbVtsStr(){return ReVtb()*ReVts() + ImVtb()*ImVts();}
+
+double ckm_elements::ImVtbVtsStr(){return ImVtb()*ReVts() - ReVtb()*ImVts();}
+
+
+
 
 
 
