@@ -66,6 +66,10 @@ TRandom3.h
 amplitudes.h
 ../include/amplitudes.h
 
+/home/akn/Documents/GitHub/FCNCDecays/src/amplitudes.cc
+amplitudes.h
+/home/akn/Documents/GitHub/FCNCDecays/src/amplitudes.h
+
 /home/akn/Documents/GitHub/FCNCDecays/src/get_observable.cc
 get_observable.h
 /home/akn/Documents/GitHub/FCNCDecays/src/get_observable.h

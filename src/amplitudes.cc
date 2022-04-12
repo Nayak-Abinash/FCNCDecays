@@ -33,48 +33,157 @@ double BdtoKstrll_amp::betal(double qsq, double ml){return sqrt(1.0-4.0*pow(ml,2
 double BdtoKstrll_amp::lambda(double qsq){
     return pow(qsq,2.0)+pow(mBd(),4.0)+pow(mKst(),4.0)-2.0*(pow(mBd()*mKst(),2.0)+qsq*pow(mBd(),2.0)+qsq*pow(mKst(),2.0));}
 
-double BdtoKstrll_amp:: nf(double qsq, double ml){
-    return absVtbVtsStr()*sqrt( pow(GF()*alpha_e(),2.0)*qsq*sqrt(lambda(qsq))*betal(qsq,ml)/(3.0*pow(2.0,10.0)*pow(pi,5.0)*pow(mBd(),3.0)) );}
+double BdtoKstrll_amp:: Renf(double qsq, double ml){
+    return ReVtbVtsStr()*sqrt( pow(GF()*alpha_e(),2.0)*qsq*sqrt(lambda(qsq))*betal(qsq,ml)/(3.0*pow(2.0,10.0)*pow(pi,5.0)*pow(mBd(),3.0)) );}
+
+double BdtoKstrll_amp:: Imnf(double qsq, double ml){
+    return ImVtbVtsStr()*sqrt( pow(GF()*alpha_e(),2.0)*qsq*sqrt(lambda(qsq))*betal(qsq,ml)/(3.0*pow(2.0,10.0)*pow(pi,5.0)*pow(mBd(),3.0)) );}
 
 double BdtoKstrll_amp::ApLRe(double qsq, double ml){
-    return nf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effRe(qsq)+C9RHRe())-(C10Re()+C10RHRe()))*V(qsq)/(mBd()+mKst()) + 2.0*mb()/qsq*(C7effRe()+C7RHRe())*T1(qsq));}
+    return Renf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effRe(qsq)+C9RHRe())-(C10Re()+C10RHRe()))*V(qsq)/(mBd()+mKst()) + 2.0*mb()/qsq*(C7effRe()+C7RHRe())*T1(qsq))
+    - Imnf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effIm(qsq)+C9RHIm())-(C10Im()+C10RHIm()))*V(qsq)/(mBd()+mKst()) + 2.0*mb()/qsq*(C7effIm()+C7RHIm())*T1(qsq));}
 double BdtoKstrll_amp::ApLIm(double qsq, double ml){
-    return nf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effIm(qsq)+C9RHIm())-(C10Im()+C10RHIm()))*V(qsq)/(mBd()+mKst()) + 2.0*mb()/qsq*(C7effIm()+C7RHIm())*T1(qsq));}
+    return Renf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effIm(qsq)+C9RHIm())-(C10Im()+C10RHIm()))*V(qsq)/(mBd()+mKst()) + 2.0*mb()/qsq*(C7effIm()+C7RHIm())*T1(qsq))
+    + Imnf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effRe(qsq)+C9RHRe())-(C10Re()+C10RHRe()))*V(qsq)/(mBd()+mKst()) + 2.0*mb()/qsq*(C7effRe()+C7RHRe())*T1(qsq));}
 
 double BdtoKstrll_amp::ApRRe(double qsq, double ml){
-    return nf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effRe(qsq)+C9RHRe())+(C10Re()+C10RHRe()))*V(qsq)/(mBd()+mKst()) + 2.0*mb()/qsq*(C7effRe()+C7RHRe())*T1(qsq));}
+    return Renf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effRe(qsq)+C9RHRe())+(C10Re()+C10RHRe()))*V(qsq)/(mBd()+mKst()) + 2.0*mb()/qsq*(C7effRe()+C7RHRe())*T1(qsq))
+    - Imnf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effIm(qsq)+C9RHIm())+(C10Im()+C10RHIm()))*V(qsq)/(mBd()+mKst()) + 2.0*mb()/qsq*(C7effIm()+C7RHIm())*T1(qsq));}
 double BdtoKstrll_amp::ApRIm(double qsq, double ml){
-    return nf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effIm(qsq)+C9RHIm())+(C10Im()+C10RHIm()))*V(qsq)/(mBd()+mKst()) + 2.0*mb()/qsq*(C7effIm()+C7RHIm())*T1(qsq));}
+    return Renf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effIm(qsq)+C9RHIm())+(C10Im()+C10RHIm()))*V(qsq)/(mBd()+mKst()) + 2.0*mb()/qsq*(C7effIm()+C7RHIm())*T1(qsq))
+    + Imnf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effRe(qsq)+C9RHRe())+(C10Re()+C10RHRe()))*V(qsq)/(mBd()+mKst()) + 2.0*mb()/qsq*(C7effRe()+C7RHRe())*T1(qsq));}
 
 double BdtoKstrll_amp::AaLRe(double qsq, double ml){
-    return -1.0*nf(qsq,ml)*sqrt(2.0)*(pow(mBd(),2.0)-pow(mKst(),2.0))*(((C9effRe(qsq)-C9RHRe())-(C10Re()-C10RHRe()))*A1(qsq)/(mBd()-mKst()) + 2.0*mb()/qsq*(C7effRe()-C7RHRe())*T2(qsq));}
+    return -1.0*(Renf(qsq,ml)*sqrt(2.0)*(pow(mBd(),2.0)-pow(mKst(),2.0))*
+                    (((C9effRe(qsq)-C9RHRe())-(C10Re()-C10RHRe()))*A1(qsq)/(mBd()-mKst()) + 2.0*mb()/qsq*(C7effRe()-C7RHRe())*T2(qsq))
+                - Imnf(qsq,ml)*sqrt(2.0)*(pow(mBd(),2.0)-pow(mKst(),2.0))*
+                    (((C9effIm(qsq)-C9RHIm())-(C10Im()-C10RHIm()))*A1(qsq)/(mBd()-mKst()) + 2.0*mb()/qsq*(C7effIm()-C7RHIm())*T2(qsq)));}
 double BdtoKstrll_amp::AaLIm(double qsq, double ml){
-    return -1.0*nf(qsq,ml)*sqrt(2.0)*(pow(mBd(),2.0)-pow(mKst(),2.0))*(((C9effIm(qsq)-C9RHIm())-(C10Im()-C10RHIm()))*A1(qsq)/(mBd()-mKst()) + 2.0*mb()/qsq*(C7effIm()-C7RHIm())*T2(qsq));}
+    return -1.0*(Renf(qsq,ml)*sqrt(2.0)*(pow(mBd(),2.0)-pow(mKst(),2.0))*
+                    (((C9effIm(qsq)-C9RHIm())-(C10Im()-C10RHIm()))*A1(qsq)/(mBd()-mKst()) + 2.0*mb()/qsq*(C7effIm()-C7RHIm())*T2(qsq))
+                 + Imnf(qsq,ml)*sqrt(2.0)*(pow(mBd(),2.0)-pow(mKst(),2.0))*
+                    (((C9effRe(qsq)-C9RHRe())-(C10Re()-C10RHRe()))*A1(qsq)/(mBd()-mKst()) + 2.0*mb()/qsq*(C7effRe()-C7RHRe())*T2(qsq)));}
 
 double BdtoKstrll_amp::AaRRe(double qsq, double ml){
-    return -1.0*nf(qsq,ml)*sqrt(2.0)*(pow(mBd(),2.0)-pow(mKst(),2.0))*(((C9effRe(qsq)-C9RHRe())+(C10Re()-C10RHRe()))*A1(qsq)/(mBd()-mKst()) + 2.0*mb()/qsq*(C7effRe()-C7RHRe())*T2(qsq));}
+    return -1.0*(Renf(qsq,ml)*sqrt(2.0)*(pow(mBd(),2.0)-pow(mKst(),2.0))*
+                    (((C9effRe(qsq)-C9RHRe())+(C10Re()-C10RHRe()))*A1(qsq)/(mBd()-mKst()) + 2.0*mb()/qsq*(C7effRe()-C7RHRe())*T2(qsq))
+                 - Imnf(qsq,ml)*sqrt(2.0)*(pow(mBd(),2.0)-pow(mKst(),2.0))*
+                    (((C9effIm(qsq)-C9RHIm())+(C10Im()-C10RHIm()))*A1(qsq)/(mBd()-mKst()) + 2.0*mb()/qsq*(C7effIm()-C7RHIm())*T2(qsq)));}
 double BdtoKstrll_amp::AaRIm(double qsq, double ml){
-    return -1.0*nf(qsq,ml)*sqrt(2.0)*(pow(mBd(),2.0)-pow(mKst(),2.0))*(((C9effIm(qsq)-C9RHIm())+(C10Im()-C10RHIm()))*A1(qsq)/(mBd()-mKst()) + 2.0*mb()/qsq*(C7effIm()-C7RHIm())*T2(qsq));}
+    return -1.0*(Renf(qsq,ml)*sqrt(2.0)*(pow(mBd(),2.0)-pow(mKst(),2.0))*
+                    (((C9effIm(qsq)-C9RHIm())+(C10Im()-C10RHIm()))*A1(qsq)/(mBd()-mKst()) + 2.0*mb()/qsq*(C7effIm()-C7RHIm())*T2(qsq))
+                 + Renf(qsq,ml)*sqrt(2.0)*(pow(mBd(),2.0)-pow(mKst(),2.0))*
+                    (((C9effRe(qsq)-C9RHRe())+(C10Re()-C10RHRe()))*A1(qsq)/(mBd()-mKst()) + 2.0*mb()/qsq*(C7effRe()-C7RHRe())*T2(qsq)));}
 
 double BdtoKstrll_amp::AzLRe(double qsq, double ml){
-    return -1.0*nf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effRe(qsq)-C9RHRe())-(C10Re()-C10RHRe()))*16.0*mBd()*mKst()*mKst()*A12(qsq) + 2.0*mb()/(pow(mBd(),2.0)-pow(mKst(),2.0))*(C7effRe()-C7RHRe())*(8.0*mBd()*pow(mKst(),2.0)*(mBd()-mKst())*T23(qsq)) );}
+    return -1.0*(Renf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effRe(qsq)-C9RHRe())-(C10Re()-C10RHRe()))*16.0*mBd()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBd(),2.0)-pow(mKst(),2.0))*(C7effRe()-C7RHRe())*(8.0*mBd()*pow(mKst(),2.0)*(mBd()-mKst())*T23(qsq)) )
+                 - Imnf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effIm(qsq)-C9RHIm())-(C10Im()-C10RHIm()))*16.0*mBd()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBd(),2.0)-pow(mKst(),2.0))*(C7effIm()-C7RHIm())*(8.0*mBd()*pow(mKst(),2.0)*(mBd()-mKst())*T23(qsq)) ));}
 double BdtoKstrll_amp::AzLIm(double qsq, double ml){
-    return -1.0*nf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effIm(qsq)-C9RHIm())-(C10Im()-C10RHIm()))*16.0*mBd()*mKst()*mKst()*A12(qsq) + 2.0*mb()/(pow(mBd(),2.0)-pow(mKst(),2.0))*(C7effIm()-C7RHIm())*(8.0*mBd()*pow(mKst(),2.0)*(mBd()-mKst())*T23(qsq)) );}
+    return -1.0*(Renf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effIm(qsq)-C9RHIm())-(C10Im()-C10RHIm()))*16.0*mBd()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBd(),2.0)-pow(mKst(),2.0))*(C7effIm()-C7RHIm())*(8.0*mBd()*pow(mKst(),2.0)*(mBd()-mKst())*T23(qsq)) )
+                 + Imnf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effRe(qsq)-C9RHRe())-(C10Re()-C10RHRe()))*16.0*mBd()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBd(),2.0)-pow(mKst(),2.0))*(C7effRe()-C7RHRe())*(8.0*mBd()*pow(mKst(),2.0)*(mBd()-mKst())*T23(qsq)) ));}
 
 double BdtoKstrll_amp::AzRRe(double qsq, double ml){
-    return -1.0*nf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effRe(qsq)-C9RHRe())+(C10Re()-C10RHRe()))*16.0*mBd()*mKst()*mKst()*A12(qsq) + 2.0*mb()/(pow(mBd(),2.0)-pow(mKst(),2.0))*(C7effRe()-C7RHRe())*(8.0*mBd()*pow(mKst(),2.0)*(mBd()-mKst())*T23(qsq)) );}
+    return -1.0*(Renf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effRe(qsq)-C9RHRe())+(C10Re()-C10RHRe()))*16.0*mBd()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBd(),2.0)-pow(mKst(),2.0))*(C7effRe()-C7RHRe())*(8.0*mBd()*pow(mKst(),2.0)*(mBd()-mKst())*T23(qsq)) )
+                 - Imnf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effIm(qsq)-C9RHIm())+(C10Im()-C10RHIm()))*16.0*mBd()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBd(),2.0)-pow(mKst(),2.0))*(C7effIm()-C7RHIm())*(8.0*mBd()*pow(mKst(),2.0)*(mBd()-mKst())*T23(qsq)) ));}
 double BdtoKstrll_amp::AzRIm(double qsq, double ml){
-    return -1.0*nf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effIm(qsq)-C9RHIm())+(C10Im()-C10RHIm()))*16.0*mBd()*mKst()*mKst()*A12(qsq) + 2.0*mb()/(pow(mBd(),2.0)-pow(mKst(),2.0))*(C7effIm()-C7RHIm())*(8.0*mBd()*pow(mKst(),2.0)*(mBd()-mKst())*T23(qsq)) );}
+    return -1.0*(Renf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effIm(qsq)-C9RHIm())+(C10Im()-C10RHIm()))*16.0*mBd()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBd(),2.0)-pow(mKst(),2.0))*(C7effIm()-C7RHIm())*(8.0*mBd()*pow(mKst(),2.0)*(mBd()-mKst())*T23(qsq)) )
+                 + Imnf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effRe(qsq)-C9RHRe())+(C10Re()-C10RHRe()))*16.0*mBd()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBd(),2.0)-pow(mKst(),2.0))*(C7effRe()-C7RHRe())*(8.0*mBd()*pow(mKst(),2.0)*(mBd()-mKst())*T23(qsq)) ));}
 
 double BdtoKstrll_amp::AtRe(double qsq, double ml){
-    return nf(qsq,ml)*sqrt(lambda(qsq)/qsq)*(2.0*(C10Re()-C10RHRe()) + qsq/ml*(CPRe()-CPRHRe()))*A0(qsq);}
+    return Renf(qsq,ml)*sqrt(lambda(qsq)/qsq)*(2.0*(C10Re()-C10RHRe()) + qsq/ml*(CPRe()-CPRHRe()))*A0(qsq)
+            - Imnf(qsq,ml)*sqrt(lambda(qsq)/qsq)*(2.0*(C10Im()-C10RHIm()) + qsq/ml*(CPIm()-CPRHIm()))*A0(qsq);}
 double BdtoKstrll_amp::AtIm(double qsq, double ml){
-    return nf(qsq,ml)*sqrt(lambda(qsq)/qsq)*(2.0*(C10Im()-C10RHIm()) + qsq/ml*(CPIm()-CPRHIm()))*A0(qsq);}
+    return Renf(qsq,ml)*sqrt(lambda(qsq)/qsq)*(2.0*(C10Im()-C10RHIm()) + qsq/ml*(CPIm()-CPRHIm()))*A0(qsq)
+    + Imnf(qsq,ml)*sqrt(lambda(qsq)/qsq)*(2.0*(C10Re()-C10RHRe()) + qsq/ml*(CPRe()-CPRHRe()))*A0(qsq);}
 
 double BdtoKstrll_amp::ASRe(double qsq, double ml){
-    return -2.0*nf(qsq,ml)*sqrt(lambda(qsq))*(CSRe()-CSRHRe())*A0(qsq);}
+    return -2.0*(Renf(qsq,ml)*sqrt(lambda(qsq))*(CSRe()-CSRHRe())*A0(qsq)
+                 - Imnf(qsq,ml)*sqrt(lambda(qsq))*(CSIm()-CSRHIm())*A0(qsq));}
 double BdtoKstrll_amp::ASIm(double qsq, double ml){
-    return -2.0*nf(qsq,ml)*sqrt(lambda(qsq))*(CSIm()-CSRHIm())*A0(qsq);}
+    return -2.0*(Renf(qsq,ml)*sqrt(lambda(qsq))*(CSIm()-CSRHIm())*A0(qsq)
+                 + Imnf(qsq,ml)*sqrt(lambda(qsq))*(CSRe()-CSRHRe())*A0(qsq));}
+
+
+/////////Conjugate mode
+double BdtoKstrll_amp::ApbLRe(double qsq, double ml){
+    return Renf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effRe(qsq)+C9RHRe())-(C10Re()+C10RHRe()))*V(qsq)/(mBd()+mKst()) + 2.0*mb()/qsq*(C7effRe()+C7RHRe())*T1(qsq))
+    + Imnf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effIm(qsq)+C9RHIm())-(C10Im()+C10RHIm()))*V(qsq)/(mBd()+mKst()) + 2.0*mb()/qsq*(C7effIm()+C7RHIm())*T1(qsq));}
+double BdtoKstrll_amp::ApbLIm(double qsq, double ml){
+    return Renf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effIm(qsq)+C9RHIm())-(C10Im()+C10RHIm()))*V(qsq)/(mBd()+mKst()) + 2.0*mb()/qsq*(C7effIm()+C7RHIm())*T1(qsq))
+    - Imnf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effRe(qsq)+C9RHRe())-(C10Re()+C10RHRe()))*V(qsq)/(mBd()+mKst()) + 2.0*mb()/qsq*(C7effRe()+C7RHRe())*T1(qsq));}
+
+double BdtoKstrll_amp::ApbRRe(double qsq, double ml){
+    return Renf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effRe(qsq)+C9RHRe())+(C10Re()+C10RHRe()))*V(qsq)/(mBd()+mKst()) + 2.0*mb()/qsq*(C7effRe()+C7RHRe())*T1(qsq))
+    + Imnf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effIm(qsq)+C9RHIm())+(C10Im()+C10RHIm()))*V(qsq)/(mBd()+mKst()) + 2.0*mb()/qsq*(C7effIm()+C7RHIm())*T1(qsq));}
+double BdtoKstrll_amp::ApbRIm(double qsq, double ml){
+    return Renf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effIm(qsq)+C9RHIm())+(C10Im()+C10RHIm()))*V(qsq)/(mBd()+mKst()) + 2.0*mb()/qsq*(C7effIm()+C7RHIm())*T1(qsq))
+    - Imnf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effRe(qsq)+C9RHRe())+(C10Re()+C10RHRe()))*V(qsq)/(mBd()+mKst()) + 2.0*mb()/qsq*(C7effRe()+C7RHRe())*T1(qsq));}
+
+double BdtoKstrll_amp::AabLRe(double qsq, double ml){
+    return -1.0*(Renf(qsq,ml)*sqrt(2.0)*(pow(mBd(),2.0)-pow(mKst(),2.0))*
+                    (((C9effRe(qsq)-C9RHRe())-(C10Re()-C10RHRe()))*A1(qsq)/(mBd()-mKst()) + 2.0*mb()/qsq*(C7effRe()-C7RHRe())*T2(qsq))
+                + Imnf(qsq,ml)*sqrt(2.0)*(pow(mBd(),2.0)-pow(mKst(),2.0))*
+                    (((C9effIm(qsq)-C9RHIm())-(C10Im()-C10RHIm()))*A1(qsq)/(mBd()-mKst()) + 2.0*mb()/qsq*(C7effIm()-C7RHIm())*T2(qsq)));}
+double BdtoKstrll_amp::AabLIm(double qsq, double ml){
+    return -1.0*(Renf(qsq,ml)*sqrt(2.0)*(pow(mBd(),2.0)-pow(mKst(),2.0))*
+                    (((C9effIm(qsq)-C9RHIm())-(C10Im()-C10RHIm()))*A1(qsq)/(mBd()-mKst()) + 2.0*mb()/qsq*(C7effIm()-C7RHIm())*T2(qsq))
+                 - Imnf(qsq,ml)*sqrt(2.0)*(pow(mBd(),2.0)-pow(mKst(),2.0))*
+                    (((C9effRe(qsq)-C9RHRe())-(C10Re()-C10RHRe()))*A1(qsq)/(mBd()-mKst()) + 2.0*mb()/qsq*(C7effRe()-C7RHRe())*T2(qsq)));}
+
+double BdtoKstrll_amp::AabRRe(double qsq, double ml){
+    return -1.0*(Renf(qsq,ml)*sqrt(2.0)*(pow(mBd(),2.0)-pow(mKst(),2.0))*
+                    (((C9effRe(qsq)-C9RHRe())+(C10Re()-C10RHRe()))*A1(qsq)/(mBd()-mKst()) + 2.0*mb()/qsq*(C7effRe()-C7RHRe())*T2(qsq))
+                 + Imnf(qsq,ml)*sqrt(2.0)*(pow(mBd(),2.0)-pow(mKst(),2.0))*
+                    (((C9effIm(qsq)-C9RHIm())+(C10Im()-C10RHIm()))*A1(qsq)/(mBd()-mKst()) + 2.0*mb()/qsq*(C7effIm()-C7RHIm())*T2(qsq)));}
+double BdtoKstrll_amp::AabRIm(double qsq, double ml){
+    return -1.0*(Renf(qsq,ml)*sqrt(2.0)*(pow(mBd(),2.0)-pow(mKst(),2.0))*
+                    (((C9effIm(qsq)-C9RHIm())+(C10Im()-C10RHIm()))*A1(qsq)/(mBd()-mKst()) + 2.0*mb()/qsq*(C7effIm()-C7RHIm())*T2(qsq))
+                 - Imnf(qsq,ml)*sqrt(2.0)*(pow(mBd(),2.0)-pow(mKst(),2.0))*
+                    (((C9effRe(qsq)-C9RHRe())+(C10Re()-C10RHRe()))*A1(qsq)/(mBd()-mKst()) + 2.0*mb()/qsq*(C7effRe()-C7RHRe())*T2(qsq)));}
+
+double BdtoKstrll_amp::AzbLRe(double qsq, double ml){
+    return -1.0*(Renf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effRe(qsq)-C9RHRe())-(C10Re()-C10RHRe()))*16.0*mBd()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBd(),2.0)-pow(mKst(),2.0))*(C7effRe()-C7RHRe())*(8.0*mBd()*pow(mKst(),2.0)*(mBd()-mKst())*T23(qsq)) )
+                 + Imnf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effIm(qsq)-C9RHIm())-(C10Im()-C10RHIm()))*16.0*mBd()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBd(),2.0)-pow(mKst(),2.0))*(C7effIm()-C7RHIm())*(8.0*mBd()*pow(mKst(),2.0)*(mBd()-mKst())*T23(qsq)) ));}
+double BdtoKstrll_amp::AzbLIm(double qsq, double ml){
+    return -1.0*(Renf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effIm(qsq)-C9RHIm())-(C10Im()-C10RHIm()))*16.0*mBd()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBd(),2.0)-pow(mKst(),2.0))*(C7effIm()-C7RHIm())*(8.0*mBd()*pow(mKst(),2.0)*(mBd()-mKst())*T23(qsq)) )
+                 - Imnf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effRe(qsq)-C9RHRe())-(C10Re()-C10RHRe()))*16.0*mBd()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBd(),2.0)-pow(mKst(),2.0))*(C7effRe()-C7RHRe())*(8.0*mBd()*pow(mKst(),2.0)*(mBd()-mKst())*T23(qsq)) ));}
+
+double BdtoKstrll_amp::AzbRRe(double qsq, double ml){
+    return -1.0*(Renf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effRe(qsq)-C9RHRe())+(C10Re()-C10RHRe()))*16.0*mBd()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBd(),2.0)-pow(mKst(),2.0))*(C7effRe()-C7RHRe())*(8.0*mBd()*pow(mKst(),2.0)*(mBd()-mKst())*T23(qsq)) )
+                 + Imnf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effIm(qsq)-C9RHIm())+(C10Im()-C10RHIm()))*16.0*mBd()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBd(),2.0)-pow(mKst(),2.0))*(C7effIm()-C7RHIm())*(8.0*mBd()*pow(mKst(),2.0)*(mBd()-mKst())*T23(qsq)) ));}
+double BdtoKstrll_amp::AzbRIm(double qsq, double ml){
+    return -1.0*(Renf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effIm(qsq)-C9RHIm())+(C10Im()-C10RHIm()))*16.0*mBd()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBd(),2.0)-pow(mKst(),2.0))*(C7effIm()-C7RHIm())*(8.0*mBd()*pow(mKst(),2.0)*(mBd()-mKst())*T23(qsq)) )
+                 - Imnf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effRe(qsq)-C9RHRe())+(C10Re()-C10RHRe()))*16.0*mBd()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBd(),2.0)-pow(mKst(),2.0))*(C7effRe()-C7RHRe())*(8.0*mBd()*pow(mKst(),2.0)*(mBd()-mKst())*T23(qsq)) ));}
+
+double BdtoKstrll_amp::AtbRe(double qsq, double ml){
+    return Renf(qsq,ml)*sqrt(lambda(qsq)/qsq)*(2.0*(C10Re()-C10RHRe()) + qsq/ml*(CPRe()-CPRHRe()))*A0(qsq)
+            + Imnf(qsq,ml)*sqrt(lambda(qsq)/qsq)*(2.0*(C10Im()-C10RHIm()) + qsq/ml*(CPIm()-CPRHIm()))*A0(qsq);}
+double BdtoKstrll_amp::AtbIm(double qsq, double ml){
+    return Renf(qsq,ml)*sqrt(lambda(qsq)/qsq)*(2.0*(C10Im()-C10RHIm()) + qsq/ml*(CPIm()-CPRHIm()))*A0(qsq)
+    - Imnf(qsq,ml)*sqrt(lambda(qsq)/qsq)*(2.0*(C10Re()-C10RHRe()) + qsq/ml*(CPRe()-CPRHRe()))*A0(qsq);}
+
+double BdtoKstrll_amp::ASbRe(double qsq, double ml){
+    return -2.0*(Renf(qsq,ml)*sqrt(lambda(qsq))*(CSRe()-CSRHRe())*A0(qsq)
+                 + Imnf(qsq,ml)*sqrt(lambda(qsq))*(CSIm()-CSRHIm())*A0(qsq));}
+double BdtoKstrll_amp::ASbIm(double qsq, double ml){
+    return -2.0*(Renf(qsq,ml)*sqrt(lambda(qsq))*(CSIm()-CSRHIm())*A0(qsq)
+                 - Imnf(qsq,ml)*sqrt(lambda(qsq))*(CSRe()-CSRHRe())*A0(qsq));}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -111,48 +220,157 @@ double Bstophill_amp::betal(double qsq, double ml){return sqrt(1.0-4.0*pow(ml,2.
 double Bstophill_amp::lambda(double qsq){
     return pow(qsq,2.0)+pow(mBs(),4.0)+pow(mKst(),4.0)-2.0*(pow(mBs()*mKst(),2.0)+qsq*pow(mBs(),2.0)+qsq*pow(mKst(),2.0));}
 
-double Bstophill_amp:: nf(double qsq, double ml){
-    return absVtbVtsStr()*sqrt( pow(GF()*alpha_e(),2.0)*qsq*sqrt(lambda(qsq))*betal(qsq,ml)/(3.0*pow(2.0,10.0)*pow(pi,5.0)*pow(mBs(),3.0)) );}
+double Bstophill_amp:: Renf(double qsq, double ml){
+    return ReVtbVtsStr()*sqrt( pow(GF()*alpha_e(),2.0)*qsq*sqrt(lambda(qsq))*betal(qsq,ml)/(3.0*pow(2.0,10.0)*pow(pi,5.0)*pow(mBs(),3.0)) );}
+
+double Bstophill_amp:: Imnf(double qsq, double ml){
+    return ImVtbVtsStr()*sqrt( pow(GF()*alpha_e(),2.0)*qsq*sqrt(lambda(qsq))*betal(qsq,ml)/(3.0*pow(2.0,10.0)*pow(pi,5.0)*pow(mBs(),3.0)) );}
 
 double Bstophill_amp::ApLRe(double qsq, double ml){
-    return nf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effRe(qsq)+C9RHRe())-(C10Re()+C10RHRe()))*V(qsq)/(mBs()+mKst()) + 2.0*mb()/qsq*(C7effRe()+C7RHRe())*T1(qsq));}
+    return Renf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effRe(qsq)+C9RHRe())-(C10Re()+C10RHRe()))*V(qsq)/(mBs()+mKst()) + 2.0*mb()/qsq*(C7effRe()+C7RHRe())*T1(qsq))
+    - Imnf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effIm(qsq)+C9RHIm())-(C10Im()+C10RHIm()))*V(qsq)/(mBs()+mKst()) + 2.0*mb()/qsq*(C7effIm()+C7RHIm())*T1(qsq));}
 double Bstophill_amp::ApLIm(double qsq, double ml){
-    return nf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effIm(qsq)+C9RHIm())-(C10Im()+C10RHIm()))*V(qsq)/(mBs()+mKst()) + 2.0*mb()/qsq*(C7effIm()+C7RHIm())*T1(qsq));}
+    return Renf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effIm(qsq)+C9RHIm())-(C10Im()+C10RHIm()))*V(qsq)/(mBs()+mKst()) + 2.0*mb()/qsq*(C7effIm()+C7RHIm())*T1(qsq))
+    + Imnf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effRe(qsq)+C9RHRe())-(C10Re()+C10RHRe()))*V(qsq)/(mBs()+mKst()) + 2.0*mb()/qsq*(C7effRe()+C7RHRe())*T1(qsq));}
 
 double Bstophill_amp::ApRRe(double qsq, double ml){
-    return nf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effRe(qsq)+C9RHRe())+(C10Re()+C10RHRe()))*V(qsq)/(mBs()+mKst()) + 2.0*mb()/qsq*(C7effRe()+C7RHRe())*T1(qsq));}
+    return Renf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effRe(qsq)+C9RHRe())+(C10Re()+C10RHRe()))*V(qsq)/(mBs()+mKst()) + 2.0*mb()/qsq*(C7effRe()+C7RHRe())*T1(qsq))
+    - Imnf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effIm(qsq)+C9RHIm())+(C10Im()+C10RHIm()))*V(qsq)/(mBs()+mKst()) + 2.0*mb()/qsq*(C7effIm()+C7RHIm())*T1(qsq));}
 double Bstophill_amp::ApRIm(double qsq, double ml){
-    return nf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effIm(qsq)+C9RHIm())+(C10Im()+C10RHIm()))*V(qsq)/(mBs()+mKst()) + 2.0*mb()/qsq*(C7effIm()+C7RHIm())*T1(qsq));}
+    return Renf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effIm(qsq)+C9RHIm())+(C10Im()+C10RHIm()))*V(qsq)/(mBs()+mKst()) + 2.0*mb()/qsq*(C7effIm()+C7RHIm())*T1(qsq))
+    + Imnf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effRe(qsq)+C9RHRe())+(C10Re()+C10RHRe()))*V(qsq)/(mBs()+mKst()) + 2.0*mb()/qsq*(C7effRe()+C7RHRe())*T1(qsq));}
 
 double Bstophill_amp::AaLRe(double qsq, double ml){
-    return -1.0*nf(qsq,ml)*sqrt(2.0)*(pow(mBs(),2.0)-pow(mKst(),2.0))*(((C9effRe(qsq)-C9RHRe())-(C10Re()-C10RHRe()))*A1(qsq)/(mBs()-mKst()) + 2.0*mb()/qsq*(C7effRe()-C7RHRe())*T2(qsq));}
+    return -1.0*(Renf(qsq,ml)*sqrt(2.0)*(pow(mBs(),2.0)-pow(mKst(),2.0))*
+                    (((C9effRe(qsq)-C9RHRe())-(C10Re()-C10RHRe()))*A1(qsq)/(mBs()-mKst()) + 2.0*mb()/qsq*(C7effRe()-C7RHRe())*T2(qsq))
+                - Imnf(qsq,ml)*sqrt(2.0)*(pow(mBs(),2.0)-pow(mKst(),2.0))*
+                    (((C9effIm(qsq)-C9RHIm())-(C10Im()-C10RHIm()))*A1(qsq)/(mBs()-mKst()) + 2.0*mb()/qsq*(C7effIm()-C7RHIm())*T2(qsq)));}
 double Bstophill_amp::AaLIm(double qsq, double ml){
-    return -1.0*nf(qsq,ml)*sqrt(2.0)*(pow(mBs(),2.0)-pow(mKst(),2.0))*(((C9effIm(qsq)-C9RHIm())-(C10Im()-C10RHIm()))*A1(qsq)/(mBs()-mKst()) + 2.0*mb()/qsq*(C7effIm()-C7RHIm())*T2(qsq));}
+    return -1.0*(Renf(qsq,ml)*sqrt(2.0)*(pow(mBs(),2.0)-pow(mKst(),2.0))*
+                    (((C9effIm(qsq)-C9RHIm())-(C10Im()-C10RHIm()))*A1(qsq)/(mBs()-mKst()) + 2.0*mb()/qsq*(C7effIm()-C7RHIm())*T2(qsq))
+                 + Imnf(qsq,ml)*sqrt(2.0)*(pow(mBs(),2.0)-pow(mKst(),2.0))*
+                    (((C9effRe(qsq)-C9RHRe())-(C10Re()-C10RHRe()))*A1(qsq)/(mBs()-mKst()) + 2.0*mb()/qsq*(C7effRe()-C7RHRe())*T2(qsq)));}
 
 double Bstophill_amp::AaRRe(double qsq, double ml){
-    return -1.0*nf(qsq,ml)*sqrt(2.0)*(pow(mBs(),2.0)-pow(mKst(),2.0))*(((C9effRe(qsq)-C9RHRe())+(C10Re()-C10RHRe()))*A1(qsq)/(mBs()-mKst()) + 2.0*mb()/qsq*(C7effRe()-C7RHRe())*T2(qsq));}
+    return -1.0*(Renf(qsq,ml)*sqrt(2.0)*(pow(mBs(),2.0)-pow(mKst(),2.0))*
+                    (((C9effRe(qsq)-C9RHRe())+(C10Re()-C10RHRe()))*A1(qsq)/(mBs()-mKst()) + 2.0*mb()/qsq*(C7effRe()-C7RHRe())*T2(qsq))
+                 - Imnf(qsq,ml)*sqrt(2.0)*(pow(mBs(),2.0)-pow(mKst(),2.0))*
+                    (((C9effIm(qsq)-C9RHIm())+(C10Im()-C10RHIm()))*A1(qsq)/(mBs()-mKst()) + 2.0*mb()/qsq*(C7effIm()-C7RHIm())*T2(qsq)));}
 double Bstophill_amp::AaRIm(double qsq, double ml){
-    return -1.0*nf(qsq,ml)*sqrt(2.0)*(pow(mBs(),2.0)-pow(mKst(),2.0))*(((C9effIm(qsq)-C9RHIm())+(C10Im()-C10RHIm()))*A1(qsq)/(mBs()-mKst()) + 2.0*mb()/qsq*(C7effIm()-C7RHIm())*T2(qsq));}
+    return -1.0*(Renf(qsq,ml)*sqrt(2.0)*(pow(mBs(),2.0)-pow(mKst(),2.0))*
+                    (((C9effIm(qsq)-C9RHIm())+(C10Im()-C10RHIm()))*A1(qsq)/(mBs()-mKst()) + 2.0*mb()/qsq*(C7effIm()-C7RHIm())*T2(qsq))
+                 + Renf(qsq,ml)*sqrt(2.0)*(pow(mBs(),2.0)-pow(mKst(),2.0))*
+                    (((C9effRe(qsq)-C9RHRe())+(C10Re()-C10RHRe()))*A1(qsq)/(mBs()-mKst()) + 2.0*mb()/qsq*(C7effRe()-C7RHRe())*T2(qsq)));}
 
 double Bstophill_amp::AzLRe(double qsq, double ml){
-    return -1.0*nf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effRe(qsq)-C9RHRe())-(C10Re()-C10RHRe()))*16.0*mBs()*mKst()*mKst()*A12(qsq) + 2.0*mb()/(pow(mBs(),2.0)-pow(mKst(),2.0))*(C7effRe()-C7RHRe())*(8.0*mBs()*pow(mKst(),2.0)*(mBs()-mKst())*T23(qsq)) );}
+    return -1.0*(Renf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effRe(qsq)-C9RHRe())-(C10Re()-C10RHRe()))*16.0*mBs()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBs(),2.0)-pow(mKst(),2.0))*(C7effRe()-C7RHRe())*(8.0*mBs()*pow(mKst(),2.0)*(mBs()-mKst())*T23(qsq)) )
+                 - Imnf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effIm(qsq)-C9RHIm())-(C10Im()-C10RHIm()))*16.0*mBs()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBs(),2.0)-pow(mKst(),2.0))*(C7effIm()-C7RHIm())*(8.0*mBs()*pow(mKst(),2.0)*(mBs()-mKst())*T23(qsq)) ));}
 double Bstophill_amp::AzLIm(double qsq, double ml){
-    return -1.0*nf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effIm(qsq)-C9RHIm())-(C10Im()-C10RHIm()))*16.0*mBs()*mKst()*mKst()*A12(qsq) + 2.0*mb()/(pow(mBs(),2.0)-pow(mKst(),2.0))*(C7effIm()-C7RHIm())*(8.0*mBs()*pow(mKst(),2.0)*(mBs()-mKst())*T23(qsq)) );}
+    return -1.0*(Renf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effIm(qsq)-C9RHIm())-(C10Im()-C10RHIm()))*16.0*mBs()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBs(),2.0)-pow(mKst(),2.0))*(C7effIm()-C7RHIm())*(8.0*mBs()*pow(mKst(),2.0)*(mBs()-mKst())*T23(qsq)) )
+                 + Imnf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effRe(qsq)-C9RHRe())-(C10Re()-C10RHRe()))*16.0*mBs()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBs(),2.0)-pow(mKst(),2.0))*(C7effRe()-C7RHRe())*(8.0*mBs()*pow(mKst(),2.0)*(mBs()-mKst())*T23(qsq)) ));}
 
 double Bstophill_amp::AzRRe(double qsq, double ml){
-    return -1.0*nf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effRe(qsq)-C9RHRe())+(C10Re()-C10RHRe()))*16.0*mBs()*mKst()*mKst()*A12(qsq) + 2.0*mb()/(pow(mBs(),2.0)-pow(mKst(),2.0))*(C7effRe()-C7RHRe())*(8.0*mBs()*pow(mKst(),2.0)*(mBs()-mKst())*T23(qsq)) );}
+    return -1.0*(Renf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effRe(qsq)-C9RHRe())+(C10Re()-C10RHRe()))*16.0*mBs()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBs(),2.0)-pow(mKst(),2.0))*(C7effRe()-C7RHRe())*(8.0*mBs()*pow(mKst(),2.0)*(mBs()-mKst())*T23(qsq)) )
+                 - Imnf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effIm(qsq)-C9RHIm())+(C10Im()-C10RHIm()))*16.0*mBs()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBs(),2.0)-pow(mKst(),2.0))*(C7effIm()-C7RHIm())*(8.0*mBs()*pow(mKst(),2.0)*(mBs()-mKst())*T23(qsq)) ));}
 double Bstophill_amp::AzRIm(double qsq, double ml){
-    return -1.0*nf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effIm(qsq)-C9RHIm())+(C10Im()-C10RHIm()))*16.0*mBs()*mKst()*mKst()*A12(qsq) + 2.0*mb()/(pow(mBs(),2.0)-pow(mKst(),2.0))*(C7effIm()-C7RHIm())*(8.0*mBs()*pow(mKst(),2.0)*(mBs()-mKst())*T23(qsq)) );}
+    return -1.0*(Renf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effIm(qsq)-C9RHIm())+(C10Im()-C10RHIm()))*16.0*mBs()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBs(),2.0)-pow(mKst(),2.0))*(C7effIm()-C7RHIm())*(8.0*mBs()*pow(mKst(),2.0)*(mBs()-mKst())*T23(qsq)) )
+                 + Imnf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effRe(qsq)-C9RHRe())+(C10Re()-C10RHRe()))*16.0*mBs()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBs(),2.0)-pow(mKst(),2.0))*(C7effRe()-C7RHRe())*(8.0*mBs()*pow(mKst(),2.0)*(mBs()-mKst())*T23(qsq)) ));}
 
 double Bstophill_amp::AtRe(double qsq, double ml){
-    return nf(qsq,ml)*sqrt(lambda(qsq)/qsq)*(2.0*(C10Re()-C10RHRe()) + qsq/ml*(CPRe()-CPRHRe()))*A0(qsq);}
+    return Renf(qsq,ml)*sqrt(lambda(qsq)/qsq)*(2.0*(C10Re()-C10RHRe()) + qsq/ml*(CPRe()-CPRHRe()))*A0(qsq)
+            - Imnf(qsq,ml)*sqrt(lambda(qsq)/qsq)*(2.0*(C10Im()-C10RHIm()) + qsq/ml*(CPIm()-CPRHIm()))*A0(qsq);}
 double Bstophill_amp::AtIm(double qsq, double ml){
-    return nf(qsq,ml)*sqrt(lambda(qsq)/qsq)*(2.0*(C10Im()-C10RHIm()) + qsq/ml*(CPIm()-CPRHIm()))*A0(qsq);}
+    return Renf(qsq,ml)*sqrt(lambda(qsq)/qsq)*(2.0*(C10Im()-C10RHIm()) + qsq/ml*(CPIm()-CPRHIm()))*A0(qsq)
+            + Imnf(qsq,ml)*sqrt(lambda(qsq)/qsq)*(2.0*(C10Re()-C10RHRe()) + qsq/ml*(CPRe()-CPRHRe()))*A0(qsq);}
 
 double Bstophill_amp::ASRe(double qsq, double ml){
-    return -2.0*nf(qsq,ml)*sqrt(lambda(qsq))*(CSRe()-CSRHRe())*A0(qsq);}
+    return -2.0*(Renf(qsq,ml)*sqrt(lambda(qsq))*(CSRe()-CSRHRe())*A0(qsq)
+                 - Imnf(qsq,ml)*sqrt(lambda(qsq))*(CSIm()-CSRHIm())*A0(qsq));}
 double Bstophill_amp::ASIm(double qsq, double ml){
-    return -2.0*nf(qsq,ml)*sqrt(lambda(qsq))*(CSIm()-CSRHIm())*A0(qsq);}
+    return -2.0*(Renf(qsq,ml)*sqrt(lambda(qsq))*(CSIm()-CSRHIm())*A0(qsq)
+                 + Imnf(qsq,ml)*sqrt(lambda(qsq))*(CSRe()-CSRHRe())*A0(qsq));}
+
+
+/////////Conjugate mode
+double Bstophill_amp::ApbLRe(double qsq, double ml){
+    return Renf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effRe(qsq)+C9RHRe())-(C10Re()+C10RHRe()))*V(qsq)/(mBs()+mKst()) + 2.0*mb()/qsq*(C7effRe()+C7RHRe())*T1(qsq))
+    + Imnf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effIm(qsq)+C9RHIm())-(C10Im()+C10RHIm()))*V(qsq)/(mBs()+mKst()) + 2.0*mb()/qsq*(C7effIm()+C7RHIm())*T1(qsq));}
+double Bstophill_amp::ApbLIm(double qsq, double ml){
+    return Renf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effIm(qsq)+C9RHIm())-(C10Im()+C10RHIm()))*V(qsq)/(mBs()+mKst()) + 2.0*mb()/qsq*(C7effIm()+C7RHIm())*T1(qsq))
+    - Imnf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effRe(qsq)+C9RHRe())-(C10Re()+C10RHRe()))*V(qsq)/(mBs()+mKst()) + 2.0*mb()/qsq*(C7effRe()+C7RHRe())*T1(qsq));}
+
+double Bstophill_amp::ApbRRe(double qsq, double ml){
+    return Renf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effRe(qsq)+C9RHRe())+(C10Re()+C10RHRe()))*V(qsq)/(mBs()+mKst()) + 2.0*mb()/qsq*(C7effRe()+C7RHRe())*T1(qsq))
+    + Imnf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effIm(qsq)+C9RHIm())+(C10Im()+C10RHIm()))*V(qsq)/(mBs()+mKst()) + 2.0*mb()/qsq*(C7effIm()+C7RHIm())*T1(qsq));}
+double Bstophill_amp::ApbRIm(double qsq, double ml){
+    return Renf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effIm(qsq)+C9RHIm())+(C10Im()+C10RHIm()))*V(qsq)/(mBs()+mKst()) + 2.0*mb()/qsq*(C7effIm()+C7RHIm())*T1(qsq))
+    - Imnf(qsq,ml)*sqrt(2.0*lambda(qsq))*(((C9effRe(qsq)+C9RHRe())+(C10Re()+C10RHRe()))*V(qsq)/(mBs()+mKst()) + 2.0*mb()/qsq*(C7effRe()+C7RHRe())*T1(qsq));}
+
+double Bstophill_amp::AabLRe(double qsq, double ml){
+    return -1.0*(Renf(qsq,ml)*sqrt(2.0)*(pow(mBs(),2.0)-pow(mKst(),2.0))*
+                    (((C9effRe(qsq)-C9RHRe())-(C10Re()-C10RHRe()))*A1(qsq)/(mBs()-mKst()) + 2.0*mb()/qsq*(C7effRe()-C7RHRe())*T2(qsq))
+                + Imnf(qsq,ml)*sqrt(2.0)*(pow(mBs(),2.0)-pow(mKst(),2.0))*
+                    (((C9effIm(qsq)-C9RHIm())-(C10Im()-C10RHIm()))*A1(qsq)/(mBs()-mKst()) + 2.0*mb()/qsq*(C7effIm()-C7RHIm())*T2(qsq)));}
+double Bstophill_amp::AabLIm(double qsq, double ml){
+    return -1.0*(Renf(qsq,ml)*sqrt(2.0)*(pow(mBs(),2.0)-pow(mKst(),2.0))*
+                    (((C9effIm(qsq)-C9RHIm())-(C10Im()-C10RHIm()))*A1(qsq)/(mBs()-mKst()) + 2.0*mb()/qsq*(C7effIm()-C7RHIm())*T2(qsq))
+                 - Imnf(qsq,ml)*sqrt(2.0)*(pow(mBs(),2.0)-pow(mKst(),2.0))*
+                    (((C9effRe(qsq)-C9RHRe())-(C10Re()-C10RHRe()))*A1(qsq)/(mBs()-mKst()) + 2.0*mb()/qsq*(C7effRe()-C7RHRe())*T2(qsq)));}
+
+double Bstophill_amp::AabRRe(double qsq, double ml){
+    return -1.0*(Renf(qsq,ml)*sqrt(2.0)*(pow(mBs(),2.0)-pow(mKst(),2.0))*
+                    (((C9effRe(qsq)-C9RHRe())+(C10Re()-C10RHRe()))*A1(qsq)/(mBs()-mKst()) + 2.0*mb()/qsq*(C7effRe()-C7RHRe())*T2(qsq))
+                 + Imnf(qsq,ml)*sqrt(2.0)*(pow(mBs(),2.0)-pow(mKst(),2.0))*
+                    (((C9effIm(qsq)-C9RHIm())+(C10Im()-C10RHIm()))*A1(qsq)/(mBs()-mKst()) + 2.0*mb()/qsq*(C7effIm()-C7RHIm())*T2(qsq)));}
+double Bstophill_amp::AabRIm(double qsq, double ml){
+    return -1.0*(Renf(qsq,ml)*sqrt(2.0)*(pow(mBs(),2.0)-pow(mKst(),2.0))*
+                    (((C9effIm(qsq)-C9RHIm())+(C10Im()-C10RHIm()))*A1(qsq)/(mBs()-mKst()) + 2.0*mb()/qsq*(C7effIm()-C7RHIm())*T2(qsq))
+                 - Imnf(qsq,ml)*sqrt(2.0)*(pow(mBs(),2.0)-pow(mKst(),2.0))*
+                    (((C9effRe(qsq)-C9RHRe())+(C10Re()-C10RHRe()))*A1(qsq)/(mBs()-mKst()) + 2.0*mb()/qsq*(C7effRe()-C7RHRe())*T2(qsq)));}
+
+double Bstophill_amp::AzbLRe(double qsq, double ml){
+    return -1.0*(Renf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effRe(qsq)-C9RHRe())-(C10Re()-C10RHRe()))*16.0*mBs()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBs(),2.0)-pow(mKst(),2.0))*(C7effRe()-C7RHRe())*(8.0*mBs()*pow(mKst(),2.0)*(mBs()-mKst())*T23(qsq)) )
+                 + Imnf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effIm(qsq)-C9RHIm())-(C10Im()-C10RHIm()))*16.0*mBs()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBs(),2.0)-pow(mKst(),2.0))*(C7effIm()-C7RHIm())*(8.0*mBs()*pow(mKst(),2.0)*(mBs()-mKst())*T23(qsq)) ));}
+double Bstophill_amp::AzbLIm(double qsq, double ml){
+    return -1.0*(Renf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effIm(qsq)-C9RHIm())-(C10Im()-C10RHIm()))*16.0*mBs()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBs(),2.0)-pow(mKst(),2.0))*(C7effIm()-C7RHIm())*(8.0*mBs()*pow(mKst(),2.0)*(mBs()-mKst())*T23(qsq)) )
+                 - Imnf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effRe(qsq)-C9RHRe())-(C10Re()-C10RHRe()))*16.0*mBs()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBs(),2.0)-pow(mKst(),2.0))*(C7effRe()-C7RHRe())*(8.0*mBs()*pow(mKst(),2.0)*(mBs()-mKst())*T23(qsq)) ));}
+
+double Bstophill_amp::AzbRRe(double qsq, double ml){
+    return -1.0*(Renf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effRe(qsq)-C9RHRe())+(C10Re()-C10RHRe()))*16.0*mBs()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBs(),2.0)-pow(mKst(),2.0))*(C7effRe()-C7RHRe())*(8.0*mBs()*pow(mKst(),2.0)*(mBs()-mKst())*T23(qsq)) )
+                 + Imnf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effIm(qsq)-C9RHIm())+(C10Im()-C10RHIm()))*16.0*mBs()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBs(),2.0)-pow(mKst(),2.0))*(C7effIm()-C7RHIm())*(8.0*mBs()*pow(mKst(),2.0)*(mBs()-mKst())*T23(qsq)) ));}
+double Bstophill_amp::AzbRIm(double qsq, double ml){
+    return -1.0*(Renf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effIm(qsq)-C9RHIm())+(C10Im()-C10RHIm()))*16.0*mBs()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBs(),2.0)-pow(mKst(),2.0))*(C7effIm()-C7RHIm())*(8.0*mBs()*pow(mKst(),2.0)*(mBs()-mKst())*T23(qsq)) )
+                 - Imnf(qsq,ml)/(2.0*mKst()*sqrt(qsq))*( ((C9effRe(qsq)-C9RHRe())+(C10Re()-C10RHRe()))*16.0*mBs()*mKst()*mKst()*A12(qsq)
+                    + 2.0*mb()/(pow(mBs(),2.0)-pow(mKst(),2.0))*(C7effRe()-C7RHRe())*(8.0*mBs()*pow(mKst(),2.0)*(mBs()-mKst())*T23(qsq)) ));}
+
+double Bstophill_amp::AtbRe(double qsq, double ml){
+    return Renf(qsq,ml)*sqrt(lambda(qsq)/qsq)*(2.0*(C10Re()-C10RHRe()) + qsq/ml*(CPRe()-CPRHRe()))*A0(qsq)
+            + Imnf(qsq,ml)*sqrt(lambda(qsq)/qsq)*(2.0*(C10Im()-C10RHIm()) + qsq/ml*(CPIm()-CPRHIm()))*A0(qsq);}
+double Bstophill_amp::AtbIm(double qsq, double ml){
+    return Renf(qsq,ml)*sqrt(lambda(qsq)/qsq)*(2.0*(C10Im()-C10RHIm()) + qsq/ml*(CPIm()-CPRHIm()))*A0(qsq)
+            - Imnf(qsq,ml)*sqrt(lambda(qsq)/qsq)*(2.0*(C10Re()-C10RHRe()) + qsq/ml*(CPRe()-CPRHRe()))*A0(qsq);}
+
+double Bstophill_amp::ASbRe(double qsq, double ml){
+    return -2.0*(Renf(qsq,ml)*sqrt(lambda(qsq))*(CSRe()-CSRHRe())*A0(qsq)
+                 + Imnf(qsq,ml)*sqrt(lambda(qsq))*(CSIm()-CSRHIm())*A0(qsq));}
+double Bstophill_amp::ASbIm(double qsq, double ml){
+    return -2.0*(Renf(qsq,ml)*sqrt(lambda(qsq))*(CSIm()-CSRHIm())*A0(qsq)
+                 - Imnf(qsq,ml)*sqrt(lambda(qsq))*(CSRe()-CSRHRe())*A0(qsq));}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

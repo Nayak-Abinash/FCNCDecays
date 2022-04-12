@@ -16,7 +16,8 @@ public:
     double C9effIm(double qsq);
     double betal(double qsq, double ml);
     double lambda(double qsq);
-    double nf(double qsq, double ml);
+    double Renf(double qsq, double ml);
+    double Imnf(double qsq, double ml);
 
     double ApLRe(double qsq, double ml);
     double ApLIm(double qsq, double ml);
@@ -68,7 +69,8 @@ public:
     double C9effIm(double qsq);
     double betal(double qsq, double ml);
     double lambda(double qsq);
-    double nf(double qsq, double ml);
+    double Renf(double qsq, double ml);
+    double Imnf(double qsq, double ml);
 
     double ApLRe(double qsq, double ml);
     double ApLIm(double qsq, double ml);
