@@ -1,12 +1,14 @@
 #include "get_observable.h"
 
-/*void get_obs::BtoVll_obsval(string s, double qsq){
+void get_obs::BtoVll_obsval(string s, double qsq){
     //B->Vll
     BdtoKstrll_obs o1; Bstophill_obs o2;
     //string input
     label1:
     cout << "Enter the observable:"; cin >> s;
 
+//####### B0->K*ll(SM) #######//
+    //B0->K*mumu
 
 //Warning!!!
     else
@@ -15,7 +17,7 @@
         cin >> s;
         if(s=="c") goto label1;
         else if(s=="q") cout << "The program has been terminated." << endl;}
-}*/
+}
 
 void get_obs::BtoPll_obsval(string s, double qsq){
     //B->Pll

@@ -17,7 +17,8 @@ public:
     double C9effIm(double qsq, double smwc[], double npwc[], double unv[]);
     double betal(double qsq, double ml);
     double lambda(double qsq, double unv[]);
-    double nf(double qsq, double ml, double unv[]);
+    double Renf(double qsq, double ml, double unv[]);
+    double Imnf(double qsq, double ml, double unv[]);
 
     double ApLRe(double qsq, double ml, double smwc[], double npwc[], double unv[]);
     double ApLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
@@ -35,6 +36,23 @@ public:
     double AtIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
     double ASRe(double qsq, double ml, double smwc[], double npwc[], double unv[]);
     double ASIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+
+    double ApbLRe(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double ApbLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double ApbRRe(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double ApbRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double AabLRe(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double AabLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double AabRRe(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double AabRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double AzbLRe(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double AzbLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double AzbRRe(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double AzbRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double AtbRe(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double AtbIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double ASbRe(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double ASbIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -52,7 +70,8 @@ public:
     double C9effIm(double qsq, double smwc[], double npwc[], double unv[]);
     double betal(double qsq, double ml);
     double lambda(double qsq, double unv[]);
-    double nf(double qsq, double ml, double unv[]);
+    double Renf(double qsq, double ml, double unv[]);
+    double Imnf(double qsq, double ml, double unv[]);
 
     double ApLRe(double qsq, double ml, double smwc[], double npwc[], double unv[]);
     double ApLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
@@ -70,6 +89,23 @@ public:
     double AtIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
     double ASRe(double qsq, double ml, double smwc[], double npwc[], double unv[]);
     double ASIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+
+    double ApbLRe(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double ApbLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double ApbRRe(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double ApbRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double AabLRe(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double AabLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double AabRRe(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double AabRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double AzbLRe(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double AzbLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double AzbRRe(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double AzbRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double AtbRe(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double AtbIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double ASbRe(double qsq, double ml, double smwc[], double npwc[], double unv[]);
+    double ASbIm(double qsq, double ml, double smwc[], double npwc[], double unv[]);
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -40,64 +40,221 @@ double BdtoKstrll_amperr::betal(double qsq, double ml){return sqrt(1.0-4.0*pow(m
 double BdtoKstrll_amperr::lambda(double qsq, double unv[]){
     return pow(qsq,2.0)+pow(mBd(unv),4.0)+pow(mKst(unv),4.0)-2.0*(pow(mBd(unv)*mKst(unv),2.0)+qsq*pow(mBd(unv),2.0)+qsq*pow(mKst(unv),2.0));}
 
-double BdtoKstrll_amperr:: nf(double qsq, double ml, double unv[]){
-    return absVtbVtsStr(unv)*sqrt( pow(GF()*alpha_e(),2.0)*qsq*sqrt(lambda(qsq, unv))*betal(qsq,ml)/(3.0*pow(2.0,10.0)*pow(pi,5.0)*pow(mBd(unv),3.0)) );}
+double BdtoKstrll_amperr:: Renf(double qsq, double ml, double unv[]){
+    return ReVtbVtsStr(unv)*sqrt( pow(GF()*alpha_e(),2.0)*qsq*sqrt(lambda(qsq, unv))*betal(qsq,ml)/(3.0*pow(2.0,10.0)*pow(pi,5.0)*pow(mBd(unv),3.0)) );}
+
+double BdtoKstrll_amperr:: Imnf(double qsq, double ml, double unv[]){
+    return ImVtbVtsStr(unv)*sqrt( pow(GF()*alpha_e(),2.0)*qsq*sqrt(lambda(qsq, unv))*betal(qsq,ml)/(3.0*pow(2.0,10.0)*pow(pi,5.0)*pow(mBd(unv),3.0)) );}
 
 double BdtoKstrll_amperr::ApLRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return nf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effRe(qsq,smwc,npwc,unv)+C9RHRe(npwc,unv))-(C10Re(smwc,unv)+C10RHRe(npwc,unv)))*V(qsq,unv)/(mBd(unv)+mKst(unv))
-                                                     + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)+C7RHRe(npwc,unv))*T1(qsq,unv));}
-double BdtoKstrll_amperr::ApLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return nf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effIm(qsq,smwc,npwc,unv)+C9RHIm(npwc,unv))-(C10Im(smwc,unv)+C10RHIm(npwc,unv)))*V(qsq,unv)/(mBd(unv)+mKst(unv))
+    return Renf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effRe(qsq,smwc,npwc,unv)+C9RHRe(npwc,unv))-(C10Re(smwc,unv)+C10RHRe(npwc,unv)))*V(qsq,unv)/(mBd(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)+C7RHRe(npwc,unv))*T1(qsq,unv))
+    - Imnf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effIm(qsq,smwc,npwc,unv)+C9RHIm(npwc,unv))-(C10Im(smwc,unv)+C10RHIm(npwc,unv)))*V(qsq,unv)/(mBd(unv)+mKst(unv))
                                                      + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)+C7RHIm(npwc,unv))*T1(qsq,unv));}
+double BdtoKstrll_amperr::ApLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return Renf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effIm(qsq,smwc,npwc,unv)+C9RHIm(npwc,unv))-(C10Im(smwc,unv)+C10RHIm(npwc,unv)))*V(qsq,unv)/(mBd(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)+C7RHIm(npwc,unv))*T1(qsq,unv))
+    + Imnf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effRe(qsq,smwc,npwc,unv)+C9RHRe(npwc,unv))-(C10Re(smwc,unv)+C10RHRe(npwc,unv)))*V(qsq,unv)/(mBd(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)+C7RHRe(npwc,unv))*T1(qsq,unv));}
 
 double BdtoKstrll_amperr::ApRRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return nf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effRe(qsq,smwc,npwc,unv)+C9RHRe(npwc,unv))+(C10Re(smwc,unv)+C10RHRe(npwc,unv)))*V(qsq,unv)/(mBd(unv)+mKst(unv))
-                                                     + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)+C7RHRe(npwc,unv))*T1(qsq,unv));}
-double BdtoKstrll_amperr::ApRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return nf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effIm(qsq,smwc,npwc,unv)+C9RHIm(npwc,unv))+(C10Im(smwc,unv)+C10RHIm(npwc,unv)))*V(qsq,unv)/(mBd(unv)+mKst(unv))
+    return Renf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effRe(qsq,smwc,npwc,unv)+C9RHRe(npwc,unv))+(C10Re(smwc,unv)+C10RHRe(npwc,unv)))*V(qsq,unv)/(mBd(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)+C7RHRe(npwc,unv))*T1(qsq,unv))
+    - Imnf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effIm(qsq,smwc,npwc,unv)+C9RHIm(npwc,unv))+(C10Im(smwc,unv)+C10RHIm(npwc,unv)))*V(qsq,unv)/(mBd(unv)+mKst(unv))
                                                      + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)+C7RHIm(npwc,unv))*T1(qsq,unv));}
+double BdtoKstrll_amperr::ApRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return Renf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effIm(qsq,smwc,npwc,unv)+C9RHIm(npwc,unv))+(C10Im(smwc,unv)+C10RHIm(npwc,unv)))*V(qsq,unv)/(mBd(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)+C7RHIm(npwc,unv))*T1(qsq,unv))
+    + Imnf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effRe(qsq,smwc,npwc,unv)+C9RHRe(npwc,unv))+(C10Re(smwc,unv)+C10RHRe(npwc,unv)))*V(qsq,unv)/(mBd(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)+C7RHRe(npwc,unv))*T1(qsq,unv));}
 
 double BdtoKstrll_amperr::AaLRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return -1.0*nf(qsq,ml,unv)*sqrt(2.0)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))
+    return -1.0*(Renf(qsq,ml,unv)*sqrt(2.0)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))
                                         -(C10Re(smwc,unv)-C10RHRe(npwc,unv)))*A1(qsq,unv)/(mBd(unv)-mKst(unv))
-                                        + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*T2(qsq,unv));}
-double BdtoKstrll_amperr::AaLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return -1.0*nf(qsq,ml,unv)*sqrt(2.0)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))
+                                        + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*T2(qsq,unv))
+                 - Imnf(qsq,ml,unv)*sqrt(2.0)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))
                                         -(C10Im(smwc,unv)-C10RHIm(npwc,unv)))*A1(qsq,unv)/(mBd(unv)-mKst(unv))
-                                        + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*T2(qsq,unv));}
+                                        + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*T2(qsq,unv)));}
+double BdtoKstrll_amperr::AaLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -1.0*(Renf(qsq,ml,unv)*sqrt(2.0)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))
+                                        -(C10Im(smwc,unv)-C10RHIm(npwc,unv)))*A1(qsq,unv)/(mBd(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*T2(qsq,unv))
+                 + Imnf(qsq,ml,unv)*sqrt(2.0)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))
+                                        -(C10Re(smwc,unv)-C10RHRe(npwc,unv)))*A1(qsq,unv)/(mBd(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*T2(qsq,unv)));}
 
 double BdtoKstrll_amperr::AaRRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return -1.0*nf(qsq,ml,unv)*sqrt(2.0)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))
+    return -1.0*(Renf(qsq,ml,unv)*sqrt(2.0)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))
                                         +(C10Re(smwc,unv)-C10RHRe(npwc,unv)))*A1(qsq,unv)/(mBd(unv)-mKst(unv))
-                                        + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*T2(qsq,unv));}
-double BdtoKstrll_amperr::AaRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return -1.0*nf(qsq,ml,unv)*sqrt(2.0)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))
+                                        + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*T2(qsq,unv))
+                 - Imnf(qsq,ml,unv)*sqrt(2.0)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))
                                         +(C10Im(smwc,unv)-C10RHIm(npwc,unv)))*A1(qsq,unv)/(mBd(unv)-mKst(unv))
-                                        + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*T2(qsq,unv));}
+                                        + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*T2(qsq,unv)));}
+double BdtoKstrll_amperr::AaRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -1.0*(Renf(qsq,ml,unv)*sqrt(2.0)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))
+                                        +(C10Im(smwc,unv)-C10RHIm(npwc,unv)))*A1(qsq,unv)/(mBd(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*T2(qsq,unv))
+                 + Imnf(qsq,ml,unv)*sqrt(2.0)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))
+                                        +(C10Re(smwc,unv)-C10RHRe(npwc,unv)))*A1(qsq,unv)/(mBd(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*T2(qsq,unv)));}
 
 double BdtoKstrll_amperr::AzLRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return -1.0*nf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))-(C10Re(smwc,unv)-C10RHRe(npwc,unv)))*16.0*mBd(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
-            + 2.0*mb(unv)/(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*(8.0*mBd(unv)*pow(mKst(unv),2.0)*(mBd(unv)-mKst(unv))*T23(qsq,unv)) );}
+    return -1.0*(Renf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))-(C10Re(smwc,unv)-C10RHRe(npwc,unv)))
+                                                          *16.0*mBd(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))
+                                                          *(8.0*mBd(unv)*pow(mKst(unv),2.0)*(mBd(unv)-mKst(unv))*T23(qsq,unv)) )
+                 - Imnf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))-(C10Im(smwc,unv)-C10RHIm(npwc,unv)))
+                                                          *16.0*mBd(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))
+                                                          *(8.0*mBd(unv)*pow(mKst(unv),2.0)*(mBd(unv)-mKst(unv))*T23(qsq,unv)) ));}
 double BdtoKstrll_amperr::AzLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return -1.0*nf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))-(C10Im(smwc,unv)-C10RHIm(npwc,unv)))*16.0*mBd(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
-            + 2.0*mb(unv)/(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*(8.0*mBd(unv)*pow(mKst(unv),2.0)*(mBd(unv)-mKst(unv))*T23(qsq,unv)) );}
+    return -1.0*(Renf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))-(C10Im(smwc,unv)-C10RHIm(npwc,unv)))
+                                                          *16.0*mBd(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))
+                                                          *(8.0*mBd(unv)*pow(mKst(unv),2.0)*(mBd(unv)-mKst(unv))*T23(qsq,unv)) )
+                 + Imnf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))-(C10Re(smwc,unv)-C10RHRe(npwc,unv)))
+                                                          *16.0*mBd(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))
+                                                          *(8.0*mBd(unv)*pow(mKst(unv),2.0)*(mBd(unv)-mKst(unv))*T23(qsq,unv)) ));}
 
 double BdtoKstrll_amperr::AzRRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return -1.0*nf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))+(C10Re(smwc,unv)-C10RHRe(npwc,unv)))*16.0*mBd(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
-            + 2.0*mb(unv)/(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*(8.0*mBd(unv)*pow(mKst(unv),2.0)*(mBd(unv)-mKst(unv))*T23(qsq,unv)) );}
+    return -1.0*(Renf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))+(C10Re(smwc,unv)-C10RHRe(npwc,unv)))
+                                                          *16.0*mBd(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))
+                                                          *(8.0*mBd(unv)*pow(mKst(unv),2.0)*(mBd(unv)-mKst(unv))*T23(qsq,unv)) )
+                 - Imnf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))+(C10Im(smwc,unv)-C10RHIm(npwc,unv)))
+                                                          *16.0*mBd(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))
+                                                          *(8.0*mBd(unv)*pow(mKst(unv),2.0)*(mBd(unv)-mKst(unv))*T23(qsq,unv)) ));}
 double BdtoKstrll_amperr::AzRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return -1.0*nf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))+(C10Im(smwc,unv)-C10RHIm(npwc,unv)))*16.0*mBd(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
-            + 2.0*mb(unv)/(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*(8.0*mBd(unv)*pow(mKst(unv),2.0)*(mBd(unv)-mKst(unv))*T23(qsq,unv)) );}
+    return -1.0*(Renf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))+(C10Im(smwc,unv)-C10RHIm(npwc,unv)))
+                                                          *16.0*mBd(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))
+                                                          *(8.0*mBd(unv)*pow(mKst(unv),2.0)*(mBd(unv)-mKst(unv))*T23(qsq,unv)) )
+                 + Imnf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))+(C10Re(smwc,unv)-C10RHRe(npwc,unv)))
+                                                          *16.0*mBd(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))
+                                                          *(8.0*mBd(unv)*pow(mKst(unv),2.0)*(mBd(unv)-mKst(unv))*T23(qsq,unv)) ));}
 
 double BdtoKstrll_amperr::AtRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return nf(qsq,ml,unv)*sqrt(lambda(qsq,unv)/qsq)*(2.0*(C10Re(smwc,unv)-C10RHRe(npwc,unv)) + qsq/ml*(CPRe(npwc,unv)-CPRHRe(npwc,unv)))*A0(qsq,unv);}
+    return Renf(qsq,ml,unv)*sqrt(lambda(qsq,unv)/qsq)*(2.0*(C10Re(smwc,unv)-C10RHRe(npwc,unv)) + qsq/ml*(CPRe(npwc,unv)-CPRHRe(npwc,unv)))*A0(qsq,unv)
+    - Imnf(qsq,ml,unv)*sqrt(lambda(qsq,unv)/qsq)*(2.0*(C10Im(smwc,unv)-C10RHIm(npwc,unv)) + qsq/ml*(CPIm(npwc,unv)-CPRHIm(npwc,unv)))*A0(qsq,unv);}
 double BdtoKstrll_amperr::AtIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return nf(qsq,ml,unv)*sqrt(lambda(qsq,unv)/qsq)*(2.0*(C10Im(smwc,unv)-C10RHIm(npwc,unv)) + qsq/ml*(CPIm(npwc,unv)-CPRHIm(npwc,unv)))*A0(qsq,unv);}
+    return Renf(qsq,ml,unv)*sqrt(lambda(qsq,unv)/qsq)*(2.0*(C10Im(smwc,unv)-C10RHIm(npwc,unv)) + qsq/ml*(CPIm(npwc,unv)-CPRHIm(npwc,unv)))*A0(qsq,unv)
+    + Imnf(qsq,ml,unv)*sqrt(lambda(qsq,unv)/qsq)*(2.0*(C10Re(smwc,unv)-C10RHRe(npwc,unv)) + qsq/ml*(CPRe(npwc,unv)-CPRHRe(npwc,unv)))*A0(qsq,unv);}
 
 double BdtoKstrll_amperr::ASRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return -2.0*nf(qsq,ml,unv)*sqrt(lambda(qsq,unv))*(CSRe(npwc,unv)-CSRHRe(npwc,unv))*A0(qsq,unv);}
+    return -2.0*(Renf(qsq,ml,unv)*sqrt(lambda(qsq,unv))*(CSRe(npwc,unv)-CSRHRe(npwc,unv))*A0(qsq,unv)
+                 - Imnf(qsq,ml,unv)*sqrt(lambda(qsq,unv))*(CSIm(npwc,unv)-CSRHIm(npwc,unv))*A0(qsq,unv));}
 double BdtoKstrll_amperr::ASIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return -2.0*nf(qsq,ml,unv)*sqrt(lambda(qsq,unv))*(CSIm(npwc,unv)-CSRHIm(npwc,unv))*A0(qsq,unv);}
+    return -2.0*(Renf(qsq,ml,unv)*sqrt(lambda(qsq,unv))*(CSIm(npwc,unv)-CSRHIm(npwc,unv))*A0(qsq,unv)
+                 + Imnf(qsq,ml,unv)*sqrt(lambda(qsq,unv))*(CSRe(npwc,unv)-CSRHRe(npwc,unv))*A0(qsq,unv));}
+
+//Conjugate Amplitudes
+double BdtoKstrll_amperr::ApbLRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return Renf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effRe(qsq,smwc,npwc,unv)+C9RHRe(npwc,unv))-(C10Re(smwc,unv)+C10RHRe(npwc,unv)))*V(qsq,unv)/(mBd(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)+C7RHRe(npwc,unv))*T1(qsq,unv))
+    + Imnf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effIm(qsq,smwc,npwc,unv)+C9RHIm(npwc,unv))-(C10Im(smwc,unv)+C10RHIm(npwc,unv)))*V(qsq,unv)/(mBd(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)+C7RHIm(npwc,unv))*T1(qsq,unv));}
+double BdtoKstrll_amperr::ApbLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return Renf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effIm(qsq,smwc,npwc,unv)+C9RHIm(npwc,unv))-(C10Im(smwc,unv)+C10RHIm(npwc,unv)))*V(qsq,unv)/(mBd(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)+C7RHIm(npwc,unv))*T1(qsq,unv))
+    - Imnf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effRe(qsq,smwc,npwc,unv)+C9RHRe(npwc,unv))-(C10Re(smwc,unv)+C10RHRe(npwc,unv)))*V(qsq,unv)/(mBd(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)+C7RHRe(npwc,unv))*T1(qsq,unv));}
+
+double BdtoKstrll_amperr::ApbRRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return Renf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effRe(qsq,smwc,npwc,unv)+C9RHRe(npwc,unv))+(C10Re(smwc,unv)+C10RHRe(npwc,unv)))*V(qsq,unv)/(mBd(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)+C7RHRe(npwc,unv))*T1(qsq,unv))
+    + Imnf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effIm(qsq,smwc,npwc,unv)+C9RHIm(npwc,unv))+(C10Im(smwc,unv)+C10RHIm(npwc,unv)))*V(qsq,unv)/(mBd(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)+C7RHIm(npwc,unv))*T1(qsq,unv));}
+double BdtoKstrll_amperr::ApbRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return Renf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effIm(qsq,smwc,npwc,unv)+C9RHIm(npwc,unv))+(C10Im(smwc,unv)+C10RHIm(npwc,unv)))*V(qsq,unv)/(mBd(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)+C7RHIm(npwc,unv))*T1(qsq,unv))
+    - Imnf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effRe(qsq,smwc,npwc,unv)+C9RHRe(npwc,unv))+(C10Re(smwc,unv)+C10RHRe(npwc,unv)))*V(qsq,unv)/(mBd(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)+C7RHRe(npwc,unv))*T1(qsq,unv));}
+
+double BdtoKstrll_amperr::AabLRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -1.0*(Renf(qsq,ml,unv)*sqrt(2.0)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))
+                                        -(C10Re(smwc,unv)-C10RHRe(npwc,unv)))*A1(qsq,unv)/(mBd(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*T2(qsq,unv))
+                 + Imnf(qsq,ml,unv)*sqrt(2.0)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))
+                                        -(C10Im(smwc,unv)-C10RHIm(npwc,unv)))*A1(qsq,unv)/(mBd(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*T2(qsq,unv)));}
+double BdtoKstrll_amperr::AabLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -1.0*(Renf(qsq,ml,unv)*sqrt(2.0)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))
+                                        -(C10Im(smwc,unv)-C10RHIm(npwc,unv)))*A1(qsq,unv)/(mBd(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*T2(qsq,unv))
+                 - Imnf(qsq,ml,unv)*sqrt(2.0)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))
+                                        -(C10Re(smwc,unv)-C10RHRe(npwc,unv)))*A1(qsq,unv)/(mBd(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*T2(qsq,unv)));}
+
+double BdtoKstrll_amperr::AabRRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -1.0*(Renf(qsq,ml,unv)*sqrt(2.0)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))
+                                        +(C10Re(smwc,unv)-C10RHRe(npwc,unv)))*A1(qsq,unv)/(mBd(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*T2(qsq,unv))
+                 + Imnf(qsq,ml,unv)*sqrt(2.0)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))
+                                        +(C10Im(smwc,unv)-C10RHIm(npwc,unv)))*A1(qsq,unv)/(mBd(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*T2(qsq,unv)));}
+double BdtoKstrll_amperr::AabRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -1.0*(Renf(qsq,ml,unv)*sqrt(2.0)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))
+                                        +(C10Im(smwc,unv)-C10RHIm(npwc,unv)))*A1(qsq,unv)/(mBd(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*T2(qsq,unv))
+                 - Imnf(qsq,ml,unv)*sqrt(2.0)*(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))
+                                        +(C10Re(smwc,unv)-C10RHRe(npwc,unv)))*A1(qsq,unv)/(mBd(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*T2(qsq,unv)));}
+
+double BdtoKstrll_amperr::AzbLRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -1.0*(Renf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))-(C10Re(smwc,unv)-C10RHRe(npwc,unv)))
+                                                          *16.0*mBd(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))
+                                                          *(8.0*mBd(unv)*pow(mKst(unv),2.0)*(mBd(unv)-mKst(unv))*T23(qsq,unv)) )
+                 + Imnf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))-(C10Im(smwc,unv)-C10RHIm(npwc,unv)))
+                                                          *16.0*mBd(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))
+                                                          *(8.0*mBd(unv)*pow(mKst(unv),2.0)*(mBd(unv)-mKst(unv))*T23(qsq,unv)) ));}
+double BdtoKstrll_amperr::AzbLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -1.0*(Renf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))-(C10Im(smwc,unv)-C10RHIm(npwc,unv)))
+                                                          *16.0*mBd(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))
+                                                          *(8.0*mBd(unv)*pow(mKst(unv),2.0)*(mBd(unv)-mKst(unv))*T23(qsq,unv)) )
+                 - Imnf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))-(C10Re(smwc,unv)-C10RHRe(npwc,unv)))
+                                                          *16.0*mBd(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))
+                                                          *(8.0*mBd(unv)*pow(mKst(unv),2.0)*(mBd(unv)-mKst(unv))*T23(qsq,unv)) ));}
+
+double BdtoKstrll_amperr::AzbRRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -1.0*(Renf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))+(C10Re(smwc,unv)-C10RHRe(npwc,unv)))
+                                                          *16.0*mBd(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))
+                                                          *(8.0*mBd(unv)*pow(mKst(unv),2.0)*(mBd(unv)-mKst(unv))*T23(qsq,unv)) )
+                 + Imnf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))+(C10Im(smwc,unv)-C10RHIm(npwc,unv)))
+                                                          *16.0*mBd(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))
+                                                          *(8.0*mBd(unv)*pow(mKst(unv),2.0)*(mBd(unv)-mKst(unv))*T23(qsq,unv)) ));}
+double BdtoKstrll_amperr::AzbRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -1.0*(Renf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))+(C10Im(smwc,unv)-C10RHIm(npwc,unv)))
+                                                          *16.0*mBd(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))
+                                                          *(8.0*mBd(unv)*pow(mKst(unv),2.0)*(mBd(unv)-mKst(unv))*T23(qsq,unv)) )
+                 - Imnf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))+(C10Re(smwc,unv)-C10RHRe(npwc,unv)))
+                                                          *16.0*mBd(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBd(unv),2.0)-pow(mKst(unv),2.0))*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))
+                                                          *(8.0*mBd(unv)*pow(mKst(unv),2.0)*(mBd(unv)-mKst(unv))*T23(qsq,unv)) ));}
+
+double BdtoKstrll_amperr::AtbRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return Renf(qsq,ml,unv)*sqrt(lambda(qsq,unv)/qsq)*(2.0*(C10Re(smwc,unv)-C10RHRe(npwc,unv)) + qsq/ml*(CPRe(npwc,unv)-CPRHRe(npwc,unv)))*A0(qsq,unv)
+    + Imnf(qsq,ml,unv)*sqrt(lambda(qsq,unv)/qsq)*(2.0*(C10Im(smwc,unv)-C10RHIm(npwc,unv)) + qsq/ml*(CPIm(npwc,unv)-CPRHIm(npwc,unv)))*A0(qsq,unv);}
+double BdtoKstrll_amperr::AtbIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return Renf(qsq,ml,unv)*sqrt(lambda(qsq,unv)/qsq)*(2.0*(C10Im(smwc,unv)-C10RHIm(npwc,unv)) + qsq/ml*(CPIm(npwc,unv)-CPRHIm(npwc,unv)))*A0(qsq,unv)
+    - Imnf(qsq,ml,unv)*sqrt(lambda(qsq,unv)/qsq)*(2.0*(C10Re(smwc,unv)-C10RHRe(npwc,unv)) + qsq/ml*(CPRe(npwc,unv)-CPRHRe(npwc,unv)))*A0(qsq,unv);}
+
+double BdtoKstrll_amperr::ASbRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -2.0*(Renf(qsq,ml,unv)*sqrt(lambda(qsq,unv))*(CSRe(npwc,unv)-CSRHRe(npwc,unv))*A0(qsq,unv)
+                 + Imnf(qsq,ml,unv)*sqrt(lambda(qsq,unv))*(CSIm(npwc,unv)-CSRHIm(npwc,unv))*A0(qsq,unv));}
+double BdtoKstrll_amperr::ASbIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -2.0*(Renf(qsq,ml,unv)*sqrt(lambda(qsq,unv))*(CSIm(npwc,unv)-CSRHIm(npwc,unv))*A0(qsq,unv)
+                 - Imnf(qsq,ml,unv)*sqrt(lambda(qsq,unv))*(CSRe(npwc,unv)-CSRHRe(npwc,unv))*A0(qsq,unv));}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -141,64 +298,220 @@ double Bstophill_amperr::betal(double qsq, double ml){return sqrt(1.0-4.0*pow(ml
 double Bstophill_amperr::lambda(double qsq, double unv[]){
     return pow(qsq,2.0)+pow(mBs(unv),4.0)+pow(mKst(unv),4.0)-2.0*(pow(mBs(unv)*mKst(unv),2.0)+qsq*pow(mBs(unv),2.0)+qsq*pow(mKst(unv),2.0));}
 
-double Bstophill_amperr:: nf(double qsq, double ml, double unv[]){
-    return absVtbVtsStr(unv)*sqrt( pow(GF()*alpha_e(),2.0)*qsq*sqrt(lambda(qsq,unv))*betal(qsq,ml)/(3.0*pow(2.0,10.0)*pow(pi,5.0)*pow(mBs(unv),3.0)) );}
+double Bstophill_amperr:: Renf(double qsq, double ml, double unv[]){
+    return ReVtbVtsStr(unv)*sqrt( pow(GF()*alpha_e(),2.0)*qsq*sqrt(lambda(qsq, unv))*betal(qsq,ml)/(3.0*pow(2.0,10.0)*pow(pi,5.0)*pow(mBs(unv),3.0)) );}
+
+double Bstophill_amperr:: Imnf(double qsq, double ml, double unv[]){
+    return ImVtbVtsStr(unv)*sqrt( pow(GF()*alpha_e(),2.0)*qsq*sqrt(lambda(qsq, unv))*betal(qsq,ml)/(3.0*pow(2.0,10.0)*pow(pi,5.0)*pow(mBs(unv),3.0)) );}
 
 double Bstophill_amperr::ApLRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return nf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effRe(qsq,smwc,npwc,unv)+C9RHRe(npwc,unv))-(C10Re(smwc,unv)+C10RHRe(npwc,unv)))*V(qsq,unv)/(mBs(unv)+mKst(unv))
-                                                     + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)+C7RHRe(npwc,unv))*T1(qsq,unv));}
-double Bstophill_amperr::ApLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return nf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effIm(qsq,smwc,npwc,unv)+C9RHIm(npwc,unv))-(C10Im(smwc,unv)+C10RHIm(npwc,unv)))*V(qsq,unv)/(mBs(unv)+mKst(unv))
+    return Renf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effRe(qsq,smwc,npwc,unv)+C9RHRe(npwc,unv))-(C10Re(smwc,unv)+C10RHRe(npwc,unv)))*V(qsq,unv)/(mBs(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)+C7RHRe(npwc,unv))*T1(qsq,unv))
+    - Imnf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effIm(qsq,smwc,npwc,unv)+C9RHIm(npwc,unv))-(C10Im(smwc,unv)+C10RHIm(npwc,unv)))*V(qsq,unv)/(mBs(unv)+mKst(unv))
                                                      + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)+C7RHIm(npwc,unv))*T1(qsq,unv));}
+double Bstophill_amperr::ApLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return Renf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effIm(qsq,smwc,npwc,unv)+C9RHIm(npwc,unv))-(C10Im(smwc,unv)+C10RHIm(npwc,unv)))*V(qsq,unv)/(mBs(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)+C7RHIm(npwc,unv))*T1(qsq,unv))
+    + Imnf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effRe(qsq,smwc,npwc,unv)+C9RHRe(npwc,unv))-(C10Re(smwc,unv)+C10RHRe(npwc,unv)))*V(qsq,unv)/(mBs(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)+C7RHRe(npwc,unv))*T1(qsq,unv));}
 
 double Bstophill_amperr::ApRRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return nf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effRe(qsq,smwc,npwc,unv)+C9RHRe(npwc,unv))+(C10Re(smwc,unv)+C10RHRe(npwc,unv)))*V(qsq,unv)/(mBs(unv)+mKst(unv))
-                                                     + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)+C7RHRe(npwc,unv))*T1(qsq,unv));}
-double Bstophill_amperr::ApRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return nf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effIm(qsq,smwc,npwc,unv)+C9RHIm(npwc,unv))+(C10Im(smwc,unv)+C10RHIm(npwc,unv)))*V(qsq,unv)/(mBs(unv)+mKst(unv))
+    return Renf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effRe(qsq,smwc,npwc,unv)+C9RHRe(npwc,unv))+(C10Re(smwc,unv)+C10RHRe(npwc,unv)))*V(qsq,unv)/(mBs(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)+C7RHRe(npwc,unv))*T1(qsq,unv))
+    - Imnf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effIm(qsq,smwc,npwc,unv)+C9RHIm(npwc,unv))+(C10Im(smwc,unv)+C10RHIm(npwc,unv)))*V(qsq,unv)/(mBs(unv)+mKst(unv))
                                                      + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)+C7RHIm(npwc,unv))*T1(qsq,unv));}
+double Bstophill_amperr::ApRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return Renf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effIm(qsq,smwc,npwc,unv)+C9RHIm(npwc,unv))+(C10Im(smwc,unv)+C10RHIm(npwc,unv)))*V(qsq,unv)/(mBs(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)+C7RHIm(npwc,unv))*T1(qsq,unv))
+    + Imnf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effRe(qsq,smwc,npwc,unv)+C9RHRe(npwc,unv))+(C10Re(smwc,unv)+C10RHRe(npwc,unv)))*V(qsq,unv)/(mBs(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)+C7RHRe(npwc,unv))*T1(qsq,unv));}
 
 double Bstophill_amperr::AaLRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return -1.0*nf(qsq,ml,unv)*sqrt(2.0)*(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))
+    return -1.0*(Renf(qsq,ml,unv)*sqrt(2.0)*(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))
                                         -(C10Re(smwc,unv)-C10RHRe(npwc,unv)))*A1(qsq,unv)/(mBs(unv)-mKst(unv))
-                                        + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*T2(qsq,unv));}
-double Bstophill_amperr::AaLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return -1.0*nf(qsq,ml,unv)*sqrt(2.0)*(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))
+                                        + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*T2(qsq,unv))
+                 - Imnf(qsq,ml,unv)*sqrt(2.0)*(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))
                                         -(C10Im(smwc,unv)-C10RHIm(npwc,unv)))*A1(qsq,unv)/(mBs(unv)-mKst(unv))
-                                        + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*T2(qsq,unv));}
+                                        + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*T2(qsq,unv)));}
+double Bstophill_amperr::AaLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -1.0*(Renf(qsq,ml,unv)*sqrt(2.0)*(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))
+                                        -(C10Im(smwc,unv)-C10RHIm(npwc,unv)))*A1(qsq,unv)/(mBs(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*T2(qsq,unv))
+                 + Imnf(qsq,ml,unv)*sqrt(2.0)*(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))
+                                        -(C10Re(smwc,unv)-C10RHRe(npwc,unv)))*A1(qsq,unv)/(mBs(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*T2(qsq,unv)));}
 
 double Bstophill_amperr::AaRRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return -1.0*nf(qsq,ml,unv)*sqrt(2.0)*(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))
+    return -1.0*(Renf(qsq,ml,unv)*sqrt(2.0)*(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))
                                         +(C10Re(smwc,unv)-C10RHRe(npwc,unv)))*A1(qsq,unv)/(mBs(unv)-mKst(unv))
-                                        + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*T2(qsq,unv));}
-double Bstophill_amperr::AaRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return -1.0*nf(qsq,ml,unv)*sqrt(2.0)*(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))
+                                        + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*T2(qsq,unv))
+                 - Imnf(qsq,ml,unv)*sqrt(2.0)*(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))
                                         +(C10Im(smwc,unv)-C10RHIm(npwc,unv)))*A1(qsq,unv)/(mBs(unv)-mKst(unv))
-                                        + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*T2(qsq,unv));}
+                                        + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*T2(qsq,unv)));}
+double Bstophill_amperr::AaRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -1.0*(Renf(qsq,ml,unv)*sqrt(2.0)*(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))
+                                        +(C10Im(smwc,unv)-C10RHIm(npwc,unv)))*A1(qsq,unv)/(mBs(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*T2(qsq,unv))
+                 + Imnf(qsq,ml,unv)*sqrt(2.0)*(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))
+                                        +(C10Re(smwc,unv)-C10RHRe(npwc,unv)))*A1(qsq,unv)/(mBs(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*T2(qsq,unv)));}
 
 double Bstophill_amperr::AzLRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return -1.0*nf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))-(C10Re(smwc,unv)-C10RHRe(npwc,unv)))*16.0*mBs(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
-            + 2.0*mb(unv)/(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*(8.0*mBs(unv)*pow(mKst(unv),2.0)*(mBs(unv)-mKst(unv))*T23(qsq,unv)) );}
+    return -1.0*(Renf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))-(C10Re(smwc,unv)-C10RHRe(npwc,unv)))
+                                                          *16.0*mBs(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))
+                                                          *(8.0*mBs(unv)*pow(mKst(unv),2.0)*(mBs(unv)-mKst(unv))*T23(qsq,unv)) )
+                 - Imnf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))-(C10Im(smwc,unv)-C10RHIm(npwc,unv)))
+                                                          *16.0*mBs(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))
+                                                          *(8.0*mBs(unv)*pow(mKst(unv),2.0)*(mBs(unv)-mKst(unv))*T23(qsq,unv)) ));}
 double Bstophill_amperr::AzLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return -1.0*nf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))-(C10Im(smwc,unv)-C10RHIm(npwc,unv)))*16.0*mBs(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
-            + 2.0*mb(unv)/(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*(8.0*mBs(unv)*pow(mKst(unv),2.0)*(mBs(unv)-mKst(unv))*T23(qsq,unv)) );}
+    return -1.0*(Renf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))-(C10Im(smwc,unv)-C10RHIm(npwc,unv)))
+                                                          *16.0*mBs(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))
+                                                          *(8.0*mBs(unv)*pow(mKst(unv),2.0)*(mBs(unv)-mKst(unv))*T23(qsq,unv)) )
+                 + Imnf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))-(C10Re(smwc,unv)-C10RHRe(npwc,unv)))
+                                                          *16.0*mBs(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))
+                                                          *(8.0*mBs(unv)*pow(mKst(unv),2.0)*(mBs(unv)-mKst(unv))*T23(qsq,unv)) ));}
 
 double Bstophill_amperr::AzRRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return -1.0*nf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))+(C10Re(smwc,unv)-C10RHRe(npwc,unv)))*16.0*mBs(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
-            + 2.0*mb(unv)/(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*(8.0*mBs(unv)*pow(mKst(unv),2.0)*(mBs(unv)-mKst(unv))*T23(qsq,unv)) );}
+    return -1.0*(Renf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))+(C10Re(smwc,unv)-C10RHRe(npwc,unv)))
+                                                          *16.0*mBs(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))
+                                                          *(8.0*mBs(unv)*pow(mKst(unv),2.0)*(mBs(unv)-mKst(unv))*T23(qsq,unv)) )
+                 - Imnf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))+(C10Im(smwc,unv)-C10RHIm(npwc,unv)))
+                                                          *16.0*mBs(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))
+                                                          *(8.0*mBs(unv)*pow(mKst(unv),2.0)*(mBs(unv)-mKst(unv))*T23(qsq,unv)) ));}
 double Bstophill_amperr::AzRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return -1.0*nf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))+(C10Im(smwc,unv)-C10RHIm(npwc,unv)))*16.0*mBs(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
-            + 2.0*mb(unv)/(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*(8.0*mBs(unv)*pow(mKst(unv),2.0)*(mBs(unv)-mKst(unv))*T23(qsq,unv)) );}
+    return -1.0*(Renf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))+(C10Im(smwc,unv)-C10RHIm(npwc,unv)))
+                                                          *16.0*mBs(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))
+                                                          *(8.0*mBs(unv)*pow(mKst(unv),2.0)*(mBs(unv)-mKst(unv))*T23(qsq,unv)) )
+                 + Imnf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))+(C10Re(smwc,unv)-C10RHRe(npwc,unv)))
+                                                          *16.0*mBs(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))
+                                                          *(8.0*mBs(unv)*pow(mKst(unv),2.0)*(mBs(unv)-mKst(unv))*T23(qsq,unv)) ));}
 
 double Bstophill_amperr::AtRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return nf(qsq,ml,unv)*sqrt(lambda(qsq,unv)/qsq)*(2.0*(C10Re(smwc,unv)-C10RHRe(npwc,unv)) + qsq/ml*(CPRe(npwc,unv)-CPRHRe(npwc,unv)))*A0(qsq,unv);}
+    return Renf(qsq,ml,unv)*sqrt(lambda(qsq,unv)/qsq)*(2.0*(C10Re(smwc,unv)-C10RHRe(npwc,unv)) + qsq/ml*(CPRe(npwc,unv)-CPRHRe(npwc,unv)))*A0(qsq,unv)
+    - Imnf(qsq,ml,unv)*sqrt(lambda(qsq,unv)/qsq)*(2.0*(C10Im(smwc,unv)-C10RHIm(npwc,unv)) + qsq/ml*(CPIm(npwc,unv)-CPRHIm(npwc,unv)))*A0(qsq,unv);}
 double Bstophill_amperr::AtIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return nf(qsq,ml,unv)*sqrt(lambda(qsq,unv)/qsq)*(2.0*(C10Im(smwc,unv)-C10RHIm(npwc,unv)) + qsq/ml*(CPIm(npwc,unv)-CPRHIm(npwc,unv)))*A0(qsq,unv);}
+    return Renf(qsq,ml,unv)*sqrt(lambda(qsq,unv)/qsq)*(2.0*(C10Im(smwc,unv)-C10RHIm(npwc,unv)) + qsq/ml*(CPIm(npwc,unv)-CPRHIm(npwc,unv)))*A0(qsq,unv)
+    + Imnf(qsq,ml,unv)*sqrt(lambda(qsq,unv)/qsq)*(2.0*(C10Re(smwc,unv)-C10RHRe(npwc,unv)) + qsq/ml*(CPRe(npwc,unv)-CPRHRe(npwc,unv)))*A0(qsq,unv);}
 
 double Bstophill_amperr::ASRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return -2.0*nf(qsq,ml,unv)*sqrt(lambda(qsq,unv))*(CSRe(npwc,unv)-CSRHRe(npwc,unv))*A0(qsq,unv);}
+    return -2.0*(Renf(qsq,ml,unv)*sqrt(lambda(qsq,unv))*(CSRe(npwc,unv)-CSRHRe(npwc,unv))*A0(qsq,unv)
+                 - Imnf(qsq,ml,unv)*sqrt(lambda(qsq,unv))*(CSIm(npwc,unv)-CSRHIm(npwc,unv))*A0(qsq,unv));}
 double Bstophill_amperr::ASIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
-    return -2.0*nf(qsq,ml,unv)*sqrt(lambda(qsq,unv))*(CSIm(npwc,unv)-CSRHIm(npwc,unv))*A0(qsq,unv);}
+    return -2.0*(Renf(qsq,ml,unv)*sqrt(lambda(qsq,unv))*(CSIm(npwc,unv)-CSRHIm(npwc,unv))*A0(qsq,unv)
+                 + Imnf(qsq,ml,unv)*sqrt(lambda(qsq,unv))*(CSRe(npwc,unv)-CSRHRe(npwc,unv))*A0(qsq,unv));}
+
+//Conjugate Amplitudes
+double Bstophill_amperr::ApbLRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return Renf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effRe(qsq,smwc,npwc,unv)+C9RHRe(npwc,unv))-(C10Re(smwc,unv)+C10RHRe(npwc,unv)))*V(qsq,unv)/(mBs(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)+C7RHRe(npwc,unv))*T1(qsq,unv))
+    + Imnf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effIm(qsq,smwc,npwc,unv)+C9RHIm(npwc,unv))-(C10Im(smwc,unv)+C10RHIm(npwc,unv)))*V(qsq,unv)/(mBs(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)+C7RHIm(npwc,unv))*T1(qsq,unv));}
+double Bstophill_amperr::ApbLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return Renf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effIm(qsq,smwc,npwc,unv)+C9RHIm(npwc,unv))-(C10Im(smwc,unv)+C10RHIm(npwc,unv)))*V(qsq,unv)/(mBs(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)+C7RHIm(npwc,unv))*T1(qsq,unv))
+    - Imnf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effRe(qsq,smwc,npwc,unv)+C9RHRe(npwc,unv))-(C10Re(smwc,unv)+C10RHRe(npwc,unv)))*V(qsq,unv)/(mBs(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)+C7RHRe(npwc,unv))*T1(qsq,unv));}
+
+double Bstophill_amperr::ApbRRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return Renf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effRe(qsq,smwc,npwc,unv)+C9RHRe(npwc,unv))+(C10Re(smwc,unv)+C10RHRe(npwc,unv)))*V(qsq,unv)/(mBs(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)+C7RHRe(npwc,unv))*T1(qsq,unv))
+    + Imnf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effIm(qsq,smwc,npwc,unv)+C9RHIm(npwc,unv))+(C10Im(smwc,unv)+C10RHIm(npwc,unv)))*V(qsq,unv)/(mBs(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)+C7RHIm(npwc,unv))*T1(qsq,unv));}
+double Bstophill_amperr::ApbRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return Renf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effIm(qsq,smwc,npwc,unv)+C9RHIm(npwc,unv))+(C10Im(smwc,unv)+C10RHIm(npwc,unv)))*V(qsq,unv)/(mBs(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)+C7RHIm(npwc,unv))*T1(qsq,unv))
+    - Imnf(qsq,ml,unv)*sqrt(2.0*lambda(qsq,unv))*(((C9effRe(qsq,smwc,npwc,unv)+C9RHRe(npwc,unv))+(C10Re(smwc,unv)+C10RHRe(npwc,unv)))*V(qsq,unv)/(mBs(unv)+mKst(unv))
+                                                     + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)+C7RHRe(npwc,unv))*T1(qsq,unv));}
+
+double Bstophill_amperr::AabLRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -1.0*(Renf(qsq,ml,unv)*sqrt(2.0)*(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))
+                                        -(C10Re(smwc,unv)-C10RHRe(npwc,unv)))*A1(qsq,unv)/(mBs(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*T2(qsq,unv))
+                 + Imnf(qsq,ml,unv)*sqrt(2.0)*(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))
+                                        -(C10Im(smwc,unv)-C10RHIm(npwc,unv)))*A1(qsq,unv)/(mBs(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*T2(qsq,unv)));}
+double Bstophill_amperr::AabLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -1.0*(Renf(qsq,ml,unv)*sqrt(2.0)*(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))
+                                        -(C10Im(smwc,unv)-C10RHIm(npwc,unv)))*A1(qsq,unv)/(mBs(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*T2(qsq,unv))
+                 - Imnf(qsq,ml,unv)*sqrt(2.0)*(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))
+                                        -(C10Re(smwc,unv)-C10RHRe(npwc,unv)))*A1(qsq,unv)/(mBs(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*T2(qsq,unv)));}
+
+double Bstophill_amperr::AabRRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -1.0*(Renf(qsq,ml,unv)*sqrt(2.0)*(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))
+                                        +(C10Re(smwc,unv)-C10RHRe(npwc,unv)))*A1(qsq,unv)/(mBs(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*T2(qsq,unv))
+                 + Imnf(qsq,ml,unv)*sqrt(2.0)*(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))
+                                        +(C10Im(smwc,unv)-C10RHIm(npwc,unv)))*A1(qsq,unv)/(mBs(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*T2(qsq,unv)));}
+double Bstophill_amperr::AabRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -1.0*(Renf(qsq,ml,unv)*sqrt(2.0)*(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))
+                                        +(C10Im(smwc,unv)-C10RHIm(npwc,unv)))*A1(qsq,unv)/(mBs(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))*T2(qsq,unv))
+                 - Imnf(qsq,ml,unv)*sqrt(2.0)*(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))
+                                        +(C10Re(smwc,unv)-C10RHRe(npwc,unv)))*A1(qsq,unv)/(mBs(unv)-mKst(unv))
+                                        + 2.0*mb(unv)/qsq*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))*T2(qsq,unv)));}
+
+double Bstophill_amperr::AzbLRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -1.0*(Renf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))-(C10Re(smwc,unv)-C10RHRe(npwc,unv)))
+                                                          *16.0*mBs(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))
+                                                          *(8.0*mBs(unv)*pow(mKst(unv),2.0)*(mBs(unv)-mKst(unv))*T23(qsq,unv)) )
+                 + Imnf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))-(C10Im(smwc,unv)-C10RHIm(npwc,unv)))
+                                                          *16.0*mBs(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))
+                                                          *(8.0*mBs(unv)*pow(mKst(unv),2.0)*(mBs(unv)-mKst(unv))*T23(qsq,unv)) ));}
+double Bstophill_amperr::AzbLIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -1.0*(Renf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))-(C10Im(smwc,unv)-C10RHIm(npwc,unv)))
+                                                          *16.0*mBs(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))
+                                                          *(8.0*mBs(unv)*pow(mKst(unv),2.0)*(mBs(unv)-mKst(unv))*T23(qsq,unv)) )
+                 - Imnf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))-(C10Re(smwc,unv)-C10RHRe(npwc,unv)))
+                                                          *16.0*mBs(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))
+                                                          *(8.0*mBs(unv)*pow(mKst(unv),2.0)*(mBs(unv)-mKst(unv))*T23(qsq,unv)) ));}
+
+double Bstophill_amperr::AzbRRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -1.0*(Renf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))+(C10Re(smwc,unv)-C10RHRe(npwc,unv)))
+                                                          *16.0*mBs(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))
+                                                          *(8.0*mBs(unv)*pow(mKst(unv),2.0)*(mBs(unv)-mKst(unv))*T23(qsq,unv)) )
+                 + Imnf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))+(C10Im(smwc,unv)-C10RHIm(npwc,unv)))
+                                                          *16.0*mBs(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))
+                                                          *(8.0*mBs(unv)*pow(mKst(unv),2.0)*(mBs(unv)-mKst(unv))*T23(qsq,unv)) ));}
+double Bstophill_amperr::AzbRIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -1.0*(Renf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effIm(qsq,smwc,npwc,unv)-C9RHIm(npwc,unv))+(C10Im(smwc,unv)-C10RHIm(npwc,unv)))
+                                                          *16.0*mBs(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(C7effIm(smwc,unv)-C7RHIm(npwc,unv))
+                                                          *(8.0*mBs(unv)*pow(mKst(unv),2.0)*(mBs(unv)-mKst(unv))*T23(qsq,unv)) )
+                 - Imnf(qsq,ml,unv)/(2.0*mKst(unv)*sqrt(qsq))*( ((C9effRe(qsq,smwc,npwc,unv)-C9RHRe(npwc,unv))+(C10Re(smwc,unv)-C10RHRe(npwc,unv)))
+                                                          *16.0*mBs(unv)*mKst(unv)*mKst(unv)*A12(qsq,unv)
+                    + 2.0*mb(unv)/(pow(mBs(unv),2.0)-pow(mKst(unv),2.0))*(C7effRe(smwc,unv)-C7RHRe(npwc,unv))
+                                                          *(8.0*mBs(unv)*pow(mKst(unv),2.0)*(mBs(unv)-mKst(unv))*T23(qsq,unv)) ));}
+
+double Bstophill_amperr::AtbRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return Renf(qsq,ml,unv)*sqrt(lambda(qsq,unv)/qsq)*(2.0*(C10Re(smwc,unv)-C10RHRe(npwc,unv)) + qsq/ml*(CPRe(npwc,unv)-CPRHRe(npwc,unv)))*A0(qsq,unv)
+    + Imnf(qsq,ml,unv)*sqrt(lambda(qsq,unv)/qsq)*(2.0*(C10Im(smwc,unv)-C10RHIm(npwc,unv)) + qsq/ml*(CPIm(npwc,unv)-CPRHIm(npwc,unv)))*A0(qsq,unv);}
+double Bstophill_amperr::AtbIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return Renf(qsq,ml,unv)*sqrt(lambda(qsq,unv)/qsq)*(2.0*(C10Im(smwc,unv)-C10RHIm(npwc,unv)) + qsq/ml*(CPIm(npwc,unv)-CPRHIm(npwc,unv)))*A0(qsq,unv)
+    - Imnf(qsq,ml,unv)*sqrt(lambda(qsq,unv)/qsq)*(2.0*(C10Re(smwc,unv)-C10RHRe(npwc,unv)) + qsq/ml*(CPRe(npwc,unv)-CPRHRe(npwc,unv)))*A0(qsq,unv);}
+
+double Bstophill_amperr::ASbRe(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -2.0*(Renf(qsq,ml,unv)*sqrt(lambda(qsq,unv))*(CSRe(npwc,unv)-CSRHRe(npwc,unv))*A0(qsq,unv)
+                 + Imnf(qsq,ml,unv)*sqrt(lambda(qsq,unv))*(CSIm(npwc,unv)-CSRHIm(npwc,unv))*A0(qsq,unv));}
+double Bstophill_amperr::ASbIm(double qsq, double ml, double smwc[], double npwc[], double unv[]){
+    return -2.0*(Renf(qsq,ml,unv)*sqrt(lambda(qsq,unv))*(CSIm(npwc,unv)-CSRHIm(npwc,unv))*A0(qsq,unv)
+                 - Imnf(qsq,ml,unv)*sqrt(lambda(qsq,unv))*(CSRe(npwc,unv)-CSRHRe(npwc,unv))*A0(qsq,unv));}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -21,9 +21,42 @@ public:
     double J7(double qsq, double ml);
     double J8(double qsq, double ml);
     double J9(double qsq, double ml);
+    //Conjugate J's
+    double J1bs(double qsq, double ml);
+    double J1bc(double qsq, double ml);
+    double J1b(double qsq, double ml);
+    double J2bs(double qsq, double ml);
+    double J2bc(double qsq, double ml);
+    double J2b(double qsq, double ml);
+    double J3b(double qsq, double ml);
+    double J4b(double qsq, double ml);
+    double J5b(double qsq, double ml);
+    double J6bs(double qsq, double ml);
+    double J6bc(double qsq, double ml);
+    double J6b(double qsq, double ml);
+    double J7b(double qsq, double ml);
+    double J8b(double qsq, double ml);
+    double J9b(double qsq, double ml);
+    //Observables
     double diffWidth(double qsq, double ml);
+    double diffWidthConj(double qsq, double ml);
     double FL(double qsq, double ml);
     double AFB(double qsq, double ml);
+    double P1(double qsq, double ml);
+    double P2(double qsq, double ml);
+    double P4p(double qsq, double ml);
+    double P5p(double qsq, double ml);
+    double P6p(double qsq, double ml);
+    double P8p(double qsq, double ml);
+    double S1(double qsq, double ml);
+    double S2(double qsq, double ml);
+    double S3(double qsq, double ml);
+    double S4(double qsq, double ml);
+    double S5(double qsq, double ml);
+    double S6(double qsq, double ml);
+    double S7(double qsq, double ml);
+    double S8(double qsq, double ml);
+    double S9(double qsq, double ml);
 };
 
 //Bs->phi,ll:
@@ -44,9 +77,42 @@ public:
     double J7(double qsq, double ml);
     double J8(double qsq, double ml);
     double J9(double qsq, double ml);
+    //Conjugate J's
+    double J1bs(double qsq, double ml);
+    double J1bc(double qsq, double ml);
+    double J1b(double qsq, double ml);
+    double J2bs(double qsq, double ml);
+    double J2bc(double qsq, double ml);
+    double J2b(double qsq, double ml);
+    double J3b(double qsq, double ml);
+    double J4b(double qsq, double ml);
+    double J5b(double qsq, double ml);
+    double J6bs(double qsq, double ml);
+    double J6bc(double qsq, double ml);
+    double J6b(double qsq, double ml);
+    double J7b(double qsq, double ml);
+    double J8b(double qsq, double ml);
+    double J9b(double qsq, double ml);
+    //Observables
     double diffWidth(double qsq, double ml);
+    double diffWidthConj(double qsq, double ml);
     double FL(double qsq, double ml);
     double AFB(double qsq, double ml);
+    double P1(double qsq, double ml);
+    double P2(double qsq, double ml);
+    double P4p(double qsq, double ml);
+    double P5p(double qsq, double ml);
+    double P6p(double qsq, double ml);
+    double P8p(double qsq, double ml);
+    double S1(double qsq, double ml);
+    double S2(double qsq, double ml);
+    double S3(double qsq, double ml);
+    double S4(double qsq, double ml);
+    double S5(double qsq, double ml);
+    double S6(double qsq, double ml);
+    double S7(double qsq, double ml);
+    double S8(double qsq, double ml);
+    double S9(double qsq, double ml);
 };
 
 //Bd->K,ll
