@@ -969,17 +969,17 @@ void get_obsplot::BtoVll_obsplot(string s, double smwc[], double npwc[]){
     //B0->K*ee
     else if(s=="AFB(B0->K*ee)")
     {
-        double qmin(4*pow(eo1.mtau(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
+        double qmin(4*pow(eo1.me(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
         double q2[n], c_obs[n], pe_obs[n], me_obs[n];
         double data[iter]; double unv[72];
         for(int i=0; i<n; i++)
             {
                 q2[i] = qmin + (i+1)*(qmax-qmin)/(n+1);
-                c_obs[i] = eo1.AFB(q2[i],eo1.mtau(unv0),smwc,npwc,unv0);
+                c_obs[i] = eo1.AFB(q2[i],eo1.me(unv0),smwc,npwc,unv0);
                 for(int j=0;j<iter;j++)
                     {
                         for(int k=0;k<72;k++) {unv[k] = eo1.mnd_default();}
-                        data[j]=eo1.AFB(q2[i],eo1.mtau(unv),smwc,npwc,unv);
+                        data[j]=eo1.AFB(q2[i],eo1.me(unv),smwc,npwc,unv);
                     }
                 sort(data,data+iter);
                 me_obs[i] = data[sdcl]; pe_obs[i] = data[iter-sdcl-1];
@@ -994,17 +994,17 @@ void get_obsplot::BtoVll_obsplot(string s, double smwc[], double npwc[]){
 
     else if(s=="FL(B0->K*ee)")
     {
-        double qmin(4*pow(eo1.mtau(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
+        double qmin(4*pow(eo1.me(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
         double q2[n], c_obs[n], pe_obs[n], me_obs[n];
         double data[iter]; double unv[72];
         for(int i=0; i<n; i++)
             {
                 q2[i] = qmin + (i+1)*(qmax-qmin)/(n+1);
-                c_obs[i] = eo1.FL(q2[i],eo1.mtau(unv0),smwc,npwc,unv0);
+                c_obs[i] = eo1.FL(q2[i],eo1.me(unv0),smwc,npwc,unv0);
                 for(int j=0;j<iter;j++)
                     {
                         for(int k=0;k<72;k++) {unv[k] = eo1.mnd_default();}
-                        data[j]=eo1.FL(q2[i],eo1.mtau(unv),smwc,npwc,unv);
+                        data[j]=eo1.FL(q2[i],eo1.me(unv),smwc,npwc,unv);
                     }
                 sort(data,data+iter);
                 me_obs[i] = data[sdcl]; pe_obs[i] = data[iter-sdcl-1];
@@ -1019,17 +1019,17 @@ void get_obsplot::BtoVll_obsplot(string s, double smwc[], double npwc[]){
 
     else if(s=="P1(B0->K*ee)")
     {
-        double qmin(4*pow(eo1.mtau(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
+        double qmin(4*pow(eo1.me(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
         double q2[n], c_obs[n], pe_obs[n], me_obs[n];
         double data[iter]; double unv[72];
         for(int i=0; i<n; i++)
             {
                 q2[i] = qmin + (i+1)*(qmax-qmin)/(n+1);
-                c_obs[i] = eo1.P1(q2[i],eo1.mtau(unv0),smwc,npwc,unv0);
+                c_obs[i] = eo1.P1(q2[i],eo1.me(unv0),smwc,npwc,unv0);
                 for(int j=0;j<iter;j++)
                     {
                         for(int k=0;k<72;k++) {unv[k] = eo1.mnd_default();}
-                        data[j]=eo1.P1(q2[i],eo1.mtau(unv),smwc,npwc,unv);
+                        data[j]=eo1.P1(q2[i],eo1.me(unv),smwc,npwc,unv);
                     }
                 sort(data,data+iter);
                 me_obs[i] = data[sdcl]; pe_obs[i] = data[iter-sdcl-1];
@@ -1044,17 +1044,17 @@ void get_obsplot::BtoVll_obsplot(string s, double smwc[], double npwc[]){
 
     else if(s=="P2(B0->K*ee)")
     {
-        double qmin(4*pow(eo1.mtau(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
+        double qmin(4*pow(eo1.me(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
         double q2[n], c_obs[n], pe_obs[n], me_obs[n];
         double data[iter]; double unv[72];
         for(int i=0; i<n; i++)
             {
                 q2[i] = qmin + (i+1)*(qmax-qmin)/(n+1);
-                c_obs[i] = eo1.P2(q2[i],eo1.mtau(unv0),smwc,npwc,unv0);
+                c_obs[i] = eo1.P2(q2[i],eo1.me(unv0),smwc,npwc,unv0);
                 for(int j=0;j<iter;j++)
                     {
                         for(int k=0;k<72;k++) {unv[k] = eo1.mnd_default();}
-                        data[j]=eo1.P2(q2[i],eo1.mtau(unv),smwc,npwc,unv);
+                        data[j]=eo1.P2(q2[i],eo1.me(unv),smwc,npwc,unv);
                     }
                 sort(data,data+iter);
                 me_obs[i] = data[sdcl]; pe_obs[i] = data[iter-sdcl-1];
@@ -1069,17 +1069,17 @@ void get_obsplot::BtoVll_obsplot(string s, double smwc[], double npwc[]){
 
     else if(s=="P4p(B0->K*ee)")
     {
-        double qmin(4*pow(eo1.mtau(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
+        double qmin(4*pow(eo1.me(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
         double q2[n], c_obs[n], pe_obs[n], me_obs[n];
         double data[iter]; double unv[72];
         for(int i=0; i<n; i++)
             {
                 q2[i] = qmin + (i+1)*(qmax-qmin)/(n+1);
-                c_obs[i] = eo1.P4p(q2[i],eo1.mtau(unv0),smwc,npwc,unv0);
+                c_obs[i] = eo1.P4p(q2[i],eo1.me(unv0),smwc,npwc,unv0);
                 for(int j=0;j<iter;j++)
                     {
                         for(int k=0;k<72;k++) {unv[k] = eo1.mnd_default();}
-                        data[j]=eo1.P4p(q2[i],eo1.mtau(unv),smwc,npwc,unv);
+                        data[j]=eo1.P4p(q2[i],eo1.me(unv),smwc,npwc,unv);
                     }
                 sort(data,data+iter);
                 me_obs[i] = data[sdcl]; pe_obs[i] = data[iter-sdcl-1];
@@ -1094,17 +1094,17 @@ void get_obsplot::BtoVll_obsplot(string s, double smwc[], double npwc[]){
 
     else if(s=="P5p(B0->K*ee)")
     {
-        double qmin(4*pow(eo1.mtau(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
+        double qmin(4*pow(eo1.me(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
         double q2[n], c_obs[n], pe_obs[n], me_obs[n];
         double data[iter]; double unv[72];
         for(int i=0; i<n; i++)
             {
                 q2[i] = qmin + (i+1)*(qmax-qmin)/(n+1);
-                c_obs[i] = eo1.P5p(q2[i],eo1.mtau(unv0),smwc,npwc,unv0);
+                c_obs[i] = eo1.P5p(q2[i],eo1.me(unv0),smwc,npwc,unv0);
                 for(int j=0;j<iter;j++)
                     {
                         for(int k=0;k<72;k++) {unv[k] = eo1.mnd_default();}
-                        data[j]=eo1.P5p(q2[i],eo1.mtau(unv),smwc,npwc,unv);
+                        data[j]=eo1.P5p(q2[i],eo1.me(unv),smwc,npwc,unv);
                     }
                 sort(data,data+iter);
                 me_obs[i] = data[sdcl]; pe_obs[i] = data[iter-sdcl-1];
@@ -1119,17 +1119,17 @@ void get_obsplot::BtoVll_obsplot(string s, double smwc[], double npwc[]){
 
     else if(s=="P6p(B0->K*ee)")
     {
-        double qmin(4*pow(eo1.mtau(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
+        double qmin(4*pow(eo1.me(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
         double q2[n], c_obs[n], pe_obs[n], me_obs[n];
         double data[iter]; double unv[72];
         for(int i=0; i<n; i++)
             {
                 q2[i] = qmin + (i+1)*(qmax-qmin)/(n+1);
-                c_obs[i] = eo1.P6p(q2[i],eo1.mtau(unv0),smwc,npwc,unv0);
+                c_obs[i] = eo1.P6p(q2[i],eo1.me(unv0),smwc,npwc,unv0);
                 for(int j=0;j<iter;j++)
                     {
                         for(int k=0;k<72;k++) {unv[k] = eo1.mnd_default();}
-                        data[j]=eo1.P6p(q2[i],eo1.mtau(unv),smwc,npwc,unv);
+                        data[j]=eo1.P6p(q2[i],eo1.me(unv),smwc,npwc,unv);
                     }
                 sort(data,data+iter);
                 me_obs[i] = data[sdcl]; pe_obs[i] = data[iter-sdcl-1];
@@ -1144,17 +1144,17 @@ void get_obsplot::BtoVll_obsplot(string s, double smwc[], double npwc[]){
 
     else if(s=="P8p(B0->K*ee)")
     {
-        double qmin(4*pow(eo1.mtau(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
+        double qmin(4*pow(eo1.me(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
         double q2[n], c_obs[n], pe_obs[n], me_obs[n];
         double data[iter]; double unv[72];
         for(int i=0; i<n; i++)
             {
                 q2[i] = qmin + (i+1)*(qmax-qmin)/(n+1);
-                c_obs[i] = eo1.P8p(q2[i],eo1.mtau(unv0),smwc,npwc,unv0);
+                c_obs[i] = eo1.P8p(q2[i],eo1.me(unv0),smwc,npwc,unv0);
                 for(int j=0;j<iter;j++)
                     {
                         for(int k=0;k<72;k++) {unv[k] = eo1.mnd_default();}
-                        data[j]=eo1.P8p(q2[i],eo1.mtau(unv),smwc,npwc,unv);
+                        data[j]=eo1.P8p(q2[i],eo1.me(unv),smwc,npwc,unv);
                     }
                 sort(data,data+iter);
                 me_obs[i] = data[sdcl]; pe_obs[i] = data[iter-sdcl-1];
@@ -1169,17 +1169,17 @@ void get_obsplot::BtoVll_obsplot(string s, double smwc[], double npwc[]){
 
     else if(s=="S1(B0->K*ee)")
     {
-        double qmin(4*pow(eo1.mtau(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
+        double qmin(4*pow(eo1.me(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
         double q2[n], c_obs[n], pe_obs[n], me_obs[n];
         double data[iter]; double unv[72];
         for(int i=0; i<n; i++)
             {
                 q2[i] = qmin + (i+1)*(qmax-qmin)/(n+1);
-                c_obs[i] = eo1.S1(q2[i],eo1.mtau(unv0),smwc,npwc,unv0);
+                c_obs[i] = eo1.S1(q2[i],eo1.me(unv0),smwc,npwc,unv0);
                 for(int j=0;j<iter;j++)
                     {
                         for(int k=0;k<72;k++) {unv[k] = eo1.mnd_default();}
-                        data[j]=eo1.S1(q2[i],eo1.mtau(unv),smwc,npwc,unv);
+                        data[j]=eo1.S1(q2[i],eo1.me(unv),smwc,npwc,unv);
                     }
                 sort(data,data+iter);
                 me_obs[i] = data[sdcl]; pe_obs[i] = data[iter-sdcl-1];
@@ -1194,17 +1194,17 @@ void get_obsplot::BtoVll_obsplot(string s, double smwc[], double npwc[]){
 
     else if(s=="S2(B0->K*ee)")
     {
-        double qmin(4*pow(eo1.mtau(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
+        double qmin(4*pow(eo1.me(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
         double q2[n], c_obs[n], pe_obs[n], me_obs[n];
         double data[iter]; double unv[72];
         for(int i=0; i<n; i++)
             {
                 q2[i] = qmin + (i+1)*(qmax-qmin)/(n+1);
-                c_obs[i] = eo1.S2(q2[i],eo1.mtau(unv0),smwc,npwc,unv0);
+                c_obs[i] = eo1.S2(q2[i],eo1.me(unv0),smwc,npwc,unv0);
                 for(int j=0;j<iter;j++)
                     {
                         for(int k=0;k<72;k++) {unv[k] = eo1.mnd_default();}
-                        data[j]=eo1.S2(q2[i],eo1.mtau(unv),smwc,npwc,unv);
+                        data[j]=eo1.S2(q2[i],eo1.me(unv),smwc,npwc,unv);
                     }
                 sort(data,data+iter);
                 me_obs[i] = data[sdcl]; pe_obs[i] = data[iter-sdcl-1];
@@ -1219,17 +1219,17 @@ void get_obsplot::BtoVll_obsplot(string s, double smwc[], double npwc[]){
 
     else if(s=="S3(B0->K*ee)")
     {
-        double qmin(4*pow(eo1.mtau(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
+        double qmin(4*pow(eo1.me(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
         double q2[n], c_obs[n], pe_obs[n], me_obs[n];
         double data[iter]; double unv[72];
         for(int i=0; i<n; i++)
             {
                 q2[i] = qmin + (i+1)*(qmax-qmin)/(n+1);
-                c_obs[i] = eo1.S3(q2[i],eo1.mtau(unv0),smwc,npwc,unv0);
+                c_obs[i] = eo1.S3(q2[i],eo1.me(unv0),smwc,npwc,unv0);
                 for(int j=0;j<iter;j++)
                     {
                         for(int k=0;k<72;k++) {unv[k] = eo1.mnd_default();}
-                        data[j]=eo1.S3(q2[i],eo1.mtau(unv),smwc,npwc,unv);
+                        data[j]=eo1.S3(q2[i],eo1.me(unv),smwc,npwc,unv);
                     }
                 sort(data,data+iter);
                 me_obs[i] = data[sdcl]; pe_obs[i] = data[iter-sdcl-1];
@@ -1244,17 +1244,17 @@ void get_obsplot::BtoVll_obsplot(string s, double smwc[], double npwc[]){
 
     else if(s=="S4(B0->K*ee)")
     {
-        double qmin(4*pow(eo1.mtau(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
+        double qmin(4*pow(eo1.me(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
         double q2[n], c_obs[n], pe_obs[n], me_obs[n];
         double data[iter]; double unv[72];
         for(int i=0; i<n; i++)
             {
                 q2[i] = qmin + (i+1)*(qmax-qmin)/(n+1);
-                c_obs[i] = eo1.S4(q2[i],eo1.mtau(unv0),smwc,npwc,unv0);
+                c_obs[i] = eo1.S4(q2[i],eo1.me(unv0),smwc,npwc,unv0);
                 for(int j=0;j<iter;j++)
                     {
                         for(int k=0;k<72;k++) {unv[k] = eo1.mnd_default();}
-                        data[j]=eo1.S4(q2[i],eo1.mtau(unv),smwc,npwc,unv);
+                        data[j]=eo1.S4(q2[i],eo1.me(unv),smwc,npwc,unv);
                     }
                 sort(data,data+iter);
                 me_obs[i] = data[sdcl]; pe_obs[i] = data[iter-sdcl-1];
@@ -1269,17 +1269,17 @@ void get_obsplot::BtoVll_obsplot(string s, double smwc[], double npwc[]){
 
     else if(s=="S5(B0->K*ee)")
     {
-        double qmin(4*pow(eo1.mtau(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
+        double qmin(4*pow(eo1.me(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
         double q2[n], c_obs[n], pe_obs[n], me_obs[n];
         double data[iter]; double unv[72];
         for(int i=0; i<n; i++)
             {
                 q2[i] = qmin + (i+1)*(qmax-qmin)/(n+1);
-                c_obs[i] = eo1.S5(q2[i],eo1.mtau(unv0),smwc,npwc,unv0);
+                c_obs[i] = eo1.S5(q2[i],eo1.me(unv0),smwc,npwc,unv0);
                 for(int j=0;j<iter;j++)
                     {
                         for(int k=0;k<72;k++) {unv[k] = eo1.mnd_default();}
-                        data[j]=eo1.S5(q2[i],eo1.mtau(unv),smwc,npwc,unv);
+                        data[j]=eo1.S5(q2[i],eo1.me(unv),smwc,npwc,unv);
                     }
                 sort(data,data+iter);
                 me_obs[i] = data[sdcl]; pe_obs[i] = data[iter-sdcl-1];
@@ -1294,17 +1294,17 @@ void get_obsplot::BtoVll_obsplot(string s, double smwc[], double npwc[]){
 
     else if(s=="S6(B0->K*ee)")
     {
-        double qmin(4*pow(eo1.mtau(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
+        double qmin(4*pow(eo1.me(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
         double q2[n], c_obs[n], pe_obs[n], me_obs[n];
         double data[iter]; double unv[72];
         for(int i=0; i<n; i++)
             {
                 q2[i] = qmin + (i+1)*(qmax-qmin)/(n+1);
-                c_obs[i] = eo1.S6(q2[i],eo1.mtau(unv0),smwc,npwc,unv0);
+                c_obs[i] = eo1.S6(q2[i],eo1.me(unv0),smwc,npwc,unv0);
                 for(int j=0;j<iter;j++)
                     {
                         for(int k=0;k<72;k++) {unv[k] = eo1.mnd_default();}
-                        data[j]=eo1.S6(q2[i],eo1.mtau(unv),smwc,npwc,unv);
+                        data[j]=eo1.S6(q2[i],eo1.me(unv),smwc,npwc,unv);
                     }
                 sort(data,data+iter);
                 me_obs[i] = data[sdcl]; pe_obs[i] = data[iter-sdcl-1];
@@ -1319,17 +1319,17 @@ void get_obsplot::BtoVll_obsplot(string s, double smwc[], double npwc[]){
 
     else if(s=="S7(B0->K*ee)")
     {
-        double qmin(4*pow(eo1.mtau(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
+        double qmin(4*pow(eo1.me(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
         double q2[n], c_obs[n], pe_obs[n], me_obs[n];
         double data[iter]; double unv[72];
         for(int i=0; i<n; i++)
             {
                 q2[i] = qmin + (i+1)*(qmax-qmin)/(n+1);
-                c_obs[i] = eo1.S7(q2[i],eo1.mtau(unv0),smwc,npwc,unv0);
+                c_obs[i] = eo1.S7(q2[i],eo1.me(unv0),smwc,npwc,unv0);
                 for(int j=0;j<iter;j++)
                     {
                         for(int k=0;k<72;k++) {unv[k] = eo1.mnd_default();}
-                        data[j]=eo1.S7(q2[i],eo1.mtau(unv),smwc,npwc,unv);
+                        data[j]=eo1.S7(q2[i],eo1.me(unv),smwc,npwc,unv);
                     }
                 sort(data,data+iter);
                 me_obs[i] = data[sdcl]; pe_obs[i] = data[iter-sdcl-1];
@@ -1344,17 +1344,17 @@ void get_obsplot::BtoVll_obsplot(string s, double smwc[], double npwc[]){
 
     else if(s=="S8(B0->K*ee)")
     {
-        double qmin(4*pow(eo1.mtau(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
+        double qmin(4*pow(eo1.me(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
         double q2[n], c_obs[n], pe_obs[n], me_obs[n];
         double data[iter]; double unv[72];
         for(int i=0; i<n; i++)
             {
                 q2[i] = qmin + (i+1)*(qmax-qmin)/(n+1);
-                c_obs[i] = eo1.S8(q2[i],eo1.mtau(unv0),smwc,npwc,unv0);
+                c_obs[i] = eo1.S8(q2[i],eo1.me(unv0),smwc,npwc,unv0);
                 for(int j=0;j<iter;j++)
                     {
                         for(int k=0;k<72;k++) {unv[k] = eo1.mnd_default();}
-                        data[j]=eo1.S8(q2[i],eo1.mtau(unv),smwc,npwc,unv);
+                        data[j]=eo1.S8(q2[i],eo1.me(unv),smwc,npwc,unv);
                     }
                 sort(data,data+iter);
                 me_obs[i] = data[sdcl]; pe_obs[i] = data[iter-sdcl-1];
@@ -1369,17 +1369,17 @@ void get_obsplot::BtoVll_obsplot(string s, double smwc[], double npwc[]){
 
     else if(s=="S9(B0->K*ee)")
     {
-        double qmin(4*pow(eo1.mtau(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
+        double qmin(4*pow(eo1.me(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
         double q2[n], c_obs[n], pe_obs[n], me_obs[n];
         double data[iter]; double unv[72];
         for(int i=0; i<n; i++)
             {
                 q2[i] = qmin + (i+1)*(qmax-qmin)/(n+1);
-                c_obs[i] = eo1.S9(q2[i],eo1.mtau(unv0),smwc,npwc,unv0);
+                c_obs[i] = eo1.S9(q2[i],eo1.me(unv0),smwc,npwc,unv0);
                 for(int j=0;j<iter;j++)
                     {
                         for(int k=0;k<72;k++) {unv[k] = eo1.mnd_default();}
-                        data[j]=eo1.S9(q2[i],eo1.mtau(unv),smwc,npwc,unv);
+                        data[j]=eo1.S9(q2[i],eo1.me(unv),smwc,npwc,unv);
                     }
                 sort(data,data+iter);
                 me_obs[i] = data[sdcl]; pe_obs[i] = data[iter-sdcl-1];
@@ -1394,17 +1394,17 @@ void get_obsplot::BtoVll_obsplot(string s, double smwc[], double npwc[]){
 
     else if(s=="dBR/dq2(B0->K*ee)")
     {
-        double qmin(4*pow(eo1.mtau(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
+        double qmin(4*pow(eo1.me(unv0),2)), qmax(pow(eo1.mBd(unv0)-eo1.mKst(unv0),2.0));
         double q2[n], c_obs[n], pe_obs[n], me_obs[n];
         double data[iter]; double unv[72];
         for(int i=0; i<n; i++)
             {
                 q2[i] = qmin + (i+1)*(qmax-qmin)/(n+1);
-                c_obs[i] = eo1.diffWidth(q2[i],eo1.mtau(unv0),smwc,npwc,unv0);
+                c_obs[i] = eo1.diffWidth(q2[i],eo1.me(unv0),smwc,npwc,unv0);
                 for(int j=0;j<iter;j++)
                     {
                         for(int k=0;k<72;k++) {unv[k] = eo1.mnd_default();}
-                        data[j]=eo1.diffWidth(q2[i],eo1.mtau(unv),smwc,npwc,unv);
+                        data[j]=eo1.diffWidth(q2[i],eo1.me(unv),smwc,npwc,unv);
                     }
                 sort(data,data+iter);
                 me_obs[i] = data[sdcl]; pe_obs[i] = data[iter-sdcl-1];
