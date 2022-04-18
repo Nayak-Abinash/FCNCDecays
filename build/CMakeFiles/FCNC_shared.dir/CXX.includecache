@@ -26,6 +26,10 @@ FF_functions_mc.h
 model_functions.h
 ../include/model_functions.h
 
+../include/get_mcplot.h
+observables_mc.h
+../include/observables_mc.h
+
 ../include/model_functions.h
 iostream
 -
@@ -62,9 +66,9 @@ TRandom3.h
 amplitudes_mc.h
 ../include/amplitudes_mc.h
 
-/home/akn/Documents/GitHub/FCNCDecays/src/observables_mc.cc
-observables_mc.h
-/home/akn/Documents/GitHub/FCNCDecays/src/observables_mc.h
+/home/akn/Documents/GitHub/FCNCDecays/src/get_mcplot.cc
+get_mcplot.h
+/home/akn/Documents/GitHub/FCNCDecays/src/get_mcplot.h
 
 /home/akn/root/include/Buttons.h
 
