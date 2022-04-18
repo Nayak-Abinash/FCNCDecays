@@ -8,7 +8,7 @@ int main()
     cout << "Choose one of the following: B->Vll, B->Pll, B->ll" << endl;
     cin >> s;
     if(s=="B->Vll")
-        obj.BtoPll_obsval(s,qsq);
+        obj.BtoVll_obsval(s,qsq);
     else if(s=="B->Pll")
         obj.BtoPll_obsval(s,qsq);
     else if(s=="B->ll")
