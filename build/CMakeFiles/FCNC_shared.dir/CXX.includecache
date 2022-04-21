@@ -6,29 +6,57 @@
 
 #IncludeRegexTransform: 
 
+../include/FF_functions.h
+FF_parameters.h
+../include/FF_parameters.h
+
 ../include/FF_functions_mc.h
 FF_parameters_mc.h
 ../include/FF_parameters_mc.h
+
+../include/FF_parameters.h
+SM_parameters.h
+../include/SM_parameters.h
 
 ../include/FF_parameters_mc.h
 SM_parameters_mc.h
 ../include/SM_parameters_mc.h
 
+../include/SM_parameters.h
+ckm_elements.h
+../include/ckm_elements.h
+
 ../include/SM_parameters_mc.h
 ckm_elements_mc.h
 ../include/ckm_elements_mc.h
+
+../include/amplitudes.h
+FF_functions.h
+../include/FF_functions.h
 
 ../include/amplitudes_mc.h
 FF_functions_mc.h
 ../include/FF_functions_mc.h
 
+../include/ckm_elements.h
+model_functions.h
+../include/model_functions.h
+
 ../include/ckm_elements_mc.h
 model_functions.h
 ../include/model_functions.h
 
+../include/get_mc_observable.h
+observables_mc.h
+../include/observables_mc.h
+
 ../include/get_mcplot.h
 observables_mc.h
 ../include/observables_mc.h
+
+../include/get_observable.h
+observables.h
+../include/observables.h
 
 ../include/model_functions.h
 iostream
@@ -62,13 +90,77 @@ TH1.h
 TRandom3.h
 ../include/TRandom3.h
 
+../include/observables.h
+amplitudes.h
+../include/amplitudes.h
+
 ../include/observables_mc.h
 amplitudes_mc.h
 ../include/amplitudes_mc.h
 
+/home/akn/Documents/GitHub/FCNCDecays/src/FF_functions.cc
+FF_functions.h
+/home/akn/Documents/GitHub/FCNCDecays/src/FF_functions.h
+
+/home/akn/Documents/GitHub/FCNCDecays/src/FF_functions_mc.cc
+FF_functions_mc.h
+/home/akn/Documents/GitHub/FCNCDecays/src/FF_functions_mc.h
+
+/home/akn/Documents/GitHub/FCNCDecays/src/FF_parameters.cc
+FF_parameters.h
+/home/akn/Documents/GitHub/FCNCDecays/src/FF_parameters.h
+
+/home/akn/Documents/GitHub/FCNCDecays/src/FF_parameters_mc.cc
+FF_parameters_mc.h
+/home/akn/Documents/GitHub/FCNCDecays/src/FF_parameters_mc.h
+
+/home/akn/Documents/GitHub/FCNCDecays/src/SM_parameters.cc
+SM_parameters.h
+/home/akn/Documents/GitHub/FCNCDecays/src/SM_parameters.h
+
+/home/akn/Documents/GitHub/FCNCDecays/src/SM_parameters_mc.cc
+SM_parameters_mc.h
+/home/akn/Documents/GitHub/FCNCDecays/src/SM_parameters_mc.h
+
+/home/akn/Documents/GitHub/FCNCDecays/src/amplitudes.cc
+amplitudes.h
+/home/akn/Documents/GitHub/FCNCDecays/src/amplitudes.h
+
+/home/akn/Documents/GitHub/FCNCDecays/src/amplitudes_mc.cc
+amplitudes_mc.h
+/home/akn/Documents/GitHub/FCNCDecays/src/amplitudes_mc.h
+
+/home/akn/Documents/GitHub/FCNCDecays/src/ckm_elements.cc
+ckm_elements.h
+/home/akn/Documents/GitHub/FCNCDecays/src/ckm_elements.h
+
+/home/akn/Documents/GitHub/FCNCDecays/src/ckm_elements_mc.cc
+ckm_elements_mc.h
+/home/akn/Documents/GitHub/FCNCDecays/src/ckm_elements_mc.h
+
+/home/akn/Documents/GitHub/FCNCDecays/src/get_mc_observable.cc
+get_mc_observable.h
+/home/akn/Documents/GitHub/FCNCDecays/src/get_mc_observable.h
+
 /home/akn/Documents/GitHub/FCNCDecays/src/get_mcplot.cc
 get_mcplot.h
 /home/akn/Documents/GitHub/FCNCDecays/src/get_mcplot.h
+
+/home/akn/Documents/GitHub/FCNCDecays/src/get_observable.cc
+get_observable.h
+/home/akn/Documents/GitHub/FCNCDecays/src/get_observable.h
+
+/home/akn/Documents/GitHub/FCNCDecays/src/model_functions.cc
+model_functions.h
+/home/akn/Documents/GitHub/FCNCDecays/src/model_functions.h
+
+/home/akn/Documents/GitHub/FCNCDecays/src/observables.cc
+observables.h
+/home/akn/Documents/GitHub/FCNCDecays/src/observables.h
+
+/home/akn/Documents/GitHub/FCNCDecays/src/observables_mc.cc
+observables_mc.h
+/home/akn/Documents/GitHub/FCNCDecays/src/observables_mc.h
 
 /home/akn/root/include/Buttons.h
 
