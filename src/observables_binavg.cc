@@ -15,6 +15,7 @@ void obs_binavg::BtoKstrll_obsavg(double smwc[], double npwc[]){
 
     double simdata_afb[n_sample], simdata_fl[n_sample];
     double bindata_afbmean[bin_prolf], bindata_afbsd[bin_prolf], bindata_flmean[bin_prolf], bindata_flsd[bin_prolf];
+    double bindatacov_afb_fl[bin_prolf];
 
     for(int i=0; i<bin_prolf; i++){
         q2 = bin_a[bin_num] + dq2*(2*i + 1)/2;
@@ -27,14 +28,17 @@ void obs_binavg::BtoKstrll_obsavg(double smwc[], double npwc[]){
         bindata_afbsd[i] = eo1.sd_model(simdata_afb,n_sample);
         bindata_flmean[i] = eo1.mean_model(simdata_fl,n_sample);
         bindata_flsd[i] = eo1.sd_model(simdata_fl,n_sample);
+        bindatacov_afb_fl[i] = eo1.cov_model(simdata_afb,simdata_fl,n_sample);
     }
     double binavg_afbmean = eo1.mean_model(bindata_afbmean,bin_prolf);
     double binavg_afbsd = eo1.sd_model(bindata_afbsd,bin_prolf);
     double binavg_flmean = eo1.mean_model(bindata_flmean,bin_prolf);
     double binavg_flsd = eo1.sd_model(bindata_flsd,bin_prolf);
+    double binavgcov_afb_fl = eo1.mean_model(bindatacov_afb_fl,bin_prolf);
 
     cout << binavg_afbmean << endl;
     cout << binavg_afbsd << endl;
     cout << binavg_flmean << endl;
     cout << binavg_flsd << endl;
+    cout << binavgcov_afb_fl << endl;
 }
