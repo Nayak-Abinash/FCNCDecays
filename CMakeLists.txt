@@ -29,6 +29,7 @@ add_executable(sample_flavioobs main/sample_flavioobs.cc)
 add_executable(sample_flavioerr main/sample_flavioerr.cc)
 add_executable(sample_flavioplot main/sample_flavioplot.cc)
 add_executable(sample_jarvis main/sample_jarvis.cc)
+add_executable(sample_obsavg main/sample_obsavg.cc)
 
 # add custom libraries
 target_link_libraries(sample_q2plot FCNC_shared ${ROOT_LIBRARIES})
@@ -39,3 +40,4 @@ target_link_libraries(sample_flavioobs FCNC_shared ${ROOT_LIBRARIES})
 target_link_libraries(sample_flavioerr FCNC_shared ${ROOT_LIBRARIES})
 target_link_libraries(sample_flavioplot FCNC_shared ${ROOT_LIBRARIES})
 target_link_libraries(sample_jarvis FCNC_shared ${ROOT_LIBRARIES})
+target_link_libraries(sample_obsavg FCNC_shared ${ROOT_LIBRARIES})
